@@ -43,7 +43,7 @@ export default function HeraldSidebar({ user, isOpen, onClose }) {
             <Shield className="w-8 h-8 text-[#c9a84c]" />
             <div>
               <h1 className="text-lg font-semibold text-[#c9a84c]" style={{ fontFamily: 'Cinzel, serif' }}>
-                The Herald
+                Peer Advocacy
               </h1>
               <p className="text-[10px] uppercase tracking-[0.2em] text-[#666]">KoRT Advocate</p>
             </div>

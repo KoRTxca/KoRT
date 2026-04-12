@@ -19,7 +19,7 @@ export default function ModuleMatrix() {
   const modules = [
     {
       id: 'herald',
-      name: 'The Herald',
+      name: 'Peer Advocacy',
       desc: 'Advocacy & Legal Defense',
       icon: <Shield className="text-blue-500" />,
       path: '/herald',

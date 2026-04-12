@@ -28,7 +28,7 @@ export default function HeraldLayout() {
             <Menu className="w-5 h-5" />
           </button>
           <h1 className="text-sm font-semibold text-[#c9a84c]" style={{ fontFamily: 'Cinzel, serif' }}>
-            The Herald
+            Peer Advocacy
           </h1>
         </header>
         <main className="flex-1 overflow-y-auto">

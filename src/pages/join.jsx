@@ -5,28 +5,44 @@ import { Link } from 'react-router-dom'
 export default function Join() {
   const tiers = [
     {
-      name: "Sovereign Knight",
-      price: "$0",
-      type: "Founding Member",
-      desc: "Earn your way in by contributing to the Mesh. Build the future, own the nodes.",
-      features: ["Full Command Center Access", "P2P Tactical Defense", "Basic Merlin Logic", "Sovereign Badge"],
+      name: "Prospect",
+      price: "$1.79",
+      type: "Entry Node",
+      desc: "Activate your digital existence. Basic mesh presence and vault awareness.",
+      features: ["Verified Identity", "Mesh Connectivity", "Basic Scribe Access", "KoRT Badge"],
+      accent: "stone"
+    },
+    {
+      name: "Page",
+      price: "$5 / MO",
+      type: "Initiate",
+      desc: "Join the conversation. Full access to community channels and the legal library.",
+      features: ["Universal Library Access", "Community Voting", "Support Node Access", "Basic Merlin Logic"],
       accent: "teal"
     },
     {
-       name: "Founding Forge",
-       price: "$49 / MO",
-       type: "Master Node",
-       desc: "The professional's edge. Advanced LLM parameters and dedicated crisis response support.",
-       features: ["70B Logic Access", "Priority Case Assistant", "Digital Dollars Roadmap", "Voting Rights"],
+       name: "Esquire",
+       price: "$15 / MO",
+       type: "Advocate",
+       desc: "Precision tools for the professional. Advanced data harvesting and case management.",
+       features: ["Scribe Engine Pro", "Advocate Templates", "Digital Dollars Roadmap", "Case Triage Support"],
+       accent: "blue"
+    },
+    {
+       name: "Knight",
+       price: "$50 / MO",
+       type: "Sovereign",
+       desc: "The professional's edge. Full command center access and dedicated crisis response.",
+       features: ["70B Logic Access", "Priority Case Assistant", "Digital Dollars Pro", "Venture Equity"],
        featured: true,
        accent: "amber"
     },
     {
-       name: "Round Table One",
-       price: "$999",
-       type: "Lifetime Protocol",
-       desc: "A seat at the table. Lifetime access to all future Sovereign assets and blueprints.",
-       features: ["Lifetime Membership", "Private Node Identity", "Full Archive Export", "Venture Equity"],
+       name: "Round Table",
+       price: "$150 / MO",
+       type: "Master Node",
+       desc: "A seat at the table. Direct influence over system architecture and treasury allocation.",
+       features: ["Mastermind Access", "Private Node Identity", "Full Archive Export", "Direct Founder Access"],
        accent: "purple"
     }
   ];
@@ -40,49 +56,49 @@ export default function Join() {
           </div>
           <h1 className="serif text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">CHOOSE YOUR <span className="text-amber-500">SEAT</span></h1>
           <p className="text-stone-400 text-xl font-light leading-relaxed font-sans">
-             Sovereignty is a choice. Whether you earn your node through contribution or forge it through investment, the Round Table welcomes those who seek true digital independence.
+             Sovereignty is a choice. Every seat strengthens the Round Table and ensures that no one gets left behind in the digital transition.
           </p>
        </div>
 
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
           {tiers.map((tier, i) => (
-             <div key={i} className={`glass-vault p-10 rounded-3xl border transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-full ${
-               tier.featured ? 'border-amber-500/40 bg-amber-500/5' : 'border-white/5 bg-[#050510]'
+             <div key={i} className={`glass-vault p-8 rounded-3xl border transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-full ${
+               tier.featured ? 'border-amber-500/40 bg-amber-500/5 shadow-[0_0_30px_rgba(201,168,76,0.1)]' : 'border-white/5 bg-[#050510]'
              }`}>
                 {tier.featured && (
-                   <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">Most Practical</div>
+                   <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">Core Choice</div>
                 )}
                 
-                <h3 className="serif text-sm font-bold text-stone-500 uppercase tracking-widest mb-2">{tier.type}</h3>
-                <h2 className="serif text-4xl font-black text-white uppercase tracking-tighter mb-4">{tier.name}</h2>
-                <div className="text-3xl font-mono text-white mb-8 border-b border-white/5 pb-8">{tier.price}</div>
+                <h3 className="serif text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">{tier.type}</h3>
+                <h2 className="serif text-2xl font-black text-white uppercase tracking-tighter mb-4">{tier.name}</h2>
+                <div className="text-xl font-mono text-white mb-6 border-b border-white/5 pb-6">{tier.price}</div>
                 
-                <p className="text-stone-400 text-sm mb-8 leading-relaxed font-light">{tier.desc}</p>
+                <p className="text-stone-400 text-[11px] mb-8 leading-relaxed font-light flex-grow">{tier.desc}</p>
                 
-                <ul className="space-y-4 mb-12 flex-grow">
+                <ul className="space-y-4 mb-10">
                    {tier.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-3">
-                         <Check className={`shrink-0 mt-0.5 ${tier.featured ? 'text-amber-500' : 'text-teal-500'}`} size={16} />
-                         <span className="text-stone-300 text-xs font-bold uppercase tracking-widest">{f}</span>
+                         <Check className={`shrink-0 mt-0.5 ${tier.featured ? 'text-amber-500' : 'text-teal-500'}`} size={14} />
+                         <span className="text-stone-300 text-[9px] font-bold uppercase tracking-widest leading-tight">{f}</span>
                       </li>
                    ))}
                 </ul>
 
                 <Link 
                    to="/create"
-                   className={`w-full py-5 rounded-xl font-black uppercase tracking-widest text-[11px] text-center transition-all ${
+                   className={`w-full py-4 rounded-xl font-black uppercase tracking-widest text-[9px] text-center transition-all ${
                      tier.featured 
                        ? 'bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20' 
                        : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
                    }`}
                 >
-                   {tier.price === "$0" ? "Earn Free Access" : "Secure My Seat"}
+                   Secure My Seat
                 </Link>
              </div>
           ))}
        </div>
 
-       <p className="mt-20 text-stone-600 text-xs uppercase tracking-[0.4em] font-bold">Node Identity Verification Required Post-Selection</p>
+       <p className="mt-20 text-stone-600 text-[9px] uppercase tracking-[0.4em] font-bold">Node Identity Verification Required Post-Selection</p>
     </div>
   );
 }

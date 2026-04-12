@@ -35,7 +35,7 @@ export default function SovereignLogin() {
       handle: 'COMMANDER', 
       class: 'DIRECTOR', 
       alignment: 'CORE', 
-      machine: 'VULCAN',
+      machine: 'SOVEREIGN',
       role: 'admin'
     };
     localStorage.setItem('kort_knight', JSON.stringify(adminProfile));

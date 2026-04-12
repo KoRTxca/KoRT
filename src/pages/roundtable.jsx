@@ -58,7 +58,7 @@ export default function RoundTable() {
             <div className="inline-block px-4 py-1 rounded-full border border-gold-primary/30 bg-gold-primary/10 text-gold-primary text-[10px] font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
               <Network size={14} /> Multi-Thread Logic Matrix
             </div>
-            <h1 className="serif text-5xl font-bold mb-2">DIGITAL <span className="text-gold-primary">ROUND TABLE</span></h1>
+            <h1 className="serif text-5xl font-bold mb-2">THE <span className="text-gold-primary">SOVEREIGN COMMAND</span></h1>
             <p className="text-lg text-stone-400 font-light max-w-2xl">
               Cross-examine crises against multiple architectures. Merlin (Base44 Logic), Claude (Ethical Strategy), and Grok (Tactical Reality) operating in consensus.
             </p>

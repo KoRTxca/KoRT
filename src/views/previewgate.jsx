@@ -20,8 +20,8 @@ export default function PreviewGate({ attemptedRoute }) {
             </span>
          </div>
          
-         <h1 className="serif text-5xl md:text-7xl font-bold mb-6">
-            THE <span className="text-amber-500">SOVEREIGN</span> VAULT
+         <h1 className="SERIF TEXT-5XL MD:TEXT-7XL FONT-BOLD MB-6 UPPERCASE">
+            Knights of <br/> <span className=\"text-amber-500\">the Round Table</span>
          </h1>
          <p className="text-lg text-stone-400 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
             You've reached a secure sector of the KoRT OS. This area is reserved for verified Knights who have forged their local node. Forge your identity below to unlock the full tactical suite.
@@ -43,10 +43,10 @@ export default function PreviewGate({ attemptedRoute }) {
          </h2>
          
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* The Herald */}
+            {/* Peer Advocacy */}
             <div className="glass p-8 border-t-2 border-amber-500 hover:bg-white/5 transition-colors rounded-xl flex flex-col group h-full">
                <Sword className="text-amber-500 mb-6 group-hover:scale-110 transition-transform" size={32} />
-               <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-3">The Herald</h3>
+               <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-3">Peer Advocacy</h3>
                <p className="text-sm text-stone-400 leading-relaxed font-sans mb-6">
                   Our premier peer-advocacy engine. Automated checklists and legal letter generators for ICBC, PWD, and Housing disputes.
                </p>

@@ -3,7 +3,7 @@ import { Shield, Globe, Lock, Cpu } from 'lucide-react'
 
 export default function GlobalFooter() {
   const currentYear = new Date().getFullYear();
-  const systemInfo = "NODE-ID: KORT-VULCAN-X1 | LOC: BC, CANADA | MAC: CLASSIFIED";
+  const systemInfo = "NODE-ID: KORT-SOVEREIGN-X1 | LOC: BC, CANADA | MAC: CLASSIFIED";
 
   return (
     <footer className="w-full bg-[#050505] border-t border-amber-500/20 py-12 px-6 mt-auto">
@@ -13,7 +13,7 @@ export default function GlobalFooter() {
         <div className="max-w-sm">
           <div className="flex items-center gap-3 mb-6">
             <Shield className="text-amber-500" size={24} />
-            <span className="serif text-xl font-bold tracking-widest text-white">KoRT SOVEREIGN</span>
+            <span className="serif text-xl font-bold tracking-widest text-white">KoRTx.ca</span>
           </div>
           <p className="text-stone-500 text-sm leading-relaxed mb-6 italic">
             "The 4th Option for 911." A decentralized, peer-powered crisis response and digital earning ecosystem ensuring no one gets left behind.

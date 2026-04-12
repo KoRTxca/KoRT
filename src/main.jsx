@@ -62,8 +62,8 @@ function Navigation() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] to-transparent"></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 px-6">
-          <h2 className="serif text-2xl md:text-5xl font-bold text-white uppercase tracking-tighter shadow-black">SOVEREIGN <span className="text-amber-500">OPERATING SYSTEM</span></h2>
-          <p className="text-stone-300 text-xs md:text-sm uppercase tracking-widest mt-2 font-mono">Founding Member Beta // v1.0.46</p>
+          <h2 className="serif text-2xl md:text-5xl font-bold text-white uppercase tracking-tighter shadow-black">KNIGHTS OF <span className="text-amber-500">THE ROUND TABLE</span></h2>
+          <p className="text-stone-300 text-xs md:text-sm uppercase tracking-widest mt-2 font-mono">KoRTx.ca // No one gets left behind.</p>
         </div>
       </div>
       <nav className="w-full bg-[#08080f] border-b border-amber-500/20 py-4 px-6 flex justify-between items-center z-50 sticky top-0">
@@ -74,7 +74,7 @@ function Navigation() {
           <div className="hidden lg:flex gap-6 text-[10px] uppercase tracking-widest font-bold">
             <Link to="/" className="text-stone-400 hover:text-amber-400 transition-colors">Dashboard</Link>
             <Link to="/herald/icbc" className="text-stone-400 hover:text-amber-400 transition-colors">Tactical Defense</Link>
-            <Link to="/roundtable" className="text-amber-500 hover:text-white border-b border-amber-500/30">Think Tank</Link>
+            <Link to="/roundtable" className="text-amber-500 hover:text-white border-b border-amber-500/30">Round Table</Link>
             <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Scribe</Link>
             <Link to="/library" className="text-stone-400 hover:text-teal-400">The Archive</Link>
             <Link to="/digital-dollars" className="text-stone-400 hover:text-green-400">Treasury</Link>
@@ -101,7 +101,7 @@ function GlobalFooter() {
     <footer className="w-full bg-[#050505] border-t border-white/5 py-12 px-6 mt-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 text-[9px] font-bold uppercase tracking-widest text-stone-600">
         <div className="max-w-sm">
-           <h3 className="serif text-xl font-bold text-white mb-2 uppercase">KoRT Sovereign</h3>
+           <h3 className="serif text-xl font-bold text-white mb-2 uppercase">KoRTx.ca</h3>
            <p className="text-stone-500 text-xs italic">"No one gets left behind."</p>
         </div>
         <div className="flex gap-12">

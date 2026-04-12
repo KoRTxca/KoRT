@@ -30,13 +30,13 @@ export default function Dashboard() {
             Launch Sector Alpha // Sovereign Node Active
           </div>
           
-          <h1 className="serif text-6xl md:text-9xl font-black mb-8 leading-none tracking-tighter text-white drop-shadow-[5px_5px_0_rgba(201,168,76,0.5)]">
-            THE <span className="text-amber-500">SOVEREIGN</span> COMMAND<span className="text-amber-500">.</span>
+          <h1 className="serif text-6xl md:text-9xl font-black mb-8 leading-none tracking-tighter text-white drop-shadow-[5px_5px_0_rgba(201,168,76,0.5)] uppercase">
+            Knights of <br/> <span className="text-amber-500">the Round Table</span>
           </h1>
           
           <p className="max-w-4xl text-stone-300 text-xl md:text-2xl font-light mb-16 leading-relaxed bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-white/5">
             35 years of architecture merging into a single Sovereign Stack. <br/>
-            <span className="text-amber-500/80 font-bold uppercase tracking-widest text-sm mt-4 block">We are the 4th Option for 911.</span>
+            <span className="text-amber-500 font-bold uppercase tracking-widest text-sm mt-4 block">No one gets left behind.</span>
           </p>
           
           <div className="flex flex-col md:flex-row gap-8">
@@ -134,7 +134,7 @@ export default function Dashboard() {
                             <div className="w-16 h-16 rounded bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 font-black italic text-xl shadow-[0_0_15px_rgba(201,168,76,0.2)]">RoG</div>
                             <div>
                                 <h4 className="text-white font-black uppercase text-lg tracking-widest">ASUS RoG Strix Server</h4>
-                                <p className="text-stone-500 text-xs uppercase tracking-widest">Primary Inference Node running KoRT_OS</p>
+                                <p className="text-stone-500 text-xs uppercase tracking-widest">Primary Inference Node running KoRTx.ca</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-6 group hover:translate-x-2 transition-transform">

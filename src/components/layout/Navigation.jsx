@@ -16,8 +16,8 @@ export default function Navigation() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] to-transparent"></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10">
-          <h2 className="serif text-2xl md:text-4xl text-white font-bold tracking-widest uppercase drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">Pre-Launch Founding Sale</h2>
-          <p className="text-amber-500 text-sm md:text-base font-bold uppercase tracking-widest mt-2 drop-shadow-[0_0_5px_rgba(0,0,0,0.8)]">Limited Spots Open / Earn Your Way In Free</p>
+          <h2 className="serif text-2xl md:text-4xl text-white font-bold tracking-widest uppercase drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">Knights of the Round Table</h2>
+          <p className="text-amber-500 text-sm md:text-base font-bold uppercase tracking-widest mt-2 drop-shadow-[0_0_5px_rgba(0,0,0,0.8)]">No one gets left behind.</p>
         </div>
       </div>
 
@@ -25,13 +25,13 @@ export default function Navigation() {
         <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center gap-3 group">
             <img src="/logo.png" alt="KoRT Sovereign Logo" className="h-10 w-auto group-hover:drop-shadow-[0_0_20px_rgba(255,100,0,0.8)] group-hover:scale-105 transition-all duration-300 relative z-10" />
-            <span className="serif text-xl font-bold tracking-widest text-[#e0e0e0] group-hover:text-[#c9a84c] transition-colors">KoRT_OS<span className="text-amber-500">.</span></span>
+            <span className="serif text-xl font-bold tracking-widest text-[#e0e0e0] group-hover:text-[#c9a84c] transition-colors">KoRTx.ca<span className="text-amber-500">.</span></span>
           </Link>
           <div className="hidden md:flex gap-6 text-sm uppercase tracking-widest font-bold">
             <Link to="/" className="text-stone-400 hover:text-amber-400">Dashboard</Link>
             <Link to="/herald/icbc" className="text-stone-400 hover:text-amber-400">Tactical Defense</Link>
             <Link to="/digital-dollars" className="text-stone-400 hover:text-amber-400">Digital Dollars</Link>
-            <Link to="/roundtable" className="text-gold-primary hover:text-yellow-500 font-bold border-b border-gold-primary/50 mx-2">Think Tank</Link>
+            <Link to="/roundtable" className="text-gold-primary hover:text-yellow-500 font-bold border-b border-gold-primary/50 mx-2">Round Table</Link>
             <Link to="/herald/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
             <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Digital Scribe</Link>
             <Link to="/library" className="text-stone-400 hover:text-teal-400 font-bold">The Archive</Link>
