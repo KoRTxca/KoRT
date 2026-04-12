@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { merlinClient } from '../api/merlinClient';
-import { Bot, User, Send, Wifi, WifiOff, Terminal, Zap, ShieldAlert } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react'
+import { merlinClient } from '../api/merlinclient'
+import { Bot, User, Send, Wifi, WifiOff, Terminal, Zap, ShieldAlert } from 'lucide-react'
 
 export default function MerlinChat() {
   const [messages, setMessages] = useState([

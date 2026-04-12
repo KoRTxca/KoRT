@@ -1,5 +1,5 @@
-import React from 'react';
-import { Shield, Globe, Lock, Cpu } from 'lucide-react';
+import React from 'react'
+import { Shield, Globe, Lock, Cpu } from 'lucide-react'
 
 export default function GlobalFooter() {
   const currentYear = new Date().getFullYear();

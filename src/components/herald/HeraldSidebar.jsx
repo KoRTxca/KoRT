@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {
   LayoutDashboard, FilePlus, Shield, BookOpen,
   Calendar, MessageSquare, Lightbulb, X, Car,
   Accessibility, FileText
 } from 'lucide-react';
-import TierBadge from '../herald/TierBadge';
+import TierBadge from '../herald/tierbadge'
 
 const NAV_ITEMS = [
   { path: '/herald', icon: LayoutDashboard, label: 'Cases' },

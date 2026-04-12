@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Lightbulb, Send, CheckCircle } from 'lucide-react';
-import { Input } from '../components/ui/input';
-import { Textarea } from '../components/ui/textarea';
-import { Button } from '../components/ui/button';
+import React, { useState } from 'react'
+import { Lightbulb, Send, CheckCircle } from 'lucide-react'
+import { Input } from '../components/ui/input'
+import { Textarea } from '../components/ui/textarea'
+import { Button } from '../components/ui/button'
 
 export default function ToolSuggestion() {
   const [submitted, setSubmitted] = useState(false);

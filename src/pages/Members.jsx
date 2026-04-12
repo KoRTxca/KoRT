@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Crown, Shield, Star, User, AlertCircle } from 'lucide-react';
-import { supabase } from '../api/base44Client';
+import React, { useState, useEffect } from 'react'
+import { Crown, Shield, Star, User, AlertCircle } from 'lucide-react'
+import { supabase } from '../api/base44client'
 
 const TIERS = [
   { id: 'Page', icon: User, color: 'text-stone-400', desc: 'Entry-level node. Active monitoring of crisis flows.' },

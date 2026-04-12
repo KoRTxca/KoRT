@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { SovereignLLM } from '../lib/SovereignLLM';
-import { Sword, Loader2, Send, Cpu, Command, ShieldCheck, AlertTriangle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { SovereignLLM } from '../lib/sovereignllm'
+import { Sword, Loader2, Send, Cpu, Command, ShieldCheck, AlertTriangle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function SovereignSandbox() {
   const [input, setInput] = useState('');

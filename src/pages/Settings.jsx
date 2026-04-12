@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Key, ShieldCheck, Database, ServerCrash } from 'lucide-react';
+import React, { useState, useEffect } from 'react'
+import { Key, ShieldCheck, Database, ServerCrash } from 'lucide-react'
 
 export default function Settings() {
   const [anthropicKey, setAnthropicKey] = useState('');

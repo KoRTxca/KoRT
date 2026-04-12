@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { BookOpen, Search, ChevronDown, ChevronUp } from 'lucide-react';
-import { Input } from '../components/ui/input';
+import React, { useState } from 'react'
+import { BookOpen, Search, ChevronDown, ChevronUp } from 'lucide-react'
+import { Input } from '../components/ui/input'
 
 const CATEGORIES = {
   tenant:   { label: 'Tenant Rights',        emoji: '🏠', color: '#22c55e' },

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Briefcase, CheckCircle2, AlertTriangle } from 'lucide-react';
+import React from 'react'
+import { Briefcase, CheckCircle2, AlertTriangle } from 'lucide-react'
 
 export default function DashboardStats({ openCount, resolvedCount, daysToNext, nextDeadlineLabel }) {
   return (

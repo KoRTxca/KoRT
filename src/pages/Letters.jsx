@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default function Letters() {
   const knightData = JSON.parse(localStorage.getItem('kort_knight') || '{"alignment":"Standard", "machine":"Unknown"}');

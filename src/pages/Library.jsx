@@ -1,5 +1,5 @@
-import React from 'react';
-import { BookOpen, Key, Link as LinkIcon, Database, Gamepad2, FileArchive } from 'lucide-react';
+import React from 'react'
+import { BookOpen, Key, Link as LinkIcon, Database, Gamepad2, FileArchive } from 'lucide-react'
 
 export default function Library() {
   

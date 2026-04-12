@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const CASE_TYPES = {
   icbc_claim:         { label: 'ICBC Claim',       emoji: '🚗', color: '#4a90d9' },

@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { supabase } from '../lib/supabase';
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { supabase } from '../lib/supabase'
 
 export const CRISIS_TYPES = [
   { id: 'mental_health', label: 'Mental Health', icon: '🧠', desc: 'Peer support for emotional crisis' },

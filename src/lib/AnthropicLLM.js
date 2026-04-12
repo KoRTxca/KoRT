@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from '@anthropic-ai/sdk'
 
 /**
  * AnthropicLLM - Local Sovereign Wrapper for Claude

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const TIER_CONFIG = {
   page:        { label: 'Page',        color: '#6b7280', bg: 'rgba(107,114,128,0.15)' },

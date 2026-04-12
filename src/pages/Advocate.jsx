@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Scale, FileText, Home, ShieldCheck, AlertTriangle, ArrowRight, BookOpen } from 'lucide-react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Scale, FileText, Home, ShieldCheck, AlertTriangle, ArrowRight, BookOpen } from 'lucide-react'
 
 const HERALD_MODULES = [
   {

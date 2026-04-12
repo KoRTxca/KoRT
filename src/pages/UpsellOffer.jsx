@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Shield, Crown, Key, Pickaxe, Zap, X } from 'lucide-react';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Shield, Crown, Key, Pickaxe, Zap, X } from 'lucide-react'
 
 export default function UpsellOffer() {
   const navigate = useNavigate();

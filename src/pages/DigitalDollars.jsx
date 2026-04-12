@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import ViralInviteEngine from '../components/ViralInviteEngine';
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import ViralInviteEngine from '../components/viralinviteengine'
 import './ClaudeStyles.css';
 
 export default function DigitalDollars() {

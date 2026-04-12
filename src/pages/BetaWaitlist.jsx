@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Shield, ChevronRight, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Shield, ChevronRight, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function BetaWaitlist() {
   const [email, setEmail] = useState('');

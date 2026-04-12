@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { FileText, Copy, Download, ArrowLeft, ArrowRight, Loader2, Shield } from 'lucide-react';
-import { Input } from '../components/ui/input';
-import { Textarea } from '../components/ui/textarea';
-import { Button } from '../components/ui/button';
-import { supabase } from '../lib/supabase';
-import { format } from 'date-fns';
+import React, { useState } from 'react'
+import { FileText, Copy, Download, ArrowLeft, ArrowRight, Loader2, Shield } from 'lucide-react'
+import { Input } from '../components/ui/input'
+import { Textarea } from '../components/ui/textarea'
+import { Button } from '../components/ui/button'
+import { supabase } from '../lib/supabase'
+import { format } from 'date-fns'
 
 const LETTER_TYPES = [
   { key: 'demand',       label: 'Demand Letter',   emoji: '💰', desc: 'Request payment or action owed to you' },

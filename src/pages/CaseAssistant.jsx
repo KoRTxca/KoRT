@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
-import { MessageSquare, Send, Loader2, Shield, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import CaseTypeBadge from '../components/herald/CaseTypeBadge';
+import React, { useState, useRef, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+import { MessageSquare, Send, Loader2, Shield, ArrowLeft } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import CaseTypeBadge from '../components/herald/casetypebadge'
 
 export default function CaseAssistant() {
   const urlParams = new URLSearchParams(window.location.search);

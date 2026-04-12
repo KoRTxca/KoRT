@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 export default function ScribeEngine() {
   const [ingestState, setIngestState] = useState('idle'); // idle, scanning, encrypting, complete

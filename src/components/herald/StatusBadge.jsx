@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const STATUS_CONFIG = {
   open:        { label: 'Open',        color: '#4a90d9' },

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { SovereignLLM } from '../lib/SovereignLLM';
-import { AnthropicLLM } from '../lib/AnthropicLLM';
-import { GrokLLM } from '../lib/GrokLLM';
-import { Sword, Loader2, Send, Cpu, Command, Network } from 'lucide-react';
+import React, { useState } from 'react'
+import { SovereignLLM } from '../lib/sovereignllm'
+import { AnthropicLLM } from '../lib/anthropicllm'
+import { GrokLLM } from '../lib/grokllm'
+import { Sword, Loader2, Send, Cpu, Command, Network } from 'lucide-react'
 
 export default function RoundTable() {
   const [input, setInput] = useState('');

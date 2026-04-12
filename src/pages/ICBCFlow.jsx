@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
-import { addDays, format, parseISO } from 'date-fns';
-import { Car, AlertTriangle, FileText, CheckSquare, Square, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+import { addDays, format, parseISO } from 'date-fns'
+import { Car, AlertTriangle, FileText, CheckSquare, Square, Shield } from 'lucide-react'
 
 const TIMELINE_ITEMS = [
   { days: 0, label: '24 Hours', title: 'Immediate Steps', items: [

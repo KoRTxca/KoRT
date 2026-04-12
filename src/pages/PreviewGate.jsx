@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ShieldAlert, Cpu, HeartPulse, ShieldCheck, Gamepad2, Sword, BookOpen, Layers } from 'lucide-react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ShieldAlert, Cpu, HeartPulse, ShieldCheck, Gamepad2, Sword, BookOpen, Layers } from 'lucide-react'
 
 export default function PreviewGate({ attemptedRoute }) {
   // Format the attempted route name for the display

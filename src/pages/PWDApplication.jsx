@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Accessibility, ChevronDown, ChevronUp, AlertTriangle, FileText, Shield } from 'lucide-react';
+import React, { useState } from 'react'
+import { Accessibility, ChevronDown, ChevronUp, AlertTriangle, FileText, Shield } from 'lucide-react'
 
 const SECTIONS = [
   { title: 'What Is PWD?', content: `Persons with Disabilities (PWD) designation in BC provides a higher monthly assistance rate, additional health supplements, and protections. As of 2024, PWD rate is significantly higher than basic income assistance. You also get extended medical/dental coverage, bus pass, and other supports.` },

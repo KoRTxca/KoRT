@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Shield, Sword, Cpu, Zap, Activity, Database, HeartPulse } from 'lucide-react';
-import ModuleMatrix from '../components/dashboard/ModuleMatrix';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Shield, Sword, Cpu, Zap, Activity, Database, HeartPulse } from 'lucide-react'
+import ModuleMatrix from '../components/dashboard/modulematrix'
 
 export default function Dashboard() {
   return (

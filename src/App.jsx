@@ -1,39 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
-import Advocate from './pages/Advocate';
-import ICBCFlow from './pages/ICBCFlow';
-import Letters from './pages/Letters';
-import PWDFlow from './pages/PWDFlow';
-import CaseAssistant from './pages/CaseAssistant';
-import Dashboard from './pages/Dashboard';
-import Members from './pages/Members';
-import Settings from './pages/Settings';
-import SovereignLogin from './pages/SovereignLogin';
-import CharacterCreation from './pages/CharacterCreation';
-import ScribeEngine from './pages/ScribeEngine';
-import WatchPage from './pages/WatchPage';
-import BetaWaitlist from './pages/BetaWaitlist';
-import UpsellOffer from './pages/UpsellOffer';
-import RoundTable from './pages/RoundTable';
-import Library from './pages/Library';
-import PreviewGate from './pages/PreviewGate';
-import SovereignSandbox from './pages/SovereignSandbox';
-import Join from './pages/Join';
-import DigitalDollars from './pages/DigitalDollars';
-import SubmitApp from './pages/SubmitApp';
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
+import Advocate from './pages/advocate'
+import ICBCFlow from './pages/icbcflow'
+import Letters from './pages/letters'
+import PWDFlow from './pages/pwdflow'
+import CaseAssistant from './pages/caseassistant'
+import Dashboard from './pages/dashboard'
+import Members from './pages/members'
+import Settings from './pages/settings'
+import SovereignLogin from './pages/sovereignlogin'
+import CharacterCreation from './pages/charactercreation'
+import ScribeEngine from './pages/scribeengine'
+import WatchPage from './pages/watchpage'
+import BetaWaitlist from './pages/betawaitlist'
+import UpsellOffer from './pages/upselloffer'
+import RoundTable from './pages/roundtable'
+import Library from './pages/library'
+import PreviewGate from './pages/previewgate'
+import SovereignSandbox from './pages/sovereignsandbox'
+import Join from './pages/join'
+import DigitalDollars from './pages/digitaldollars'
+import SubmitApp from './pages/submitapp'
 
 // THE HERALD (Advocate App) Imports
-import HeraldLayout from './components/herald/HeraldLayout';
-import HeraldDashboard from './pages/HeraldDashboard';
-import NewCase from './pages/NewCase';
-import PWDApplication from './pages/PWDApplication';
-import LetterGenerator from './pages/LetterGenerator';
-import RightsDatabase from './pages/RightsDatabase';
-import DeadlineTracker from './pages/DeadlineTracker';
-import ToolSuggestion from './pages/ToolSuggestion';
-import MerlinChat from './pages/MerlinChat';
-import GlobalFooter from './components/GlobalFooter';
-import SovereignStatus from './components/dashboard/SovereignStatus';
+import HeraldLayout from './components/herald/heraldlayout'
+import HeraldDashboard from './pages/heralddashboard'
+import NewCase from './pages/caseentry'
+import PWDApplication from './pages/pwdapplication'
+import LetterGenerator from './pages/lettergenerator'
+import RightsDatabase from './pages/rightsdatabase'
+import DeadlineTracker from './pages/deadlinetracker'
+import ToolSuggestion from './pages/suggestatool'
+import MerlinChat from './pages/merlinchat'
+import TheGuide from './pages/theguide'
+
+import GlobalFooter from './components/globalfooter'
+import SovereignStatus from './components/dashboard/sovereignstatus'
 
 import './index.css';
 
@@ -80,6 +82,7 @@ function Navigation() {
             <Link to="/herald/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
             <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Digital Scribe</Link>
             <Link to="/library" className="text-stone-400 hover:text-teal-400 font-bold">The Archive</Link>
+            <Link to="/guide" className="text-stone-400 hover:text-amber-400 font-bold">The Guide</Link>
             <Link to="/settings" className="text-stone-400 hover:text-amber-400">Settings</Link>
             <Link to="/watch" className="text-stone-400 hover:text-red-500 font-bold ml-4 border border-red-500/30 px-3 py-1 rounded bg-red-500/10 uppercase tracking-widest text-xs">The Watch</Link>
           </div>
@@ -119,7 +122,19 @@ export default function App() {
         <Navigation />
         <main className="flex-grow w-full flex flex-col items-center">
           <Routes>
-            {/* ... routes ... */}
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<SovereignLogin />} />
+            <Route path="/create" element={<CharacterCreation />} />
+            <Route path="/scribe" element={<ProtectedRoute><ScribeEngine /></ProtectedRoute>} />
+            <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
+            <Route path="/guide" element={<TheGuide />} />
+            <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+            <Route path="/watch" element={<WatchPage />} />
+            <Route path="/herald/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
+            <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
+            <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/submit" element={<SubmitApp />} />
           </Routes>
         </main>
         <SovereignStatus />

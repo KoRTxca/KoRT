@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { differenceInDays, parseISO, format } from 'date-fns';
-import { MessageSquare, ChevronRight } from 'lucide-react';
-import CaseTypeBadge from '../herald/CaseTypeBadge';
-import StatusBadge from '../herald/StatusBadge';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { differenceInDays, parseISO, format } from 'date-fns'
+import { MessageSquare, ChevronRight } from 'lucide-react'
+import CaseTypeBadge from '../herald/casetypebadge'
+import StatusBadge from '../herald/statusbadge'
 
 export default function CasesList({ cases, isLoading }) {
   if (isLoading) {

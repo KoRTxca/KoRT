@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
-import { Plus } from 'lucide-react';
-import { differenceInDays, parseISO } from 'date-fns';
-import DashboardStats from '../components/herald/DashboardStats';
-import CasesList from '../components/herald/CasesList';
+import React, { useEffect, useState } from 'react'
+import { Link, useOutletContext } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
+import { Plus } from 'lucide-react'
+import { differenceInDays, parseISO } from 'date-fns'
+import DashboardStats from '../components/herald/dashboardstats'
+import CasesList from '../components/herald/caseslist'
 
 export default function HeraldDashboard() {
   const { user } = useOutletContext();
