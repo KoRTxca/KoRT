@@ -5,13 +5,12 @@ const ICBCFlow = React.lazy(() => import('./pages/icbcflow'));
 const Letters = React.lazy(() => import('./pages/letters'));
 const PWDFlow = React.lazy(() => import('./pages/pwdflow'));
 const CaseAssistant = React.lazy(() => import('./pages/caseassistant'));
-const Dashboard = React.lazy(() => import('./pages/dashboard'));
-const Members = React.lazy(() => import('./pages/members'));
-const Settings = React.lazy(() => import('./pages/settings'));
-const SovereignLogin = React.lazy(() => import('./pages/sovereignlogin'));
-const CharacterCreation = React.lazy(() => import('./pages/charactercreation'));
-const ScribeEngine = React.lazy(() => import('./pages/scribeengine'));
-const WatchPage = React.lazy(() => import('./pages/watchpage'));
+const Dashboard = React.lazy(() => import('./pages/pg_dashboard.jsx'));
+const Settings = React.lazy(() => import('./pages/pg_settings.jsx'));
+const SovereignLogin = React.lazy(() => import('./pages/pg_sovereignlogin.jsx'));
+const CharacterCreation = React.lazy(() => import('./pages/pg_charactercreation.jsx'));
+const ScribeEngine = React.lazy(() => import('./pages/scribeengine.jsx'));
+const WatchPage = React.lazy(() => import('./pages/watchpage.jsx'));
 const BetaWaitlist = React.lazy(() => import('./pages/betawaitlist'));
 const UpsellOffer = React.lazy(() => import('./pages/upselloffer'));
 const RoundTable = React.lazy(() => import('./pages/roundtable'));
@@ -25,14 +24,14 @@ const SubmitApp = React.lazy(() => import('./pages/submitapp'));
 // THE HERALD (Advocate App) Imports
 const HeraldLayout = React.lazy(() => import('./components/herald/heraldlayout'));
 const HeraldDashboard = React.lazy(() => import('./pages/heralddashboard'));
-const NewCase = React.lazy(() => import('./pages/caseentry'));
-const PWDApplication = React.lazy(() => import('./pages/pwdapplication'));
-const LetterGenerator = React.lazy(() => import('./pages/lettergenerator'));
-const RightsDatabase = React.lazy(() => import('./pages/rightsdatabase'));
-const DeadlineTracker = React.lazy(() => import('./pages/deadlinetracker'));
-const ToolSuggestion = React.lazy(() => import('./pages/suggestatool'));
-const MerlinChat = React.lazy(() => import('./pages/merlinchat'));
-const TheGuide = React.lazy(() => import('./pages/theguide'));
+const NewCase = React.lazy(() => import('./pages/pg_caseentry.jsx'));
+const PWDApplication = React.lazy(() => import('./pages/pwdapplication.jsx'));
+const LetterGenerator = React.lazy(() => import('./pages/pg_lettergenerator.jsx'));
+const RightsDatabase = React.lazy(() => import('./pages/rightsdatabase.jsx'));
+const DeadlineTracker = React.lazy(() => import('./pages/deadlinetracker.jsx'));
+const ToolSuggestion = React.lazy(() => import('./pages/pg_suggestatool.jsx'));
+const MerlinChat = React.lazy(() => import('./pages/merlinchat.jsx'));
+const TheGuide = React.lazy(() => import('./pages/pg_theguide.jsx'));
 
 import GlobalFooter from './components/globalfooter'
 import SovereignStatus from './components/dashboard/sovereignstatus'
