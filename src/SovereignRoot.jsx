@@ -1,37 +1,41 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
+
+const Dashboard = React.lazy(() => import('./views/pg_dashboard.jsx'));
+const Settings = React.lazy(() => import('./views/pg_settings.jsx'));
+const SovereignLogin = React.lazy(() => import('./views/pg_sovereignlogin.jsx'));
+const CharacterCreation = React.lazy(() => import('./views/pg_charactercreation.jsx'));
+const WatchPage = React.lazy(() => import('./views/watchpage.jsx'));
+const SubmitApp = React.lazy(() => import('./views/submitapp.jsx'));
+const TheGuide = React.lazy(() => import('./views/pg_theguide.jsx'));
+
+/*
+const PreviewGate = React.lazy(() => import('./views/previewgate.jsx'));
 const Advocate = React.lazy(() => import('./pages/advocate'));
 const ICBCFlow = React.lazy(() => import('./pages/icbcflow'));
 const Letters = React.lazy(() => import('./pages/letters'));
 const PWDFlow = React.lazy(() => import('./pages/pwdflow'));
 const CaseAssistant = React.lazy(() => import('./pages/caseassistant'));
-const Dashboard = React.lazy(() => import('./pages/pg_dashboard.jsx'));
-const Settings = React.lazy(() => import('./pages/pg_settings.jsx'));
-const SovereignLogin = React.lazy(() => import('./pages/pg_sovereignlogin.jsx'));
-const CharacterCreation = React.lazy(() => import('./pages/pg_charactercreation.jsx'));
 const ScribeEngine = React.lazy(() => import('./pages/scribeengine.jsx'));
-const WatchPage = React.lazy(() => import('./pages/watchpage.jsx'));
 const BetaWaitlist = React.lazy(() => import('./pages/betawaitlist'));
 const UpsellOffer = React.lazy(() => import('./pages/upselloffer'));
 const RoundTable = React.lazy(() => import('./pages/roundtable'));
 const Library = React.lazy(() => import('./pages/library'));
-const PreviewGate = React.lazy(() => import('./pages/previewgate'));
 const SovereignSandbox = React.lazy(() => import('./pages/sovereignsandbox'));
 const Join = React.lazy(() => import('./pages/join'));
 const DigitalDollars = React.lazy(() => import('./pages/digitaldollars'));
-const SubmitApp = React.lazy(() => import('./pages/submitapp'));
 
 // THE HERALD (Advocate App) Imports
 const HeraldLayout = React.lazy(() => import('./components/herald/heraldlayout'));
 const HeraldDashboard = React.lazy(() => import('./pages/heralddashboard'));
-const NewCase = React.lazy(() => import('./pages/pg_caseentry.jsx'));
-const PWDApplication = React.lazy(() => import('./pages/pwdapplication.jsx'));
-const LetterGenerator = React.lazy(() => import('./pages/pg_lettergenerator.jsx'));
-const RightsDatabase = React.lazy(() => import('./pages/rightsdatabase.jsx'));
-const DeadlineTracker = React.lazy(() => import('./pages/deadlinetracker.jsx'));
-const ToolSuggestion = React.lazy(() => import('./pages/pg_suggestatool.jsx'));
-const MerlinChat = React.lazy(() => import('./pages/merlinchat.jsx'));
-const TheGuide = React.lazy(() => import('./pages/pg_theguide.jsx'));
+const NewCase = React.lazy(() => import('./views/pg_caseentry.jsx'));
+const PWDApplication = React.lazy(() => import('./views/pwdapplication.jsx'));
+const LetterGenerator = React.lazy(() => import('./views/pg_lettergenerator.jsx'));
+const RightsDatabase = React.lazy(() => import('./views/rightsdatabase.jsx'));
+const DeadlineTracker = React.lazy(() => import('./views/deadlinetracker.jsx'));
+const ToolSuggestion = React.lazy(() => import('./views/pg_suggestatool.jsx'));
+const MerlinChat = React.lazy(() => import('./views/merlinchat.jsx'));
+*/
 
 import GlobalFooter from './components/globalfooter'
 import SovereignStatus from './components/dashboard/sovereignstatus'
@@ -42,7 +46,8 @@ const ProtectedRoute = ({ children }) => {
   const isAuth = localStorage.getItem('kort_knight');
   const location = useLocation();
   if (!isAuth) {
-    return <PreviewGate attemptedRoute={location.pathname} />;
+    // return <PreviewGate attemptedRoute={location.pathname} />;
+    return <div>Protected Mode (Restoring Gate...)</div>;
   }
   return children;
 };
@@ -75,15 +80,6 @@ function Navigation() {
           </Link>
           <div className="hidden md:flex gap-6 text-sm uppercase tracking-widest font-bold">
             <Link to="/" className="text-stone-400 hover:text-amber-400">Dashboard</Link>
-            <Link to="/herald/icbc" className="text-stone-400 hover:text-amber-400">Tactical Defense</Link>
-            <Link to="/digital-dollars" className="text-stone-400 hover:text-amber-400">Digital Dollars</Link>
-            <Link to="/roundtable" className="text-gold-primary hover:text-yellow-500 font-bold border-b border-gold-primary/50 mx-2">Think Tank</Link>
-            <Link to="/herald/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
-            <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Digital Scribe</Link>
-            <Link to="/library" className="text-stone-400 hover:text-teal-400 font-bold">The Archive</Link>
-            <Link to="/guide" className="text-stone-400 hover:text-amber-400 font-bold">The Guide</Link>
-            <Link to="/settings" className="text-stone-400 hover:text-amber-400">Settings</Link>
-            <Link to="/watch" className="text-stone-400 hover:text-red-500 font-bold ml-4 border border-red-500/30 px-3 py-1 rounded bg-red-500/10 uppercase tracking-widest text-xs">The Watch</Link>
           </div>
         </div>
         
@@ -114,33 +110,25 @@ function Navigation() {
   );
 }
 
-export default function App() {
+export default function SovereignRoot() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-[#08080f] text-[#e0e0e0] font-sans flex flex-col w-full overflow-x-hidden">
-        <Navigation />
-        <main className="flex-grow w-full flex flex-col items-center">
-          <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-amber-500 serif animate-pulse">Summoning Node...</div>}>
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<SovereignLogin />} />
-              <Route path="/create" element={<CharacterCreation />} />
-              <Route path="/scribe" element={<ProtectedRoute><ScribeEngine /></ProtectedRoute>} />
-              <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
-              <Route path="/guide" element={<TheGuide />} />
-              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-              <Route path="/watch" element={<WatchPage />} />
-              <Route path="/herald/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
-              <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
-              <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
-              <Route path="/join" element={<Join />} />
-              <Route path="/submit" element={<SubmitApp />} />
-            </Routes>
-          </React.Suspense>
-        </main>
-        <SovereignStatus />
-        <GlobalFooter />
-      </div>
-    </BrowserRouter>
+    <div className="min-h-screen bg-[#08080f] text-[#e0e0e0] font-sans flex flex-col w-full overflow-x-hidden">
+      <Navigation />
+      <main className="flex-grow w-full flex flex-col items-center">
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-amber-500 serif animate-pulse">Summoning Node...</div>}>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<SovereignLogin />} />
+            <Route path="/create" element={<CharacterCreation />} />
+            <Route path="/guide" element={<TheGuide />} />
+            <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+            <Route path="/watch" element={<WatchPage />} />
+            <Route path="/submit" element={<SubmitApp />} />
+          </Routes>
+        </React.Suspense>
+      </main>
+      <SovereignStatus />
+      <GlobalFooter />
+    </div>
   );
 }
