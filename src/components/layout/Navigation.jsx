@@ -29,10 +29,10 @@ export default function Navigation() {
           </Link>
           <div className="hidden md:flex gap-6 text-sm uppercase tracking-widest font-bold">
             <Link to="/" className="text-stone-400 hover:text-amber-400">Dashboard</Link>
-            <Link to="/herald/icbc" className="text-stone-400 hover:text-amber-400">Tactical Defense</Link>
+            <Link to="/advocacy/icbc" className="text-stone-400 hover:text-amber-400">Tactical Defense</Link>
             <Link to="/digital-dollars" className="text-stone-400 hover:text-amber-400">Digital Dollars</Link>
             <Link to="/roundtable" className="text-gold-primary hover:text-yellow-500 font-bold border-b border-gold-primary/50 mx-2">Round Table</Link>
-            <Link to="/herald/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
+            <Link to="/advocacy/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
             <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Digital Scribe</Link>
             <Link to="/library" className="text-stone-400 hover:text-teal-400 font-bold">The Archive</Link>
             <Link to="/guide" className="text-stone-400 hover:text-amber-400 font-bold">The Guide</Link>

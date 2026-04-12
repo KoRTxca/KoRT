@@ -22,7 +22,7 @@ export default function ModuleMatrix() {
       name: 'Peer Advocacy',
       desc: 'Advocacy & Legal Defense',
       icon: <Shield className="text-blue-500" />,
-      path: '/herald',
+      path: '/advocacy',
       status: 'Ready',
       metrics: '0 Open Cases'
     },

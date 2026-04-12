@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
-import HeraldSidebar from './heraldsidebar'
+import HeraldSidebar from './advocacysidebar'
 
 export default function HeraldLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);

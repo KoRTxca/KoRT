@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { Calendar, Clock } from 'lucide-react'
 import { differenceInDays, parseISO, format } from 'date-fns'
-import CaseTypeBadge from '../components/herald/casetypebadge'
+import CaseTypeBadge from '../components/advocacy/casetypebadge'
 
 export default function DeadlineTracker() {
   const [cases, setCases] = useState([]);

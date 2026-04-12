@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { differenceInDays, parseISO, format } from 'date-fns'
 import { MessageSquare, ChevronRight } from 'lucide-react'
-import CaseTypeBadge from '../herald/casetypebadge'
-import StatusBadge from '../herald/statusbadge'
+import CaseTypeBadge from '../advocacy/casetypebadge'
+import StatusBadge from '../advocacy/statusbadge'
 
 export default function CasesList({ cases, isLoading }) {
   if (isLoading) {
@@ -24,7 +24,7 @@ export default function CasesList({ cases, isLoading }) {
       <div className="bg-[#0a0a1a] border border-[#1a1a2e] border-dashed rounded-xl p-12 text-center">
         <p className="text-[#666] mb-4">No cases yet. Open your first case to get started.</p>
         <Link
-          to="/herald/new"
+          to="/advocacy/new"
           className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a84c]/10 text-[#c9a84c] border border-[#c9a84c]/20 rounded-lg text-sm hover:bg-[#c9a84c]/20 transition-colors"
         >
           Open New Case
@@ -63,7 +63,7 @@ export default function CasesList({ cases, isLoading }) {
               </div>
               <div className="flex items-center gap-2">
                 <Link
-                  to={`/herald/assistant?caseId=${c.id}`}
+                  to={`/advocacy/assistant?caseId=${c.id}`}
                   className="p-2 rounded-lg text-[#666] hover:text-[#4a90d9] hover:bg-[#4a90d9]/10 transition-colors"
                   title="AI Assistant"
                 >

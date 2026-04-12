@@ -5,17 +5,17 @@ import {
   Calendar, MessageSquare, Lightbulb, X, Car,
   Accessibility, FileText
 } from 'lucide-react';
-import TierBadge from '../herald/tierbadge'
+import TierBadge from '../advocacy/tierbadge'
 
 const NAV_ITEMS = [
-  { path: '/herald', icon: LayoutDashboard, label: 'Cases' },
-  { path: '/herald/new', icon: FilePlus, label: 'New Case' },
-  { path: '/herald/icbc', icon: Car, label: 'ICBC Guide' },
-  { path: '/herald/pwd', icon: Accessibility, label: 'PWD Guide' },
-  { path: '/herald/letters', icon: FileText, label: 'Letters' },
-  { path: '/herald/rights', icon: BookOpen, label: 'Know Your Rights' },
-  { path: '/herald/deadlines', icon: Calendar, label: 'Deadlines' },
-  { path: '/herald/suggest', icon: Lightbulb, label: 'Suggest Tool' },
+  { path: '/advocacy', icon: LayoutDashboard, label: 'Cases' },
+  { path: '/advocacy/new', icon: FilePlus, label: 'New Case' },
+  { path: '/advocacy/icbc', icon: Car, label: 'ICBC Guide' },
+  { path: '/advocacy/pwd', icon: Accessibility, label: 'PWD Guide' },
+  { path: '/advocacy/letters', icon: FileText, label: 'Letters' },
+  { path: '/advocacy/rights', icon: BookOpen, label: 'Know Your Rights' },
+  { path: '/advocacy/deadlines', icon: Calendar, label: 'Deadlines' },
+  { path: '/advocacy/suggest', icon: Lightbulb, label: 'Suggest Tool' },
 ];
 
 export default function HeraldSidebar({ user, isOpen, onClose }) {

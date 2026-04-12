@@ -5,7 +5,7 @@ import { Input } from '../components/ui/input'
 import { Textarea } from '../components/ui/textarea'
 import { Button } from '../components/ui/button'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
-import { CASE_TYPES } from '../components/herald/casetypebadge'
+import { CASE_TYPES } from '../components/advocacy/casetypebadge'
 
 const STEPS = ['type', 'details'];
 
@@ -41,13 +41,13 @@ export default function NewCase() {
         console.error(error);
         setIsSubmitting(false);
     } else {
-        navigate('/herald');
+        navigate('/advocacy');
     }
   };
 
   return (
     <div className="p-4 md:p-8 max-w-3xl mx-auto">
-      <button onClick={() => navigate('/herald')} className="flex items-center gap-2 text-sm text-[#666] hover:text-[#ccc] mb-6 transition-colors">
+      <button onClick={() => navigate('/advocacy')} className="flex items-center gap-2 text-sm text-[#666] hover:text-[#ccc] mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to Dashboard
       </button>
 

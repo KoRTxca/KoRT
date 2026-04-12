@@ -23,7 +23,7 @@ const Library = React.lazy(() => import('./pages/library.jsx'));
 const DigitalDollars = React.lazy(() => import('./pages/digitaldollars.jsx'));
 const Join = React.lazy(() => import('./pages/join.jsx'));
 const SovereignSandbox = React.lazy(() => import('./pages/sovereignsandbox.jsx'));
-const HeraldLayout = React.lazy(() => import('./components/herald/heraldlayout.jsx')); 
+const HeraldLayout = React.lazy(() => import('./components/advocacy/advocacylayout.jsx')); 
 const PreviewGate = React.lazy(() => import('./views/previewgate.jsx'));
 
 // --- 3. LAYOUT COMPONENTS ---
@@ -73,7 +73,7 @@ function Navigation() {
           </Link>
           <div className="hidden lg:flex gap-6 text-[10px] uppercase tracking-widest font-bold">
             <Link to="/" className="text-stone-400 hover:text-amber-400 transition-colors">Dashboard</Link>
-            <Link to="/herald/icbc" className="text-stone-400 hover:text-amber-400 transition-colors">Tactical Defense</Link>
+            <Link to="/advocacy/icbc" className="text-stone-400 hover:text-amber-400 transition-colors">Tactical Defense</Link>
             <Link to="/roundtable" className="text-amber-500 hover:text-white border-b border-amber-500/30">Round Table</Link>
             <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Scribe</Link>
             <Link to="/library" className="text-stone-400 hover:text-teal-400">The Archive</Link>
@@ -133,7 +133,7 @@ function SovereignApp() {
             <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
             <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
             <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
-            <Route path="/herald/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
+            <Route path="/advocacy/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
             <Route path="/sandbox" element={<ProtectedRoute><SovereignSandbox /></ProtectedRoute>} />
             <Route path="/join" element={<Join />} />
           </Routes>
