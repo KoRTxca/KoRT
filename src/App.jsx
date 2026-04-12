@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
-import Advocate from './pages/advocate'
-import ICBCFlow from './pages/icbcflow'
-import Letters from './pages/letters'
-import PWDFlow from './pages/pwdflow'
-import CaseAssistant from './pages/caseassistant'
-import Dashboard from './pages/dashboard'
-import Members from './pages/members'
-import Settings from './pages/settings'
-import SovereignLogin from './pages/sovereignlogin'
-import CharacterCreation from './pages/charactercreation'
-import ScribeEngine from './pages/scribeengine'
-import WatchPage from './pages/watchpage'
-import BetaWaitlist from './pages/betawaitlist'
-import UpsellOffer from './pages/upselloffer'
-import RoundTable from './pages/roundtable'
-import Library from './pages/library'
-import PreviewGate from './pages/previewgate'
-import SovereignSandbox from './pages/sovereignsandbox'
-import Join from './pages/join'
-import DigitalDollars from './pages/digitaldollars'
-import SubmitApp from './pages/submitapp'
+const Advocate = React.lazy(() => import('./pages/advocate'));
+const ICBCFlow = React.lazy(() => import('./pages/icbcflow'));
+const Letters = React.lazy(() => import('./pages/letters'));
+const PWDFlow = React.lazy(() => import('./pages/pwdflow'));
+const CaseAssistant = React.lazy(() => import('./pages/caseassistant'));
+const Dashboard = React.lazy(() => import('./pages/dashboard'));
+const Members = React.lazy(() => import('./pages/members'));
+const Settings = React.lazy(() => import('./pages/settings'));
+const SovereignLogin = React.lazy(() => import('./pages/sovereignlogin'));
+const CharacterCreation = React.lazy(() => import('./pages/charactercreation'));
+const ScribeEngine = React.lazy(() => import('./pages/scribeengine'));
+const WatchPage = React.lazy(() => import('./pages/watchpage'));
+const BetaWaitlist = React.lazy(() => import('./pages/betawaitlist'));
+const UpsellOffer = React.lazy(() => import('./pages/upselloffer'));
+const RoundTable = React.lazy(() => import('./pages/roundtable'));
+const Library = React.lazy(() => import('./pages/library'));
+const PreviewGate = React.lazy(() => import('./pages/previewgate'));
+const SovereignSandbox = React.lazy(() => import('./pages/sovereignsandbox'));
+const Join = React.lazy(() => import('./pages/join'));
+const DigitalDollars = React.lazy(() => import('./pages/digitaldollars'));
+const SubmitApp = React.lazy(() => import('./pages/submitapp'));
 
 // THE HERALD (Advocate App) Imports
-import HeraldLayout from './components/herald/heraldlayout'
-import HeraldDashboard from './pages/heralddashboard'
-import NewCase from './pages/caseentry'
-import PWDApplication from './pages/pwdapplication'
-import LetterGenerator from './pages/lettergenerator'
-import RightsDatabase from './pages/rightsdatabase'
-import DeadlineTracker from './pages/deadlinetracker'
-import ToolSuggestion from './pages/suggestatool'
-import MerlinChat from './pages/merlinchat'
-import TheGuide from './pages/theguide'
+const HeraldLayout = React.lazy(() => import('./components/herald/heraldlayout'));
+const HeraldDashboard = React.lazy(() => import('./pages/heralddashboard'));
+const NewCase = React.lazy(() => import('./pages/caseentry'));
+const PWDApplication = React.lazy(() => import('./pages/pwdapplication'));
+const LetterGenerator = React.lazy(() => import('./pages/lettergenerator'));
+const RightsDatabase = React.lazy(() => import('./pages/rightsdatabase'));
+const DeadlineTracker = React.lazy(() => import('./pages/deadlinetracker'));
+const ToolSuggestion = React.lazy(() => import('./pages/suggestatool'));
+const MerlinChat = React.lazy(() => import('./pages/merlinchat'));
+const TheGuide = React.lazy(() => import('./pages/theguide'));
 
 import GlobalFooter from './components/globalfooter'
 import SovereignStatus from './components/dashboard/sovereignstatus'
@@ -121,21 +121,23 @@ export default function App() {
       <div className="min-h-screen bg-[#08080f] text-[#e0e0e0] font-sans flex flex-col w-full overflow-x-hidden">
         <Navigation />
         <main className="flex-grow w-full flex flex-col items-center">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<SovereignLogin />} />
-            <Route path="/create" element={<CharacterCreation />} />
-            <Route path="/scribe" element={<ProtectedRoute><ScribeEngine /></ProtectedRoute>} />
-            <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
-            <Route path="/guide" element={<TheGuide />} />
-            <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-            <Route path="/watch" element={<WatchPage />} />
-            <Route path="/herald/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
-            <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
-            <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/submit" element={<SubmitApp />} />
-          </Routes>
+          <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-amber-500 serif animate-pulse">Summoning Node...</div>}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/login" element={<SovereignLogin />} />
+              <Route path="/create" element={<CharacterCreation />} />
+              <Route path="/scribe" element={<ProtectedRoute><ScribeEngine /></ProtectedRoute>} />
+              <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
+              <Route path="/guide" element={<TheGuide />} />
+              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+              <Route path="/watch" element={<WatchPage />} />
+              <Route path="/herald/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
+              <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
+              <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
+              <Route path="/join" element={<Join />} />
+              <Route path="/submit" element={<SubmitApp />} />
+            </Routes>
+          </React.Suspense>
         </main>
         <SovereignStatus />
         <GlobalFooter />
