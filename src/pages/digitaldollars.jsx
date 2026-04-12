@@ -171,6 +171,91 @@ export default function DigitalDollars() {
           </div>
        </div>
 
+        {/* Games Matrix */}
+        <div>
+           <div className="flex items-baseline gap-4 mb-10 border-b border-white/10 pb-6">
+              <h2 className="serif text-3xl font-black text-white uppercase tracking-tighter">THE <span className="text-amber-500">GAMES</span> MATRIX</h2>
+              <span className="text-[10px] font-bold text-stone-600 uppercase tracking-[0.4em]">Play. Earn. Fund.</span>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { name: "Knight's Challenge", reward: "1-5 RTD", type: "KoRT Original", icon: "⚔️" },
+                { name: "Round Table Trivia", reward: "1-3 RTD", type: "KoRT Original", icon: "🏰" },
+                { name: "Dragon's Hoard", reward: "2-8 RTD", type: "KoRT Original", icon: "🐉" },
+                { name: "Excalibur's Trial", reward: "1-4 RTD", type: "KoRT Original", icon: "🗡️" }
+              ].map((game, i) => (
+                <div key={i} className="bg-black/40 border border-white/5 p-6 rounded-2xl hover:border-amber-500/20 transition-all flex flex-col gap-4">
+                  <div className="text-3xl">{game.icon}</div>
+                  <div>
+                    <h4 className="text-white font-bold text-sm uppercase tracking-widest">{game.name}</h4>
+                    <p className="text-[10px] text-stone-500 font-mono mt-1">{game.type}</p>
+                  </div>
+                  <div className="mt-auto px-3 py-1 bg-amber-500/10 text-amber-500 text-[9px] font-bold rounded border border-amber-500/20 text-center uppercase tracking-widest">
+                    REWARD: {game.reward}
+                  </div>
+                </div>
+              ))}
+           </div>
+
+           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { name: "Mistplay", detail: "Real cash for mobile gaming", icon: "🎮" },
+                { name: "Swagbucks Games", detail: "Casual games for SB points", icon: "🎯" },
+                { name: "Tango Live", detail: "Streaming & bonus coins", icon: "🎵" }
+              ].map((game, i) => (
+                <div key={i} className="flex items-center gap-4 p-4 bg-green-500/5 border border-green-500/10 rounded-xl">
+                  <span className="text-xl">{game.icon}</span>
+                  <div>
+                    <h5 className="text-white text-xs font-bold uppercase tracking-widest">{game.name}</h5>
+                    <p className="text-[10px] text-stone-500">{game.detail}</p>
+                  </div>
+                </div>
+              ))}
+           </div>
+        </div>
+
+        {/* Mobile App Download */}
+        <div className="bg-gradient-to-r from-[#0a1a0f] to-[#050510] border-l-4 border-green-500 p-12 rounded-[2rem] flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-8 opacity-5">
+              <Smartphone size={200} />
+           </div>
+           <div className="md:w-1/2 relative z-10">
+              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-black mb-6">
+                 <Smartphone size={24} />
+              </div>
+              <h2 className="serif text-4xl font-black text-white uppercase tracking-tighter mb-4 italic">Sovereign <span className="text-green-500">XP10 Mobile</span></h2>
+              <p className="text-stone-300 text-sm leading-relaxed mb-8">
+                 Access the full Sovereign OS experience, including the Crisis Mesh and the complete Games Matrix, directly on your Android device. Dedicated hardware support for XP10 and ZBook environments.
+              </p>
+              <div className="p-4 bg-black/40 border border-white/5 rounded-xl font-mono text-[10px] text-stone-500 mb-8">
+                 STATUS: STABLE v1.2 // RECURSIVE DELIVERY ACTIVE
+              </div>
+           </div>
+           <div className="md:w-1/2 w-full space-y-4 relative z-10">
+              <div className="bg-[#050510] border border-white/10 p-6 rounded-2xl">
+                 <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">Installation Guide</h4>
+                 <ul className="space-y-3 text-[11px] text-stone-400">
+                    <li className="flex items-center gap-2">
+                       <span className="text-green-500">01.</span> Push <code className="text-white">3_FLUTTER_APP</code> to GitHub
+                    </li>
+                    <li className="flex items-center gap-2">
+                       <span className="text-green-500">02.</span> Nav to <code className="text-white">Actions</code> → <code className="text-white">Artifacts</code>
+                    </li>
+                    <li className="flex items-center gap-2">
+                       <span className="text-green-500">03.</span> Download <span className="text-white font-bold italic">kort-digital-dollars-debug.apk</span>
+                    </li>
+                    <li className="flex items-center gap-2 underline underline-offset-4 decoration-green-500/20">
+                       <span className="text-green-500">04.</span> Open APK on Android to Install
+                    </li>
+                 </ul>
+              </div>
+              <button className="w-full py-5 bg-green-500 text-black font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-green-400 transition-all shadow-xl shadow-green-500/20">
+                 Access Build Artifacts
+              </button>
+           </div>
+        </div>
+
        {/* FAQ / Mesh Info */}
        <div className="bg-[#0a0a1a] border border-amber-500/20 p-10 rounded-3xl flex flex-col md:flex-row items-center gap-10 shadow-2xl shadow-blue-500/5">
           <div className="p-6 bg-blue-500/10 border border-blue-500/20 rounded-2xl shrink-0">

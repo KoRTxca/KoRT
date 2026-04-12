@@ -20,8 +20,8 @@ export default function PreviewGate({ attemptedRoute }) {
             </span>
          </div>
          
-         <h1 className="SERIF TEXT-5XL MD:TEXT-7XL FONT-BOLD MB-6 UPPERCASE">
-            Knights of <br/> <span className=\"text-amber-500\">the Round Table</span>
+         <h1 className="serif text-5xl md:text-7xl font-bold mb-6 uppercase">
+            Knights of <br/> <span className="text-amber-500">the Round Table</span>
          </h1>
          <p className="text-lg text-stone-400 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
             You've reached a secure sector of the KoRT OS. This area is reserved for verified Knights who have forged their local node. Forge your identity below to unlock the full tactical suite.
