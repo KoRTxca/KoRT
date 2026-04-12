@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dragon Shield Branding - CODEX VERIFIED */
+    --shield-dark: #08080f;
+    --gold-primary: #c9a84c;
+    --gold-dim: rgba(201, 168, 76, 0.45);
+    --dragon-blue: #0033a0;
+    --silver-blade: #fafafa;
+    
+    /* Additional Accents */
+    --bg-surface: #0a0a1a;
+    --danger-red: #e74c3c;
+    --success-green: #2ecc71;
+    
+    /* The Watch Crisis Variables */
+    --watch-bg: #050505;
+    --watch-card: #0a0a1a;
+    --watch-gold: #c9a84c;
+    --watch-red: #ff4d4d;
+    --watch-green: #4ade80;
+  }
+}
+
+.serif { 
+  font-family: 'Cinzel', serif; 
+}
+
+.gold-text { 
+  color: var(--gold-primary); 
+}
+
+.glass { 
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(20px); 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.glass-vault {
+  background: rgba(8, 8, 15, 0.95);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--gold-primary);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(201, 168, 76, 0.1);
+}
+
+/* Base44 Container System */
+.base44-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.base44-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+body {
+  background-color: var(--shield-dark);
+  color: var(--silver-blade);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Herald & Sovereign Accents */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a84c 0%, #e8d48b 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-glow {
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.1), 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.25), 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080f;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
+}

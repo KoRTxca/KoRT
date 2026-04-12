@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoRT Sovereign OS | Investor Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c9a84c;
+            --dark-gold: #967d32;
+            --black: #050505;
+            --deep-black: #020202;
+            --stone: #222;
+        }
+        body {
+            background-color: var(--black);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .serif { font-family: 'Cinzel', serif; }
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, var(--black) 100%);
+            border-bottom: 1px solid rgba(201,168,76,0.2);
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .logo { width: 120px; margin-bottom: 2rem; }
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 0 0 20px rgba(201,168,76,0.3);
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            margin-top: 1rem;
+            font-weight: 900;
+        }
+        .container {
+            max-width: 1000px;
+            margin: -100px auto 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-blur: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            background: rgba(201,168,76,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            color: white;
+            margin-top: 0;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .card p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .card .btn {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .card:hover .btn {
+            background: var(--gold);
+            color: black;
+        }
+        footer {
+            text-align: center;
+            padding: 4rem;
+            border-top: 1px solid var(--stone);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="/logo.png" alt="KoRT Logo" class="logo">
+        <h1 class="serif">Investor Portal</h1>
+        <p class="subtitle">Sovereign OS Seed Deployment // v1.1</p>
+    </section>
+
+    <div class="container">
+        <a href="deck.html" class="card">
+            <div>
+                <h2 class="serif">Investor Deck</h2>
+                <p>15-Slide high-fidelity presentation detailing the mission, market gap, and Sovereign Technology stack.</p>
+            </div>
+            <div class="btn">View Deck</div>
+        </a>
+        <a href="plan.html" class="card">
+            <div>
+                <h2 class="serif">Business Plan</h2>
+                <p>Full strategic roadmap including revenue distribution (60/40), 3-phase raise, and Agent Council orchestration.</p>
+            </div>
+            <div class="btn">View Plan</div>
+        </a>
+        <a href="summary.html" class="card">
+            <div>
+                <h2 class="serif">Executive Summary</h2>
+                <p>One-page "leave-behind" for high-level tactical overview and project mission status.</p>
+            </div>
+            <div class="btn">View Summary</div>
+        </a>
+        <a href="financials.html" class="card">
+            <div>
+                <h2 class="serif">Financial Model</h2>
+                <p>Structured projections for membership growth, gross revenue, and pool distribution logic.</p>
+            </div>
+            <div class="btn">View Financials</div>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 Xception Contracting Ltd. // Reclaiming Sovereignty on Vercel
+    </footer>
+</body>
+</html>
