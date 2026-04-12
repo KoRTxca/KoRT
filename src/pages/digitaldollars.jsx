@@ -76,7 +76,7 @@ export default function DigitalDollars() {
                 </p>
                 <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
                    <h4 className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-4">Compound Logic</h4>
-                   <p className="text-[11px] text-stone-400 leading-relaxed italic">"When 50 members do the Quick Stack, $1,000 enters the pool. That's how we fund the Herald and the Defense Mesh."</p>
+                   <p className="text-[11px] text-stone-400 leading-relaxed italic">"When 50 members do the Quick Stack, $1,000 enters the pool. That's how we fund Peer Advocacy and the Defense Mesh."</p>
                 </div>
              </div>
              
