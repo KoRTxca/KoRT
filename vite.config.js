@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // KoRT Sovereign OS: Stable Production Architecture
-// Version: 1.0.45 - Vite 6 Rollup Engine
+// Version: 1.0.46 - Operation OMEGA Restoration
 export default defineConfig({
   plugins: [react()],
   server: {
@@ -10,7 +10,7 @@ export default defineConfig({
     port: 5173
   },
   build: {
-    // Utilize stable Rollup chunking for production
+    // Utilize stable Rollup chunking for production to avoid Vercel timeouts
     rollupOptions: {
       output: {
         manualChunks: {
@@ -20,6 +20,6 @@ export default defineConfig({
       }
     },
     sourcemap: true,
-    minify: 'esbuild' // Using stable esbuild minifier
+    minify: 'esbuild'
   }
 })
