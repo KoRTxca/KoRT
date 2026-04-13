@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Shield, Sparkles, BookOpen, Sword, Skull, 
   Gamepad2, Cpu, User, Zap, Lock, Mic, Play
@@ -21,27 +21,27 @@ const CLASSES = [
 ];
 
 const SOVEREIGN_QUESTIONS = [
-  "How is your housing situation right now? Stable? Precarious? Couch-surfing?",
-  "What transportation options do you have? Do you drive, take transit, or rely on others?",
-  "Where do you live currently — city, town, or rural? How long have you been there?",
-  "Is there anyone who is supposed to be paying you right now that hasn't?",
-  "Is anyone after you for money right now? Specifically any agencies or collectors?",
-  "How are your taxes? Filed, behind, or just complicated?",
-  "How difficult is it for you to balance a budget and pay bills on time?",
-  "Do you have a family doctor or consistent access to medical care?",
-  "Do you have access to dental care when you need it?",
-  "How difficult is it for you to perform daily living activities like cooking or cleaning?",
-  "Are you fighting any illness or injury issues right now?",
-  "Do you have any dependencies or addictions you're currently managing?",
-  "Do you have a job, or are you self-employed? Own a business?",
-  "How hard is it for you to hold down work or show up on time right now?",
-  "Has anything changed recently that's affected your ability to earn an income?",
-  "Is anyone making threats toward you? Harassing, bullying, or or following you?",
-  "Do you have any active disputes going on with a person, company, or the government?",
-  "Is there any paperwork you're behind on that's been stressing you out?",
-  "Do you have a support system around you? Family, friends, or community?",
-  "Have you or your children ever been involved with MCFD or the justice system unfairly?",
-  "Why does the 60/40 community split feel like strength to you rather than loss?"
+  "In what sector of the analog world did your journey begin?",
+  "When the corporate grid failed you, what was the first resource you lost?",
+  "Is privacy a luxury, a right, or a weapon?",
+  "Who owns your data when your heartbeat stops?",
+  "If the internet went dark tonight, how many days could your local node sustain your defense?",
+  "Would you risk your local bandwidth to save a neighboring Knight in distress?",
+  "Is a perfect machine logic superior to a flawed human empathy?",
+  "Does your allegiance lie with the platform, the community, or the self?",
+  "What part of your digital identity is most fragile?",
+  "When the Herald files a dispute, do you seek settlement or justice?",
+  "Have you ever fought a government administrative error and won?",
+  "What is the one truth you would never commit to a centralized cloud?",
+  "If an AI can win your legal battle, do you still care how it was fought?",
+  "Why does the 60/40 community split represent strength rather than loss?",
+  "Do you prefer the silence of a solo node or the clamor of the Council?",
+  "What is your primary defense against identity harvesting?",
+  "Is the Sovereign OS an exit strategy or a foundation?",
+  "When you put on the Dragon Armor, what part of your old self do you leave behind?",
+  "Will you uphold the Three Laws even when the Founder is offline?",
+  "What digital artifact will you leave for the next generation of Knights?",
+  "Do you swear to protect the Mesh and the Sovereignty of all Round Table participants?"
 ];
 
 export default function CharacterCreation() {
@@ -78,7 +78,7 @@ export default function CharacterCreation() {
 
   useEffect(() => {
     if (phase === 3) {
-      speak(`Hey ${handle}. I'm your Digital Advocate. I'm here to help you figure out what you're dealing with and what you might be entitled to. We'll take this slow. No forms. No pressure. Just a conversation. 1/21: ${SOVEREIGN_QUESTIONS[0]}`);
+      speak(`Warrior ${handle}, you have selected the path of the ${selectedClass.id}. The Sovereign Dossier Protocol is initiated. 21 Queries remain. ${SOVEREIGN_QUESTIONS[0]}`);
     }
   }, [phase]);
 
@@ -202,7 +202,7 @@ export default function CharacterCreation() {
                 <span className="text-red-900/50">Biometric Handshake Required</span>
                 <button 
                   onClick={() => {
-                    localStorage.setItem('kort_knight', JSON.stringify({ handle: 'COMMANDER', class: 'ADMIN', alignment: 'CORE', machine: 'SOVEREIGN' }));
+                    localStorage.setItem('kort_knight', JSON.stringify({ handle: 'COMMANDER', class: 'ADMIN', alignment: 'CORE', machine: 'VULCAN' }));
                     window.location.href = '/';
                   }}
                   className="text-stone-600 hover:text-red-500 transition-colors"
@@ -214,7 +214,7 @@ export default function CharacterCreation() {
           </div>
         )}
 
-        {/* PHASE 2: SOVEREIGN CLASS SELECTION */}
+        {/* PHASE 2: VULCAN CLASS SELECTION */}
         {phase === 2 && (
           <div className="w-full animate-fade-in">
             <div className="text-center mb-12">
@@ -258,7 +258,7 @@ export default function CharacterCreation() {
           </div>
         )}
 
-        {/* PHASE 3: THE SOVEREIGN INTERVIEW (VOICE INTERACTION) */}
+        {/* PHASE 3: THE VULCAN INTERVIEW (VOICE INTERACTION) */}
         {phase === 3 && (
           <div className="max-w-3xl mx-auto animate-fade-in">
              <div className="glass-vault p-12 relative overflow-hidden">
@@ -329,7 +329,7 @@ export default function CharacterCreation() {
                 {/* Stats Column */}
                 <div className="w-full md:w-2/3">
                   <h3 className="text-3xl font-black text-white uppercase tracking-wider mb-1">{handle}</h3>
-                  <p className="text-stone-500 font-sans text-[10px] uppercase tracking-[0.4em] mb-6 font-bold text-amber-500/60">Tier: Page // Initiate Node</p>
+                  <p className="text-stone-500 font-sans text-xs uppercase tracking-[0.2em] mb-6">Level 1 Founding Node</p>
 
                   <div className="mb-6 bg-black/80 border border-amber-950 p-3 text-center">
                     <span className="block text-[9px] text-stone-600 font-sans uppercase tracking-widest mb-1">Equipped Relic</span>

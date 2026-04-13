@@ -1,104 +1,169 @@
-import React from 'react'
-import { Shield, Check, Star, Zap, Crown } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './ClaudeStyles.css';
+
+const FaqItem = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className={`faq-item ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+      <div className="faq-q">{question}</div>
+      <div className="faq-a">{answer}</div>
+    </div>
+  );
+};
 
 export default function Join() {
-  const tiers = [
-    {
-      name: "Prospect",
-      price: "$1.79",
-      type: "Entry Node",
-      desc: "Activate your digital existence. Basic mesh presence and vault awareness.",
-      features: ["Verified Identity", "Mesh Connectivity", "Basic Scribe Access", "KoRT Badge"],
-      accent: "stone"
-    },
-    {
-      name: "Page",
-      price: "$5 / MO",
-      type: "Initiate",
-      desc: "Join the conversation. Full access to community channels and the legal library.",
-      features: ["Universal Library Access", "Community Voting", "Support Node Access", "Basic Merlin Logic"],
-      accent: "teal"
-    },
-    {
-       name: "Esquire",
-       price: "$15 / MO",
-       type: "Advocate",
-       desc: "Precision tools for the professional. Advanced data harvesting and case management.",
-       features: ["Scribe Engine Pro", "Advocate Templates", "Digital Dollars Roadmap", "Case Triage Support"],
-       accent: "blue"
-    },
-    {
-       name: "Knight",
-       price: "$50 / MO",
-       type: "Sovereign",
-       desc: "The professional's edge. Full command center access and dedicated crisis response.",
-       features: ["70B Logic Access", "Priority Case Assistant", "Digital Dollars Pro", "Venture Equity"],
-       featured: true,
-       accent: "amber"
-    },
-    {
-       name: "Round Table",
-       price: "$150 / MO",
-       type: "Master Node",
-       desc: "A seat at the table. Direct influence over system architecture and treasury allocation.",
-       features: ["Mastermind Access", "Private Node Identity", "Full Archive Export", "Direct Founder Access"],
-       accent: "purple"
-    }
-  ];
-
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-20 min-h-screen animate-fade-in flex flex-col items-center">
-       
-       <div className="text-center mb-20 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
-             <Star size={12} className="animate-pulse" /> Limited Seats Open
+    <div className="claude-page-container">
+      <div className="claude-topbar">
+        <Link to="/" className="topbar-back">← Back to KoRT</Link>
+        <div className="topbar-brand">JOIN THE TABLE</div>
+      </div>
+
+      <div className="claude-page-wrap">
+        <h1>⚔️ Choose Your Seat</h1>
+        <p className="subtitle">Every tier earns. Every tier matters. Pick the level that matches your commitment and start building with us today.</p>
+
+        <div className="tiers-grid">
+          {/* PAGE */}
+          <div className="tier-card">
+            <div className="tier-icon">📜</div>
+            <div className="tier-name">PAGE</div>
+            <div className="tier-price">$5<span>/month</span></div>
+            <div className="tier-tagline">"I believe in this."</div>
+            <ul className="tier-features">
+              <li>Full Digital Dollars earning stack access</li>
+              <li>Monthly progress updates</li>
+              <li>Founding Supporters list</li>
+              <li>Submit apps to the earning stack</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PAGE_BUTTON_ID" className="tier-cta outline" target="_blank" rel="noreferrer">JOIN AS PAGE →</a>
           </div>
-          <h1 className="serif text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">CHOOSE YOUR <span className="text-amber-500">SEAT</span></h1>
-          <p className="text-stone-400 text-xl font-light leading-relaxed font-sans">
-             Sovereignty is a choice. Every seat strengthens the Round Table and ensures that no one gets left behind in the digital transition.
-          </p>
-       </div>
 
-       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full">
-          {tiers.map((tier, i) => (
-             <div key={i} className={`glass-vault p-8 rounded-3xl border transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-full ${
-               tier.featured ? 'border-amber-500/40 bg-amber-500/5 shadow-[0_0_30px_rgba(201,168,76,0.1)]' : 'border-white/5 bg-[#050510]'
-             }`}>
-                {tier.featured && (
-                   <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">Core Choice</div>
-                )}
-                
-                <h3 className="serif text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">{tier.type}</h3>
-                <h2 className="serif text-2xl font-black text-white uppercase tracking-tighter mb-4">{tier.name}</h2>
-                <div className="text-xl font-mono text-white mb-6 border-b border-white/5 pb-6">{tier.price}</div>
-                
-                <p className="text-stone-400 text-[11px] mb-8 leading-relaxed font-light flex-grow">{tier.desc}</p>
-                
-                <ul className="space-y-4 mb-10">
-                   {tier.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-3">
-                         <Check className={`shrink-0 mt-0.5 ${tier.featured ? 'text-amber-500' : 'text-teal-500'}`} size={14} />
-                         <span className="text-stone-300 text-[9px] font-bold uppercase tracking-widest leading-tight">{f}</span>
-                      </li>
-                   ))}
-                </ul>
+          {/* ESQUIRE */}
+          <div className="tier-card featured">
+            <div className="tier-icon">🛡️</div>
+            <div className="tier-name">ESQUIRE</div>
+            <div className="tier-price">$15<span>/month</span></div>
+            <div className="tier-tagline">"I want to be part of this."</div>
+            <ul className="tier-features">
+              <li>Everything in Page</li>
+              <li>Community Pool earnings (earn from others)</li>
+              <li>Discord community access</li>
+              <li>Transparency ledger (see every dollar)</li>
+              <li>Microloan eligible (60 days)</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ESQUIRE_BUTTON_ID" className="tier-cta gold" target="_blank" rel="noreferrer">JOIN AS ESQUIRE →</a>
+          </div>
 
-                <Link 
-                   to="/create"
-                   className={`w-full py-4 rounded-xl font-black uppercase tracking-widest text-[9px] text-center transition-all ${
-                     tier.featured 
-                       ? 'bg-amber-500 text-black hover:bg-amber-400 shadow-xl shadow-amber-500/20' 
-                       : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
-                   }`}
-                >
-                   Secure My Seat
-                </Link>
-             </div>
-          ))}
-       </div>
+          {/* KNIGHT */}
+          <div className="tier-card">
+            <div className="tier-icon">⚔️</div>
+            <div className="tier-name">KNIGHT</div>
+            <div className="tier-price">$50<span>/month</span></div>
+            <div className="tier-tagline">"I'm committed to this mission."</div>
+            <ul className="tier-features">
+              <li>Everything in Esquire</li>
+              <li>Monthly strategy calls</li>
+              <li>Network directory access</li>
+              <li>Priority feature access</li>
+              <li>Microloan eligible (30 days)</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KNIGHT_BUTTON_ID" className="tier-cta outline" target="_blank" rel="noreferrer">JOIN AS KNIGHT →</a>
+          </div>
 
-       <p className="mt-20 text-stone-600 text-[9px] uppercase tracking-[0.4em] font-bold">Node Identity Verification Required Post-Selection</p>
+          {/* ROUND TABLE */}
+          <div className="tier-card featured">
+            <div className="tier-icon">👑</div>
+            <div className="tier-name">ROUND TABLE</div>
+            <div className="tier-price">$150<span>/month</span></div>
+            <div className="tier-tagline">"I want to help lead this."</div>
+            <ul className="tier-features">
+              <li>Everything in Knight</li>
+              <li>Voting rights on all decisions</li>
+              <li>Co-founder recognition</li>
+              <li>Equity potential as KoRT scales</li>
+              <li>Direct microloan access</li>
+              <li>Priority crisis support</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ROUNDTABLE_BUTTON_ID" className="tier-cta gold" target="_blank" rel="noreferrer">JOIN THE ROUND TABLE →</a>
+          </div>
+        </div>
+
+        {/* OWNER SEAT */}
+        <div className="tiers-grid" style={{ maxWidth: '500px', margin: '0 auto 48px' }}>
+          <div className="tier-card owner">
+            <div className="tier-icon">🏰</div>
+            <div className="tier-name">ROUND TABLE OWNER</div>
+            <div className="tier-price">$5,000<span> one-time</span></div>
+            <div className="tier-tagline">"I own a piece of the Table."</div>
+            <ul className="tier-features">
+              <li>Permanent ownership stake in KoRT</li>
+              <li>10% of all profits — split among Owners — taken off the top BEFORE standard revenue sharing</li>
+              <li>Voting rights on all major decisions</li>
+              <li>Co-founder title and recognition</li>
+              <li>Everything in every tier, permanently</li>
+              <li>Your name in the founding documents</li>
+              <li>Limited to 5 seats total</li>
+            </ul>
+            <a href="mailto:hello@kortx.ca?subject=Round%20Table%20Owner%20Seat%20Inquiry&body=I'm%20interested%20in%20the%20Round%20Table%20Owner%20seat.%20Please%20send%20me%20details%20on%20next%20steps." className="tier-cta owner-cta">INQUIRE — 5 SEATS AVAILABLE →</a>
+          </div>
+        </div>
+
+        {/* NO-CASH EARN PATH */}
+        <div className="earn-path">
+          <h2>💰 No Cash? Earn Your Way In</h2>
+          <p>Install the Quick Stack via KoRT affiliate links. Earn $15+ in 48 hours. That covers your first Esquire month — no money out of pocket.</p>
+          <Link to="/digital-dollars">Start the Quick Stack →</Link>
+        </div>
+
+        {/* ONE-TIME SUPPORT */}
+        <div style={{ background: 'var(--surface)', border: '1px solid #1a1a3a', borderRadius: '10px', padding: '28px', marginBottom: '48px', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Cinzel', serif", color: 'var(--gold)', fontSize: '20px', marginBottom: '16px' }}>ONE-TIME SUPPORT</h2>
+          <p style={{ color: 'var(--text-dim)', maxWidth: '500px', margin: '0 auto 20px' }}>Not ready for monthly? One-time contributions welcome. Every dollar is tracked and accounted for.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+            <a href="#" onClick={e => e.preventDefault()} style={{ background: 'var(--elevated)', border: '1px solid #1a1a3a', color: 'var(--gold-light)', padding: '10px 20px', borderRadius: '4px', textDecoration: 'none', fontFamily: "'Cinzel', serif", fontSize: '13px' }}>$5</a>
+            <a href="#" onClick={e => e.preventDefault()} style={{ background: 'var(--elevated)', border: '1px solid #1a1a3a', color: 'var(--gold-light)', padding: '10px 20px', borderRadius: '4px', textDecoration: 'none', fontFamily: "'Cinzel', serif", fontSize: '13px' }}>$25</a>
+            <a href="#" onClick={e => e.preventDefault()} style={{ background: 'var(--elevated)', border: '1px solid #1a1a3a', color: 'var(--gold-light)', padding: '10px 20px', borderRadius: '4px', textDecoration: 'none', fontFamily: "'Cinzel', serif", fontSize: '13px' }}>$100</a>
+            <a href="#" onClick={e => e.preventDefault()} style={{ background: 'var(--elevated)', border: '1px solid #1a1a3a', color: 'var(--gold-light)', padding: '10px 20px', borderRadius: '4px', textDecoration: 'none', fontFamily: "'Cinzel', serif", fontSize: '13px' }}>$500</a>
+          </div>
+          <p style={{ color: 'var(--text-dim)', fontSize: '13px', marginTop: '12px' }}>E-transfer: admin@xception.ai</p>
+        </div>
+
+        {/* FAQ */}
+        <div className="faq">
+          <h2>QUESTIONS</h2>
+          <FaqItem 
+            question="How do I earn money as a member?"
+            answer="Through the Digital Dollars earning stack — curated apps that pay you for signups, cashback, surveys, passive data sharing, and gaming. Follow the Quick Stack guide and earn $50+ in your first 48 hours."
+          />
+          <FaqItem 
+            question="What's the Community Pool?"
+            answer="40% of all Digital Dollars earnings flow into a shared pool. That pool gets redistributed proportionally to all active members. The more people earning, the more everyone makes — including you."
+          />
+          <FaqItem 
+            question="Can I submit my own earning apps?"
+            answer="Yes. If you find an app that pays and has a referral program, submit it with YOUR referral code. If we approve it, your code goes live permanently. Every future member who signs up earns you money."
+          />
+          <FaqItem 
+            question="Is this MLM?"
+            answer="No. You earn from using apps, not from recruiting people. The referral layer is a bonus, not the business model. KoRT earns through affiliate commissions and membership fees."
+          />
+          <FaqItem 
+            question="What's the Owner Seat?"
+            answer="A one-time $5,000 investment for a permanent ownership stake. Owner seat holders split 10% of all KoRT profits before standard revenue sharing. Only 5 seats available, ever."
+          />
+          <FaqItem 
+            question="What else does KoRT do besides Digital Dollars?"
+            answer="KoRT is building peer-led community response, recovery support, and legal advocacy tools. Digital Dollars funds all of it. Your membership directly funds services that help people in crisis."
+          />
+        </div>
+      </div>
+
+      <footer>
+        <strong>Knights of the Round Table</strong> — kortx.ca<br/>
+        No one gets left behind.
+      </footer>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function ViralInviteEngine({ userReferralCode = 'KORT-ALPHA' }) {
   const [copied, setCopied] = useState(false);

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { Shield, Lock, Terminal, Zap, Fingerprint, ChevronRight } from 'lucide-react'
-import { supabase } from '../api/base44client'
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Shield, Lock, Terminal, Zap, Fingerprint, ChevronRight } from 'lucide-react';
+import { supabase } from '../api/base44Client';
 
 export default function SovereignLogin() {
   const [email, setEmail] = useState('');
@@ -35,7 +35,7 @@ export default function SovereignLogin() {
       handle: 'COMMANDER', 
       class: 'DIRECTOR', 
       alignment: 'CORE', 
-      machine: 'SOVEREIGN',
+      machine: 'VULCAN',
       role: 'admin'
     };
     localStorage.setItem('kort_knight', JSON.stringify(adminProfile));

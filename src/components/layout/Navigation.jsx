@@ -27,17 +27,16 @@ export default function Navigation() {
             <img src="/logo.png" alt="KoRT Sovereign Logo" className="h-10 w-auto group-hover:drop-shadow-[0_0_20px_rgba(255,100,0,0.8)] group-hover:scale-105 transition-all duration-300 relative z-10" />
             <span className="serif text-xl font-bold tracking-widest text-[#e0e0e0] group-hover:text-[#c9a84c] transition-colors">KoRTx.ca<span className="text-amber-500">.</span></span>
           </Link>
-          <div className="hidden md:flex gap-6 text-sm uppercase tracking-widest font-bold">
-            <Link to="/" className="text-stone-400 hover:text-amber-400">Dashboard</Link>
-            <Link to="/advocacy/icbc" className="text-stone-400 hover:text-amber-400">Tactical Defense</Link>
-            <Link to="/digital-dollars" className="text-stone-400 hover:text-amber-400">Digital Dollars</Link>
-            <Link to="/roundtable" className="text-gold-primary hover:text-yellow-500 font-bold border-b border-gold-primary/50 mx-2">Round Table</Link>
-            <Link to="/advocacy/pwd" className="text-stone-400 hover:text-amber-400">Digital Detox</Link>
-            <Link to="/scribe" className="text-stone-400 hover:text-teal-400">Digital Scribe</Link>
-            <Link to="/library" className="text-stone-400 hover:text-teal-400 font-bold">The Archive</Link>
-            <Link to="/guide" className="text-stone-400 hover:text-amber-400 font-bold">The Guide</Link>
-            <Link to="/settings" className="text-stone-400 hover:text-amber-400">Settings</Link>
-            <Link to="/watch" className="text-stone-400 hover:text-red-500 font-bold ml-4 border border-red-500/30 px-3 py-1 rounded bg-red-500/10 uppercase tracking-widest text-xs">The Watch</Link>
+          <div className="hidden md:flex items-center gap-6 text-sm uppercase tracking-widest font-bold">
+            <Link to="/" className="text-stone-400 hover:text-amber-400 transition-colors">Dashboard</Link>
+            <Link to="/advocacy" className="text-stone-400 hover:text-amber-400 transition-colors">Tactical Defense</Link>
+            <Link to="/digital-dollars" className="text-stone-400 hover:text-amber-400 transition-colors">Digital Dollars</Link>
+            <Link to="/roundtable" className="text-amber-500 hover:text-amber-300 font-black border-b border-amber-500/30 px-1">Round Table</Link>
+            <Link to="/scribe" className="text-stone-400 hover:text-teal-400 transition-colors">Scribe</Link>
+            <Link to="/library" className="text-stone-400 hover:text-teal-400 transition-colors">Archive</Link>
+            <Link to="/guide" className="text-stone-400 hover:text-amber-400 transition-colors">Guide</Link>
+            <Link to="/settings" className="text-stone-400 hover:text-amber-400 transition-colors">Settings</Link>
+            <Link to="/watch" className="bg-red-500/10 border border-red-500/30 text-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded transition-all text-[10px] ml-4">The Watch</Link>
           </div>
         </div>
         

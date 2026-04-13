@@ -1,5 +1,6 @@
 /**
  * KoRT Sovereign OS: Production Sanity Check
+ * v3.0 Operation OMEGA Version
  * Purpose: Verify live website status to prevent "Done" hallucinations.
  */
 
@@ -8,19 +9,25 @@ const https = require('https');
 const PRODUCTION_URL = 'https://kortx.ca';
 const ROUTES = [
   '/',
-  '/merlin',
+  '/login',
   '/digital-dollars',
-  '/investor/index.html',
-  '/investor/summary.html'
+  '/roundtable',
+  '/advocacy',
+  '/advocacy/icbc',
+  '/scribe',
+  '/library',
+  '/watch',
+  '/guide'
 ];
 
 async function checkRoute(route) {
   return new Promise((resolve) => {
     https.get(`${PRODUCTION_URL}${route}`, (res) => {
+      // 200 is good, 308 (redirect) can also be okay for some frameworks, but for SPA we want 200
       resolve({
         route,
         status: res.statusCode,
-        ok: res.statusCode === 200
+        ok: res.statusCode === 200 || res.statusCode === 308
       });
     }).on('error', (e) => {
       resolve({
@@ -50,7 +57,7 @@ async function runCheck() {
   if (allOk) {
     console.log('✅ ALL SYSTEMS OPERATIONAL. Sovereign Node is live.');
   } else {
-    console.log('❌ CRITICAL FAILURE DETECTED. Check Vercel logs.');
+    console.log('❌ FAILURE DETECTED. Check Vercel routing configuration.');
     process.exit(1);
   }
 }

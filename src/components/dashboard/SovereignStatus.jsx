@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Shield, Wifi, WifiOff, Activity } from 'lucide-react'
+import React, { useState, useEffect } from 'react';
+import { Shield, Wifi, WifiOff, Activity } from 'lucide-react';
 
 export default function SovereignStatus() {
   const [status, setStatus] = useState('checking');

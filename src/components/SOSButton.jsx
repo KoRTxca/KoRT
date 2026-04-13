@@ -1,5 +1,5 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react'
-import { CRISIS_TYPES } from '../hooks/usewatch'
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { CRISIS_TYPES } from '../hooks/useWatch';
 
 const styles = {
   container: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', padding: '1rem', width: '100%', maxWidth: '480px', margin: '0 auto' },

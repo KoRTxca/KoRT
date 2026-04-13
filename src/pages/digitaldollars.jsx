@@ -2,8 +2,18 @@ import React from 'react'
 import { 
   CircleDollarSign, TrendingUp, ShieldCheck, HeartPulse, 
   CreditCard, PieChart, Info, CheckCircle2, ArrowRight,
-  Landmark, ShoppingCart, Smartphone, Globe, Zap
+  Landmark, ShoppingCart, Smartphone, Globe, Zap, Shield, AlertTriangle
 } from 'lucide-react'
+
+/**
+ * 💰 DIGITAL DOLLARS — THE TREASURY
+ * v3.1.0 | Operation OMEGA Restoration
+ * 
+ * CORE LOGIC: THE 60/40 SPLIT
+ * - 60% stays with the member (Digital Survival)
+ * - 40% goes to the Community Pool (Economic Stability)
+ * - The Pool redistributes to all active members based on velocity.
+ */
 
 export default function DigitalDollars() {
   const referralLinks = {
@@ -14,82 +24,98 @@ export default function DigitalDollars() {
     wealthsimple: "#kort-wealthsimple",
     eq: "#kort-eq",
     rakuten: "#kort-rakuten",
-    swagbucks: "#kort-swagbucks"
+    swagbucks: "#kort-swagbucks",
+    nielsen: "https://www.nielsen.com/digital-panel/",
+    microsoft: "https://rewards.microsoft.com"
   };
 
-  const stackSteps = [
-    { title: "KOHO", detail: "Free prepaid Mastercard. Spend $20, get $20-$40 bonus instantly.", icon: <CreditCard size={16} /> },
-    { title: "Rakuten Canada", detail: "Sign up, spend $30 on any online order, get $30 bonus.", icon: <ShoppingCart size={16} /> },
-    { title: "Swagbucks", detail: "Surveys + shopping. KoRT earns a 10% lifetime match on your activity.", icon: <Smartphone size={16} /> },
-    { title: "Nielsen", detail: "Background passive earning (~$50/yr). Install and forget.", icon: <Globe size={16} /> },
-    { title: "Microsoft Rewards", detail: "Search via Bing. Zero effort, redeem for gift cards.", icon: <Zap size={16} /> }
+  const quickStackSteps = [
+    { 
+      num: 1, 
+      name: "KOHO — Free prepaid Mastercard", 
+      detail: "Sign up, make one $20 purchase, get $20-$40 bonus instantly. Takes 10 minutes.", 
+      icon: <CreditCard className="text-amber-500" /> 
+    },
+    { 
+      num: 2, 
+      name: "Rakuten Canada — Cashback on everything", 
+      detail: "Sign up, make any $30 purchase you'd make anyway, get $30 bonus. Use for your next online order.", 
+      icon: <ShoppingCart className="text-amber-500" /> 
+    },
+    { 
+      num: 3, 
+      name: "Swagbucks — Surveys + shopping cashback", 
+      detail: "Sign up, do 3-4 quick surveys, earn your first $5 within an hour. Passive 10% for KoRT forever.", 
+      icon: <Smartphone className="text-amber-500" /> 
+    },
+    { 
+      num: 4, 
+      name: "Nielsen — Background passive earning", 
+      detail: "Install and forget. Earns ~$50/year per device just for running in the background.", 
+      icon: <Globe className="text-amber-500" /> 
+    },
+    { 
+      num: 5, 
+      name: "Microsoft Rewards — Search & earn", 
+      detail: "Switch default search to Bing. Earn points on every search. Redeem for gift cards. Zero effort.", 
+      icon: <Zap className="text-amber-500" /> 
+    }
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-20 min-h-screen animate-fade-in flex flex-col gap-16 font-sans">
+    <div className="w-full max-w-7xl mx-auto px-6 py-20 min-h-screen animate-fade-in flex flex-col gap-16 font-sans bg-[#08080f] text-[#e8e8e8]">
        
-       {/* Economic Header */}
-       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 border-b border-white/10 pb-12">
-          <div>
-             <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-500 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
-                <CircleDollarSign size={12} /> THE TREASURY // v2.1.0
-             </div>
-             <h1 className="serif text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-none">DIGITAL <span className="text-amber-500 underline decoration-amber-500/20 underline-offset-8">DOLLARS</span></h1>
-             <p className="text-stone-400 text-xl font-light mt-6 max-w-3xl leading-relaxed">
-                Earn real money. Fund your community. Every dollar you make through our curated stack strengthens the Round Table. No one gets left behind.
-             </p>
-          </div>
-          <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-2xl flex items-center gap-6 shadow-2xl shadow-amber-500/5">
-             <HeartPulse className="text-amber-500 animate-pulse" size={40} />
-             <div>
-                <span className="block text-[10px] uppercase font-black text-stone-500 tracking-[0.3em]">Survivor Velocity</span>
-                <span className="text-2xl font-black text-white">$60,000 / ANNUM</span>
-             </div>
-          </div>
-       </div>
-
-       {/* The Recursive Split */}
-       <div className="max-w-4xl mx-auto w-full glass-vault p-10 rounded-3xl border border-amber-500/20 bg-amber-500/5 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
-          <h3 className="serif text-xs font-black text-amber-500 uppercase tracking-[0.5em] mb-8">How The Protocol Works</h3>
-          
-          <div className="flex h-16 rounded-xl overflow-hidden border border-white/10 mb-8 font-black uppercase tracking-widest text-xs">
-             <div className="w-[60%] bg-gradient-to-r from-amber-600 to-amber-400 flex items-center justify-center text-black">60% — YOU</div>
-             <div className="w-[40%] bg-[#0a2a1a] flex items-center justify-center text-amber-500/80 border-l border-white/5">40% — ROUND TABLE</div>
-          </div>
-          
-          <p className="text-stone-300 text-lg font-light leading-relaxed max-w-2xl mx-auto">
-             We earn <strong className="text-white">$10</strong>. You keep <strong className="text-amber-500">$6</strong>. The other <strong className="text-amber-500">$4</strong> goes into the Community Pool — which pays <strong className="text-white italic">you back</strong> based on everyone else's activity.
+       {/* HERO SECTION */}
+       <div className="text-center py-12 bg-gradient-to-b from-amber-500/5 to-transparent rounded-[3rem]">
+          <div className="text-6xl mb-6 filter drop-shadow-[0_0_30px_rgba(201,168,76,0.4)]">💰</div>
+          <h1 className="serif text-5xl md:text-7xl font-bold text-[#c9a84c] uppercase tracking-widest mb-4 italic">Digital Dollars</h1>
+          <p className="text-[#9090a0] text-xl max-w-2xl mx-auto italic">
+            Earn real money. Fund your community. Every dollar you make through our curated stack strengthens the Round Table.
           </p>
        </div>
 
-       {/* Quick Stack Checklist */}
-       <div className="bg-[#050510] border border-white/5 p-12 rounded-[3rem] relative overflow-hidden group">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/5 blur-[100px] rounded-full group-hover:bg-amber-500/10 transition-all duration-700"></div>
+       {/* THE SPLIT EXPLAINER */}
+       <div className="max-w-3xl mx-auto w-full bg-[#0a0a1a] border border-[#c9a84c]/20 p-10 rounded-3xl text-center shadow-2xl shadow-amber-500/5">
+          <h3 className="serif text-lg font-bold text-[#c9a84c] uppercase tracking-[0.3em] mb-8">How The Protocol Works</h3>
+          
+          <div className="flex h-12 rounded-xl overflow-hidden border border-white/10 mb-8 font-bold uppercase tracking-widest text-[10px]">
+             <div className="w-[60%] bg-gradient-to-r from-[#c9a84c] to-[#e8d5a3] flex items-center justify-center text-[#08080f]">60% — YOU</div>
+             <div className="w-[40%] bg-[#1a3a2a] flex items-center justify-center text-[#c9a84c] border-l border-white/5 uppercase">40% — COMMUNITY POOL</div>
+          </div>
+          
+          <p className="text-[#9090a0] text-lg leading-relaxed">
+            We earn <strong className="text-white">$10</strong>. You keep <strong className="text-[#c9a84c]">$6</strong>. The other <strong className="text-[#c9a84c]">$4</strong> goes into the <strong className="text-white">Community Pool</strong> — which pays <strong className="text-white italic">you back</strong> based on everyone else's activity.
+          </p>
+       </div>
+
+       {/* QUICK STACK SECTION */}
+       <div className="bg-gradient-to-br from-[#c9a84c]/10 to-[#0a0a1a] border border-[#c9a84c]/20 p-12 rounded-[2rem] relative overflow-hidden group">
           <div className="relative z-10 flex flex-col md:flex-row gap-16">
              <div className="md:w-1/3">
-                <h3 className="serif text-2xl font-black text-white uppercase tracking-tighter mb-4 italic flex items-center gap-3">
-                   <TrendingUp className="text-green-500" /> The Quick Stack
+                <h3 className="serif text-2xl font-bold text-[#c9a84c] uppercase tracking-tighter mb-4 italic flex items-center gap-3">
+                   <Zap className="text-amber-500 animate-pulse" /> The Quick Stack
                 </h3>
-                <p className="text-stone-500 text-sm leading-relaxed mb-8">
-                   Follow this exact sequence. Most members hit <span className="text-white">$50 in referral bonuses</span> within 48 hours. Zero risk, pure velocity.
+                <p className="text-[#9090a0] text-sm leading-relaxed mb-8 italic">
+                   Follow this exact sequence. Most members hit <span className="text-white">$50+ in referral bonuses</span> within 48 hours. No monthly fees, real survival money.
                 </p>
-                <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                   <h4 className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-4">Compound Logic</h4>
-                   <p className="text-[11px] text-stone-400 leading-relaxed italic">"When 50 members do the Quick Stack, $1,000 enters the pool. That's how we fund Peer Advocacy and the Defense Mesh."</p>
+                
+                <div className="bg-[#1a3a2a]/30 border border-[#4da868]/20 p-6 rounded-2xl">
+                   <h4 className="text-[10px] font-bold text-[#4da868] uppercase tracking-widest mb-3 flex items-center gap-2">
+                     <PieChart size={12} /> How Compound Earning Works
+                   </h4>
+                   <p className="text-[11px] text-[#9090a0] leading-relaxed italic">
+                     "When 50 members do the Quick Stack, <span className="text-white font-bold">$1,000 enters the pool</span>. That's how we fund Peer Advocacy and the Mobile Node Mesh. Stability through scale."
+                   </p>
                 </div>
              </div>
              
-             <div className="md:w-2/3 space-y-2">
-                {stackSteps.map((step, i) => (
-                   <div key={i} className="flex items-center gap-6 p-5 hover:bg-white/5 rounded-2xl transition-all border border-transparent hover:border-white/5 bg-[#0a0a0f]">
-                      <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-black font-black text-sm shrink-0 shadow-xl shadow-amber-500/20">{i+1}</div>
+             <div className="md:w-2/3 space-y-3">
+                {quickStackSteps.map((step) => (
+                   <div key={step.num} className="flex items-center gap-6 p-6 hover:bg-white/5 rounded-2xl transition-all border border-white/5 bg-[#08080f]/50">
+                      <div className="w-10 h-10 rounded-full bg-[#c9a84c] flex items-center justify-center text-[#08080f] font-bold text-sm shrink-0">{step.num}</div>
                       <div className="flex-grow">
-                         <div className="flex items-center gap-3 mb-1">
-                            <span className="text-white font-black uppercase tracking-widest text-xs">{step.title}</span>
-                            <div className="h-px bg-white/10 flex-grow"></div>
-                         </div>
-                         <p className="text-stone-400 text-[11px] font-light uppercase tracking-wider">{step.detail}</p>
+                         <div className="text-white font-bold uppercase tracking-widest text-xs mb-1">{step.name}</div>
+                         <p className="text-[#9090a0] text-xs leading-relaxed italic">{step.detail}</p>
                       </div>
                       <ArrowRight className="text-stone-700" size={16} />
                    </div>
@@ -98,177 +124,103 @@ export default function DigitalDollars() {
           </div>
        </div>
 
-       {/* Referral Matrix */}
+       {/* BANK REFERRAL MATRIX */}
        <div>
           <div className="flex items-baseline gap-4 mb-10 border-b border-white/10 pb-6">
-             <h2 className="serif text-3xl font-black text-white uppercase tracking-tighter">BANK <span className="text-amber-500">REFERRAL</span> MATRIX</h2>
-             <span className="text-[10px] font-bold text-stone-600 uppercase tracking-[0.4em]">Region: Canada // Tier 1 Payouts</span>
+             <h2 className="serif text-3xl font-bold text-white uppercase tracking-tighter">BANK <span className="text-[#c9a84c]">REFERRAL</span> STACK</h2>
+             <span className="text-[10px] font-bold text-[#9090a0] uppercase tracking-[0.4em]">Region: Canada // High-Velocity Payouts</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
              {/* KOHO Card */}
-             <div className="glass-vault p-8 rounded-3xl border border-white/5 bg-[#08080f] hover:-translate-y-2 transition-all relative overflow-hidden group">
+             <div className="bg-[#0a0a1a] p-8 rounded-3xl border border-white/5 hover:border-[#c9a84c]/30 transition-all group">
                 <div className="flex justify-between items-start mb-6">
-                   <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all">
+                   <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-[#c9a84c] group-hover:bg-[#c9a84c] group-hover:text-[#08080f] transition-all">
                       <Landmark size={28} />
                    </div>
-                   <span className="text-[10px] font-mono text-green-500 uppercase tracking-widest bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">$20 - $40 BONUS</span>
-                </div>
-                <h3 className="serif text-xl font-black text-white uppercase tracking-widest mb-2">KOHO</h3>
-                <p className="text-stone-500 text-xs leading-relaxed mb-8 flex-grow">Free prepaid Mastercard + credit building. Sign up and spend $20 to unlock your bonus.</p>
-                <div className="space-y-3 mb-8">
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> No Monthly Fees
-                   </div>
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> Credit Building Available
+                   <div className="text-right">
+                      <span className="block text-[10px] text-[#4da868] font-bold uppercase tracking-widest bg-[#4da868]/10 px-3 py-1 rounded-full border border-[#4da868]/20">$20-$40 BONUS</span>
                    </div>
                 </div>
-                <a href={referralLinks.koho} id="cta-koho" className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] rounded-xl hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-all">Connect via KoRT →</a>
+                <h3 className="serif text-xl font-bold text-white uppercase tracking-widest mb-2">KOHO</h3>
+                <p className="text-[#9090a0] text-sm leading-relaxed mb-8 italic">Free prepaid Mastercard + credit building. Sign up, spend $20, and unlock your survival bonus instantly.</p>
+                <a href={referralLinks.koho} className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-[9px] rounded-xl hover:bg-[#c9a84c] hover:text-[#08080f] transition-all">Sign Up via KoRT →</a>
              </div>
 
              {/* Tangerine Card */}
-             <div className="glass-vault p-8 rounded-3xl border border-white/5 bg-[#08080f] hover:-translate-y-2 transition-all relative overflow-hidden group">
+             <div className="bg-[#0a0a1a] p-8 rounded-3xl border border-white/5 hover:border-[#c9a84c]/30 transition-all group">
                 <div className="flex justify-between items-start mb-6">
-                   <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all">
+                   <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-[#c9a84c] group-hover:bg-[#c9a84c] group-hover:text-[#08080f] transition-all">
                       <Landmark size={28} />
                    </div>
-                   <span className="text-[10px] font-mono text-green-500 uppercase tracking-widest bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">$50 BONUS</span>
-                </div>
-                <h3 className="serif text-xl font-black text-white uppercase tracking-widest mb-2">Tangerine</h3>
-                <p className="text-stone-500 text-xs leading-relaxed mb-8 flex-grow">Scotiabank's no-fee online arm. High-interest rates and robust mobile banking.</p>
-                <div className="space-y-3 mb-8">
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> Scotiabank ATM Access
-                   </div>
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> Unlimited Transactions
+                   <div className="text-right">
+                      <span className="block text-[10px] text-[#4da868] font-bold uppercase tracking-widest bg-[#4da868]/10 px-3 py-1 rounded-full border border-[#4da868]/20">$50-$100 BONUS</span>
                    </div>
                 </div>
-                <a href={referralLinks.tangerine} id="cta-tangerine" className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] rounded-xl hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-all">Connect via KoRT →</a>
+                <h3 className="serif text-xl font-bold text-white uppercase tracking-widest mb-2">Tangerine</h3>
+                <p className="text-[#9090a0] text-sm leading-relaxed mb-8 italic">No-fee online banking by Scotiabank. Setting up a direct deposit earns you $100 and helps KoRT scale.</p>
+                <a href={referralLinks.tangerine} className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-[9px] rounded-xl hover:bg-[#c9a84c] hover:text-[#08080f] transition-all">Sign Up via KoRT →</a>
              </div>
 
-             {/* Wealthsimple Card */}
-             <div className="glass-vault p-8 rounded-3xl border border-white/5 bg-[#08080f] hover:-translate-y-2 transition-all relative overflow-hidden group">
+             {/* Simplii Card */}
+             <div className="bg-[#0a0a1a] p-8 rounded-3xl border border-white/5 hover:border-[#c9a84c]/30 transition-all group">
                 <div className="flex justify-between items-start mb-6">
-                   <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all">
-                      <TrendingUp size={28} />
+                   <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-[#c9a84c] group-hover:bg-[#c9a84c] group-hover:text-[#08080f] transition-all">
+                      <Landmark size={28} />
                    </div>
-                   <span className="text-[10px] font-mono text-green-500 uppercase tracking-widest bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">$25 BONUS</span>
-                </div>
-                <h3 className="serif text-xl font-black text-white uppercase tracking-widest mb-2">Wealthsimple</h3>
-                <p className="text-stone-500 text-xs leading-relaxed mb-8 flex-grow">The gold standard for Canadian investing. Commissions-free and crystal clear interface.</p>
-                <div className="space-y-3 mb-8">
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> Auto-Invest Logic
-                   </div>
-                   <div className="flex items-center gap-2 text-[10px] text-stone-300 font-bold uppercase tracking-widest">
-                      <CheckCircle2 size={12} className="text-amber-500" /> Crypto & Cash Card
+                   <div className="text-right">
+                      <span className="block text-[10px] text-[#4da868] font-bold uppercase tracking-widest bg-[#4da868]/10 px-3 py-1 rounded-full border border-[#4da868]/20">$50 BONUS</span>
                    </div>
                 </div>
-                <a href={referralLinks.wealthsimple} id="cta-wealthsimple" className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] rounded-xl hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-all">Connect via KoRT →</a>
+                <h3 className="serif text-xl font-bold text-white uppercase tracking-widest mb-2">Simplii Financial</h3>
+                <p className="text-[#9090a0] text-sm leading-relaxed mb-8 italic">CIBC backed no-fee banking. Use any CIBC ATM for free. Solid everyday banking for Sovereign members.</p>
+                <a href={referralLinks.simplii} className="block w-full py-4 text-center bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-[9px] rounded-xl hover:bg-[#c9a84c] hover:text-[#08080f] transition-all">Sign Up via KoRT →</a>
              </div>
           </div>
        </div>
 
-        {/* Games Matrix */}
-        <div>
-           <div className="flex items-baseline gap-4 mb-10 border-b border-white/10 pb-6">
-              <h2 className="serif text-3xl font-black text-white uppercase tracking-tighter">THE <span className="text-amber-500">GAMES</span> MATRIX</h2>
-              <span className="text-[10px] font-bold text-stone-600 uppercase tracking-[0.4em]">Play. Earn. Fund.</span>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { name: "Knight's Challenge", reward: "1-5 RTD", type: "KoRT Original", icon: "⚔️" },
-                { name: "Round Table Trivia", reward: "1-3 RTD", type: "KoRT Original", icon: "🏰" },
-                { name: "Dragon's Hoard", reward: "2-8 RTD", type: "KoRT Original", icon: "🐉" },
-                { name: "Excalibur's Trial", reward: "1-4 RTD", type: "KoRT Original", icon: "🗡️" }
-              ].map((game, i) => (
-                <div key={i} className="bg-black/40 border border-white/5 p-6 rounded-2xl hover:border-amber-500/20 transition-all flex flex-col gap-4">
-                  <div className="text-3xl">{game.icon}</div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm uppercase tracking-widest">{game.name}</h4>
-                    <p className="text-[10px] text-stone-500 font-mono mt-1">{game.type}</p>
-                  </div>
-                  <div className="mt-auto px-3 py-1 bg-amber-500/10 text-amber-500 text-[9px] font-bold rounded border border-amber-500/20 text-center uppercase tracking-widest">
-                    REWARD: {game.reward}
-                  </div>
-                </div>
-              ))}
-           </div>
-
-           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { name: "Mistplay", detail: "Real cash for mobile gaming", icon: "🎮" },
-                { name: "Swagbucks Games", detail: "Casual games for SB points", icon: "🎯" },
-                { name: "Tango Live", detail: "Streaming & bonus coins", icon: "🎵" }
-              ].map((game, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 bg-green-500/5 border border-green-500/10 rounded-xl">
-                  <span className="text-xl">{game.icon}</span>
-                  <div>
-                    <h5 className="text-white text-xs font-bold uppercase tracking-widest">{game.name}</h5>
-                    <p className="text-[10px] text-stone-500">{game.detail}</p>
-                  </div>
-                </div>
-              ))}
-           </div>
-        </div>
-
-        {/* Mobile App Download */}
-        <div className="bg-gradient-to-r from-[#0a1a0f] to-[#050510] border-l-4 border-green-500 p-12 rounded-[2rem] flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
-           <div className="absolute top-0 right-0 p-8 opacity-5">
-              <Smartphone size={200} />
-           </div>
-           <div className="md:w-1/2 relative z-10">
-              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-black mb-6">
-                 <Smartphone size={24} />
-              </div>
-              <h2 className="serif text-4xl font-black text-white uppercase tracking-tighter mb-4 italic">Sovereign <span className="text-green-500">XP10 Mobile</span></h2>
-              <p className="text-stone-300 text-sm leading-relaxed mb-8">
-                 Access the full Sovereign OS experience, including the Crisis Mesh and the complete Games Matrix, directly on your Android device. Dedicated hardware support for XP10 and ZBook environments.
-              </p>
-              <div className="p-4 bg-black/40 border border-white/5 rounded-xl font-mono text-[10px] text-stone-500 mb-8">
-                 STATUS: STABLE v1.2 // RECURSIVE DELIVERY ACTIVE
-              </div>
-           </div>
-           <div className="md:w-1/2 w-full space-y-4 relative z-10">
-              <div className="bg-[#050510] border border-white/10 p-6 rounded-2xl">
-                 <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4">Installation Guide</h4>
-                 <ul className="space-y-3 text-[11px] text-stone-400">
-                    <li className="flex items-center gap-2">
-                       <span className="text-green-500">01.</span> Push <code className="text-white">3_FLUTTER_APP</code> to GitHub
-                    </li>
-                    <li className="flex items-center gap-2">
-                       <span className="text-green-500">02.</span> Nav to <code className="text-white">Actions</code> → <code className="text-white">Artifacts</code>
-                    </li>
-                    <li className="flex items-center gap-2">
-                       <span className="text-green-500">03.</span> Download <span className="text-white font-bold italic">kort-digital-dollars-debug.apk</span>
-                    </li>
-                    <li className="flex items-center gap-2 underline underline-offset-4 decoration-green-500/20">
-                       <span className="text-green-500">04.</span> Open APK on Android to Install
-                    </li>
-                 </ul>
-              </div>
-              <button className="w-full py-5 bg-green-500 text-black font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-green-400 transition-all shadow-xl shadow-green-500/20">
-                 Access Build Artifacts
-              </button>
-           </div>
-        </div>
-
-       {/* FAQ / Mesh Info */}
-       <div className="bg-[#0a0a1a] border border-amber-500/20 p-10 rounded-3xl flex flex-col md:flex-row items-center gap-10 shadow-2xl shadow-blue-500/5">
-          <div className="p-6 bg-blue-500/10 border border-blue-500/20 rounded-2xl shrink-0">
-             <Info className="text-blue-500" size={32} />
+       {/* THE ROADMAP */}
+       <div className="bg-[#050510] border border-white/5 p-12 rounded-[3rem] relative overflow-hidden">
+          <div className="flex items-center gap-4 mb-10 border-b border-white/10 pb-6">
+             <h2 className="serif text-3xl font-bold text-white uppercase tracking-tighter italic">Sovereign <span className="text-amber-500">Survival</span> Roadmap</h2>
+             <span className="text-[10px] font-bold text-[#9090a0] uppercase tracking-[0.4em]">Outcome: $5,000 / month Freedom Protocol</span>
           </div>
-          <div className="text-center md:text-left">
-             <h4 className="serif text-xl font-black text-white mb-2 uppercase tracking-widest italic">The Sovereign Contribution</h4>
-             <p className="text-sm text-stone-400 leading-relaxed font-light">
-                Why 40% to the Mesh? Autonomy isn't solitary. Your contribution funds the developer nodes building the <span className="text-white font-bold italic">Herald</span>, the <span className="text-white font-bold italic">Watch</span>, and the <span className="text-white font-bold italic">Merlin Intelligence</span> layers. We don't take a cut—you fund your brothers in the Round Table.
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+             <div className="space-y-4">
+                <div className="serif text-lg font-bold text-white uppercase tracking-widest border-b border-white/10 pb-2">TIER 1: SURVIVAL</div>
+                <div className="text-4xl font-bold text-[#c9a84c]">$500 / MO</div>
+                <p className="text-[#9090a0] text-sm italic">The "Quick Stack" outcome. Initial 5-10 apps (KOHO, Nielsen, Swagbucks) to cover data, transit, and basics.</p>
+             </div>
+             <div className="space-y-4">
+                <div className="serif text-lg font-bold text-white uppercase tracking-widest border-b border-white/10 pb-2">TIER 2: STABILITY</div>
+                <div className="text-4xl font-bold text-[#c9a84c]">$1,500 / MO</div>
+                <p className="text-[#9090a0] text-sm italic">Bank Referral looping + Community Pool dividends. Requires active participation of 50+ members.</p>
+             </div>
+             <div className="space-y-4 opacity-50">
+                <div className="serif text-lg font-bold text-white uppercase tracking-widest border-b border-white/10 pb-2">TIER 3: SOVEREIGNTY</div>
+                <div className="text-4xl font-bold text-[#c9a84c]">$5,000 / MO</div>
+                <p className="text-[#9090a0] text-sm italic">Unified Mesh rewards + Affiliate Revenue Engine. Automated by the Agent Council (Bedivere/Merlin).</p>
+             </div>
+          </div>
+       </div>
+
+       {/* THE FINE PRINT */}
+       <div className="bg-[#0a0a1a] border border-[#c9a84c]/20 p-10 rounded-3xl flex flex-col md:flex-row items-center gap-10">
+          <div className="p-6 bg-amber-500/10 border border-amber-500/20 rounded-2xl shrink-0">
+             <Shield className="text-[#c9a84c]" size={32} />
+          </div>
+          <div>
+             <h4 className="serif text-xl font-bold text-white mb-2 uppercase tracking-widest italic tracking-tighter">The Sovereign Contribution</h4>
+             <p className="text-sm text-[#9090a0] leading-relaxed italic">
+                Why 40% to the Pool? Autonomy isn't solitary. Your contribution funds the developer nodes building the <span className="text-white font-bold italic">Herald</span>, the <span className="text-white font-bold italic">Mesh</span>, and our custom AI nodes. We don't take a cut — you fund your brothers. No one gets left behind.
              </p>
           </div>
        </div>
 
+       <footer className="text-center text-[10px] text-stone-600 uppercase font-bold tracking-[0.5em] mt-20">
+          Knights of the Round Table — KoRTx.ca // Treasury Protocol v3.1.0
+       </footer>
     </div>
   );
 }

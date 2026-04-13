@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { BookOpen, Search, ChevronDown, ChevronUp } from 'lucide-react'
-import { Input } from '../components/ui/input'
 
 const CATEGORIES = {
   tenant:   { label: 'Tenant Rights',        emoji: '🏠', color: '#22c55e' },
@@ -58,8 +57,13 @@ export default function RightsDatabase() {
       <p className="text-sm text-[#666] mb-6">Plain language guide to your rights in British Columbia.</p>
 
       <div className="relative mb-6">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#666]">🔍</span>
-        <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search rights..." className="bg-[#0a0a1a] border-[#1a1a2e] text-white pl-10 placeholder:text-[#444]" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#666] w-5 h-5" />
+        <input 
+          value={search} 
+          onChange={(e) => setSearch(e.target.value)} 
+          placeholder="Search rights..." 
+          className="w-full h-12 rounded-xl bg-[#0a0a1a] border border-[#1a1a2e] text-white pl-10 placeholder:text-[#444] focus:outline-none focus:border-[#4a90d9]" 
+        />
       </div>
 
       <div className="flex flex-wrap gap-2 mb-6">

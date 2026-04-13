@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Shield, PenTool, CircleDollarSign, Brain, Activity, Wifi, WifiOff, ChevronRight } from 'lucide-react'
-import { merlinClient } from '../../api/merlinclient'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Shield, PenTool, CircleDollarSign, Brain, Activity, Wifi, WifiOff, ChevronRight } from 'lucide-react';
+import { merlinClient } from '../../api/merlinClient';
 
 export default function ModuleMatrix() {
   const [merlinStatus, setMerlinStatus] = useState('checking');
@@ -19,10 +19,10 @@ export default function ModuleMatrix() {
   const modules = [
     {
       id: 'herald',
-      name: 'Peer Advocacy',
+      name: 'The Herald',
       desc: 'Advocacy & Legal Defense',
       icon: <Shield className="text-blue-500" />,
-      path: '/advocacy',
+      path: '/herald',
       status: 'Ready',
       metrics: '0 Open Cases'
     },

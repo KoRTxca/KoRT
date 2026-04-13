@@ -9,22 +9,35 @@ import {
 // --- 1. CORE SYSTEM ---
 import './index.css'
 
-// --- 2. MODULE MATRIX (EXPLICIT PATHS) ---
-const Dashboard = React.lazy(() => import('./views/pg_dashboard.jsx'));
-const Settings = React.lazy(() => import('./views/pg_settings.jsx'));
-const SovereignLogin = React.lazy(() => import('./views/pg_sovereignlogin.jsx'));
-const CharacterCreation = React.lazy(() => import('./views/pg_charactercreation.jsx'));
-const WatchPage = React.lazy(() => import('./views/watchpage.jsx'));
-const SubmitApp = React.lazy(() => import('./views/submitapp.jsx'));
-const TheGuide = React.lazy(() => import('./views/pg_theguide.jsx'));
-const ScribeEngine = React.lazy(() => import('./views/scribeengine.jsx'));
-const RoundTable = React.lazy(() => import('./pages/roundtable.jsx'));
-const Library = React.lazy(() => import('./pages/library.jsx'));
-const DigitalDollars = React.lazy(() => import('./pages/digitaldollars.jsx'));
-const Join = React.lazy(() => import('./pages/join.jsx'));
-const SovereignSandbox = React.lazy(() => import('./pages/sovereignsandbox.jsx'));
+// --- 2. MODULE MATRIX (FLATTENED) ---
+const Dashboard = React.lazy(() => import('./pages/Dashboard.jsx'));
+const Settings = React.lazy(() => import('./pages/Settings.jsx'));
+const SovereignLogin = React.lazy(() => import('./pages/SovereignLogin.jsx'));
+const CharacterCreation = React.lazy(() => import('./pages/CharacterCreation.jsx'));
+const WatchPage = React.lazy(() => import('./pages/WatchPage.jsx'));
+const SubmitApp = React.lazy(() => import('./pages/SubmitApp.jsx'));
+const TheGuide = React.lazy(() => import('./pages/TheGuide.jsx'));
+const ScribeEngine = React.lazy(() => import('./pages/ScribeEngine.jsx'));
+const RoundTable = React.lazy(() => import('./pages/RoundTable.jsx'));
+const Library = React.lazy(() => import('./pages/Library.jsx'));
+const DigitalDollars = React.lazy(() => import('./pages/DigitalDollars.jsx'));
+const Join = React.lazy(() => import('./pages/Join.jsx'));
+const SovereignSandbox = React.lazy(() => import('./pages/SovereignSandbox.jsx'));
+const PreviewGate = React.lazy(() => import('./pages/PreviewGate.jsx'));
+
+// SPECIALIZED MODULES (ADVOCACY & DEFENSE)
+const ICBCFlow = React.lazy(() => import('./pages/ICBCFlow.jsx'));
+const PWDFlow = React.lazy(() => import('./pages/PWDFlow.jsx'));
+const PWDApplication = React.lazy(() => import('./pages/PWDApplication.jsx'));
+const LetterGenerator = React.lazy(() => import('./pages/LetterGenerator.jsx'));
+const RightsDatabase = React.lazy(() => import('./pages/RightsDatabase.jsx'));
+const Advocate = React.lazy(() => import('./pages/Advocate.jsx'));
+const NewCase = React.lazy(() => import('./pages/NewCase.jsx'));
+const CaseAssistant = React.lazy(() => import('./pages/CaseAssistant.jsx'));
+const DeadlineTracker = React.lazy(() => import('./pages/DeadlineTracker.jsx'));
+const Members = React.lazy(() => import('./pages/Members.jsx'));
+const MerlinChat = React.lazy(() => import('./pages/MerlinChat.jsx'));
 const HeraldLayout = React.lazy(() => import('./components/advocacy/advocacylayout.jsx')); 
-const PreviewGate = React.lazy(() => import('./views/previewgate.jsx'));
 
 // --- 3. LAYOUT COMPONENTS ---
 
@@ -133,9 +146,21 @@ function SovereignApp() {
             <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
             <Route path="/roundtable" element={<ProtectedRoute><RoundTable /></ProtectedRoute>} />
             <Route path="/digital-dollars" element={<ProtectedRoute><DigitalDollars /></ProtectedRoute>} />
-            <Route path="/advocacy/*" element={<ProtectedRoute><HeraldLayout /></ProtectedRoute>} />
             <Route path="/sandbox" element={<ProtectedRoute><SovereignSandbox /></ProtectedRoute>} />
             <Route path="/join" element={<Join />} />
+            
+            {/* TACTICAL DEFENSE (ADVOCACY) ROUTES */}
+            <Route path="/advocacy" element={<ProtectedRoute><Advocate /></ProtectedRoute>} />
+            <Route path="/advocacy/icbc" element={<ProtectedRoute><ICBCFlow /></ProtectedRoute>} />
+            <Route path="/advocacy/pwd" element={<ProtectedRoute><PWDFlow /></ProtectedRoute>} />
+            <Route path="/advocacy/pwd-app" element={<ProtectedRoute><PWDApplication /></ProtectedRoute>} />
+            <Route path="/advocacy/letters" element={<ProtectedRoute><LetterGenerator /></ProtectedRoute>} />
+            <Route path="/advocacy/rights" element={<ProtectedRoute><RightsDatabase /></ProtectedRoute>} />
+            <Route path="/advocacy/new-case" element={<ProtectedRoute><NewCase /></ProtectedRoute>} />
+            <Route path="/advocacy/case-manager" element={<ProtectedRoute><CaseAssistant /></ProtectedRoute>} />
+            <Route path="/advocacy/deadlines" element={<ProtectedRoute><DeadlineTracker /></ProtectedRoute>} />
+            <Route path="/advocacy/members" element={<ProtectedRoute><Members /></ProtectedRoute>} />
+            <Route path="/merlin-chat" element={<ProtectedRoute><MerlinChat /></ProtectedRoute>} />
           </Routes>
         </Suspense>
       </main>
