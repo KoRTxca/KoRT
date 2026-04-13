@@ -71,12 +71,18 @@ function Navigation() {
 
   return (
     <>
-      <div className="w-full h-32 md:h-48 bg-[url('/banner.png')] bg-cover bg-center bg-[#050505] relative flex flex-col justify-center items-center text-center border-b border-[#222]">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] to-transparent"></div>
-        <div className="absolute inset-0 bg-black/40"></div>
+      <div className="w-full h-32 md:h-56 bg-[url('/sovereign_dragon.png')] bg-cover bg-center bg-[#050505] relative flex flex-col justify-center items-center text-center border-b border-amber-500/30 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08080f] via-transparent to-black/60"></div>
+        <div className="absolute inset-0 bg-red-900/5 mix-blend-overlay animate-pulse"></div>
         <div className="relative z-10 px-6">
-          <h2 className="serif text-2xl md:text-5xl font-bold text-white uppercase tracking-tighter shadow-black">KNIGHTS OF <span className="text-amber-500">THE ROUND TABLE</span></h2>
-          <p className="text-stone-300 text-xs md:text-sm uppercase tracking-widest mt-2 font-mono">KoRTx.ca // No one gets left behind.</p>
+          <h2 className="serif text-3xl md:text-6xl font-black text-white uppercase tracking-tighter drop-shadow-[0_0_20px_rgba(0,0,0,0.8)] italic">
+            Knights of <span className="text-amber-500 not-italic">the Round Table</span>
+          </h2>
+          <div className="flex items-center justify-center gap-4 mt-2">
+             <div className="h-[1px] w-12 bg-amber-500/50"></div>
+             <p className="text-amber-500 text-[10px] md:text-xs uppercase tracking-[0.5em] font-black italic">KoRTx.ca // Sector Alpha Active</p>
+             <div className="h-[1px] w-12 bg-amber-500/50"></div>
+          </div>
         </div>
       </div>
       <nav className="w-full bg-[#08080f] border-b border-amber-500/20 py-4 px-6 flex justify-between items-center z-50 sticky top-0">
