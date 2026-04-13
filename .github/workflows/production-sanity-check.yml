@@ -18,6 +18,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Sanity Check
-        run: node scripts/verify-production.js
+        run: node scripts/verify-production.cjs
         env:
           PRODUCTION_URL: 'https://kortx.ca'
