@@ -26,47 +26,75 @@ export default function Dashboard() {
       {/* 🐲 SOVEREIGN COMMAND HERO - THE DRAGON'S ASCENT */}
       <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden">
         {/* Cinematic Dragon Backdrop */}
-        <div className="absolute inset-0 bg-[url('/sovereign_dragon.png')] bg-cover bg-center opacity-60 scale-105 animate-[pulse_8s_ease-in-out_infinite]"></div>
+        <div className="absolute inset-0 bg-[url('/sovereign_dragon.png')] bg-cover bg-center opacity-70 scale-105 animate-[pulse_10s_ease-in-out_infinite]"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-[#08080f]"></div>
-        <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
         
-        {/* Breathing Fire Glow Overlay */}
-        <div className="absolute inset-0 bg-red-900/10 mix-blend-overlay animate-pulse pointer-events-none"></div>
+        {/* Breathing Fire / Ember Overlay */}
+        <div className="absolute inset-0 bg-orange-900/10 mix-blend-color-dodge animate-[pulse_4s_ease-in-out_infinite] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-red-900/5 mix-blend-overlay animate-[flicker_0.15s_infinite] pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col items-center">
-          <div className="inline-block px-6 py-2 rounded-full border-2 border-amber-500/50 bg-black/60 backdrop-blur-md text-amber-500 text-xs font-black uppercase tracking-[0.4em] mb-12 shadow-[0_0_40px_rgba(201,168,76,0.3)]">
-            <Flame className="inline-block w-4 h-4 mr-2 -mt-1" /> Sector Alpha // Dragon Protocol Engaged
+          <div className="inline-block px-8 py-3 rounded-full border-2 border-amber-500/50 bg-black/80 backdrop-blur-md text-amber-500 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-12 shadow-[0_0_50px_rgba(201,168,76,0.4)] animate-bounce">
+            <Flame className="inline-block w-4 h-4 mr-2 -mt-1 text-red-500" /> Sector Alpha // Dragon Protocol Engaged
           </div>
           
-          <h1 className="serif text-7xl md:text-[10rem] font-black mb-8 leading-none tracking-tighter text-white drop-shadow-[5px_5px_0_rgba(201,168,76,0.5)] uppercase italic">
+          <h1 className="serif text-6xl md:text-[11rem] font-black mb-8 leading-none tracking-tighter text-white drop-shadow-[10px_10px_0_rgba(201,168,76,0.3)] uppercase italic">
             Knights of <br/> <span className="text-amber-500 not-italic">the Round Table</span>
           </h1>
           
-          <p className="max-w-4xl text-stone-200 text-xl md:text-2xl font-light mb-16 leading-relaxed bg-black/60 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
-            <span className="text-amber-500 font-bold uppercase tracking-widest text-sm mb-4 block">35 Years of Sovereign Architecture</span>
-            Forged in the Tornado of 3s. A self-hosted citadel of logic, empathy, and technological independence. <br/>
-            <span className="text-red-500 font-black uppercase tracking-[0.3em] text-xs mt-6 block animate-pulse">No one gets left behind.</span>
+          <p className="max-w-4xl text-stone-100 text-xl md:text-3xl font-light mb-16 leading-relaxed bg-black/80 backdrop-blur-2xl p-10 rounded-3xl border border-white/20 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
+            <span className="text-amber-500 font-black uppercase tracking-[0.4em] text-xs mb-6 block italic">35 Years of Sovereign Evolution</span>
+            Merging human advocacy with autonomous machine intelligence. <br/>
+            <span className="text-red-500 font-black uppercase tracking-[0.3em] text-[10px] mt-8 block animate-pulse">Forged in the Tornado of 3s. No one gets left behind.</span>
           </p>
           
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-10">
             <Link 
               to="/create" 
-              className="group relative px-12 py-6 bg-red-700 hover:bg-red-600 text-white rounded shadow-[0_0_50px_rgba(220,38,38,0.4)] transition-all hover:scale-105 overflow-hidden"
+              className="group relative px-16 py-8 bg-red-700 hover:bg-red-600 text-white rounded-xl shadow-[0_0_60px_rgba(220,38,38,0.5)] transition-all hover:scale-105 overflow-hidden"
             >
-              <div className="relative z-10 flex items-center gap-3 font-black uppercase tracking-[0.2em] text-lg">
-                <Sword size={24} /> Claim a Chair
+              <div className="relative z-10 flex items-center gap-4 font-black uppercase tracking-[0.3em] text-xl">
+                <Sword size={28} className="animate-spin-slow" /> Claim a Chair
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             </Link>
             
             <Link 
               to="/library" 
-              className="group px-12 py-6 border-2 border-amber-500 text-amber-500 bg-black/40 backdrop-blur-md rounded font-black hover:bg-amber-500 hover:text-black transition-all uppercase tracking-[0.2em] text-lg flex items-center gap-3"
+              className="group px-16 py-8 border-2 border-amber-500 text-amber-500 bg-black/60 backdrop-blur-lg rounded-xl font-black hover:bg-amber-500 hover:text-black transition-all uppercase tracking-[0.3em] text-xl flex items-center gap-4 shadow-2xl"
             >
-              <Database size={24} /> Research Data
+              <Database size={28} /> Research Data
             </Link>
           </div>
         </div>
+
+        {/* CSS Animation Overrides for Fire Breathing */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes flicker {
+            0% { opacity: 0.8; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.85; }
+            20% { opacity: 0.95; }
+            25% { opacity: 0.8; }
+            30% { opacity: 0.9; }
+            35% { opacity: 0.85; }
+            40% { opacity: 0.95; }
+            45% { opacity: 0.8; }
+            50% { opacity: 0.9; }
+            55% { opacity: 0.85; }
+            60% { opacity: 0.95; }
+            65% { opacity: 0.8; }
+            70% { opacity: 0.9; }
+            75% { opacity: 0.85; }
+            80% { opacity: 0.95; }
+            85% { opacity: 0.8; }
+            90% { opacity: 0.9; }
+            95% { opacity: 0.85; }
+            100% { opacity: 0.95; }
+          }
+          .animate-spin-slow { animation: spin 8s linear infinite; }
+        ` }} />
       </section>
 
       {/* 🛡️ CHARACTER ROSTER SECTOR */}
