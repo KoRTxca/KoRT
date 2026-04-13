@@ -9,7 +9,8 @@ const LETTER_TYPES = [
   { key: 'cease_desist', label: 'Cease & Desist',   emoji: '🛑', desc: 'Demand someone stop an action' },
   { key: 'landlord',     label: 'Landlord Notice',  emoji: '🏠', desc: 'Repairs, rent issues, disputes under BC RTA' },
   { key: 'employer',     label: 'Employer Letter',  emoji: '💼', desc: 'Workplace issues, wage disputes, accommodation' },
-  { key: 'bail_hearing', label: 'Bail / Reference', emoji: '⚖️', desc: 'Character references for bail or court hearings' },
+  { key: 'bail_hearing', label: 'Bail Hearing Application', emoji: '⚖️', desc: 'Formal application for bail' },
+  { key: 'char_ref',     label: 'Character Reference', emoji: '👤', desc: 'Supportive statement for court proceedings' },
   { key: 'legal_aid',    label: 'Legal Aid BC',    emoji: '🏢', desc: 'Application for legal assistance / coverage' },
 ];
 
@@ -32,7 +33,17 @@ export default function LetterGenerator() {
   const handleGenerate = async () => {
     setIsGenerating(true);
     
+    let templateInstructions = "";
+    if (letterType === 'bail_hearing') {
+        templateInstructions = "Specifically for a bail hearing in British Columbia. Focus on the 'Ladder Principle' (least restrictive conditions), the three grounds for detention (Primary, Secondary, Tertiary), and proposed community-based release plans including sureties.";
+    } else if (letterType === 'char_ref') {
+        templateInstructions = "Create a character reference statement for a bail hearing. Focus on the relationship to the accused, the accused's positive traits, their ties to the community, and the writer's willingness to assist with supervision if applicable.";
+    } else if (letterType === 'legal_aid') {
+        templateInstructions = "Address this to Legal Aid BC. Requesting coverage for a criminal matter. Emphasize the constitutional right to counsel (Section 10b) and the complexity of the case.";
+    }
+
     const prompt = `Generate a professional ${LETTER_TYPES.find(l => l.key === letterType)?.label} for a British Columbia, Canada resident.
+${templateInstructions}
 
 Sender: ${formData.sender_name}, ${formData.sender_address}
 Recipient: ${formData.recipient_name}, ${formData.recipient_address}
@@ -42,7 +53,7 @@ Desired outcome: ${formData.desired_outcome}
 Response deadline: ${formData.deadline_days} days
 
 Format it as a proper business letter with today's date (${format(new Date(), 'MMMM d, yyyy')}).
-Use professional but plain language. Reference relevant BC laws where applicable.
+Use professional but plain language. Reference relevant BC and Canadian laws where applicable (e.g. Criminal Code of Canada, BC Residential Tenancy Act).
 Include a clear statement that this is a peer-drafted letter from an advocacy organization (KoRT - Knights of the Round Table), not a law firm.
 End with a clear deadline for response.
 DO NOT include any AI disclaimers or notes — output ONLY the letter text.`;
