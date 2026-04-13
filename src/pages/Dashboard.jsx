@@ -60,6 +60,52 @@ export default function Dashboard() {
         </div>
       </section>
 
+      {/* MOBILE COMMAND SUITE (New APK Downloads) */}
+      <section className="py-20 px-6 bg-[#0a0a1a] border-y border-amber-500/20 w-full relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="text-left max-w-2xl">
+              <h2 className="serif text-4xl md:text-5xl font-black mb-6 text-white uppercase tracking-tighter">
+                Secure <span className="text-amber-500">Mobile Suite</span>
+              </h2>
+              <p className="text-stone-400 text-lg leading-relaxed mb-4 italic">
+                Extend your Sovereignty to any device. Our tactical mobile tools are built for off-grid resilience and encrypted data harvesting.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
+              <a 
+                href="/downloads/KoRT_Scribe_Alpha.apk" 
+                download
+                className="group flex items-center gap-4 bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-amber-500/10 hover:border-amber-500/30 transition-all shadow-xl"
+              >
+                <div className="p-4 bg-amber-500/20 rounded-xl text-amber-500 group-hover:scale-110 transition-transform">
+                  <Zap size={32} />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold uppercase tracking-widest text-sm">KoRT Scribe</h4>
+                  <p className="text-stone-500 text-[10px] uppercase font-bold tracking-widest">v1.2 Alpha // APK</p>
+                </div>
+              </a>
+
+              <a 
+                href="/downloads/KoRT_Browser_Knight_v2.4.zip" 
+                download
+                className="group flex items-center gap-4 bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-red-500/10 hover:border-red-500/30 transition-all shadow-xl"
+              >
+                <div className="p-4 bg-red-500/20 rounded-xl text-red-500 group-hover:scale-110 transition-transform">
+                  <Shield size={32} />
+                </div>
+                <div>
+                  <h4 className="text-white font-bold uppercase tracking-widest text-sm">Browser Knight</h4>
+                  <p className="text-stone-500 text-[10px] uppercase font-bold tracking-widest">v2.4 Alpha // ZIP</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SOVEREIGN MODULE MATRIX (Restored) */}
       <ModuleMatrix />
 

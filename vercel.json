@@ -1,5 +1,7 @@
 {
-  "rewrite": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
@@ -7,7 +9,7 @@
   ],
   "headers": [
     {
-      "source": "/(..*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -15,8 +17,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
