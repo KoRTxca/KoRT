@@ -9,6 +9,8 @@ const LETTER_TYPES = [
   { key: 'cease_desist', label: 'Cease & Desist',   emoji: '🛑', desc: 'Demand someone stop an action' },
   { key: 'landlord',     label: 'Landlord Notice',  emoji: '🏠', desc: 'Repairs, rent issues, disputes under BC RTA' },
   { key: 'employer',     label: 'Employer Letter',  emoji: '💼', desc: 'Workplace issues, wage disputes, accommodation' },
+  { key: 'bail_hearing', label: 'Bail / Reference', emoji: '⚖️', desc: 'Character references for bail or court hearings' },
+  { key: 'legal_aid',    label: 'Legal Aid BC',    emoji: '🏢', desc: 'Application for legal assistance / coverage' },
 ];
 
 /**
