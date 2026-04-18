@@ -12,12 +12,12 @@
     --gold-dim: rgba(201, 168, 76, 0.45);
     --dragon-blue: #0033a0;
     --silver-blade: #fafafa;
-    
+
     /* Additional Accents */
     --bg-surface: #0a0a1a;
     --danger-red: #e74c3c;
     --success-green: #2ecc71;
-    
+
     /* The Watch Crisis Variables */
     --watch-bg: #050505;
     --watch-card: #0a0a1a;
@@ -27,18 +27,18 @@
   }
 }
 
-.serif { 
-  font-family: 'Cinzel', serif; 
+.serif {
+  font-family: 'Cinzel', serif;
 }
 
-.gold-text { 
-  color: var(--gold-primary); 
+.gold-text {
+  color: var(--gold-primary);
 }
 
-.glass { 
-  background: rgba(255, 255, 255, 0.08); 
-  backdrop-filter: blur(20px); 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-vault {
@@ -92,13 +92,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #08080f;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1a1a2e;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #c9a84c;
 }

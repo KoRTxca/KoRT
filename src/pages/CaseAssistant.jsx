@@ -17,9 +17,9 @@ export default function CaseAssistant() {
 
   useEffect(() => {
     if (caseId) {
-        supabase.from('advocate_cases').select('*').eq('id', caseId).single().then(({ data }) => {
-            setCaseData(data);
-        });
+      supabase.from('advocate_cases').select('*').eq('id', caseId).single().then(({ data }) => {
+        setCaseData(data);
+      });
     }
   }, [caseId]);
 
@@ -59,7 +59,7 @@ ${caseData.next_deadline ? `Next deadline: ${caseData.next_deadline} - ${caseDat
     // Here we would normally call a Cloud Function or an integration to get the AI response
     // For now, I'll simulate or use a defined protocol in the project if available.
     // Assuming SovereignLLM logic exists or similar.
-    
+
     const prompt = `You are The Herald, a peer advocacy AI assistant for KoRT (Knights of the Round Table), a mutual aid organization in British Columbia, Canada.
 
 IMPORTANT RULES:
@@ -77,19 +77,19 @@ ${conversationHistory}
 USER'S QUESTION: ${userMessage}`;
 
     try {
-        // Fallback for now: we'll use a mocked response if the integration isn't fully set up,
-        // but in actual product we'd use the Bedivere/Merlin logic.
-        const { data, error } = await supabase.functions.invoke('herald-chat', {
-            body: { prompt }
-        });
+      // Fallback for now: we'll use a mocked response if the integration isn't fully set up,
+      // but in actual product we'd use the Bedivere/Merlin logic.
+      const { data, error } = await supabase.functions.invoke('herald-chat', {
+        body: { prompt }
+      });
 
-        if (error || !data) throw new Error("AI Offline");
+      if (error || !data) throw new Error("AI Offline");
 
-        setMessages(prev => [...prev, { role: 'assistant', content: data.text }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: data.text }]);
     } catch (e) {
-        setMessages(prev => [...prev, { role: 'assistant', content: "I apologize, my tactical logic core is currently recalibrating. Please check back in a moment or contact a senior Knight for guidance.\n\nFor complex matters, contact Legal Aid BC: legalaid.bc.ca" }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: "I apologize, my tactical logic core is currently recalibrating. Please check back in a moment or contact a senior Knight for guidance.\n\nFor complex matters, contact Legal Aid BC: legalaid.bc.ca" }]);
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   };
 

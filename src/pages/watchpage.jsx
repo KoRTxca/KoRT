@@ -49,44 +49,44 @@ export default function WatchPage() {
 
   const handleSOS = async (crisisType, description) => { const { error } = await createSOS(crisisType, description); if (error) console.error('SOS failed:', error); };
 
-  if (loading) return (<div style={styles.page}><div style={styles.loading}><div style={styles.spinner}/><p style={{color:'rgba(255,255,255,0.5)'}}>Initializing The Watch...</p></div></div>);
+  if (loading) return (<div style={styles.page}><div style={styles.loading}><div style={styles.spinner} /><p style={{ color: 'rgba(255,255,255,0.5)' }}>Initializing The Watch...</p></div></div>);
 
   // Cinematic Intro Layer
   if (introPhase === 0) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0 transition-opacity duration-1000">
-         <div className="absolute inset-0 bg-[url('/digital_storm_skyline_1775953603520.png')] bg-cover bg-center animate-pulse opacity-60"></div>
-         <div className="relative z-10 text-center">
-            <h2 className="serif text-stone-500 uppercase tracking-[0.8em] text-sm mb-4">Phase I // The Gathering</h2>
-            <div className="w-64 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto"></div>
-         </div>
+        <div className="absolute inset-0 bg-[url('/digital_storm_skyline_1775953603520.png')] bg-cover bg-center animate-pulse opacity-60"></div>
+        <div className="relative z-10 text-center">
+          <h2 className="serif text-stone-500 uppercase tracking-[0.8em] text-sm mb-4">Phase I // The Gathering</h2>
+          <div className="w-64 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto"></div>
+        </div>
       </div>
     );
   }
   if (introPhase === 1) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0">
-         <div className="absolute inset-0 bg-[url('/excalibur_circuit_board_1775953617241.png')] bg-cover bg-center opacity-80 scale-110 animate-pulse"></div>
-         <div className="relative z-10 text-center">
-            <h2 className="serif text-amber-500 uppercase tracking-[0.8em] text-sm mb-4">Phase II // The Impact</h2>
-            <div className="w-64 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-         </div>
+        <div className="absolute inset-0 bg-[url('/excalibur_circuit_board_1775953617241.png')] bg-cover bg-center opacity-80 scale-110 animate-pulse"></div>
+        <div className="relative z-10 text-center">
+          <h2 className="serif text-amber-500 uppercase tracking-[0.8em] text-sm mb-4">Phase II // The Impact</h2>
+          <div className="w-64 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+        </div>
       </div>
     );
   }
   if (introPhase === 2) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0">
-         <div className="absolute inset-0 bg-[url('/round_table_ai_nodes_1775953642535.png')] bg-cover bg-center opacity-70"></div>
-         <div className="relative z-10 text-center">
-            <h2 className="serif text-white uppercase tracking-[0.8em] text-sm mb-4">Phase III // The Seat</h2>
-            <button 
-              onClick={() => setIntroPhase(3)}
-              className="mt-8 px-12 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-black uppercase tracking-widest text-xs transition-all"
-            >
-              Enter The Watch
-            </button>
-         </div>
+        <div className="absolute inset-0 bg-[url('/round_table_ai_nodes_1775953642535.png')] bg-cover bg-center opacity-70"></div>
+        <div className="relative z-10 text-center">
+          <h2 className="serif text-white uppercase tracking-[0.8em] text-sm mb-4">Phase III // The Seat</h2>
+          <button
+            onClick={() => setIntroPhase(3)}
+            className="mt-8 px-12 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-black uppercase tracking-widest text-xs transition-all"
+          >
+            Enter The Watch
+          </button>
+        </div>
       </div>
     );
   }
@@ -94,7 +94,7 @@ export default function WatchPage() {
   if (!user) return (
     <div style={styles.page}>
       <header style={styles.header}><div style={styles.logo}><div style={styles.logoIcon}>⚔️</div><span style={styles.logoText}>The Watch</span></div></header>
-      <div style={styles.loginPrompt}><h2 style={{fontFamily:'Cinzel, serif',color:'var(--watch-gold)',marginBottom:'1rem'}}>Knights of the Round Table</h2><p style={{color:'rgba(255,255,255,0.6)',lineHeight:'1.6'}}>Peer support and mutual aid for BC communities.<br/>The 4th option when you need help.</p><button style={styles.loginButton} onClick={() => navigate('/login')} data-testid="login-redirect-button">Enter The Watch</button></div>
+      <div style={styles.loginPrompt}><h2 style={{ fontFamily: 'Cinzel, serif', color: 'var(--watch-gold)', marginBottom: '1rem' }}>Knights of the Round Table</h2><p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}>Peer support and mutual aid for BC communities.<br />The 4th option when you need help.</p><button style={styles.loginButton} onClick={() => navigate('/login')} data-testid="login-redirect-button">Enter The Watch</button></div>
     </div>
   );
 
@@ -102,11 +102,11 @@ export default function WatchPage() {
 
   return (
     <div style={styles.page} data-testid="watch-page">
-      <header style={styles.header}><div style={styles.logo}><div style={styles.logoIcon}>⚔️</div><span style={styles.logoText}>The Watch</span></div><div style={{display:'flex',alignItems:'center',gap:'1rem'}}><span style={styles.tierBadge} data-testid="user-tier-badge">{userTier.icon} {userTier.label}</span><span style={{color:'rgba(255,255,255,0.5)',fontSize:'0.85rem'}}>{userProfile?.display_name}</span></div></header>
+      <header style={styles.header}><div style={styles.logo}><div style={styles.logoIcon}>⚔️</div><span style={styles.logoText}>The Watch</span></div><div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}><span style={styles.tierBadge} data-testid="user-tier-badge">{userTier.icon} {userTier.label}</span><span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>{userProfile?.display_name}</span></div></header>
       <main style={styles.main}>
-        {isResponder && (<div style={styles.tabs}><button style={{...styles.tab,...(activeTab === 'request' ? styles.tabActive : {})}} onClick={() => setActiveTab('request')} data-testid="tab-request">Request Help</button><button style={{...styles.tab,...(activeTab === 'respond' ? styles.tabActive : {})}} onClick={() => setActiveTab('respond')} data-testid="tab-respond">Respond</button></div>)}
-        {activeTab === 'request' && (<>{activeDispatch && !isResponder ? <WatchStatus dispatch={activeDispatch} onCancel={cancelSOS} knightProfile={knightProfile}/> : <SOSButton onSOS={handleSOS} location={location} locationError={locationError} requestLocation={requestLocation} disabled={!!activeDispatch}/>}</>)}
-        {activeTab === 'respond' && isResponder && <ResponderDashboard responderActive={responderActive} onToggleActive={toggleResponderActive} availableDispatches={availableDispatches} activeDispatch={activeDispatch} onAccept={acceptDispatch} onUpdateStatus={updateDispatchStatus} userLocation={location}/>}
+        {isResponder && (<div style={styles.tabs}><button style={{ ...styles.tab, ...(activeTab === 'request' ? styles.tabActive : {}) }} onClick={() => setActiveTab('request')} data-testid="tab-request">Request Help</button><button style={{ ...styles.tab, ...(activeTab === 'respond' ? styles.tabActive : {}) }} onClick={() => setActiveTab('respond')} data-testid="tab-respond">Respond</button></div>)}
+        {activeTab === 'request' && (<>{activeDispatch && !isResponder ? <WatchStatus dispatch={activeDispatch} onCancel={cancelSOS} knightProfile={knightProfile} /> : <SOSButton onSOS={handleSOS} location={location} locationError={locationError} requestLocation={requestLocation} disabled={!!activeDispatch} />}</>)}
+        {activeTab === 'respond' && isResponder && <ResponderDashboard responderActive={responderActive} onToggleActive={toggleResponderActive} availableDispatches={availableDispatches} activeDispatch={activeDispatch} onAccept={acceptDispatch} onUpdateStatus={updateDispatchStatus} userLocation={location} />}
       </main>
     </div>
   );

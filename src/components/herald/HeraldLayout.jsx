@@ -10,12 +10,12 @@ export default function HeraldLayout() {
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
-        if (user) {
-            // Fetch extra profile info from users table if needed
-            supabase.from('users').select('*').eq('id', user.id).single().then(({ data }) => {
-                setUser({ ...user, ...data });
-            });
-        }
+      if (user) {
+        // Fetch extra profile info from users table if needed
+        supabase.from('users').select('*').eq('id', user.id).single().then(({ data }) => {
+          setUser({ ...user, ...data });
+        });
+      }
     });
   }, []);
 

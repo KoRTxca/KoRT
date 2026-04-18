@@ -13,9 +13,9 @@ export default function HeraldDashboard() {
 
   useEffect(() => {
     const fetchCases = async () => {
-        const { data, error } = await supabase.from('advocate_cases').select('*').order('created_at', { ascending: false });
-        if (!error) setCases(data);
-        setIsLoading(false);
+      const { data, error } = await supabase.from('advocate_cases').select('*').order('created_at', { ascending: false });
+      if (!error) setCases(data);
+      setIsLoading(false);
     };
     fetchCases();
   }, []);
@@ -53,19 +53,19 @@ export default function HeraldDashboard() {
 
       <div className="glass-vault p-2 rounded-2xl mb-12">
         <div className="bg-[#050505] border border-white/5 rounded-xl p-8">
-            <DashboardStats
-                openCount={openCases.length}
-                resolvedCount={resolvedCases.length}
-                daysToNext={daysToNext}
-                nextDeadlineLabel={nextDeadline?.deadline_label}
-            />
+          <DashboardStats
+            openCount={openCases.length}
+            resolvedCount={resolvedCases.length}
+            daysToNext={daysToNext}
+            nextDeadlineLabel={nextDeadline?.deadline_label}
+          />
         </div>
       </div>
 
       <div className="relative">
-         <div className="absolute top-0 left-0 w-1 h-32 bg-gradient-to-b from-[#c9a84c] to-transparent"></div>
-         <h2 className="serif text-xl font-bold text-white uppercase tracking-widest mb-8 ml-6">Active Case Files</h2>
-         <CasesList cases={cases} isLoading={isLoading} />
+        <div className="absolute top-0 left-0 w-1 h-32 bg-gradient-to-b from-[#c9a84c] to-transparent"></div>
+        <h2 className="serif text-xl font-bold text-white uppercase tracking-widest mb-8 ml-6">Active Case Files</h2>
+        <CasesList cases={cases} isLoading={isLoading} />
       </div>
     </div>
   );

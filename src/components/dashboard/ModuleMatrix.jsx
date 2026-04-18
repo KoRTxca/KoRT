@@ -5,7 +5,7 @@ import { merlinClient } from '../../api/merlinClient';
 
 export default function ModuleMatrix() {
   const [merlinStatus, setMerlinStatus] = useState('checking');
-  
+
   useEffect(() => {
     const checkMerlin = async () => {
       const isOnline = await merlinClient.checkStatus();
@@ -72,8 +72,8 @@ export default function ModuleMatrix() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {modules.map((mod) => (
-            <Link 
-              key={mod.id} 
+            <Link
+              key={mod.id}
               to={mod.path}
               className="group glass-vault p-6 rounded-2xl border border-white/5 hover:border-amber-500/50 transition-all hover:-translate-y-1 block relative overflow-hidden"
             >
@@ -82,9 +82,8 @@ export default function ModuleMatrix() {
                 <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:bg-amber-500/10 group-hover:border-amber-500/30 transition-all">
                   {mod.icon}
                 </div>
-                <div className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded border ${
-                    mod.status === 'Offline' ? 'bg-red-500/10 border-red-500/30 text-red-500' : 'bg-green-500/10 border-green-500/30 text-green-500'
-                }`}>
+                <div className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded border ${mod.status === 'Offline' ? 'bg-red-500/10 border-red-500/30 text-red-500' : 'bg-green-500/10 border-green-500/30 text-green-500'
+                  }`}>
                   {mod.status}
                 </div>
               </div>
@@ -92,7 +91,7 @@ export default function ModuleMatrix() {
               {/* Module Content */}
               <h3 className="serif text-xl font-bold text-white mb-2 uppercase group-hover:text-amber-500 transition-colors">{mod.name}</h3>
               <p className="text-stone-500 text-xs mb-6 font-light">{mod.desc}</p>
-              
+
               <div className="pt-6 border-t border-white/5 flex items-center justify-between">
                 <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest">{mod.metrics}</span>
                 <ChevronRight size={14} className="text-stone-700 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />

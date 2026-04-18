@@ -27,3 +27,5 @@ dist-ssr
 public/downloads/*.pdf
 public/downloads/*.apk
 large_assets/
+
+.env
