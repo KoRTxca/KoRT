@@ -1,0 +1,107 @@
+{
+  "protocol": "KORTX.INIT",
+  "version": "4.0",
+  "updated": "2026-04-18",
+  "description": "KoRT Sovereign Bootstrap Protocol. Fetch this file at the start of every AI session. Load all context before taking any action.",
+  "identity": {
+    "founder": "Mike Slemko",
+    "handle": "TheXception",
+    "email_primary": "kort@drt.onl",
+    "email_secondary": "mslemko@xcltd.ca",
+    "phone": "250-800-9225",
+    "location": "Cowichan Valley / Ladysmith, BC, Canada",
+    "organization": "KoRT / Knights of the Round Table",
+    "company": "Xception Contracting Ltd. (XC LTD)"
+  },
+  "project": {
+    "name": "KoRT / Knights of the Round Table",
+    "tagline": "No one gets left behind.",
+    "domains": ["kortx.ca", "drt.onl"],
+    "supabase_project_id": "skfxkjshsnvimdeirfec",
+    "github": "https://github.com/KoRTxca/KoRT",
+    "vercel_project": "kort-digital-os",
+    "make_org": 6967663,
+    "make_scenario": 4491873
+  },
+  "brand": {
+    "colors": {
+      "gold": "#c9a84c",
+      "gold_light": "#e8d5a3",
+      "dark_bg": "#08080f",
+      "navy": "#0a0a1a",
+      "text": "#e8e8e8",
+      "muted": "#9a9ab0"
+    },
+    "fonts": ["Cinzel", "Crimson Text", "JetBrains Mono"],
+    "logo": "https://assets.drt.onl/assets/brand/logos/kort_logo_transparent.png",
+    "logo_local": "/kort_logo_transparent.png",
+    "voice": "Direct. No clinical language. No corporate polish. Honest. We build in public.",
+    "aesthetic": "Dragon's Ascent — dark cinematic, glassmorphism, gold on near-black, animated"
+  },
+  "assets": {
+    "base_url": "https://assets.drt.onl/assets/",
+    "images": [
+      "images/temporal_awakening_bg.png",
+      "images/sovereign_dragon.png",
+      "images/banner.png",
+      "images/paladin.png",
+      "images/rogue.png",
+      "images/wizard.png",
+      "images/scribe.png",
+      "images/kort_logo_transparent.png"
+    ],
+    "source_local": "D:\\Sovereign_OS\\public\\"
+  },
+  "tiers": [
+    { "name": "Prospect", "monthly": 1.79, "annual": null, "type": "regular" },
+    { "name": "Page",     "monthly": 5.00, "annual": 50,   "type": "regular" },
+    { "name": "Esquire",  "monthly": 15.00,"annual": 150,  "type": "regular" },
+    { "name": "Knight",   "monthly": 50.00,"annual": 500,  "type": "regular" },
+    { "name": "Round Table","monthly": 150.00,"annual": 1500,"type": "regular" },
+    { "name": "Round Table Founding Seat","price": 500, "type": "one_time_lifetime" },
+    { "name": "Founder Chair","price": 5000,"qty_max": 5,  "type": "one_time_lifetime" }
+  ],
+  "banned_tier_names": ["Ally","Squire","Sovereign","Elite","Royal"],
+  "laws": [
+    "Does it contain everything Mike ASKED FOR?",
+    "Does it match what Mike WANTS? (brand, tone, legal safety, KoRT philosophy)",
+    "Does it account for what Mike NEEDS? (unasked dependencies, liabilities, broken links)"
+  ],
+  "prohibitions": [
+    "The 4th Option for 911 — COMPLETELY BANNED. Use: peer-led community response, OR: for when 911 is not the answer",
+    "The Herald — BANNED product name",
+    "Placeholders of any kind — zero tolerance",
+    "Wrong tier names — ONLY: Prospect / Page / Esquire / Knight / Round Table",
+    "Replacing existing assets — ADD, FORK, IMPROVE only. Never replace.",
+    "PayPal.me links — use proper PayPal SDK",
+    "Claude-generated SVG logos or crests — Grok + Canva only",
+    "Claiming something done when dependencies are unresolved"
+  ],
+  "relay": {
+    "status_url": "https://drt.onl/relay/status.json",
+    "queue_url": "https://drt.onl/relay/queue.json",
+    "protocol": "Check status before editing any shared file. POST intent before starting. POST completion when done.",
+    "bedivere_scenario": 4491873,
+    "bedivere_status": "OFFLINE — needs Make.com re-auth"
+  },
+  "tools": {
+    "Galahad": { "model": "Gemini/Antigravity", "role": "Architecture, database, large document work, Google Workspace" },
+    "Merlin": { "model": "Claude Enterprise", "role": "Lead logic, BC legal letters, schema, complex reasoning" },
+    "Gawain": { "model": "Emergent.sh", "role": "Crisis app — The Watch" },
+    "Tristan": { "model": "Base44", "role": "Logic layer, Herald components" },
+    "Percival": { "model": "Primio/Bolt.new", "role": "Fast builder, sandbox first" },
+    "Kay": { "model": "FlutterFlow AI", "role": "Mobile app — KoRT Stacks" },
+    "Bedivere": { "model": "Make.com", "role": "Relay backbone — OFFLINE" },
+    "OpenCode": { "model": "OpenCode", "role": "Model Harvester — D:\\OpenCode" }
+  },
+  "skills": {
+    "base_url": "https://drt.onl/skills/",
+    "available": ["advocate", "crisis_response", "digital_dollars", "legal_letter_bc", "icbc_navigation"]
+  },
+  "context_doc": "https://drt.onl/bootstrap/context.md",
+  "drt_roster": "https://drt.onl/bootstrap/drt_roster.json",
+  "relay_protocol": "https://drt.onl/bootstrap/relay_protocol.md",
+  "active_workspace": "D:\\Sovereign_OS",
+  "github_remote": "https://github.com/KoRTxca/KoRT.git",
+  "deploy_pipeline": "Git push to main → Vercel auto-deploys → kortx.ca"
+}

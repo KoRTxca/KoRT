@@ -24,6 +24,7 @@ const Library = React.lazy(() => import('./pages/library.jsx'));
 const DigitalDollars = React.lazy(() => import('./pages/digitaldollars.jsx'));
 const Join = React.lazy(() => import('./pages/Join.jsx'));
 const Economics = React.lazy(() => import('./pages/Economics.jsx'));
+const TavernChapter1 = React.lazy(() => import('./pages/TavernChapter1.jsx'));
 const SovereignSandbox = React.lazy(() => import('./pages/SovereignSandbox.jsx'));
 const PreviewGate = React.lazy(() => import('./pages/previewgate.jsx'));
 const TacticalSettings = React.lazy(() => import('./pages/TacticalSettings.jsx'));
@@ -272,6 +273,8 @@ function SovereignApp() {
             <Route path="/join" element={<Join />} />
             <Route path="/economics" element={<Economics />} />
             <Route path="/how-it-works" element={<Economics />} />
+            <Route path="/tavern/chapter-1" element={<TavernChapter1 />} />
+            <Route path="/tavern" element={<TavernChapter1 />} />
             <Route path="/login" element={<SovereignLogin />} />
             <Route path="/create" element={<CharacterCreation />} />
             <Route path="/guide" element={<TheGuide />} />
