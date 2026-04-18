@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useWatch, CRISIS_TYPES } from '../hooks/usewatch'
-import { SOSButton } from '../components/sosbutton'
-import { WatchStatus } from '../components/watchstatus'
-import { ResponderDashboard } from '../components/responderdashboard'
+import { SOSButton } from '../components/SOSButton'
+import { WatchStatus } from '../components/WatchStatus'
+import { ResponderDashboard } from '../components/ResponderDashboard'
 
 const watchTheme = `:root{--watch-bg:#08080f;--watch-card:#0a0a1a;--watch-gold:#c9a84c;--watch-red:#c44455;--watch-green:#3a9a6a;}`;
 const globalStyles = `${watchTheme}@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');@keyframes spin{to{transform:rotate(360deg);}}`;

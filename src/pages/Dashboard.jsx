@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Shield, Sword, Cpu, Zap, Activity, Database, HeartPulse, Flame } from 'lucide-react'
-import ModuleMatrix from '../components/dashboard/modulematrix'
+import ModuleMatrix from '../components/dashboard/ModuleMatrix'
 
 /**
  * 🐉 SOVEREIGN DASHBOARD v4.0

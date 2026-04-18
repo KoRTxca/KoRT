@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Shield, Lock, Terminal, Zap, Fingerprint, ChevronRight } from 'lucide-react';
-import { supabase } from '../api/base44Client';
+import { supabase } from '../api/base44client';
 
 export default function SovereignLogin() {
   const [email, setEmail] = useState('');

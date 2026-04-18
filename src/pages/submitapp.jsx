@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './ClaudeStyles.css';
+import './claudestyles.css';
 
 export default function SubmitApp() {
   const [submitted, setSubmitted] = useState(false);

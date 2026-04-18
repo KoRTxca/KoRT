@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { SovereignLLM } from '../lib/SovereignLLM';
-import { AnthropicLLM } from '../lib/AnthropicLLM';
-import { GrokLLM } from '../lib/GrokLLM';
+import { SovereignLLM } from '../lib/sovereignllm';
+import { AnthropicLLM } from '../lib/anthropicllm';
+import { GrokLLM } from '../lib/grokllm';
 import { Sword, Loader2, Send, Cpu, Command, Network, Shield, AlertCircle, FileText, Gavel } from 'lucide-react';
 
 /**

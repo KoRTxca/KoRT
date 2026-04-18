@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SovereignLLM } from '../lib/SovereignLLM';
+import { SovereignLLM } from '../lib/sovereignllm';
 import { Sword, Loader2, Send, Cpu, Command, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
