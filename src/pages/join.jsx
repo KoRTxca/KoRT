@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Shield, Sword, Award, Crown, ChevronDown, Flame } from 'lucide-react';
+import { Shield, Sword, Award, Crown, ChevronDown, Flame, ChevronRight } from 'lucide-react';
 
 const FaqItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
