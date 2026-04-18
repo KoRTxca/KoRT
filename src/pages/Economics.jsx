@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, Users, Shield, Zap, DollarSign, ArrowRight, CheckCircle, Repeat } from 'lucide-react';
 
-// KoRT Economics — How the Money Works
+// KoRT Economics — How the Platform Money Works
 // Route: /economics
+// KEY: 60/40 = PLATFORM REVENUE split only.
+// Individual member work pay is NEVER subject to this split — members always get 100% of what they earn for their work.
+// The 40% pool is a BONUS on top of everything else.
 // Brand: #c9a84c gold, #08080f dark, Cinzel serif
 
 const memberCountScenarios = [
@@ -99,13 +102,14 @@ export default function Economics() {
             <TrendingUp size={14} /> Sovereign Economics // How The Money Works
           </div>
           <h1 style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', fontWeight: 900, color: '#fff', textTransform: 'uppercase', letterSpacing: '2px', margin: '0 0 20px', lineHeight: 1.1, fontStyle: 'italic' }}>
-            We Give <span style={{ color: '#c9a84c' }}>40%</span> Back.<br />
+            We Give <span style={{ color: '#c9a84c' }}>40%</span> of Platform Revenue Back.<br />
             <span style={{ fontSize: '60%', fontStyle: 'normal', color: '#e8d5a3' }}>Every Month. Every Member.</span>
           </h1>
           <p style={{ maxWidth: 700, margin: '0 auto', fontSize: 18, lineHeight: 1.8, color: '#9a9ab0', fontFamily: "'Crimson Text', serif" }}>
-            KoRTx.ca keeps 60% of everything the platform earns. The other 40% goes back into
-            a shared pool — split equally among every paid member, every month.
-            You're not contributing to it. <strong style={{ color: '#c9a84c' }}>We're giving it to you for being here.</strong>
+            Everything the <strong style={{ color: '#e8e8e8' }}>platform earns</strong> — subscriptions, ads, affiliate commissions, P2P node fees — gets split 60/40.
+            KoRTx.ca keeps 60% for operations. The other 40% goes into a shared pool and is split equally among every paid member, every month.
+            <br /><br />
+            <strong style={{ color: '#c9a84c' }}>This has nothing to do with your work pay.</strong> When you do work, you get 100% of what you're owed. The pool is a separate bonus — a share of what the platform earns just by existing and growing.
           </p>
         </div>
       </div>
@@ -115,7 +119,11 @@ export default function Economics() {
 
         {/* Revenue Flow */}
         <div style={{ textAlign: 'center', marginBottom: 60 }}>
-          <h2 style={{ fontSize: 28, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: 4, marginBottom: 40 }}>The Revenue Flow</h2>
+          <h2 style={{ fontSize: 28, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: 4, marginBottom: 40 }}>Platform Revenue Flow</h2>
+          <p style={{ color: '#9a9ab0', fontSize: 13, fontFamily: 'monospace', marginBottom: 32, maxWidth: 700, margin: '0 auto 32px' }}>
+            This split applies to <strong style={{ color: '#e8e8e8' }}>platform revenue only</strong> — subscriptions, advertising, affiliate commissions, P2P node fees, digital product sales.
+            It does <strong style={{ color: '#f08080' }}>not</strong> apply to what you earn doing work. Your work pay is always 100% yours.
+          </p>
           <div style={{ display: 'flex', alignItems: 'stretch', gap: 0, maxWidth: 900, margin: '0 auto', borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
 
             {/* Revenue In */}
@@ -242,9 +250,10 @@ export default function Economics() {
         {/* The Double Earn */}
         <div style={{ marginBottom: 60 }}>
           <h2 style={{ fontSize: 22, color: '#c9a84c', textTransform: 'uppercase', letterSpacing: 4, textAlign: 'center', marginBottom: 12 }}>The Double Earn</h2>
-          <p style={{ textAlign: 'center', color: '#9a9ab0', fontSize: 14, fontFamily: "'Crimson Text', serif", maxWidth: 600, margin: '0 auto 32px' }}>
-            When you do work — you get paid the full going rate. <strong style={{ color: '#e8e8e8' }}>AND</strong> you still get your pool share.
-            The pool is a residual. A shared tip jar. It doesn't come out of your pay.
+          <p style={{ textAlign: 'center', color: '#9a9ab0', fontSize: 16, fontFamily: "'Crimson Text', serif", maxWidth: 700, margin: '0 auto 32px', lineHeight: 1.8 }}>
+            Your work pay and the platform pool are <strong style={{ color: '#e8e8e8' }}>completely separate streams.</strong><br />
+            When you do work — you receive <strong style={{ color: '#4ade80' }}>100% of your agreed rate</strong>. Always. No cut taken.<br />
+            The pool share is a <em>bonus on top of that</em> — the platform's way of sharing what it earns with everyone who's part of it.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, maxWidth: 900, margin: '0 auto' }}>
