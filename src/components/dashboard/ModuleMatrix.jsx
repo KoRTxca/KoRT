@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, PenTool, CircleDollarSign, Brain, Activity, Wifi, WifiOff, ChevronRight } from 'lucide-react';
-import { merlinclient } from '../../api/merlinclient';
+import { merlinClient } from '../../api/merlinclient';
 
 export default function ModuleMatrix() {
   const [merlinStatus, setMerlinStatus] = useState('checking');

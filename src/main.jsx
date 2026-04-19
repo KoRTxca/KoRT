@@ -26,6 +26,8 @@ const Join = React.lazy(() => import('./pages/Join.jsx'));
 const Economics = React.lazy(() => import('./pages/Economics.jsx'));
 const TavernChapter1 = React.lazy(() => import('./pages/TavernChapter1.jsx'));
 const SovereignSandbox = React.lazy(() => import('./pages/SovereignSandbox.jsx'));
+const ViralBroadcast = React.lazy(() => import('./pages/ViralBroadcast.jsx'));
+const WSOExclusive = React.lazy(() => import('./pages/WSOExclusive.jsx'));
 const PreviewGate = React.lazy(() => import('./pages/previewgate.jsx'));
 const TacticalSettings = React.lazy(() => import('./pages/TacticalSettings.jsx'));
 
@@ -271,6 +273,8 @@ function SovereignApp() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/trek" element={<LandingStarTrek />} />
             <Route path="/join" element={<Join />} />
+            <Route path="/wso-exclusive" element={<WSOExclusive />} />
+            <Route path="/viral-broadcast" element={<ViralBroadcast />} />
             <Route path="/economics" element={<Economics />} />
             <Route path="/how-it-works" element={<Economics />} />
             <Route path="/tavern/chapter-1" element={<TavernChapter1 />} />

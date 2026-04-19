@@ -1,0 +1,39 @@
+services:
+  # Inference Node (Merlin)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: merlin-ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      # Secure the API exposed to the Relay/Backend
+      - OLLAMA_HOST=0.0.0.0:11434
+
+  # Interface for testing/managing models securely
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: merlin-webui
+    restart: always
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - open_webui_data:/app/backend/data
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_data:
+  open_webui_data:

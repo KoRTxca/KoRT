@@ -1,229 +1,176 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Shield, Sword, Cpu, Zap, Activity, Database, HeartPulse, Flame } from 'lucide-react'
-import ModuleMatrix from '../components/dashboard/ModuleMatrix'
-
-/**
- * 🐉 SOVEREIGN DASHBOARD v4.0
- * OPERATION OMEGA: THE DRAGON'S ASCENT
- */
+import React, { useState, useEffect } from 'react';
+import { Shield, Sword, Cpu, Zap, Activity, Award, Share2, CheckCircle, Lock } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
-  return (
-    <div className="w-full flex flex-col bg-[#050505]">
-      
-      {/* PUBLIC GATE: Warrior Forum Banner */}
-      <div className="w-full bg-[#111] border-b border-red-500/30 text-center py-4 px-6 shadow-xl relative z-20">
-        <h3 className="text-red-500 font-bold uppercase tracking-widest text-sm md:text-base animate-pulse mb-1">
-          ⚠️ For Warrior Forum Members Only!
-        </h3>
-        <p className="text-stone-300 text-xs md:text-sm">
-          Not a WF member? <a href="https://www.warriorforum.com" target="_blank" rel="noopener" className="text-amber-500 hover:text-white underline underline-offset-4 decoration-amber-500/50 transition-colors mx-1">Join Here</a>
-          -- or <Link to="/beta" className="text-[#0033a0] hover:text-white underline underline-offset-4 decoration-[#0033a0]/50 transition-colors mx-1">sign up for the pre-release special offer list</Link> and request a beta invite.
-        </p>
-      </div>
+    const navigate = useNavigate();
+    const [userStats, setUserStats] = useState({
+        level: 1,
+        alignment: 'Rogue',
+        classTitle: 'Initiate of the Open Code',
+        digitalDollars: 0,
+        referrals: 0,
+        onboardingComplete: false
+    });
 
-      {/* 🐲 SOVEREIGN COMMAND HERO - THE DRAGON'S ASCENT */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden">
-        {/* Cinematic Dragon Backdrop */}
-        <div className="absolute inset-0 bg-[url('/sovereign_dragon.png')] bg-cover bg-center opacity-70 scale-105 animate-[pulse_10s_ease-in-out_infinite]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-[#08080f]"></div>
-        
-        {/* Breathing Fire / Ember Overlay */}
-        <div className="absolute inset-0 bg-orange-900/10 mix-blend-color-dodge animate-[pulse_4s_ease-in-out_infinite] pointer-events-none"></div>
-        <div className="absolute inset-0 bg-red-900/5 mix-blend-overlay animate-[flicker_0.15s_infinite] pointer-events-none"></div>
+    // Mock progress hooks for onboarding
+    const [tasks, setTasks] = useState({
+        createdCharacter: true,
+        connectedAccounts: false,
+        ignitedBroadcast: false,
+        startedEarning: false
+    });
 
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="inline-block px-8 py-3 rounded-full border-2 border-amber-500/50 bg-black/80 backdrop-blur-md text-amber-500 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-12 shadow-[0_0_50px_rgba(201,168,76,0.4)] animate-bounce">
-            <Flame className="inline-block w-4 h-4 mr-2 -mt-1 text-red-500" /> Sector Alpha // Dragon Protocol Engaged
-          </div>
-          
-          <h1 className="serif text-6xl md:text-[11rem] font-black mb-8 leading-none tracking-tighter text-white drop-shadow-[10px_10px_0_rgba(201,168,76,0.3)] uppercase italic">
-            Knights of <br/> <span className="text-amber-500 not-italic">the Round Table</span>
-          </h1>
-          
-          <p className="max-w-4xl text-stone-100 text-xl md:text-3xl font-light mb-16 leading-relaxed bg-black/80 backdrop-blur-2xl p-10 rounded-3xl border border-white/20 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
-            <span className="text-amber-500 font-black uppercase tracking-[0.4em] text-xs mb-6 block italic">35 Years of Sovereign Evolution</span>
-            Merging human advocacy with autonomous machine intelligence. <br/>
-            <span className="text-red-500 font-black uppercase tracking-[0.3em] text-[10px] mt-8 block animate-pulse">Forged in the Tornado of 3s. No one gets left behind.</span>
-          </p>
-          
-          <div className="flex flex-col md:flex-row gap-10">
-            <Link 
-              to="/create" 
-              className="group relative px-16 py-8 bg-red-700 hover:bg-red-600 text-white rounded-xl shadow-[0_0_60px_rgba(220,38,38,0.5)] transition-all hover:scale-105 overflow-hidden"
-            >
-              <div className="relative z-10 flex items-center gap-4 font-black uppercase tracking-[0.3em] text-xl">
-                <Sword size={28} className="animate-spin-slow" /> Claim a Chair
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            </Link>
-            
-            <Link 
-              to="/library" 
-              className="group px-16 py-8 border-2 border-amber-500 text-amber-500 bg-black/60 backdrop-blur-lg rounded-xl font-black hover:bg-amber-500 hover:text-black transition-all uppercase tracking-[0.3em] text-xl flex items-center gap-4 shadow-2xl"
-            >
-              <Database size={28} /> Research Data
-            </Link>
-          </div>
-        </div>
+    const isFullyOnboarded = Object.values(tasks).every(Boolean);
 
-        {/* CSS Animation Overrides for Fire Breathing */}
-        <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes flicker {
-            0% { opacity: 0.8; }
-            5% { opacity: 0.95; }
-            10% { opacity: 0.9; }
-            15% { opacity: 0.85; }
-            20% { opacity: 0.95; }
-            25% { opacity: 0.8; }
-            30% { opacity: 0.9; }
-            35% { opacity: 0.85; }
-            40% { opacity: 0.95; }
-            45% { opacity: 0.8; }
-            50% { opacity: 0.9; }
-            55% { opacity: 0.85; }
-            60% { opacity: 0.95; }
-            65% { opacity: 0.8; }
-            70% { opacity: 0.9; }
-            75% { opacity: 0.85; }
-            80% { opacity: 0.95; }
-            85% { opacity: 0.8; }
-            90% { opacity: 0.9; }
-            95% { opacity: 0.85; }
-            100% { opacity: 0.95; }
-          }
-          .animate-spin-slow { animation: spin 8s linear infinite; }
-        ` }} />
-      </section>
+    return (
+        <div className="w-full min-h-screen bg-[#050505] text-white p-6 md:p-12 font-sans relative overflow-x-hidden">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] pointer-events-none"></div>
 
-      {/* 🛡️ CHARACTER ROSTER SECTOR */}
-      <section className="py-24 px-6 bg-[#08080f] border-y border-white/5 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
-            <div>
-               <h2 className="serif text-5xl font-black text-white uppercase tracking-tighter">Sovereign <span className="text-amber-500">Roster</span></h2>
-               <p className="text-stone-500 uppercase tracking-[0.3em] text-[10px] font-bold mt-4 italic">Choose your alignment. Forge your legacy.</p>
-            </div>
-            <Link to="/join" className="text-amber-500 text-xs font-black uppercase tracking-widest border-b border-amber-500/30 pb-1 hover:text-white transition-colors">Expand Node Capacity →</Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Paladin Card */}
-            <div className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-amber-500/50 transition-all shadow-2xl h-[500px]">
-              <div className="absolute inset-0 bg-[url('/paladin.png')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-              <div className="absolute bottom-0 p-8 w-full">
-                <h4 className="serif text-3xl font-bold text-white mb-2 uppercase italic">The Paladin</h4>
-                <p className="text-stone-400 text-xs uppercase tracking-widest mb-6 font-bold">Absolute Defense // Legal Shield</p>
-                <div className="w-full bg-white/10 h-1 rounded-full mb-6">
-                   <div className="h-full bg-amber-500 w-[95%]"></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Rogue Card */}
-            <div className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-red-500/50 transition-all shadow-2xl h-[500px]">
-              <div className="absolute inset-0 bg-[url('/rogue.png')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-              <div className="absolute bottom-0 p-8 w-full">
-                <h4 className="serif text-3xl font-bold text-white mb-2 uppercase italic">The Rogue</h4>
-                <p className="text-stone-400 text-xs uppercase tracking-widest mb-6 font-bold">Tactical Evasion // Counter-Audit</p>
-                <div className="w-full bg-white/10 h-1 rounded-full mb-6">
-                   <div className="h-full bg-red-600 w-[88%]"></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Wizard Card */}
-            <div className="group relative rounded-3xl overflow-hidden border border-white/10 hover:border-teal-500/50 transition-all shadow-2xl h-[500px]">
-              <div className="absolute inset-0 bg-[url('/wizard.png')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-              <div className="absolute bottom-0 p-8 w-full">
-                <h4 className="serif text-3xl font-bold text-white mb-2 uppercase italic">The Wizard</h4>
-                <p className="text-stone-400 text-xs uppercase tracking-widest mb-6 font-bold">Logic Weaver // Machine Master</p>
-                <div className="w-full bg-white/10 h-1 rounded-full mb-6">
-                   <div className="h-full bg-teal-500 w-[99%]"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MOBILE COMMAND SUITE */}
-      <section className="py-20 px-6 bg-[#0a0a1a] border-y border-amber-500/20 w-full relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="text-left max-w-2xl">
-              <h2 className="serif text-4xl md:text-5xl font-black mb-6 text-white uppercase tracking-tighter">
-                Secure <span className="text-amber-500">Mobile Suite</span>
-              </h2>
-              <p className="text-stone-400 text-lg leading-relaxed mb-4 italic">
-                Extend your Sovereignty to any device. Our tactical mobile tools are built for off-grid resilience and encrypted data harvesting.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
-              <a 
-                href="/downloads/KoRT_Scribe_Alpha.apk" 
-                download
-                className="group flex items-center gap-4 bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-amber-500/10 hover:border-amber-500/30 transition-all shadow-xl"
-              >
-                <div className="p-4 bg-amber-500/20 rounded-xl text-amber-500 group-hover:scale-110 transition-transform">
-                  <Zap size={32} />
-                </div>
+            <header className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-white/10 pb-6 relative z-10">
                 <div>
-                  <h4 className="text-white font-bold uppercase tracking-widest text-sm">KoRT Scribe</h4>
-                  <p className="text-stone-500 text-[10px] uppercase font-bold tracking-widest">v1.2 Alpha // APK</p>
+                    <h1 className="serif text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2">Command <span className="text-amber-500">Center</span></h1>
+                    <p className="text-stone-400 font-mono text-xs uppercase tracking-widest">Sovereign Node ID: #77X-BETA</p>
                 </div>
-              </a>
+                <div className="mt-4 md:mt-0 flex gap-4">
+                    <button onClick={() => navigate('/settings')} className="text-stone-400 hover:text-white uppercase tracking-widest text-[10px] font-black border border-white/10 px-4 py-2 rounded-lg bg-white/5 transition-all">
+                        ⚙️ Tactical Config
+                    </button>
+                    <button className="text-red-500 hover:text-white uppercase tracking-widest text-[10px] font-black border border-red-500/30 px-4 py-2 rounded-lg bg-red-900/10 transition-all">
+                        Log Out
+                    </button>
+                </div>
+            </header>
 
-              <a 
-                href="/downloads/KoRT_Browser_Knight_v2.4.zip" 
-                download
-                className="group flex items-center gap-4 bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-red-500/10 hover:border-red-500/30 transition-all shadow-xl"
-              >
-                <div className="p-4 bg-red-500/20 rounded-xl text-red-500 group-hover:scale-110 transition-transform">
-                  <Shield size={32} />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold uppercase tracking-widest text-sm">Browser Knight</h4>
-                  <p className="text-stone-500 text-[10px] uppercase font-bold tracking-widest">v2.4 Alpha // ZIP</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SOVEREIGN MODULE MATRIX (Restored) */}
-      <ModuleMatrix />
-
-      {/* Sector 1.5: The Crucible */}
-      <section id="crucible" className="py-32 px-6 bg-[#08080f] relative overflow-hidden w-full border-t border-red-900/40">
-        <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div>
-                    <h2 className="serif text-6xl font-black mb-8 text-white uppercase tracking-tighter">THE <span className="text-red-600">CRUCIBLE</span></h2>
-                    <p className="text-stone-400 text-xl leading-relaxed mb-10">
-                        KoRT was forged in a <strong>Tornado of 3s</strong>: A son's crisis, a business scam, and a car accident. We fought ICBC from the streets after losing <strong>$150,000</strong> in tools and inventory.
-                    </p>
-                </div>
-                <div className="relative">
-                    <div className="glass-vault p-12 rounded-3xl relative z-10 border-amber-500/20">
-                        <div className="flex items-center gap-6 mb-10">
-                           <div className="p-4 bg-red-600/20 rounded-full border border-red-600/50">
-                              <Activity className="text-red-500" size={32} />
-                           </div>
-                           <h4 className="serif text-3xl font-black uppercase tracking-widest text-white">Logic Factory</h4>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+                
+                {/* COLUMN 1: Character Card */}
+                <div className="lg:col-span-1">
+                    <div className="glass-vault bg-black/60 border border-amber-500/30 rounded-3xl p-6 shadow-[0_0_30px_rgba(201,168,76,0.1)] relative overflow-hidden h-full flex flex-col">
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            {userStats.alignment === 'Rogue' && <Sword size={120} className="transform -rotate-12" />}
                         </div>
-                        <p className="text-stone-400 text-lg mb-10 leading-relaxed font-light">We used AI to survive the paperwork of disaster. Now, we've automated that survival for everyone else.</p>
+                        
+                        <div className="flex items-center gap-4 mb-6 relative z-10">
+                            <div className="w-20 h-20 rounded-2xl bg-amber-500/20 border border-amber-500 flex items-center justify-center">
+                                <Shield className="text-amber-500" size={40} />
+                            </div>
+                            <div>
+                                <h3 className="serif text-2xl font-black uppercase italic tracking-wider">The {userStats.alignment}</h3>
+                                <p className="text-stone-400 font-mono text-[10px] uppercase tracking-widest">{userStats.classTitle}</p>
+                            </div>
+                        </div>
+
+                        <div className="w-full bg-black/50 rounded-xl p-4 border border-white/10 mb-6 relative z-10 flex-grow">
+                            <div className="flex justify-between items-center mb-1">
+                                <span className="font-bold text-xs uppercase tracking-widest text-stone-300">Level {userStats.level}</span>
+                                <span className="font-mono text-[10px] text-amber-500">450 / 1000 XP</span>
+                            </div>
+                            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                <div className="h-full bg-amber-500 w-[45%]"></div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4 mt-6">
+                                <div className="text-center p-3 bg-white/5 rounded-lg border border-white/5">
+                                    <h4 className="text-[10px] text-stone-500 font-black uppercase tracking-widest mb-1">Recruits</h4>
+                                    <span className="text-xl font-bold text-white font-mono">{userStats.referrals}</span>
+                                </div>
+                                <div className="text-center p-3 bg-white/5 rounded-lg border border-white/5">
+                                    <h4 className="text-[10px] text-stone-500 font-black uppercase tracking-widest mb-1">Treasury</h4>
+                                    <span className="text-xl font-bold text-green-400 font-mono">${userStats.digitalDollars}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <Link to="/create" className="w-full text-center py-3 border border-amber-500/50 text-amber-500 rounded-xl uppercase tracking-widest text-[10px] font-black hover:bg-amber-500 hover:text-black transition-all">
+                            Modify Character Sync
+                        </Link>
                     </div>
                 </div>
+
+                {/* COLUMN 2 & 3: Active Protocols & Onboarding */}
+                <div className="lg:col-span-2 space-y-8">
+                    
+                    {/* Onboarding Matrix */}
+                    <div className="glass-vault border border-white/10 rounded-3xl p-8 bg-gradient-to-br from-black to-[#0a0a1a]">
+                        <h2 className="serif text-2xl font-black uppercase tracking-widest mb-6 flex items-center gap-3">
+                            <Activity className="text-blue-500" /> Tactical Onboarding Matrix
+                        </h2>
+                        
+                        <div className="space-y-4">
+                            {/* Task 1 */}
+                            <div className={`p-4 rounded-xl border flex items-center justify-between ${tasks.createdCharacter ? 'border-green-500/30 bg-green-900/10' : 'border-white/10 bg-white/5'}`}>
+                                <div className="flex items-center gap-4">
+                                    {tasks.createdCharacter ? <CheckCircle className="text-green-500" /> : <div className="w-6 h-6 border-2 border-stone-600 rounded-full"></div>}
+                                    <div>
+                                        <h4 className={`font-bold uppercase tracking-widest text-sm ${tasks.createdCharacter ? 'text-green-500' : 'text-stone-300'}`}>Forge Character Form</h4>
+                                        <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-1">Determine your alignment.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Task 2 */}
+                            <div className={`p-4 rounded-xl border flex items-center justify-between transition-all ${tasks.connectedAccounts ? 'border-green-500/30 bg-green-900/10' : 'border-amber-500/50 bg-amber-900/10 cursor-pointer hover:border-amber-500'}`} onClick={() => !tasks.connectedAccounts && navigate('/settings')}>
+                                <div className="flex items-center gap-4">
+                                    {tasks.connectedAccounts ? <CheckCircle className="text-green-500" /> : <div className="w-6 h-6 border-2 border-amber-500 rounded-full animate-pulse"></div>}
+                                    <div>
+                                        <h4 className={`font-bold uppercase tracking-widest text-sm ${tasks.connectedAccounts ? 'text-green-500' : 'text-amber-500'}`}>Link Social Nodes</h4>
+                                        <p className="text-[10px] text-stone-400 uppercase tracking-widest mt-1">Connect Reddit, Discord, or X.</p>
+                                    </div>
+                                </div>
+                                {!tasks.connectedAccounts && <button className="text-[10px] uppercase font-black tracking-widest bg-amber-500 text-black px-4 py-2 rounded-lg">Link</button>}
+                            </div>
+
+                            {/* Task 3 */}
+                            <div className={`p-4 rounded-xl border flex items-center justify-between transition-all ${tasks.ignitedBroadcast ? 'border-green-500/30 bg-green-900/10' : 'border-white/20 bg-white/5 cursor-pointer hover:border-amber-500'}`} onClick={() => !tasks.ignitedBroadcast && navigate('/viral-broadcast')}>
+                                <div className="flex items-center gap-4">
+                                    {tasks.ignitedBroadcast ? <CheckCircle className="text-green-500" /> : <Share2 className={tasks.connectedAccounts ? 'text-stone-400' : 'text-stone-700'} />}
+                                    <div>
+                                        <h4 className={`font-bold uppercase tracking-widest text-sm ${tasks.ignitedBroadcast ? 'text-green-500' : (tasks.connectedAccounts ? 'text-stone-300' : 'text-stone-600')}`}>Ignite Viral Broadcast</h4>
+                                        <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-1">Blast your referral link to earn $DRT.</p>
+                                    </div>
+                                </div>
+                                {!tasks.ignitedBroadcast && <button className={`text-[10px] uppercase font-black tracking-widest px-4 py-2 rounded-lg ${tasks.connectedAccounts ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-stone-800 text-stone-600 cursor-not-allowed'}`} disabled={!tasks.connectedAccounts}>Broadcast</button>}
+                            </div>
+
+                            {/* Task 4 */}
+                            <div className="p-4 rounded-xl border border-white/10 bg-white/5 flex items-center justify-between cursor-pointer hover:border-green-500 transition-all" onClick={() => navigate('/digital-dollars')}>
+                                <div className="flex items-center gap-4">
+                                    <Award className="text-green-500" />
+                                    <div>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm text-stone-300">Initiate Digital Dollars</h4>
+                                        <p className="text-[10px] text-stone-500 uppercase tracking-widest mt-1">Complete your first earning action.</p>
+                                    </div>
+                                </div>
+                                <button className="text-[10px] uppercase font-black tracking-widest bg-green-500 text-black px-4 py-2 rounded-lg">Start Earning</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/* Quick Access Matrix */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <Link to="/digital-dollars" className="p-4 bg-black/40 border border-green-500/20 hover:border-green-500 rounded-2xl flex flex-col items-center justify-center text-center group transition-all">
+                            <Cpu className="text-green-500 mb-3 group-hover:scale-125 transition-transform" />
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-white">Yield Farm</h4>
+                        </Link>
+                        <Link to="/sandbox" className="p-4 bg-black/40 border border-purple-500/20 hover:border-purple-500 rounded-2xl flex flex-col items-center justify-center text-center group transition-all">
+                            <Zap className="text-purple-500 mb-3 group-hover:scale-125 transition-transform" />
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-white">AI Sandbox</h4>
+                        </Link>
+                        <Link to="/library" className="p-4 bg-black/40 border border-amber-500/20 hover:border-amber-500 rounded-2xl flex flex-col items-center justify-center text-center group transition-all">
+                            <Shield className="text-amber-500 mb-3 group-hover:scale-125 transition-transform" />
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-white">Advocacy Laws</h4>
+                        </Link>
+                        <Link to="/watch" className="p-4 bg-black/40 border border-red-500/20 hover:border-red-500 rounded-2xl flex flex-col items-center justify-center text-center group transition-all shadow-[0_0_15px_rgba(220,38,38,0.1)] hover:shadow-[0_0_25px_rgba(220,38,38,0.3)]">
+                            <Activity className="text-red-500 mb-3 group-hover:scale-125 transition-transform" />
+                            <h4 className="text-[10px] font-black uppercase tracking-widest text-white">Active Crises</h4>
+                        </Link>
+                    </div>
+
+                </div>
+
             </div>
         </div>
-      </section>
-    </div>
-  );
+    );
 }

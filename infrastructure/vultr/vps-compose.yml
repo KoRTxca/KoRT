@@ -1,0 +1,61 @@
+services:
+  # DRT Custom Relay API
+  drt-relay:
+    image: python:3.11-slim
+    container_name: drt-relay
+    restart: always
+    ports:
+      - "3447:3447"
+    volumes:
+      - ./relay:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install fastapi uvicorn pydantic && uvicorn main:app --host 0.0.0.0 --port 3447"
+
+  # Sovereign Workflow Automation layer (n8n alternative/backup to Make.com)
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: drt-n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.drt.onl
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://n8n.drt.onl/
+      - GENERIC_TIMEZONE=America/Vancouver
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  # Local Postgres for backend workflows / non-Supabase data
+  postgres:
+    image: postgres:15-alpine
+    container_name: drt-postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=drt_admin
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-change_me_in_env}
+      - POSTGRES_DB=drt_local
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  # OpenCode Model Harvester Backend (FastAPI consumer)
+  model-harvester:
+    build: 
+      context: ../../../OpenCode/server
+      dockerfile: Dockerfile
+    container_name: drt-harvester
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - STORAGE_DIR=/data/models
+      - CORS_ORIGINS=https://drt.onl
+    volumes:
+      - ./harvester_data:/data/models
+
+volumes:
+  n8n_data:
+  pg_data:
