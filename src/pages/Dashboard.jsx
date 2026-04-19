@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Sword, Cpu, Zap, Activity, Award, Share2, CheckCircle, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../api/base44client';
 
 export default function Dashboard() {
     const navigate = useNavigate();
@@ -12,6 +13,25 @@ export default function Dashboard() {
         referrals: 0,
         onboardingComplete: false
     });
+    
+    const [userEmail, setUserEmail] = useState('');
+    const [userId, setUserId] = useState('');
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user) {
+                setUserEmail(session.user.email);
+                setUserId(session.user.id.substring(0, 8));
+            }
+        };
+        fetchUser();
+    }, []);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        navigate('/login');
+    };
 
     // Mock progress hooks for onboarding
     const [tasks, setTasks] = useState({
@@ -30,13 +50,13 @@ export default function Dashboard() {
             <header className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-white/10 pb-6 relative z-10">
                 <div>
                     <h1 className="serif text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2">Command <span className="text-amber-500">Center</span></h1>
-                    <p className="text-stone-400 font-mono text-xs uppercase tracking-widest">Sovereign Node ID: #77X-BETA</p>
+                    <p className="text-stone-400 font-mono text-xs uppercase tracking-widest">Sovereign Node ID: #{userId || '77X-BETA'} {userEmail ? `// ${userEmail}` : ''}</p>
                 </div>
                 <div className="mt-4 md:mt-0 flex gap-4">
                     <button onClick={() => navigate('/settings')} className="text-stone-400 hover:text-white uppercase tracking-widest text-[10px] font-black border border-white/10 px-4 py-2 rounded-lg bg-white/5 transition-all">
                         ⚙️ Tactical Config
                     </button>
-                    <button className="text-red-500 hover:text-white uppercase tracking-widest text-[10px] font-black border border-red-500/30 px-4 py-2 rounded-lg bg-red-900/10 transition-all">
+                    <button onClick={handleLogout} className="text-red-500 hover:text-white uppercase tracking-widest text-[10px] font-black border border-red-500/30 px-4 py-2 rounded-lg bg-red-900/10 transition-all">
                         Log Out
                     </button>
                 </div>
