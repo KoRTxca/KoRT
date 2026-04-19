@@ -183,18 +183,22 @@ export default function DigitalDollars() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                
-               {/* Video Player Placeholder 1 */}
+               {/* AI Generated LTX Intro Video */}
                <div className="group relative w-full aspect-video bg-black rounded-[2rem] border border-stone-800 overflow-hidden shadow-2xl cursor-pointer">
-                  <img src="/storm.png" alt="Video Poster" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-40 transition-all duration-700" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <div className="w-24 h-24 bg-blue-600/80 backdrop-blur-md rounded-full flex items-center justify-center text-white group-hover:bg-blue-500 transition-colors shadow-[0_0_50px_rgba(37,99,235,0.6)]">
+                  <video 
+                     src="/kort_intro_video.mp4" 
+                     className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700"
+                     autoPlay loop muted playsInline
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                     <div className="w-24 h-24 bg-blue-600/80 backdrop-blur-md rounded-full flex items-center justify-center text-white shadow-[0_0_50px_rgba(37,99,235,0.6)]">
                         <Play size={40} className="ml-2" />
                      </div>
                   </div>
-                  <div className="absolute bottom-0 inset-x-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
-                     <span className="bg-blue-600 text-white text-[10px] uppercase font-black tracking-widest px-3 py-1 rounded-full mb-3 inline-block">Module 1.0</span>
-                     <h3 className="serif text-3xl font-bold text-white uppercase italic">Understanding The Treasury Stack</h3>
-                     <p className="text-stone-300 mt-2 font-light">45 Min Masterclass • The exact mathematics of compounding wealth.</p>
+                  <div className="absolute bottom-0 inset-x-0 p-8 bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none">
+                     <span className="bg-blue-600 text-white text-[10px] uppercase font-black tracking-widest px-3 py-1 rounded-full mb-3 inline-block">System Init</span>
+                     <h3 className="serif text-3xl font-bold text-white uppercase italic">Sovereign OS Initialization</h3>
+                     <p className="text-stone-300 mt-2 font-light">Cinematic AI Intro • LTX Video Synthesis.</p>
                   </div>
                </div>
 

@@ -30,6 +30,8 @@ const ViralBroadcast = React.lazy(() => import('./pages/ViralBroadcast.jsx'));
 const WSOExclusive = React.lazy(() => import('./pages/WSOExclusive.jsx'));
 const PreviewGate = React.lazy(() => import('./pages/previewgate.jsx'));
 const TacticalSettings = React.lazy(() => import('./pages/TacticalSettings.jsx'));
+const SovereignStack = React.lazy(() => import('./pages/SovereignStack.jsx'));
+const MerlinArchitecture = React.lazy(() => import('./pages/MerlinArchitecture.jsx'));
 
 // ADVOCACY SUITE
 const ICBCFlow = React.lazy(() => import('./pages/ICBCFlow.jsx'));
@@ -284,6 +286,8 @@ function SovereignApp() {
             <Route path="/guide" element={<TheGuide />} />
             <Route path="/watch" element={<WatchPage />} />
             <Route path="/submit" element={<SubmitApp />} />
+            <Route path="/how-it-works/stack" element={<SovereignStack />} />
+            <Route path="/how-it-works/merlin" element={<MerlinArchitecture />} />
 
             {/* KNIGHT-GATED */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
