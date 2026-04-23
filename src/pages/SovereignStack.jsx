@@ -52,15 +52,15 @@ export default function SovereignStack() {
             </p>
           </div>
 
-          {/* HuggingFace / Models */}
-          <div className="group bg-[#0a0a10] border border-stone-800 hover:border-amber-500 p-10 rounded-3xl transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 bg-black rounded-2xl border border-amber-500/30 flex items-center justify-center mb-8">
-              <Database className="text-amber-500 w-8 h-8" />
+          {/* LM Studio Local Nodes */}
+          <div className="group bg-[#0a0a10] border border-stone-800 hover:border-green-500 p-10 rounded-3xl transition-all duration-500 hover:-translate-y-2">
+            <div className="w-16 h-16 bg-black rounded-2xl border border-green-500/30 flex items-center justify-center mb-8">
+              <HardDrive className="text-green-500 w-8 h-8" />
             </div>
-            <h3 className="serif text-2xl font-bold uppercase text-white mb-2">Local LLMs</h3>
-            <span className="text-xs uppercase text-amber-500 font-bold tracking-widest mb-4 inline-block">The Brain (Merlin/Scribe)</span>
+            <h3 className="serif text-2xl font-bold uppercase text-white mb-2">P2P Mesh AI</h3>
+            <span className="text-xs uppercase text-green-500 font-bold tracking-widest mb-4 inline-block">The Slave Nodes (LM Studio)</span>
             <p className="text-stone-400 text-sm leading-relaxed font-light">
-              Instead of passing member data to OpenAI, we harvest open-weights models (like Llama 3.1) from HuggingFace and run them via Ollama on our own Vultr instances. Complete privacy.
+              We bypass Big Tech by running <strong className="text-white">LM Studio</strong> across consenting members' local hardware (e.g. Isaac's PC). By pooling graphics cards via a local network tunnel, we achieve decentralized computational power entirely off the traditional internet grid.
             </p>
           </div>
 

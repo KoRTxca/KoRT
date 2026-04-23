@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
 import './claudestyles.css';
 
 export default function SubmitApp() {
@@ -16,7 +17,7 @@ export default function SubmitApp() {
     }
   };
 
-  const submitApp = () => {
+  const submitApp = async () => {
     let newErrors = {};
     const required = ['name', 'email', 'appName', 'appUrl', 'referralCode'];
     required.forEach(req => {
@@ -32,16 +33,38 @@ export default function SubmitApp() {
 
     const { name, email, appName, appUrl, category, referralCode, description, chainDepth, canada, extraNotes } = formData;
     
-    const subject = encodeURIComponent(`[KoRT App Submission] ${appName}`);
-    const body = encodeURIComponent(
-      `App: ${appName}\nURL: ${appUrl}\nCategory: ${category}\nReferral: ${referralCode}\nChain: ${chainDepth}\nCanada: ${canada}\n\nDescription:\n${description}\n\nNotes:\n${extraNotes}\n\nSubmitted by: ${name} (${email})`
-    );
-    
-    window.open(`mailto:hello@kortx.ca?subject=${subject}&body=${body}`, '_blank');
-    
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('app_submissions')
+        .insert([
+          { 
+            submitter_name: name, 
+            submitter_email: email, 
+            app_name: appName, 
+            app_url: appUrl, 
+            category, 
+            referral_code: referralCode, 
+            description, 
+            chain_depth: chainDepth, 
+            canada_available: canada, 
+            extra_notes: extraNotes,
+            status: 'pending'
+          }
+        ]);
+
+      if (error) throw error;
+
       setSubmitted(true);
-    }, 500);
+    } catch (err) {
+      console.error('Error submitting app:', err.message);
+      // Fallback to mailto if Supabase fails (e.g. table doesn't exist yet)
+      const subject = encodeURIComponent(`[KoRT App Submission] ${appName}`);
+      const body = encodeURIComponent(
+        `App: ${appName}\nURL: ${appUrl}\nCategory: ${category}\nReferral: ${referralCode}\nChain: ${chainDepth}\nCanada: ${canada}\n\nDescription:\n${description}\n\nNotes:\n${extraNotes}\n\nSubmitted by: ${name} (${email})\n\n(Supabase Submission Failed: ${err.message})`
+      );
+      window.open(`mailto:hello@kortx.ca?subject=${subject}&body=${body}`, '_blank');
+      setSubmitted(true);
+    }
   };
 
   return (

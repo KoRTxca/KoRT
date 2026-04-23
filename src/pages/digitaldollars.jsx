@@ -14,7 +14,14 @@ import { Link } from 'react-router-dom';
 
 export default function DigitalDollars() {
   const referralLinks = {
-    koho: "#kort-koho",
+    koho: "https://referral.koho.ca/mzIA8a5",
+    mistplay: "https://mistplay.onelink.me/ZGRQ/2jh95s8y",
+    bestplay: "https://bestplay.onelink.me/IZ8a/6n85wno3",
+    cashkarma: "https://cashkar.ma/Q2wiZO3qN0b",
+    gemsloot: "https://gemsloot.com/?aff=kort",
+    tango: "https://tango.onelink.me/RCIH/igsme4lt",
+    attapoll: "https://attapoll.app/join/xdmdn",
+    surveyspin: "https://surveyspin.com/code/C66GQI",
     tangerine: "#kort-tangerine",
     neo: "#kort-neo",
     simplii: "#kort-simplii",

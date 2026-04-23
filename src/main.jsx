@@ -32,6 +32,7 @@ const PreviewGate = React.lazy(() => import('./pages/previewgate.jsx'));
 const TacticalSettings = React.lazy(() => import('./pages/TacticalSettings.jsx'));
 const SovereignStack = React.lazy(() => import('./pages/SovereignStack.jsx'));
 const MerlinArchitecture = React.lazy(() => import('./pages/MerlinArchitecture.jsx'));
+const SovereignWarRoom = React.lazy(() => import('./pages/SovereignWarRoom.jsx'));
 
 // ADVOCACY SUITE
 const ICBCFlow = React.lazy(() => import('./pages/ICBCFlow.jsx'));
@@ -288,6 +289,7 @@ function SovereignApp() {
             <Route path="/submit" element={<SubmitApp />} />
             <Route path="/how-it-works/stack" element={<SovereignStack />} />
             <Route path="/how-it-works/merlin" element={<MerlinArchitecture />} />
+            <Route path="/war-room" element={<SovereignWarRoom />} />
 
             {/* KNIGHT-GATED */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
