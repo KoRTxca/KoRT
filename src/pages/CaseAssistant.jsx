@@ -97,7 +97,7 @@ USER'S QUESTION: ${userMessage}`;
     <div className="flex flex-col h-full bg-[#08080f]">
       <div className="border-b border-[#1a1a2e] bg-[#0a0a1a] px-4 py-3">
         <div className="max-w-3xl mx-auto flex items-center gap-3">
-          <Link to="/herald" className="text-[#666] hover:text-[#ccc] transition-colors"><ArrowLeft className="w-4 h-4" /></Link>
+          <Link to="/advocacy" className="text-[#666] hover:text-[#ccc] transition-colors"><ArrowLeft className="w-4 h-4" /></Link>
           <MessageSquare className="w-5 h-5 text-[#c9a84c]" />
           <div className="flex-1 min-w-0">
             <h2 className="text-sm font-semibold text-white" style={{ fontFamily: 'Cinzel, serif' }}>Herald Case Assistant</h2>
@@ -117,7 +117,7 @@ USER'S QUESTION: ${userMessage}`;
             <div className="bg-[#0a0a1a] border border-[#1a1a2e] rounded-xl p-5 text-center">
               <MessageSquare className="w-8 h-8 text-[#333] mx-auto mb-3" />
               <p className="text-[#666] text-sm">Select a case from the Dashboard to chat with The Herald about it.</p>
-              <Link to="/herald" className="inline-block mt-3 text-[#c9a84c] text-sm underline">Go to Dashboard</Link>
+              <Link to="/advocacy" className="inline-block mt-3 text-[#c9a84c] text-sm underline">Go to Dashboard</Link>
             </div>
           )}
           {messages.map((msg, i) => (

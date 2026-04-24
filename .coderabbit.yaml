@@ -1,0 +1,29 @@
+# CodeRabbit Configuration for KoRT Sovereign OS
+# Version: 1.0.0
+
+language: "en-US"
+early_access: true
+
+reviews:
+  profile: "chill" # Options: chill, assertive, rigorous
+  request_changes_workflow: false
+  high_level_summary: true
+  poetic_summary: true # Fits the KoRT theme
+  auto_review:
+    enabled: true
+    ignore_paths:
+      - "node_modules/**"
+      - "dist/**"
+      - ".vercel/**"
+      - "public/**"
+
+chat:
+  enabled: true
+
+# Custom instructions for CodeRabbit to enforce KoRT standards
+instructions: |
+  Ensure all UI code follows the "Premium/Gothic/Cinematic" aesthetic.
+  Check for proper SEO meta tags in every new page.
+  Validate that all internal links use React Router's <Link> component.
+  Verify that sensitive data is never hardcoded.
+  Maintain the 'Cinzel' and 'monospace' font hierarchy.

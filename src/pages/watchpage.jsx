@@ -55,7 +55,7 @@ export default function WatchPage() {
   if (introPhase === 0) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0 transition-opacity duration-1000">
-        <div className="absolute inset-0 bg-[url('/digital_storm_skyline_1775953603520.png')] bg-cover bg-center animate-pulse opacity-60"></div>
+        <div className="absolute inset-0 bg-[url('/storm.png')] bg-cover bg-center animate-pulse opacity-60"></div>
         <div className="relative z-10 text-center">
           <h2 className="serif text-stone-500 uppercase tracking-[0.8em] text-sm mb-4">Phase I // The Gathering</h2>
           <div className="w-64 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent mx-auto"></div>
@@ -66,7 +66,7 @@ export default function WatchPage() {
   if (introPhase === 1) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0">
-        <div className="absolute inset-0 bg-[url('/excalibur_circuit_board_1775953617241.png')] bg-cover bg-center opacity-80 scale-110 animate-pulse"></div>
+        <div className="absolute inset-0 bg-[url('/excalibur.png')] bg-cover bg-center opacity-80 scale-110 animate-pulse"></div>
         <div className="relative z-10 text-center">
           <h2 className="serif text-amber-500 uppercase tracking-[0.8em] text-sm mb-4">Phase II // The Impact</h2>
           <div className="w-64 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
@@ -77,7 +77,7 @@ export default function WatchPage() {
   if (introPhase === 2) {
     return (
       <div className="fixed inset-0 z-[1000] bg-black flex items-center justify-center p-0">
-        <div className="absolute inset-0 bg-[url('/round_table_ai_nodes_1775953642535.png')] bg-cover bg-center opacity-70"></div>
+        <div className="absolute inset-0 bg-[url('/table_nodes.png')] bg-cover bg-center opacity-70"></div>
         <div className="relative z-10 text-center">
           <h2 className="serif text-white uppercase tracking-[0.8em] text-sm mb-4">Phase III // The Seat</h2>
           <button

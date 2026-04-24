@@ -7,7 +7,7 @@ const HERALD_MODULES = [
       title: "ICBC Tactical Defense",
       desc: "Dispute fault determinations and classify Income Replacement Benefits using the Unified Letter Generator.",
       icon: Scale,
-      link: "/herald/icbc",
+      link: "/advocacy/icbc",
       color: "border-red-600",
       action: "Enter Dispute Flow"
    },
@@ -15,7 +15,7 @@ const HERALD_MODULES = [
       title: "PWD Disability Support",
       desc: "Activity of Daily Living (ADL) mapping and automated application assistance for BC disability benefits.",
       icon: ShieldCheck,
-      link: "/herald/pwd",
+      link: "/advocacy/pwd",
       color: "border-blue-600",
       action: "Start Application"
    },
@@ -23,7 +23,7 @@ const HERALD_MODULES = [
       title: "Housing Matrix",
       desc: "Dispute RTB notices, manage 10-day eviction responses, and access the Crisis Supplement Shelter archives.",
       icon: Home,
-      link: "/herald/housing",
+      link: "/advocacy/rights", // Pointing to Rights Database as placeholder for Housing
       color: "border-amber-600",
       action: "Review Rights"
    },
@@ -31,7 +31,7 @@ const HERALD_MODULES = [
       title: "Legal Letter Synth",
       desc: "Generate court-ready correspondence and medical narratives using the MoA Consensus engine.",
       icon: FileText,
-      link: "/herald/letters",
+      link: "/advocacy/letters",
       color: "border-teal-600",
       action: "Generate Document"
    }

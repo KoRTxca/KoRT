@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useWatchStatus } from '../hooks/usewatch';
-import { CRISIS_TYPES } from '../hooks/usewatch';
+import { useWatch, CRISIS_TYPES } from '../hooks/usewatch';
+
 
 const styles = {
   container: { padding: '1.5rem', background: 'var(--watch-card, #0a0a1a)', border: '1px solid rgba(201, 168, 76, 0.3)', borderRadius: '16px', width: '100%', maxWidth: '480px', margin: '0 auto' },
