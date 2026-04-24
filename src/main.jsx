@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 // --- 1. CORE SYSTEM ---
 import './index.css'
@@ -35,6 +36,10 @@ const MerlinArchitecture = React.lazy(() => import('./pages/MerlinArchitecture.j
 const SovereignWarRoom = React.lazy(() => import('./pages/SovereignWarRoom.jsx'));
 const BetaWaitlist = React.lazy(() => import('./pages/BetaWaitlist.jsx'));
 const UpsellOffer = React.lazy(() => import('./pages/UpsellOffer.jsx'));
+const Terms = React.lazy(() => import('./pages/Terms.jsx'));
+const Privacy = React.lazy(() => import('./pages/Privacy.jsx'));
+const Blog = React.lazy(() => import('./pages/Blog.jsx'));
+const BlogAiBuildBattle = React.lazy(() => import('./pages/BlogAiBuildBattle.jsx'));
 
 // ADVOCACY SUITE
 const ICBCFlow = React.lazy(() => import('./pages/ICBCFlow.jsx'));
@@ -255,8 +260,8 @@ function GlobalFooter() {
           {[['Discord', 'https://discord.gg/T6bfsceJ'], ['Reddit', 'https://reddit.com/r/KoRT'], ['Email', 'mailto:hello@kortx.ca'], ['250-800-9225', 'tel:2508009225']].map(([l, h]) => (
             <a key={l} href={h} style={{ color: '#9a9ab0', fontSize: '0.85rem', textDecoration: 'none' }}>{l}</a>
           ))}
-          {['/join', '/dashboard', '/digital-dollars', '/trek'].map(l => (
-            <Link key={l} to={l} style={{ color: '#9a9ab0', fontSize: '0.85rem', textDecoration: 'none' }}>{l.slice(1) || 'home'}</Link>
+          {[['/join', 'Join'], ['/economics', 'Economics'], ['/guide', 'Manual'], ['/blog', 'Chronicle'], ['/terms', 'Terms'], ['/privacy', 'Privacy']].map(([path, label]) => (
+            <Link key={path} to={path} style={{ color: '#9a9ab0', fontSize: '0.85rem', textDecoration: 'none' }}>{label}</Link>
           ))}
         </div>
         <p style={{ color: '#9a9ab0', fontSize: '0.72rem', textAlign: 'center', maxWidth: 640, lineHeight: 1.6 }}>
@@ -272,6 +277,7 @@ function GlobalFooter() {
 function SovereignApp() {
   return (
     <div style={{ minHeight: '100vh', background: '#08080f', color: '#e0e0e0', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+      <ScrollToTop />
       <Navigation />
       <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c9a84c', fontFamily: "'Cinzel',serif", animation: 'pulse 1.5s infinite' }}>Summoning Node...</div>}>
@@ -296,6 +302,10 @@ function SovereignApp() {
             <Route path="/war-room" element={<SovereignWarRoom />} />
             <Route path="/beta" element={<BetaWaitlist />} />
             <Route path="/upsell" element={<UpsellOffer />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/ai-build-battle" element={<BlogAiBuildBattle />} />
 
             {/* KNIGHT-GATED */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
