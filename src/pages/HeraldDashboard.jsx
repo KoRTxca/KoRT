@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Plus } from 'lucide-react';
 import { differenceInDays, parseISO } from 'date-fns';
@@ -7,7 +7,10 @@ import DashboardStats from '../components/herald/DashboardStats';
 import CasesList from '../components/herald/CasesList';
 
 export default function HeraldDashboard() {
-  const { user } = useOutletContext();
+  // Safe fallback — this page may be accessed directly or via outlet
+  let user = null;
+  try { const ctx = require('react-router-dom').useOutletContext?.(); user = ctx?.user ?? null; } catch(_) {}
+  try { const stored = localStorage.getItem('kort_knight'); if (stored) user = JSON.parse(stored); } catch(_) {}
   const [cases, setCases] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,7 +46,7 @@ export default function HeraldDashboard() {
           </p>
         </div>
         <Link
-          to="/herald/new"
+          to="/advocacy/new-case"
           className="inline-flex items-center gap-3 px-8 py-3 bg-[#c9a84c] text-[#08080f] rounded shadow-[0_0_20px_rgba(201,168,76,0.3)] font-black uppercase tracking-widest text-xs hover:bg-[#d4b85e] transition-all hover:scale-105"
         >
           <Plus className="w-4 h-4" />

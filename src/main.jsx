@@ -33,6 +33,8 @@ const TacticalSettings = React.lazy(() => import('./pages/TacticalSettings.jsx')
 const SovereignStack = React.lazy(() => import('./pages/SovereignStack.jsx'));
 const MerlinArchitecture = React.lazy(() => import('./pages/MerlinArchitecture.jsx'));
 const SovereignWarRoom = React.lazy(() => import('./pages/SovereignWarRoom.jsx'));
+const BetaWaitlist = React.lazy(() => import('./pages/BetaWaitlist.jsx'));
+const UpsellOffer = React.lazy(() => import('./pages/UpsellOffer.jsx'));
 
 // ADVOCACY SUITE
 const ICBCFlow = React.lazy(() => import('./pages/ICBCFlow.jsx'));
@@ -169,13 +171,15 @@ function Navigation() {
             <img src="/logo.png" alt="KoRT" style={{ width: 32, height: 40, objectFit: 'contain' }} />
             <span style={{ fontFamily: "'Cinzel',serif", fontWeight: 700, fontSize: '1rem', color: '#e8d5a3', letterSpacing: '0.05em' }}>KoRTx.ca</span>
           </Link>
-          <div style={{ display: 'flex', gap: 20, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700 }}>
+          <div style={{ display: 'flex', gap: 16, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, flexWrap: 'wrap' }}>
             <Link to="/dashboard" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Dashboard</Link>
             <Link to="/join" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Join</Link>
             <Link to="/digital-dollars" style={{ color: '#4ade80', textDecoration: 'none' }}>Treasury</Link>
+            <Link to="/economics" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Economics</Link>
             <Link to="/roundtable" style={{ color: '#c9a84c', textDecoration: 'none' }}>Round Table</Link>
             <Link to="/watch" style={{ color: '#9a9ab0', textDecoration: 'none' }}>The Watch</Link>
             <Link to="/guide" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Manual</Link>
+            {knightData && <Link to="/merlin-chat" style={{ color: '#a855f7', textDecoration: 'none' }}>Merlin</Link>}
             {knightData && <Link to="/advocacy" style={{ color: '#f08080', textDecoration: 'none' }}>Advocate</Link>}
           </div>
         </div>
@@ -257,7 +261,7 @@ function GlobalFooter() {
         </div>
         <p style={{ color: '#9a9ab0', fontSize: '0.72rem', textAlign: 'center', maxWidth: 640, lineHeight: 1.6 }}>
           © 2026 KoRT / Xception Contracting Ltd. — Cowichan Valley, BC<br />
-          Pre-launch educational community. Not a licensed service provider. Peer support is not professional counselling. v2.1.0
+          Pre-launch educational community. Not a licensed service provider. Peer support is not professional counselling. v2.3.0
         </p>
       </div>
     </footer>
@@ -290,6 +294,8 @@ function SovereignApp() {
             <Route path="/how-it-works/stack" element={<SovereignStack />} />
             <Route path="/how-it-works/merlin" element={<MerlinArchitecture />} />
             <Route path="/war-room" element={<SovereignWarRoom />} />
+            <Route path="/beta" element={<BetaWaitlist />} />
+            <Route path="/upsell" element={<UpsellOffer />} />
 
             {/* KNIGHT-GATED */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
