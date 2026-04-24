@@ -24,7 +24,7 @@ export default function CasesList({ cases, isLoading }) {
       <div className="bg-[#0a0a1a] border border-[#1a1a2e] border-dashed rounded-xl p-12 text-center">
         <p className="text-[#666] mb-4">No cases yet. Open your first case to get started.</p>
         <Link
-          to="/advocacy/new"
+          to="/advocacy/new-case"
           className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a84c]/10 text-[#c9a84c] border border-[#c9a84c]/20 rounded-lg text-sm hover:bg-[#c9a84c]/20 transition-colors"
         >
           Open New Case

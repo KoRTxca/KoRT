@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "check": "node scripts/check-links.js",
+    "pre-push": "npm run lint && npm run check",
     "preview": "vite preview"
   },
   "dependencies": {
