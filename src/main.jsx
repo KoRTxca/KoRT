@@ -11,6 +11,7 @@ import './index.css'
 
 
 // --- 2. MODULE MATRIX ---
+const Awakening = React.lazy(() => import('./pages/Awakening.jsx'));
 const LandingPage = React.lazy(() => import('./pages/LandingPage.jsx'));
 const LandingStarTrek = React.lazy(() => import('./pages/LandingStarTrek.jsx'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard.jsx'));
@@ -250,6 +251,7 @@ function SovereignApp() {
           <Routes>
             {/* PUBLIC */}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/awakening" element={<Awakening />} />
             <Route path="/trek" element={<LandingStarTrek />} />
             <Route path="/join" element={<Join />} />
             <Route path="/wso-exclusive" element={<WSOExclusive />} />
