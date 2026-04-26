@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/advocate/:path*",
+      "destination": "/advocate/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
