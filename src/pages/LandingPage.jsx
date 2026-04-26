@@ -47,18 +47,12 @@ const STATS = [
 
 export default function LandingPage() {
   const [introPhase, setIntroPhase] = useState(0);
-  const [heroVisible, setHeroVisible] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
 
-  // Cinematic intro → main page
+  // Cinematic intro bypassed for splash screen video
   useEffect(() => {
-    if (introPhase < 2) {
-      const t = setTimeout(() => setIntroPhase(p => p + 1), 2800);
-      return () => clearTimeout(t);
-    } else {
-      const t = setTimeout(() => setHeroVisible(true), 800);
-      return () => clearTimeout(t);
-    }
-  }, [introPhase]);
+    setHeroVisible(true);
+  }, []);
 
   const current = INTRO_LINES[introPhase] || INTRO_LINES[2];
 
@@ -126,11 +120,11 @@ export default function LandingPage() {
           position: 'absolute', inset: 0,
           backgroundImage: "url('/sovereign_dragon.png')",
           backgroundSize: 'cover', backgroundPosition: 'center 30%',
-          opacity: 0.35, animation: 'heroBreath 14s ease-in-out infinite',
+          opacity: 0.35,
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(8,8,15,0.95) 100%)' }} />
         {/* Fire overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,80,0,0.04)', mixBlendMode: 'color-dodge', animation: 'fireBreath 5s ease-in-out infinite', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,80,0,0.04)', mixBlendMode: 'color-dodge', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 10, maxWidth: 800 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 18px', border: '1px solid rgba(201,168,76,0.4)', borderRadius: 999, marginBottom: 28, fontSize: 11, color: '#c9a84c', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
@@ -176,15 +170,11 @@ export default function LandingPage() {
         </div>
 
         {/* Scroll hint */}
-        <div style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', color: '#9a9ab0', animation: 'bounce 2s infinite' }}>
+        <div style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', color: '#9a9ab0' }}>
           <ChevronDown size={24} />
         </div>
 
-        <style>{`
-          @keyframes heroBreath { 0%,100%{transform:scale(1.03);} 50%{transform:scale(1.08);} }
-          @keyframes fireBreath { 0%,100%{opacity:0.04;} 50%{opacity:0.12;} }
-          @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(8px);} }
-        `}</style>
+
       </section>
 
       {/* ── STATS BAR ── */}

@@ -15,6 +15,25 @@
   <link rel="stylesheet" href="/advocate/css/style.css">
 </head>
 <body>
+  <!-- Global Splash Screen -->
+  <div id="global-splash" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#08080f; z-index:999999; transition:opacity 1s ease-out; display:flex; align-items:center; justify-content:center;">
+    <video autoplay muted playsinline id="splash-video" style="width:100%; height:100%; object-fit:cover;">
+      <source src="/splash-screen.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const splash = document.getElementById('global-splash');
+      const vid = document.getElementById('splash-video');
+      if (!vid) return;
+      const hideSplash = () => {
+        splash.style.opacity = '0';
+        setTimeout(() => splash.remove(), 1000);
+      };
+      vid.addEventListener('ended', hideSplash);
+      setTimeout(hideSplash, 6000);
+    });
+  </script>
   <header class="site-header">
     <div class="header-logo">
       <img src="/advocate/assets/images/crest.png" alt="KoRT Crest">
