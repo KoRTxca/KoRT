@@ -2,6 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Zap, Heart, ArrowRight, ChevronDown, Flame } from 'lucide-react';
 
+const AwakeningCTA = () => (
+  <div style={{ 
+    backgroundColor: 'var(--glass-bg)', 
+    backdropFilter: 'var(--glass-blur)', 
+    border: 'var(--glass-border)', 
+    padding: '3rem', 
+    textAlign: 'center', 
+    borderRadius: '12px', 
+    boxShadow: 'var(--glow-blue)',
+    maxWidth: '800px',
+    margin: '0 auto'
+  }}>
+    <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--kort-gold-accent)', fontSize: '2.5rem', marginBottom: '1rem', marginTop: 0 }}>Claim Your Seat at the Table</h2>
+    <p style={{ fontFamily: 'var(--font-body)', color: 'var(--kort-text-main)', fontSize: '1.2rem', marginBottom: '2rem' }}>Enter the Void and transform your digital ghost into a Sovereign Identity.</p>
+    <button onClick={() => window.location.href = '/awakening'} style={{ 
+      fontFamily: 'var(--font-heading)', 
+      backgroundColor: 'var(--kort-blue-primary)', 
+      color: 'var(--kort-gold-accent)', 
+      border: '2px solid var(--kort-gold-accent)',
+      padding: '1rem 2rem',
+      fontSize: '1rem',
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      textTransform: 'uppercase',
+      cursor: 'pointer',
+      borderRadius: '4px',
+      transition: 'all 0.3s'
+    }}
+    onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.boxShadow = 'var(--glow-gold)'; }}
+    onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = 'none'; }}
+    >Begin Your Awakening</button>
+  </div>
+);
+
 const INTRO_LINES = [
   { phase: 'I', label: 'The Gathering', color: '#c44455', img: '/storm.png' },
   { phase: 'II', label: 'The Impact', color: '#c9a84c', img: '/excalibur.png' },
@@ -311,7 +345,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* ── AWAKENING CTA (From Master Spec v1.0) ── */}
       <section style={{
         position: 'relative', overflow: 'hidden',
         padding: '100px 24px', textAlign: 'center',
@@ -319,32 +353,8 @@ export default function LandingPage() {
         borderTop: '1px solid rgba(201,168,76,0.15)',
       }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/kort_round_table.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.08 }} />
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: 720, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, color: '#fff', textTransform: 'uppercase', lineHeight: 1.1, margin: '0 0 24px' }}>
-            The Table<br /><span style={{ color: '#c9a84c', fontStyle: 'italic' }}>Awaits</span>
-          </h2>
-          <p style={{ color: '#9a9ab0', fontSize: '1.1rem', lineHeight: 1.8, margin: '0 auto 48px', maxWidth: 560 }}>
-            Join Knights from across BC building a new kind of mutual aid — digital, sovereign, and unstoppable.
-          </p>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link to="/join" style={{
-              padding: '1rem 2.5rem', background: '#c9a84c', color: '#000',
-              fontFamily: "'Cinzel', serif", fontWeight: 900, fontSize: '0.85rem',
-              letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none',
-              borderRadius: 4, boxShadow: '0 0 30px rgba(201,168,76,0.4)',
-            }}>
-              Join the Round Table
-            </Link>
-            <Link to="/guide" style={{
-              padding: '1rem 2.5rem', background: 'transparent',
-              border: '1px solid rgba(255,255,255,0.2)', color: '#e8e8e8',
-              fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '0.85rem',
-              letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none',
-              borderRadius: 4,
-            }}>
-              Read the Manual
-            </Link>
-          </div>
+        <div style={{ position: 'relative', zIndex: 10 }}>
+          <AwakeningCTA />
         </div>
       </section>
     </div>

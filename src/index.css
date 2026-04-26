@@ -24,6 +24,25 @@
     --watch-gold: #c9a84c;
     --watch-red: #ff4d4d;
     --watch-green: #4ade80;
+
+    /* Master Spec V1 - Dragon Shield Palette */
+    --kort-bg-deep: #08080f;
+    --kort-gold-accent: #c9a84c;
+    --kort-blue-primary: #0033a0;
+    --kort-text-main: #e0e0e0;
+    --kort-text-muted: #a0a0a0;
+    
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Crimson Text', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(8, 8, 15, 0.7);
+    --glass-border: 1px solid rgba(201, 168, 76, 0.3);
+    --glass-blur: blur(12px);
+    --glow-blue: 0 0 15px rgba(0, 51, 160, 0.6);
+    --glow-gold: 0 0 15px rgba(201, 168, 76, 0.4);
   }
 }
 
