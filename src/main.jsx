@@ -77,76 +77,7 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
 
 // -- LOGIN REMOVED: Using SovereignLogin.jsx component instead --
 
-// --- 5. ANIMATED DRAGON HEADER ---
-function DragonHeader() {
-  return (
-    <div style={{ position: 'relative', width: '100%', height: 350, overflow: 'hidden', background: '#000', borderBottom: '2px solid rgba(201,168,76,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      
-      {/* CSS Animations */}
-      <style>{`
-        @keyframes headerPulse { 0%, 100% { transform: scale(1.05); } 50% { transform: scale(1.1); } }
-        @keyframes fireBreath { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.25; } }
-        @keyframes emberFlicker {
-          0% { opacity: 0.6; } 10% { opacity: 0.8; } 20% { opacity: 0.5; }
-          30% { opacity: 0.9; } 40% { opacity: 0.4; } 50% { opacity: 0.85; }
-          60% { opacity: 0.6; } 70% { opacity: 0.9; } 80% { opacity: 0.5; }
-          90% { opacity: 0.8; } 100% { opacity: 0.6; }
-        }
-      `}</style>
-
-      {/* Cinematic Dragon Backdrop */}
-      <div style={{
-        position: 'absolute', inset: -20,
-        backgroundImage: "url('/sovereign_dragon.png')",
-        backgroundSize: 'cover', backgroundPosition: 'center 30%',
-        animation: 'headerPulse 12s ease-in-out infinite',
-        opacity: 0.8
-      }} />
-
-      {/* Fade Overlays */}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(8,8,15,1) 100%)' }} />
-      
-      {/* Breathing Fire / Ember Overlay */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundColor: '#ff3300',
-        mixBlendMode: 'color-dodge',
-        animation: 'fireBreath 4s ease-in-out infinite',
-        pointerEvents: 'none'
-      }} />
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundColor: '#991100',
-        mixBlendMode: 'overlay',
-        animation: 'emberFlicker 0.15s infinite',
-        pointerEvents: 'none'
-      }} />
-
-      <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-        <h1 style={{ 
-          fontFamily: "'Cinzel', serif", 
-          fontSize: '3.5rem', 
-          color: '#e8e8e8', 
-          fontWeight: 900, 
-          letterSpacing: '3px', 
-          fontStyle: 'italic',
-          margin: '0 0 8px 0',
-          textShadow: '0 0 40px rgba(201,168,76,0.5)',
-          lineHeight: 1.1,
-          textTransform: 'uppercase'
-        }}>
-          Knights of <br/>
-          <span style={{ color: '#c9a84c', fontStyle: 'normal' }}>The Round Table</span>
-        </h1>
-        <div style={{ color: '#ff6b00', fontFamily: 'monospace', fontSize: '0.85rem', letterSpacing: '6px', textTransform: 'uppercase', fontWeight: 700, textShadow: '0 0 10px rgba(255,107,0,0.8)' }}>
-          Sector Alpha // Protocol Engaged
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// --- 6. NAVIGATION ---
+// --- 6. UNIFIED PROFESSIONAL HEADER ---
 function Navigation() {
   const [knightData, setKnightData] = useState(null)
   const [showAccountMenu, setShowAccountMenu] = useState(false)
@@ -168,87 +99,122 @@ function Navigation() {
   const isAdmin = !!localStorage.getItem('kort_admin') || knightData?.role === 'admin'
 
   return (
-    <>
-      <DragonHeader />
-      <nav style={{ width: '100%', background: '#08080f', borderBottom: '1px solid rgba(201,168,76,0.2)', padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 100 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <img src="/logo.png" alt="KoRT" style={{ width: 32, height: 40, objectFit: 'contain' }} />
-            <span style={{ fontFamily: "'Cinzel',serif", fontWeight: 700, fontSize: '1rem', color: '#e8d5a3', letterSpacing: '0.05em' }}>KoRTx.ca</span>
-          </Link>
-          <div style={{ display: 'flex', gap: 16, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, flexWrap: 'wrap' }}>
-            <Link to="/dashboard" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Dashboard</Link>
-            <Link to="/join" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Join</Link>
-            <Link to="/digital-dollars" style={{ color: '#4ade80', textDecoration: 'none' }}>Treasury</Link>
-            <Link to="/economics" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Economics</Link>
-            <Link to="/roundtable" style={{ color: '#c9a84c', textDecoration: 'none' }}>Round Table</Link>
-            <Link to="/watch" style={{ color: '#9a9ab0', textDecoration: 'none' }}>The Watch</Link>
-            <Link to="/guide" style={{ color: '#9a9ab0', textDecoration: 'none' }}>Manual</Link>
-            {knightData && <Link to="/merlin-chat" style={{ color: '#a855f7', textDecoration: 'none' }}>Merlin</Link>}
-            {knightData && <Link to="/advocacy" style={{ color: '#f08080', textDecoration: 'none' }}>Advocate</Link>}
-          </div>
-        </div>
-        
-        {/* Account Icon w/ Hover Overlay */}
-        <div 
-          style={{ position: 'relative' }}
-          onMouseEnter={() => setShowAccountMenu(true)}
-          onMouseLeave={() => setShowAccountMenu(false)}
-        >
-          <div style={{ 
-            display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', 
-            padding: '8px 12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '4px' 
-          }}>
-            <div style={{ width: 20, height: 20, borderRadius: '50%', background: knightData ? '#4ade80' : '#4a9eff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#000', fontSize: 10, fontWeight: 900 }}>{knightData ? 'K' : '?'}</span>
-            </div>
-            <span style={{ fontSize: 11, fontFamily: 'monospace', color: '#e8e8e8', letterSpacing: '0.1em', fontWeight: 700 }}>
-              {knightData ? (knightData.handle || 'KNIGHT_ACTIVE') : 'GUEST'}
-            </span>
-            <span style={{ fontSize: 10, color: '#c9a84c', marginLeft: 4 }}>▼</span>
-          </div>
+    <header style={{ 
+      width: '100%', 
+      background: 'rgba(10, 10, 26, 0.95)', 
+      backdropFilter: 'blur(20px)',
+      borderBottom: '1px solid rgba(201,168,76,0.2)', 
+      padding: '16px 40px', 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'center', 
+      position: 'sticky', 
+      top: 0, 
+      zIndex: 1000,
+      boxShadow: '0 4px 30px rgba(0,0,0,0.5)'
+    }}>
+      {/* Brand */}
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+        <img src="/logo.png" alt="KoRT" style={{ width: 36, height: 44, objectFit: 'contain' }} />
+        <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1.4rem', color: '#e8d5a3', letterSpacing: '0.05em' }}>KoRTx</span>
+      </Link>
 
-          {/* Hover Overlay Menu */}
-          {showAccountMenu && (
-            <div style={{ 
-              position: 'absolute', top: '100%', right: 0, marginTop: 8, width: 220, 
-              background: '#0a0a1a', border: '1px solid rgba(201,168,76,0.5)', borderRadius: 6,
-              boxShadow: '0 10px 30px rgba(0,0,0,0.8)', padding: 12, display: 'flex', flexDirection: 'column', gap: 8 
-            }}>
-              {knightData ? (
-                <>
-                  <div style={{ padding: '8px', borderBottom: '1px solid rgba(255,255,255,0.1)', marginBottom: 4 }}>
-                    <div style={{ fontSize: 10, color: '#9a9ab0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Status</div>
-                    <div style={{ fontSize: 13, color: '#4ade80', fontWeight: 'bold' }}>{knightData.alignment || 'Active'} Node</div>
-                    {isAdmin && <div style={{ fontSize: 9, color: '#f08080', background: 'rgba(240,128,128,0.1)', padding: '2px 4px', borderRadius: 2, display: 'inline-block', marginTop: 4 }}>DIRECTORATE LEVEL</div>}
-                  </div>
-                  <Link to="/settings" style={{ color: '#e8e8e8', fontSize: 12, padding: '8px', textDecoration: 'none', background: 'rgba(255,255,255,0.05)', borderRadius: 4 }}>Tactical Settings</Link>
-                  <Link to="/dashboard" style={{ color: '#e8e8e8', fontSize: 12, padding: '8px', textDecoration: 'none', background: 'rgba(255,255,255,0.05)', borderRadius: 4 }}>Command Center</Link>
-                  <button onClick={handleLogout} style={{ textAlign: 'left', background: 'rgba(240,128,128,0.1)', border: '1px solid rgba(240,128,128,0.3)', color: '#f08080', fontSize: 12, padding: '8px', cursor: 'pointer', borderRadius: 4 }}>
-                    Disconnect Node
-                  </button>
-                </>
-              ) : (
-                <>
-                  <div style={{ padding: '8px', borderBottom: '1px solid rgba(255,255,255,0.1)', marginBottom: 4 }}>
-                    <div style={{ fontSize: 10, color: '#9a9ab0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Unverified Access</div>
-                    <div style={{ fontSize: 11, color: '#c9a84c', marginTop: 4 }}>Identify yourself to access the Round Table.</div>
-                  </div>
-                  <Link to="/login" style={{ color: '#000', background: '#c9a84c', border: '1px solid #e8d5a3', fontSize: 12, padding: '10px 8px', textDecoration: 'none', borderRadius: 4, textAlign: 'center', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                    Login / Sync
-                  </Link>
-                  <Link to="/create" style={{ color: '#c9a84c', border: '1px solid rgba(201,168,76,0.3)', fontSize: 12, padding: '10px 8px', textDecoration: 'none', borderRadius: 4, textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                    Create Dossier
-                  </Link>
-                </>
-              )}
-            </div>
-          )}
-        </div>
+      {/* Main Menu */}
+      <nav style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
+        {[
+          { to: '/join', label: 'Membership', color: '#e8e8e8' },
+          { to: '/digital-dollars', label: 'Treasury', color: '#4ade80' },
+          { to: '/economics', label: 'Economics', color: '#e8e8e8' },
+          { to: '/watch', label: 'The Watch', color: '#e8e8e8' },
+          { to: '/guide', label: 'Manual', color: '#e8e8e8' },
+          knightData && { to: '/dashboard', label: 'Command', color: '#c9a84c' },
+          knightData && { to: '/merlin-chat', label: 'Merlin AI', color: '#a855f7' },
+          knightData && { to: '/advocacy', label: 'Advocacy', color: '#f08080' }
+        ].filter(Boolean).map((link, idx) => (
+          <Link key={idx} to={link.to} style={{ 
+            color: link.color, 
+            textDecoration: 'none', 
+            fontSize: '0.95rem', 
+            fontWeight: 600, 
+            fontFamily: 'sans-serif',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            transition: 'color 0.2s',
+            opacity: location.pathname === link.to ? 1 : 0.8
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+          onMouseLeave={e => e.currentTarget.style.opacity = location.pathname === link.to ? '1' : '0.8'}
+          >
+            {link.label}
+          </Link>
+        ))}
       </nav>
-    </>
+
+      {/* User / Login Bar */}
+      <div 
+        style={{ position: 'relative' }}
+        onMouseEnter={() => setShowAccountMenu(true)}
+        onMouseLeave={() => setShowAccountMenu(false)}
+      >
+        <div style={{ 
+          display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', 
+          padding: '10px 16px', background: 'rgba(255,255,255,0.05)', 
+          border: '1px solid rgba(201,168,76,0.4)', borderRadius: '6px',
+          transition: 'background 0.2s'
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+        onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+        >
+          <div style={{ width: 28, height: 28, borderRadius: '50%', background: knightData ? '#4ade80' : '#c9a84c', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ color: '#000', fontSize: 13, fontWeight: 900, fontFamily: 'sans-serif' }}>{knightData ? knightData.handle?.charAt(0).toUpperCase() || 'K' : '?'}</span>
+          </div>
+          <span style={{ fontSize: '0.9rem', fontFamily: 'sans-serif', color: '#fff', letterSpacing: '0.05em', fontWeight: 600 }}>
+            {knightData ? (knightData.handle || 'KNIGHT ACTIVE') : 'Guest Access'}
+          </span>
+          <span style={{ fontSize: 10, color: '#c9a84c', marginLeft: 4 }}>▼</span>
+        </div>
+
+        {/* Hover Dropdown */}
+        {showAccountMenu && (
+          <div style={{ 
+            position: 'absolute', top: '100%', right: 0, marginTop: 12, width: 240, 
+            background: '#0a0a1a', border: '1px solid rgba(201,168,76,0.4)', borderRadius: '8px',
+            boxShadow: '0 12px 40px rgba(0,0,0,0.8)', padding: 16, display: 'flex', flexDirection: 'column', gap: 12 
+          }}>
+            {knightData ? (
+              <>
+                <div style={{ paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ fontSize: 11, color: '#9a9ab0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Network Status</div>
+                  <div style={{ fontSize: 14, color: '#4ade80', fontWeight: 700, marginTop: 4 }}>{knightData.alignment || 'Active'} Node</div>
+                  {isAdmin && <div style={{ fontSize: 10, color: '#f08080', background: 'rgba(240,128,128,0.1)', padding: '4px 6px', borderRadius: 4, display: 'inline-block', marginTop: 8, fontWeight: 700 }}>DIRECTORATE</div>}
+                </div>
+                <Link to="/settings" style={{ color: '#fff', fontSize: 13, textDecoration: 'none', padding: '8px', borderRadius: 4, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background='rgba(255,255,255,0.05)'} onMouseLeave={e => e.currentTarget.style.background='transparent'}>⚙️ Tactical Settings</Link>
+                <Link to="/dashboard" style={{ color: '#fff', fontSize: 13, textDecoration: 'none', padding: '8px', borderRadius: 4, transition: 'background 0.2s' }} onMouseEnter={e => e.currentTarget.style.background='rgba(255,255,255,0.05)'} onMouseLeave={e => e.currentTarget.style.background='transparent'}>🖥️ Command Center</Link>
+                <button onClick={handleLogout} style={{ textAlign: 'left', background: 'rgba(240,128,128,0.1)', border: '1px solid rgba(240,128,128,0.2)', color: '#f08080', fontSize: 13, padding: '10px', cursor: 'pointer', borderRadius: 4, marginTop: 4, fontWeight: 600 }}>
+                  Disconnect
+                </button>
+              </>
+            ) : (
+              <>
+                <div style={{ paddingBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                  <div style={{ fontSize: 11, color: '#9a9ab0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Unverified Access</div>
+                  <div style={{ fontSize: 13, color: '#e8e8e8', marginTop: 6, lineHeight: 1.4 }}>Login to access your Dashboard and Round Table tools.</div>
+                </div>
+                <Link to="/login" style={{ color: '#000', background: '#c9a84c', fontSize: 13, padding: '10px', textDecoration: 'none', borderRadius: 4, textAlign: 'center', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Login to Account
+                </Link>
+                <Link to="/create" style={{ color: '#c9a84c', border: '1px solid rgba(201,168,76,0.4)', fontSize: 13, padding: '10px', textDecoration: 'none', borderRadius: 4, textAlign: 'center', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Create Account
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    </header>
   )
 }
+
 
 // --- 7. FOOTER ---
 function GlobalFooter() {
