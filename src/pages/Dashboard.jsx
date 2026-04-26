@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Shield, Sword, Cpu, Zap, Activity, Award, Share2, CheckCircle, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../api/base44client';
+import { AcademyMap } from '../components/AcademyMap';
+import { ScribeIngest } from '../components/ScribeIngest';
 
 export default function Dashboard() {
     const navigate = useNavigate();
@@ -166,6 +168,20 @@ export default function Dashboard() {
                             </div>
 
                         </div>
+                    </div>
+
+                    {/* ACADEMY CONSTELLATION MAP */}
+                    <div className="glass-vault border border-amber-500/30 rounded-3xl p-8 bg-black/60 shadow-[0_0_20px_rgba(201,168,76,0.1)]">
+                        <h2 className="serif text-2xl font-black uppercase tracking-widest mb-2 flex items-center gap-3 text-amber-500">
+                            The Academy
+                        </h2>
+                        <p className="text-stone-400 font-mono text-xs uppercase tracking-widest mb-6">Complete knowledge nodes to earn stats and Digital Dollars.</p>
+                        <AcademyMap progressData={[{ lesson_id: 'lesson_1', completed: true }, { lesson_id: 'lesson_2', completed: false }]} />
+                    </div>
+
+                    {/* DIGITAL SCRIBE EVIDENCE HARVESTER */}
+                    <div className="glass-vault border border-blue-500/30 rounded-3xl p-8 bg-black/60 shadow-[0_0_20px_rgba(0,51,160,0.1)]">
+                        <ScribeIngest caseId="KX-2026-00001" target="gmail" />
                     </div>
 
                     {/* Quick Access Matrix */}
