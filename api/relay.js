@@ -22,24 +22,23 @@ export default async function handler(req, res) {
 
     console.log(`[BEDIVERE RELAY] Received payload from: ${payload.source || 'Unknown AI'}`);
 
-    // 2. Process based on Payload Type
-    const { type, content, caseId, user_id } = payload;
+    // 2. Process DRT Universal Handoff Payload
+    // THE RELAY IS THE CORE PROTOCOL FOR ALL AI AGENTS.
+    // It captures handoffs, code blocks, and ledger updates.
+    
+    const { source, target, action, payload_data } = payload;
+    
+    console.log(`[DRT RELAY] Handoff from ${source} to ${target}. Action: ${action}`);
 
-    if (type === 'evidence_ingest') {
-      // Logic to trigger Supabase insert into `exhibits`
-      // await supabaseAdmin.from('exhibits').insert(content);
-      console.log(`Processing evidence for Case: ${caseId}`);
-    } 
-    else if (type === 'academy_progress') {
-      // Logic to update RPG Stats / DB
-      console.log(`Processing Academy update for User: ${user_id}`);
-    }
-    else if (type === 'code_handoff') {
-      // Logic to stage code for Antigravity (OpenCode)
-      console.log("Code handoff staged for IDE ingestion.");
-    }
-    else {
-      console.log("Generic DRT payload received. Logging to memory bank.");
+    // In a production environment, this stores the handoff in the shared memory bank (Supabase 'drt_handoffs') 
+    // or triggers a GitHub Action to update the DRT_LEDGER.md and drt_ingest folder.
+    
+    if (action === 'ledger_update') {
+      console.log(`[DRT RELAY] Syncing ledger update from ${source}`);
+    } else if (action === 'code_handoff') {
+      console.log(`[DRT RELAY] Staging code from ${source} for ${target}`);
+    } else {
+      console.log(`[DRT RELAY] Standard payload received. Broadcasting to Quorum.`);
     }
 
     // 3. Return Standardized DRT Response
