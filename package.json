@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "check": "node scripts/check-links.js",
     "pre-push": "npm run lint && npm run check",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start-drt-api": "node apps/drt-api/server.js",
+    "start-sso-bridge": "node infra/sso_bridge/index.js",
+    "drive-ingest-connector": "node connectors/drive_ingest_connector.js",
+    "embed-codex-all": "node tools/embed_all_codex.js",
+    "start-all": "node scripts/start_all.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.88.0",

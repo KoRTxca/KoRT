@@ -5,9 +5,18 @@ import { Shield, Crown, Key, Pickaxe, Zap, X } from 'lucide-react';
 export default function UpsellOffer() {
   const navigate = useNavigate();
 
+  // Velocity over Polish: PayPal Direct Routing
+  const PAYPAL_EMAIL = "payments@kortx.ca"; 
+
   const handleAccept = () => {
-    // In production, this redirects to Stripe checkout
-    navigate('/dashboard'); 
+    const item = "KoRT Mastermind Seat Upgrade";
+    const amount = "497.00";
+    const returnUrl = `${window.location.origin}/dashboard`;
+    const cancelUrl = window.location.href;
+    
+    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${encodeURIComponent(PAYPAL_EMAIL)}&item_name=${encodeURIComponent(item)}&amount=${amount}&currency_code=USD&return=${encodeURIComponent(returnUrl)}&cancel_return=${encodeURIComponent(cancelUrl)}`;
+    
+    window.location.href = paypalUrl;
   };
 
   const handleDecline = () => {
