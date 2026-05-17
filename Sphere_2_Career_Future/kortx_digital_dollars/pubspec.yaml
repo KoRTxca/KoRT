@@ -1,0 +1,11 @@
+﻿name: kortx_digital_dollars
+version: 1.4.0+1
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  flutter: {sdk: flutter}
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.1
+  supabase_flutter: ^2.5.0
+flutter:
+  uses-material-design: true

@@ -1,0 +1,80 @@
+═══════════════════════════════════════════════════════════
+KoRT PENDRAGON CREST — AI IMAGE GENERATION PROMPTS
+═══════════════════════════════════════════════════════════
+Use these in Midjourney, DALL-E 3 (ChatGPT), or Adobe Firefly.
+Midjourney gives the best heraldic results.
+
+───────────────────────────────────────────────────────────
+PROMPT 1 — FULL CREST (primary logo use)
+───────────────────────────────────────────────────────────
+Heraldic crest, Knights of the Round Table, vibrant medieval
+fantasy meets Star Trek aesthetic, central Round Table viewed
+from above as a circular mandala, twelve seats radiating like
+spokes, Excalibur sword vertical center, IDIC symbol (Vulcan
+Infinite Diversity in Infinite Combinations) integrated into
+the Round Table design, Pendragon family crest elements,
+red dragon wings framing both sides, crown above, shield
+shape outer border, etched steel and aged gold color palette,
+deep navy and black background, glowing gold highlights,
+jewel-toned accents, new-age Camelot, NOT drab NOT grey,
+vibrant and alive, ultra detailed digital art, heraldic
+illustration, centered composition, transparent background
+--ar 1:1 --style raw --stylize 750 --v 6
+
+───────────────────────────────────────────────────────────
+PROMPT 2 — CIRCULAR AVATAR (Discord/Reddit/social)
+───────────────────────────────────────────────────────────
+Circular heraldic badge, KoRT Knights of the Round Table,
+Round Table mandala center, Excalibur sword pointing up,
+red Pendragon dragon motif, gold on deep navy and black,
+Star Trek IDIC circle integrated, regal medieval fantasy,
+vibrant gold and crimson, glowing energy, NOT muted NOT grey,
+metallic sheen, etched steel look, circular frame,
+centered symmetrical design, icon style, digital illustration
+--ar 1:1 --style raw --stylize 600 --v 6
+
+───────────────────────────────────────────────────────────
+PROMPT 3 — SHOULDER BADGE (uniform patch)
+───────────────────────────────────────────────────────────
+Military-style shoulder patch badge, KoRT, embroidered
+aesthetic, Round Table top view center, Excalibur sword,
+Pendragon dragon, red and gold on black background,
+hexagonal or shield shaped, Star Trek IDIC mandala,
+medieval fantasy meets science fiction, vibrant colors,
+gold thread metallic effect, worn leather texture edges,
+clean icon suitable for uniform, high contrast
+--ar 1:1 --style raw --stylize 500 --v 6
+
+───────────────────────────────────────────────────────────
+PROMPT 4 — SHIELD (website/banner)
+───────────────────────────────────────────────────────────
+Heraldic shield, Pendragon coat of arms reimagined, KoRT,
+upper half: red dragon on gold, lower half: Round Table
+mandala on deep navy, Excalibur sword dividing quarters,
+IDIC symbol incorporated, etched steel border, glowing runes,
+ultra detailed, vibrant jewel tones, new-age Camelot,
+Star Trek meets medieval Wales, digital painting, centered
+--ar 2:3 --style raw --stylize 750 --v 6
+
+───────────────────────────────────────────────────────────
+INSTRUCTIONS FOR MIKE:
+───────────────────────────────────────────────────────────
+1. Open Midjourney (midjourney.com) or use /imagine in Discord
+2. Copy a prompt above and paste it after /imagine
+3. Generate 4 variations, pick the best
+4. Use "Vary (Subtle)" to refine
+5. Upscale your favourite with U1/U2/U3/U4
+6. Download the PNG
+7. Import into Canva Pro
+8. Remove background if needed (Canva has this built in)
+9. Export as SVG or PNG for website use
+
+DALL-E 3 (ChatGPT) alternative:
+- Paste prompt into ChatGPT and say "Generate this image with DALL-E"
+- Works well but less heraldic detail than Midjourney
+
+Adobe Firefly:
+- Go to firefly.adobe.com
+- Paste prompt, select "Detailed illustration" style
+
+═══════════════════════════════════════════════════════════

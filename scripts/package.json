@@ -1,0 +1,10 @@
+{
+  "name": "kort-claw",
+  "version": "1.0.0",
+  "description": "KoRT_Claw Automation Engine",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.3",
+    "dotenv": "^17.4.2",
+    "playwright": "^1.44.0"
+  }
+}

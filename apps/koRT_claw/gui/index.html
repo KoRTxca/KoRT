@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoRT Claw | Sovereign Automation Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050608;
+            --bg-card: rgba(10, 12, 18, 0.75);
+            --border-card: rgba(212, 175, 55, 0.2);
+            --gold: #d4af37;
+            --gold-bright: #f9d71c;
+            --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+            --blue-glow: rgba(0, 242, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a5b5;
+            --glass-blur: blur(25px);
+            --accent-cyan: #00f2ff;
+            --green: #00ff88;
+            --red: #ff2a2a;
+        }
+
+        @keyframes holoPulse {
+            0% { opacity: 0.1; transform: translateY(0) scale(1); }
+            50% { opacity: 0.18; transform: translateY(-10px) scale(1.01); }
+            100% { opacity: 0.1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--gold) var(--bg-deep); }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent),
+                              radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.03), transparent);
+        }
+
+        .holo-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(212, 175, 55, 0.01) 1px, transparent 1px) 0 0 / 50px 50px,
+                        linear-gradient(90deg, rgba(212, 175, 55, 0.01) 1px, transparent 1px) 0 0 / 50px 50px;
+            pointer-events: none; z-index: -1; opacity: 0.3;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 2rem; padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem; font-weight: 800;
+            background: var(--aurum-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle { font-size: 0.9rem; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; }
+
+        .hud-status {
+            background: var(--bg-card); border: 1px solid var(--border-card);
+            border-radius: 50px; padding: 10px 24px; display: flex; align-items: center; gap: 15px;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem;
+            background: var(--bg-card); border-radius: 16px; padding: 0.5rem;
+            border: 1px solid var(--border-card);
+        }
+
+        .tab {
+            padding: 0.8rem 1.5rem; border-radius: 12px; cursor: pointer;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-secondary);
+            transition: all 0.3s; border: none; background: transparent;
+        }
+
+        .tab:hover { color: var(--gold); }
+        .tab.active { background: var(--aurum-gradient); color: #000; }
+
+        .panel { display: none; }
+        .panel.active { display: block; }
+
+        .card {
+            background: var(--bg-card); backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card); border-radius: 24px;
+            padding: 2rem; margin-bottom: 1.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative; overflow: hidden;
+        }
+
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--aurum-gradient); opacity: 0.6;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
+            color: var(--gold); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .worker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+
+        .worker-card {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px; padding: 1.2rem; text-align: center;
+            cursor: pointer; transition: all 0.3s;
+        }
+
+        .worker-card:hover {
+            border-color: var(--gold); transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .worker-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .worker-name { font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .worker-desc { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+
+        input, textarea, select {
+            width: 100%; padding: 12px 16px; border-radius: 12px;
+            background: rgba(0,0,0,0.4); border: 1px solid var(--border-card);
+            color: #fff; font-family: 'Outfit', sans-serif; font-size: 0.95rem;
+            outline: none; transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent-cyan); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        textarea { min-height: 120px; resize: vertical; }
+
+        .btn {
+            padding: 0.8rem 2rem; border-radius: 10px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; border: none; font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--aurum-gradient); color: #000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(249, 215, 28, 0.5); transform: scale(1.02); }
+
+        .btn-secondary {
+            background: transparent; color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+
+        .output-box {
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px; padding: 1rem; margin-top: 1rem;
+            font-family: 'Courier New', monospace; font-size: 0.85rem;
+            max-height: 400px; overflow-y: auto; white-space: pre-wrap;
+            color: var(--green);
+        }
+
+        .chat-container { display: flex; flex-direction: column; height: 500px; }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto; padding: 1rem;
+            background: rgba(0,0,0,0.3); border-radius: 12px; margin-bottom: 1rem;
+        }
+
+        .chat-msg { margin-bottom: 1rem; padding: 0.8rem 1rem; border-radius: 12px; max-width: 80%; }
+        .chat-msg.user { background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.2); margin-left: auto; }
+        .chat-msg.ai { background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.2); }
+        .chat-msg .role { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .chat-msg.user .role { color: var(--accent-cyan); }
+        .chat-msg.ai .role { color: var(--gold); }
+
+        .chat-input { display: flex; gap: 0.5rem; }
+        .chat-input input { flex: 1; }
+
+        .voice-controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+        .voice-btn {
+            width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--gold);
+            background: transparent; color: var(--gold); font-size: 1.5rem;
+            cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center;
+        }
+
+        .voice-btn:hover { background: var(--aurum-gradient); color: #000; box-shadow: 0 0 25px var(--gold); }
+        .voice-btn.recording { background: var(--red); border-color: var(--red); color: #fff; animation: glowPulse 1s infinite; }
+
+        .audit-table { width: 100%; border-collapse: collapse; }
+        .audit-table th, .audit-table td { padding: 0.8rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .audit-table th { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .audit-table td { font-size: 0.85rem; color: var(--text-secondary); }
+        .audit-table tr:hover td { color: #fff; background: rgba(212, 175, 55, 0.03); }
+
+        .badge { padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .badge-ok { background: rgba(0, 255, 136, 0.15); color: var(--green); }
+        .badge-warn { background: rgba(255, 165, 0, 0.15); color: orange; }
+        .badge-error { background: rgba(255, 42, 42, 0.15); color: var(--red); }
+
+        .form-row { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: end; }
+        .form-row > div { flex: 1; }
+        .form-row label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body>
+    <div class="holo-grid"></div>
+    <div class="container">
+        <header>
+            <div>
+                <h1>KoRT Claw</h1>
+                <div class="subtitle">Sovereign Automation Engine v2.0</div>
+            </div>
+            <div class="hud-status">
+                <div class="status-dot"></div>
+                <span style="font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;">SOVEREIGN ACTIVE</span>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('workers')">Workers</button>
+            <button class="tab" onclick="switchTab('ai')">Merlin AI</button>
+            <button class="tab" onclick="switchTab('voice')">Voice</button>
+            <button class="tab" onclick="switchTab('audit')">Audit Log</button>
+        </div>
+
+        <!-- WORKERS PANEL -->
+        <div id="panel-workers" class="panel active">
+            <div class="card">
+                <h2>Worker Matrix</h2>
+                <div class="worker-grid">
+                    <div class="worker-card" onclick="selectWorker('discovery')">
+                        <div class="worker-icon">🔍</div>
+                        <div class="worker-name">Discovery</div>
+                        <div class="worker-desc">Scan nodes, services, DNS</div>
+                    </div>
+                    <div class="worker-card" onclick="selectWorker('import')">
+                        <div class="worker-icon">📥</div>
+                        <div class="worker-name">Import</div>
+                        <div class="worker-desc">Ingest files, configs, data</div>
+                    </div>
+                    <div class="worker-card" onclick="selectWorker('refactor')">
+                        <div class="worker-icon">🔧</div>
+                        <div class="worker-name">Refactor</div>
+                        <div class="worker-desc">Analyze & propose changes</div>
+                    </div>
+                    <div class="worker-card" onclick="selectWorker('deploy')">
+                        <div class="worker-icon">🚀</div>
+                        <div class="worker-name">Deploy</div>
+                        <div class="worker-desc">Orchestrate deployments</div>
+                    </div>
+                    <div class="worker-card" onclick="selectWorker('docs')">
+                        <div class="worker-icon">📝</div>
+                        <div class="worker-name">Docs</div>
+                        <div class="worker-desc">Generate docs & handoffs</div>
+                    </div>
+                    <div class="worker-card" onclick="selectWorker('logs')">
+                        <div class="worker-icon">📊</div>
+                        <div class="worker-name">Logs</div>
+                        <div class="worker-desc">Analyze system logs</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="worker-exec" style="display:none;">
+                <h2 id="worker-title">Execute Worker</h2>
+                <div class="form-row">
+                    <div>
+                        <label>Action</label>
+                        <input type="text" id="worker-action" placeholder="e.g., nodes, services, full">
+                    </div>
+                    <div>
+                        <label>Parameters (space-separated)</label>
+                        <input type="text" id="worker-params" placeholder="Optional params">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="runWorker()">Execute</button>
+                <div class="output-box" id="worker-output"></div>
+            </div>
+        </div>
+
+        <!-- AI PANEL -->
+        <div id="panel-ai" class="panel">
+            <div class="card">
+                <h2>Merlin AI / RoundTable Chat</h2>
+                <div class="form-row" style="margin-bottom: 1rem;">
+                    <div style="flex: 0 0 200px;">
+                        <label>AI Backend</label>
+                        <select id="ai-backend">
+                            <option value="merlin">Merlin AI</option>
+                            <option value="roundtable">RoundTable Council</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Ask Merlin anything..." onkeydown="if(event.key==='Enter')sendChat()">
+                        <button class="btn btn-primary" onclick="sendChat()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VOICE PANEL -->
+        <div id="panel-voice" class="panel">
+            <div class="card">
+                <h2>Voice Interface</h2>
+                <div class="voice-controls">
+                    <button class="voice-btn" id="btn-listen" onclick="voiceListen()" title="Listen (STT)">🎤</button>
+                    <button class="voice-btn" id="btn-speak" onclick="voiceSpeak()" title="Speak (TTS)">🔊</button>
+                    <button class="voice-btn" id="btn-converse" onclick="voiceConverse()" title="Converse Mode">💬</button>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <label>Text to Speak</label>
+                    <textarea id="voice-text" placeholder="Enter text for TTS..."></textarea>
+                    <button class="btn btn-primary" style="margin-top: 0.5rem;" onclick="voiceSpeak()">Speak</button>
+                </div>
+                <div class="output-box" id="voice-output"></div>
+            </div>
+        </div>
+
+        <!-- AUDIT PANEL -->
+        <div id="panel-audit" class="panel">
+            <div class="card">
+                <h2>Audit Log</h2>
+                <button class="btn btn-secondary" onclick="loadAudit()" style="margin-bottom: 1rem;">Refresh</button>
+                <table class="audit-table">
+                    <thead><tr><th>Timestamp</th><th>Level</th><th>Action</th><th>Status</th></tr></thead>
+                    <tbody id="audit-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API = '';
+
+        function switchTab(name) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('panel-' + name).classList.add('active');
+            if (name === 'audit') loadAudit();
+        }
+
+        function selectWorker(worker) {
+            document.getElementById('worker-exec').style.display = 'block';
+            document.getElementById('worker-title').textContent = 'Execute: ' + worker.charAt(0).toUpperCase() + worker.slice(1);
+            document.getElementById('worker-action').value = '';
+            document.getElementById('worker-params').value = '';
+            document.getElementById('worker-output').textContent = '';
+            document.getElementById('worker-action').dataset.worker = worker;
+        }
+
+        async function runWorker() {
+            const worker = document.getElementById('worker-action').dataset.worker;
+            const action = document.getElementById('worker-action').value || 'status';
+            const output = document.getElementById('worker-output');
+            output.textContent = 'Executing ' + worker + ':' + action + '...';
+            try {
+                const res = await fetch(API + '/api/run/' + worker + '/' + action);
+                const data = await res.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (e) {
+                output.textContent = 'Error: ' + e.message;
+            }
+        }
+
+        async function sendChat() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const prompt = input.value.trim();
+            if (!prompt) return;
+
+            messages.innerHTML += '<div class="chat-msg user"><div class="role">Knight</div>' + escapeHtml(prompt) + '</div>';
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            const backend = document.getElementById('ai-backend').value;
+            try {
+                const res = await fetch(API + '/api/ai', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({prompt: prompt, system: backend === 'roundtable' ? 'You are the KoRT RoundTable council.' : 'You are Merlin, KoRT Sovereign AI.'})
+                });
+                const data = await res.json();
+                messages.innerHTML += '<div class="chat-msg ai"><div class="role">' + backend + '</div>' + escapeHtml(data.response) + '</div>';
+            } catch (e) {
+                messages.innerHTML += '<div class="chat-msg ai"><div class="role">Error</div>' + escapeHtml(e.message) + '</div>';
+            }
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function voiceListen() {
+            document.getElementById('voice-output').textContent = 'Voice listen requires audio file input. Use CLI: kort-claw voice listen <file>';
+        }
+
+        function voiceSpeak() {
+            const text = document.getElementById('voice-text').value.trim();
+            if (!text) { document.getElementById('voice-output').textContent = 'Enter text to speak.'; return; }
+            document.getElementById('voice-output').textContent = 'Speaking... (TTS via Merlin proxy)';
+        }
+
+        function voiceConverse() {
+            document.getElementById('voice-output').textContent = 'Converse mode: Use CLI: kort-claw voice converse';
+        }
+
+        async function loadAudit() {
+            const tbody = document.getElementById('audit-body');
+            tbody.innerHTML = '<tr><td colspan="4">Loading...</td></tr>';
+            try {
+                const res = await fetch(API + '/api/run/logs/audit');
+                const data = await res.json();
+                if (data.entries && data.entries.length) {
+                    tbody.innerHTML = data.entries.map(e =>
+                        '<tr><td>' + e.timestamp + '</td><td><span class="badge ' + (e.level === 'WARN' ? 'badge-warn' : 'badge-ok') + '">' + e.level + '</span></td><td>' + e.action + '</td><td><span class="badge ' + (e.status === 'DENIED' ? 'badge-error' : 'badge-ok') + '">' + e.status + '</span></td></tr>'
+                    ).join('');
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="4">No audit entries found.</td></tr>';
+                }
+            } catch (e) {
+                tbody.innerHTML = '<tr><td colspan="4">Error loading audit log.</td></tr>';
+            }
+        }
+    </script>
+</body>
+</html>

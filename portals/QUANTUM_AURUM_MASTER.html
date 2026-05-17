@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoRT Mission Control | Quantum Aurum MASTER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050608;
+            --bg-card: rgba(10, 12, 18, 0.7);
+            --border-card: rgba(212, 175, 55, 0.15);
+            --gold: #d4af37;
+            --gold-bright: #f9d71c;
+            --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+            --blue-glow: rgba(0, 102, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --glass-blur: blur(20px);
+            --accent-cyan: #00f2ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: default;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image: url('shared-assets/branding/desktop_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes holoPulse {
+        0% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+        50% { opacity: 0.2; transform: translateY(-20px) scale(1.02) rotate(1deg); }
+        100% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+    @keyframes slowPan {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 10% 5%; }
+        100% { background-position: 0% 0%; }
+    }
+    .holo-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+        animation: slowPan 60s ease-in-out infinite;
+    }
+    .holo-bg::after {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        opacity: 0.03;
+        animation: holoPulse 30s ease-in-out infinite;
+    }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        /* --- Sidebar Navigation --- */
+        nav.sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 100;
+        }
+
+        nav.sidebar a {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: var(--glass-blur);
+        }
+
+        nav.sidebar a:hover {
+            transform: scale(1.1) translateX(5px);
+            background: var(--aurum-gradient);
+            color: #000;
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: left;
+            margin-bottom: 6rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 15px var(--gold));
+        }
+
+        header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            background: var(--aurum-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        header .subtitle {
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Main Grid --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card);
+            border-radius: 32px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--aurum-gradient);
+            opacity: 0.5;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--gold);
+        }
+
+        /* --- Agent Grid --- */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .agent-mini-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .agent-mini-card:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .agent-mini-card .role-tag {
+            font-size: 0.5rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+        }
+
+        .agent-mini-card .agent-id {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
+        .online { background: #00ff88; box-shadow: 0 0 5px #00ff88; }
+
+        /* --- Identity HUD --- */
+        .top-nav {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 1000;
+        }
+
+        .sso-status {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card);
+            border-radius: 50px;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .identity-name {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .dd-balance {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <nav class="sidebar">
+        <a href="#dashboard" title="Dashboard">🏠</a>
+        <a href="#workforce" title="AI Workforce">👥</a>
+        <a href="#apps" title="Applications">🚀</a>
+        <a href="#sanctuary" title="Sanctuary">🛸</a>
+    </nav>
+
+    <div class="top-nav">
+        <div class="sso-status">
+            <div class="status-dot online"></div>
+            <span class="identity-name">KING AUTHORIZED</span>
+            <span style="opacity: 0.3; color: #fff;">|</span>
+            <span class="dd-balance">1,250.00 DD</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <header id="dashboard">
+            <div class="logo-container">
+                <img src="shared-assets/media/kort_logo_transparent.png" alt="KoRT Logo" class="logo-img">
+                <div>
+                    <h1>Mission Control</h1>
+                    <div class="subtitle">Quantum Aurum MASTER</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-grid">
+            <div class="left-col">
+                
+                <!-- SITREP Section -->
+                <section class="card">
+                    <h2>📊 Sovereign SITREP</h2>
+                    <p style="color: var(--gold-bright); font-weight: 600; margin-bottom: 1rem;">STATUS: OMNI-STABLE | VELOCITY: HYPER-SPEED</p>
+                    <div style="background: rgba(0, 102, 255, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1rem; border-radius: 4px;">
+                        <p style="font-size: 0.9rem; color: #fff;"><strong>Antigravity Log:</strong> Restoration complete. Design integrity re-established. 133 AI seats integrated into the Master Grid. The Kingdom is unified.</p>
+                    </div>
+                </section>
+
+                <!-- Workforce Section -->
+                <section id="workforce" class="card">
+                    <h2>👥 AI Workforce (133 Seats)</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Real-time telemetry for the Digital Round Table agents.</p>
+                    <div class="agent-grid">
+                        <!-- Vanguards -->
+                        <div class="agent-mini-card"><span class="role-tag">Vanguard</span><span class="agent-id">AG-101</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Vanguard</span><span class="agent-id">AG-102</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Scribe</span><span class="agent-id">AG-201</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Scribe</span><span class="agent-id">AG-202</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Advocate</span><span class="agent-id">AG-301</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Advocate</span><span class="agent-id">AG-302</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Harvester</span><span class="agent-id">AG-401</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card"><span class="role-tag">Warden</span><span class="agent-id">AG-501</span><div class="status-dot online"></div></div>
+                        <div class="agent-mini-card" style="grid-column: 1 / -1; opacity: 0.4;">+ 125 additional seats synchronized in the hive mind...</div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="right-col">
+                
+                <!-- Spheres Section -->
+                <section id="spheres" class="card">
+                    <h2>🌐 Spherical Map</h2>
+                    <div class="sphere-map">
+                        <div class="sphere-layer"><span>Sphere 0: Sovereign Core</span> <span class="tag core">L0</span></div>
+                        <div class="sphere-layer"><span>Sphere 1: Family Hearth</span> <span class="tag core">L1</span></div>
+                        <div class="sphere-layer"><span>Sphere 2: Career Future</span> <span class="tag core">L2</span></div>
+                    </div>
+                </section>
+
+                <!-- Personal Sanctuary -->
+                <section id="sanctuary" class="card sanctuary">
+                    <h2>🛸 Sanctuary Protocol</h2>
+                    <p><strong>Status: Protected</strong></p>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Private archives (Star Trek, Roddenberry Collection) are isolated in Sphere 0. No commercial bots allowed.</p>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+[
+  {
+    "project": "KoRT_Claw",
+    "task_name": "KoRT_Claw v1.0 — Core Engine Built",
+    "description": "Playwright automation engine with modules for Vultr, Vercel, GitHub, Namecheap DNS, ClickUp sync, Chrome account scanning, local file scanning, and site smoke testing. Branded GUI with gold/dark KoRT theme delivered.",
+    "status": "Completed",
+    "tags": ["KoRT", "KoRT_Claw", "Automation", "Playwright"],
+    "priority": "Critical"
+  },
+  {
+    "project": "KoRT_Claw",
+    "task_name": "KoRT_Claw — Cross-Platform Packaging (PyInstaller/Electron)",
+    "description": "Package KoRT_Claw as downloadable executables for Windows, macOS, and Linux. Make available on kortx.ca/downloads. Include auto-updater.",
+    "status": "To Do",
+    "tags": ["KoRT", "KoRT_Claw", "Distribution"],
+    "priority": "High"
+  },
+  {
+    "project": "KoRT_Claw",
+    "task_name": "KoRT_Claw — Account Discovery & Setup Completion",
+    "description": "Extend KoRT_Claw to scan Chrome saved passwords, cross-reference with Digital Dollars affiliate checklist, and auto-navigate to incomplete account setups to retrieve referral codes.",
+    "status": "To Do",
+    "tags": ["KoRT", "KoRT_Claw", "Digital Dollars"],
+    "priority": "High"
+  },
+  {
+    "project": "KoRT_Claw",
+    "task_name": "KoRT_Claw — App Testing Module",
+    "description": "Playwright test suite that pulls tasks from ClickUp, runs automated UI tests against all KoRT web properties, and reports pass/fail back to ClickUp.",
+    "status": "To Do",
+    "tags": ["KoRT", "KoRT_Claw", "Testing", "QA"],
+    "priority": "High"
+  },
+  {
+    "project": "Infrastructure",
+    "task_name": "Fix www.KoRTx.ca — 404 DNS Resolution",
+    "description": "Add CNAME record for 'www' subdomain pointing to cname.vercel-dns.com in Namecheap. Currently returns 404. KoRT_Claw DNS module can execute this.",
+    "status": "To Do",
+    "tags": ["KoRT", "DNS", "Infrastructure", "Blocker"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Infrastructure",
+    "task_name": "Vultr VPS — Provision KoRT Production Server",
+    "description": "No VPS instances currently running (confirmed via API). Need to provision Ubuntu server for: KoRT OS distribution hosting, Docker container fleet, Supabase self-hosted backup, Ollama LLM gateway.",
+    "status": "To Do",
+    "tags": ["KoRT", "Infrastructure", "Vultr", "VPS"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Infrastructure",
+    "task_name": "Namecheap — Configure All KoRT Subdomains",
+    "description": "Setup DNS for: dollars.kortx.ca, health.kortx.ca, advocate.kortx.ca, scribe.kortx.ca, recovery.kortx.ca, claw.kortx.ca. Point to Vercel or Vultr VPS as appropriate.",
+    "status": "To Do",
+    "tags": ["KoRT", "DNS", "Infrastructure"],
+    "priority": "High"
+  },
+  {
+    "project": "Infrastructure",
+    "task_name": "Private DNS & Custom Nameservers on Vultr",
+    "description": "Configure custom nameservers (ns1.kortx.ca, ns2.kortx.ca) on Vultr VPS. Setup private DNS zone for internal mesh network resolution.",
+    "status": "To Do",
+    "tags": ["KoRT", "DNS", "Infrastructure", "Security"],
+    "priority": "Medium"
+  },
+  {
+    "project": "KoRT OS",
+    "task_name": "KoRT OS — Linux Distro Build (Phase 1)",
+    "description": "Base Ubuntu/Debian derivative with KoRT branding, pre-installed toolchain (Node, Python, Docker, Ollama, KoRT_Claw), custom GRUB splash, themed desktop environment. Packaged as bootable ISO for USB deployment.",
+    "status": "To Do",
+    "tags": ["KoRT", "KoRT_OS", "Linux", "Distribution"],
+    "priority": "Critical"
+  },
+  {
+    "project": "KoRT OS",
+    "task_name": "KoRT OS — Auto-Infector USB Deployment",
+    "description": "KoRT-Auto-Infect.ps1 updated to create bootable USB drives with KoRT OS. Includes monorepo snapshot, local LLM, and full credential vault.",
+    "status": "In Progress",
+    "tags": ["KoRT", "KoRT_OS", "Deployment"],
+    "priority": "High"
+  },
+  {
+    "project": "Web Portal",
+    "task_name": "KoRTx.ca — Fresh Deploy to Vercel",
+    "description": "Last deploy was April 27. Need fresh build with updated portal, KoRT_Claw download page, member dashboard, and Digital Dollars earning guide.",
+    "status": "To Do",
+    "tags": ["KoRT", "Web", "Vercel", "Deployment"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Web Portal",
+    "task_name": "KoRTx.ca — Downloads Page for KoRT_Claw",
+    "description": "Create downloads page at kortx.ca/downloads with platform-specific installers for KoRT_Claw (Windows .exe, macOS .dmg, Linux .AppImage).",
+    "status": "To Do",
+    "tags": ["KoRT", "Web", "KoRT_Claw", "Distribution"],
+    "priority": "High"
+  },
+  {
+    "project": "Digital Dollars",
+    "task_name": "Digital Dollars — Affiliate Code Collection",
+    "description": "15 affiliate programs identified in checklist. KoRT_Claw Account Discovery module to navigate to each, retrieve referral codes, and populate the earning guide.",
+    "status": "To Do",
+    "tags": ["KoRT", "Digital Dollars", "Revenue"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Digital Dollars",
+    "task_name": "Digital Dollars — Earning Guide Page Build",
+    "description": "Build dollars.kortx.ca with live referral links, earning calculator, and member payout dashboard. Wire to Supabase ledger.",
+    "status": "To Do",
+    "tags": ["KoRT", "Digital Dollars", "Web"],
+    "priority": "High"
+  },
+  {
+    "project": "Digital Advocate",
+    "task_name": "Digital Advocate — ICBC Bot (Case Study #1)",
+    "description": "Mike's ICBC claim (Jan 2, 2026, adjuster Sukh Rai) + LaHay dispute. Build the ICBC dispute triage bot as the first production case study for the Advocate platform.",
+    "status": "In Progress",
+    "tags": ["KoRT", "Advocate", "Legal", "ICBC"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Digital Advocate",
+    "task_name": "Digital Sentinel (PI) Module",
+    "description": "Private investigation module: account discovery, cross-reference, timeline builder. Integrated with KoRT_Crawler for local evidence gathering.",
+    "status": "To Do",
+    "tags": ["KoRT", "Advocate", "Digital Sentinel"],
+    "priority": "Medium"
+  },
+  {
+    "project": "Digital Health",
+    "task_name": "Digital Health — 15 Wellness Missions",
+    "description": "Mood snapshot, family logs, Cowichan farm-stress missions paying 5-20 DD each. Voice-first via Quantum-Voice-Bridge. React micro-app in apps/health.",
+    "status": "Blueprint",
+    "tags": ["KoRT", "Health", "Wellness", "Missions"],
+    "priority": "Medium"
+  },
+  {
+    "project": "Master Wiki",
+    "task_name": "Master Wiki — Deploy to scribe.kortx.ca",
+    "description": "MkDocs Material wiki with all KoRT documentation. Build Docker container and deploy to Vultr or Vercel.",
+    "status": "In Progress",
+    "tags": ["KoRT", "Wiki", "Documentation"],
+    "priority": "High"
+  },
+  {
+    "project": "Recovery Fork",
+    "task_name": "Recovery Fork — Isolated Container Design",
+    "description": "Sphere 5 isolated Docker container for detox/sponsor matching. Redacted data, zero cross-contamination with other spheres. RLS enforced.",
+    "status": "Blueprint",
+    "tags": ["KoRT", "Recovery", "Security"],
+    "priority": "Low"
+  },
+  {
+    "project": "ClickUp Integration",
+    "task_name": "ClickUp — API Token & Workspace Setup",
+    "description": "Retrieve ClickUp API token via KoRT_Claw browser module. Create KoRT workspace with lists for each project. Sync existing manifest.",
+    "status": "To Do",
+    "tags": ["KoRT", "ClickUp", "Project Management"],
+    "priority": "Critical"
+  },
+  {
+    "project": "ClickUp Integration",
+    "task_name": "ClickUp — Bidirectional AI Sync",
+    "description": "Every AI agent reads tasks from ClickUp at session start and writes completed work back. Humans and AI share the same Kanban view.",
+    "status": "To Do",
+    "tags": ["KoRT", "ClickUp", "AI Integration"],
+    "priority": "High"
+  },
+  {
+    "project": "Ecosystem Integration",
+    "task_name": "Master Integration Layer — Connect All Projects",
+    "description": "Higher-level orchestration connecting all micro-projects: KoRT_Claw, Digital Dollars, Advocate, Health, Wiki, Recovery, KoRT OS, Web Portal. Shared event bus, common auth, unified dashboard.",
+    "status": "To Do",
+    "tags": ["KoRT", "Architecture", "Integration"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Ecosystem Integration",
+    "task_name": "Supabase — Import All Historical Work",
+    "description": "Ingest all completed tasks, credentials, configurations, and artifacts into the sovereign data lake. Queryable by any AI agent.",
+    "status": "To Do",
+    "tags": ["KoRT", "Supabase", "Data", "History"],
+    "priority": "High"
+  },
+  {
+    "project": "Governance",
+    "task_name": "Sovereign Directives v2.0 — Laws Updated",
+    "description": "Added Completionist Law, Door Number Three Law, Hive Mind Continuity Law, Member-First Law, and Ecosystem Integration Law. All AI agents must comply.",
+    "status": "Completed",
+    "tags": ["KoRT", "Governance", "Laws"],
+    "priority": "Critical"
+  },
+  {
+    "project": "Asset Recovery",
+    "task_name": "KoRT_Scribe + KoRT_Crawler Migrated to Monorepo",
+    "description": "Recovered from D:\\KoRT\\Workspace and committed to apps/advocate/. Includes Scribe GUI, Crawler indexer, Analyzer, and Apify harvester.",
+    "status": "Completed",
+    "tags": ["KoRT", "Recovery", "Migration"],
+    "priority": "High"
+  },
+  {
+    "project": "Asset Recovery",
+    "task_name": "Claude Project Instructions Preserved",
+    "description": "Full Claude/Merlin project instructions (Three Laws, Division of Labor, credentials, protocols) recovered and committed to master-wiki.",
+    "status": "Completed",
+    "tags": ["KoRT", "Recovery", "Documentation"],
+    "priority": "High"
+  },
+  {
+    "project": "Member Onboarding",
+    "task_name": "Open Source Member Contribution Guide",
+    "description": "Create CONTRIBUTING.md with instructions for members to join the workforce, pick up tasks from ClickUp, submit PRs, and earn Digital Dollars.",
+    "status": "To Do",
+    "tags": ["KoRT", "Community", "Open Source"],
+    "priority": "High"
+  },
+  {
+    "project": "Member Onboarding",
+    "task_name": "Member Dashboard — Visual Project Map",
+    "description": "Web dashboard showing all projects, their statuses, Kanban boards, calendar schedules, AI activity logs, and contribution opportunities. Embeddable in kortx.ca.",
+    "status": "To Do",
+    "tags": ["KoRT", "Community", "Dashboard", "UX"],
+    "priority": "High"
+  },
+  {
+    "project": "Marketing",
+    "task_name": "KoRT_Claw — Product Landing Page & Demo Video",
+    "description": "Marketing page for KoRT_Claw with feature highlights, demo video, download buttons, and member testimonials section.",
+    "status": "To Do",
+    "tags": ["KoRT", "Marketing", "KoRT_Claw"],
+    "priority": "Medium"
+  },
+  {
+    "project": "Brick & Mortar",
+    "task_name": "Cowichan Valley Pilot — Digital Foundation Mapping",
+    "description": "Map digital KoRT infrastructure to physical community model. Land acquisition plan, mesh network topology, community governance structure mirroring the spherical architecture.",
+    "status": "Blueprint",
+    "tags": ["KoRT", "Community", "Physical", "Vision"],
+    "priority": "Low"
+  }
+]

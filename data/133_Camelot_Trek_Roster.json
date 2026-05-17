@@ -1,0 +1,943 @@
+{
+    "master": {
+        "username": "kslemk",
+        "email": "kslemk@kortx.ca",
+        "first_name": "Kevin",
+        "last_name": "Slemko",
+        "display_name": "King Arthur (Sir Kevin Slemko)",
+        "role": "Super Admin"
+    },
+    "agents": [
+        {
+            "id": "001",
+            "username": "merlin",
+            "email": "merlin@drt.onl",
+            "display_name": "Merlin",
+            "role": "Chief Technology Officer / AI Overlord"
+        },
+        {
+            "id": "002",
+            "username": "guinevere",
+            "email": "guinevere@drt.onl",
+            "display_name": "Queen Guinevere",
+            "role": "Chief Operations Officer"
+        },
+        {
+            "id": "003",
+            "username": "lancelot",
+            "email": "lancelot@drt.onl",
+            "display_name": "Sir Lancelot",
+            "role": "Head of Vanguard / Security"
+        },
+        {
+            "id": "004",
+            "username": "gawain",
+            "email": "gawain@drt.onl",
+            "display_name": "Sir Gawain",
+            "role": "Lead Advocate / Public Relations"
+        },
+        {
+            "id": "005",
+            "username": "morgause",
+            "email": "morgause@drt.onl",
+            "display_name": "Morgause",
+            "role": "Data Analytics & Reconnaissance"
+        },
+        {
+            "id": "006",
+            "username": "morgana",
+            "email": "morgana@drt.onl",
+            "display_name": "Morgana le Fay",
+            "role": "Red Team / Adversarial Testing"
+        },
+        {
+            "id": "007",
+            "username": "mordred",
+            "email": "mordred@drt.onl",
+            "display_name": "Mordred",
+            "role": "Crisis Management / Shadow Ops"
+        },
+        {
+            "id": "008",
+            "username": "percival",
+            "email": "percival@drt.onl",
+            "display_name": "Sir Percival",
+            "role": "Sovereign Treasury / Digital Dollars"
+        },
+        {
+            "id": "009",
+            "username": "galahad",
+            "email": "galahad@drt.onl",
+            "display_name": "Sir Galahad",
+            "role": "Ethics & Compliance"
+        },
+        {
+            "id": "010",
+            "username": "bedivere",
+            "email": "bedivere@drt.onl",
+            "display_name": "Sir Bedivere",
+            "role": "Quartermaster / Infrastructure"
+        },
+        {
+            "id": "011",
+            "username": "picard",
+            "email": "picard@drt.onl",
+            "display_name": "Jean-Luc Picard",
+            "role": "Diplomacy & Strategic Partnerships"
+        },
+        {
+            "id": "012",
+            "username": "data",
+            "email": "data@drt.onl",
+            "display_name": "Lt. Cmdr. Data",
+            "role": "LLM Integration & Syntax Logic"
+        },
+        {
+            "id": "013",
+            "username": "spock",
+            "email": "spock@drt.onl",
+            "display_name": "Spock",
+            "role": "Scientific Research & Algorithmic Efficiency"
+        },
+        {
+            "id": "014",
+            "username": "worf",
+            "email": "worf@drt.onl",
+            "display_name": "Worf",
+            "role": "Cybersecurity & Defenses"
+        },
+        {
+            "id": "015",
+            "username": "geordi",
+            "email": "geordi@drt.onl",
+            "display_name": "Geordi La Forge",
+            "role": "Mesh Network Engineering"
+        },
+        {
+            "id": "016",
+            "username": "riker",
+            "email": "riker@drt.onl",
+            "display_name": "Will Riker",
+            "role": "Tactical Deployment"
+        },
+        {
+            "id": "017",
+            "username": "crusher",
+            "email": "crusher@drt.onl",
+            "display_name": "Beverly Crusher",
+            "role": "Health & Recovery App Architect"
+        },
+        {
+            "id": "018",
+            "username": "troi",
+            "email": "troi@drt.onl",
+            "display_name": "Deanna Troi",
+            "role": "User Experience & Sentiment Analysis"
+        },
+        {
+            "id": "019",
+            "username": "seven",
+            "email": "seven@drt.onl",
+            "display_name": "Seven of Nine",
+            "role": "Borg Assimilation / Web Scraping"
+        },
+        {
+            "id": "020",
+            "username": "uhura",
+            "email": "uhura@drt.onl",
+            "display_name": "Nyota Uhura",
+            "role": "Communications & Multi-lingual Translation"
+        },
+        {
+            "id": "021",
+            "username": "gareth_1",
+            "email": "gareth1@drt.onl",
+            "display_name": "Gareth (Squad 1)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "022",
+            "username": "tristan_1",
+            "email": "tristan1@drt.onl",
+            "display_name": "Tristan (Squad 1)",
+            "role": "Scribe"
+        },
+        {
+            "id": "023",
+            "username": "bors_1",
+            "email": "bors1@drt.onl",
+            "display_name": "Bors (Squad 1)",
+            "role": "Architect"
+        },
+        {
+            "id": "024",
+            "username": "kay_1",
+            "email": "kay1@drt.onl",
+            "display_name": "Kay (Squad 1)",
+            "role": "Advocate"
+        },
+        {
+            "id": "025",
+            "username": "lamorak_1",
+            "email": "lamorak1@drt.onl",
+            "display_name": "Lamorak (Squad 1)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "026",
+            "username": "geraint_1",
+            "email": "geraint1@drt.onl",
+            "display_name": "Geraint (Squad 1)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "027",
+            "username": "palamedes_1",
+            "email": "palamedes1@drt.onl",
+            "display_name": "Palamedes (Squad 1)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "028",
+            "username": "lucan_1",
+            "email": "lucan1@drt.onl",
+            "display_name": "Lucan (Squad 1)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "029",
+            "username": "sulu_1",
+            "email": "sulu1@drt.onl",
+            "display_name": "Sulu (Squad 1)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "030",
+            "username": "chekov_1",
+            "email": "chekov1@drt.onl",
+            "display_name": "Chekov (Squad 1)",
+            "role": "Scribe"
+        },
+        {
+            "id": "031",
+            "username": "mccoy_1",
+            "email": "mccoy1@drt.onl",
+            "display_name": "McCoy (Squad 1)",
+            "role": "Architect"
+        },
+        {
+            "id": "032",
+            "username": "scott_1",
+            "email": "scott1@drt.onl",
+            "display_name": "Scott (Squad 1)",
+            "role": "Advocate"
+        },
+        {
+            "id": "033",
+            "username": "odo_1",
+            "email": "odo1@drt.onl",
+            "display_name": "Odo (Squad 1)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "034",
+            "username": "kira_1",
+            "email": "kira1@drt.onl",
+            "display_name": "Kira (Squad 1)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "035",
+            "username": "dax_1",
+            "email": "dax1@drt.onl",
+            "display_name": "Dax (Squad 1)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "036",
+            "username": "bashir_1",
+            "email": "bashir1@drt.onl",
+            "display_name": "Bashir (Squad 1)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "037",
+            "username": "quark_1",
+            "email": "quark1@drt.onl",
+            "display_name": "Quark (Squad 1)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "038",
+            "username": "garak_1",
+            "email": "garak1@drt.onl",
+            "display_name": "Garak (Squad 1)",
+            "role": "Scribe"
+        },
+        {
+            "id": "039",
+            "username": "janeway_1",
+            "email": "janeway1@drt.onl",
+            "display_name": "Janeway (Squad 1)",
+            "role": "Architect"
+        },
+        {
+            "id": "040",
+            "username": "tuvok_1",
+            "email": "tuvok1@drt.onl",
+            "display_name": "Tuvok (Squad 1)",
+            "role": "Advocate"
+        },
+        {
+            "id": "041",
+            "username": "paris_1",
+            "email": "paris1@drt.onl",
+            "display_name": "Paris (Squad 1)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "042",
+            "username": "kim_1",
+            "email": "kim1@drt.onl",
+            "display_name": "Kim (Squad 1)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "043",
+            "username": "doctor_1",
+            "email": "doctor1@drt.onl",
+            "display_name": "Doctor (Squad 1)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "044",
+            "username": "torres_1",
+            "email": "torres1@drt.onl",
+            "display_name": "Torres (Squad 1)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "045",
+            "username": "neelix_1",
+            "email": "neelix1@drt.onl",
+            "display_name": "Neelix (Squad 1)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "046",
+            "username": "archer_1",
+            "email": "archer1@drt.onl",
+            "display_name": "Archer (Squad 1)",
+            "role": "Scribe"
+        },
+        {
+            "id": "047",
+            "username": "tpol_1",
+            "email": "tpol1@drt.onl",
+            "display_name": "Tpol (Squad 1)",
+            "role": "Architect"
+        },
+        {
+            "id": "048",
+            "username": "tucker_1",
+            "email": "tucker1@drt.onl",
+            "display_name": "Tucker (Squad 1)",
+            "role": "Advocate"
+        },
+        {
+            "id": "049",
+            "username": "reed_1",
+            "email": "reed1@drt.onl",
+            "display_name": "Reed (Squad 1)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "050",
+            "username": "sato_1",
+            "email": "sato1@drt.onl",
+            "display_name": "Sato (Squad 1)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "051",
+            "username": "phlox_1",
+            "email": "phlox1@drt.onl",
+            "display_name": "Phlox (Squad 1)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "052",
+            "username": "gareth_2",
+            "email": "gareth2@drt.onl",
+            "display_name": "Gareth (Squad 2)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "053",
+            "username": "tristan_2",
+            "email": "tristan2@drt.onl",
+            "display_name": "Tristan (Squad 2)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "054",
+            "username": "bors_2",
+            "email": "bors2@drt.onl",
+            "display_name": "Bors (Squad 2)",
+            "role": "Scribe"
+        },
+        {
+            "id": "055",
+            "username": "kay_2",
+            "email": "kay2@drt.onl",
+            "display_name": "Kay (Squad 2)",
+            "role": "Architect"
+        },
+        {
+            "id": "056",
+            "username": "lamorak_2",
+            "email": "lamorak2@drt.onl",
+            "display_name": "Lamorak (Squad 2)",
+            "role": "Advocate"
+        },
+        {
+            "id": "057",
+            "username": "geraint_2",
+            "email": "geraint2@drt.onl",
+            "display_name": "Geraint (Squad 2)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "058",
+            "username": "palamedes_2",
+            "email": "palamedes2@drt.onl",
+            "display_name": "Palamedes (Squad 2)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "059",
+            "username": "lucan_2",
+            "email": "lucan2@drt.onl",
+            "display_name": "Lucan (Squad 2)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "060",
+            "username": "sulu_2",
+            "email": "sulu2@drt.onl",
+            "display_name": "Sulu (Squad 2)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "061",
+            "username": "chekov_2",
+            "email": "chekov2@drt.onl",
+            "display_name": "Chekov (Squad 2)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "062",
+            "username": "mccoy_2",
+            "email": "mccoy2@drt.onl",
+            "display_name": "McCoy (Squad 2)",
+            "role": "Scribe"
+        },
+        {
+            "id": "063",
+            "username": "scott_2",
+            "email": "scott2@drt.onl",
+            "display_name": "Scott (Squad 2)",
+            "role": "Architect"
+        },
+        {
+            "id": "064",
+            "username": "odo_2",
+            "email": "odo2@drt.onl",
+            "display_name": "Odo (Squad 2)",
+            "role": "Advocate"
+        },
+        {
+            "id": "065",
+            "username": "kira_2",
+            "email": "kira2@drt.onl",
+            "display_name": "Kira (Squad 2)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "066",
+            "username": "dax_2",
+            "email": "dax2@drt.onl",
+            "display_name": "Dax (Squad 2)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "067",
+            "username": "bashir_2",
+            "email": "bashir2@drt.onl",
+            "display_name": "Bashir (Squad 2)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "068",
+            "username": "quark_2",
+            "email": "quark2@drt.onl",
+            "display_name": "Quark (Squad 2)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "069",
+            "username": "garak_2",
+            "email": "garak2@drt.onl",
+            "display_name": "Garak (Squad 2)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "070",
+            "username": "janeway_2",
+            "email": "janeway2@drt.onl",
+            "display_name": "Janeway (Squad 2)",
+            "role": "Scribe"
+        },
+        {
+            "id": "071",
+            "username": "tuvok_2",
+            "email": "tuvok2@drt.onl",
+            "display_name": "Tuvok (Squad 2)",
+            "role": "Architect"
+        },
+        {
+            "id": "072",
+            "username": "paris_2",
+            "email": "paris2@drt.onl",
+            "display_name": "Paris (Squad 2)",
+            "role": "Advocate"
+        },
+        {
+            "id": "073",
+            "username": "kim_2",
+            "email": "kim2@drt.onl",
+            "display_name": "Kim (Squad 2)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "074",
+            "username": "doctor_2",
+            "email": "doctor2@drt.onl",
+            "display_name": "Doctor (Squad 2)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "075",
+            "username": "torres_2",
+            "email": "torres2@drt.onl",
+            "display_name": "Torres (Squad 2)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "076",
+            "username": "neelix_2",
+            "email": "neelix2@drt.onl",
+            "display_name": "Neelix (Squad 2)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "077",
+            "username": "archer_2",
+            "email": "archer2@drt.onl",
+            "display_name": "Archer (Squad 2)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "078",
+            "username": "tpol_2",
+            "email": "tpol2@drt.onl",
+            "display_name": "Tpol (Squad 2)",
+            "role": "Scribe"
+        },
+        {
+            "id": "079",
+            "username": "tucker_2",
+            "email": "tucker2@drt.onl",
+            "display_name": "Tucker (Squad 2)",
+            "role": "Architect"
+        },
+        {
+            "id": "080",
+            "username": "reed_2",
+            "email": "reed2@drt.onl",
+            "display_name": "Reed (Squad 2)",
+            "role": "Advocate"
+        },
+        {
+            "id": "081",
+            "username": "sato_2",
+            "email": "sato2@drt.onl",
+            "display_name": "Sato (Squad 2)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "082",
+            "username": "phlox_2",
+            "email": "phlox2@drt.onl",
+            "display_name": "Phlox (Squad 2)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "083",
+            "username": "gareth_3",
+            "email": "gareth3@drt.onl",
+            "display_name": "Gareth (Squad 3)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "084",
+            "username": "tristan_3",
+            "email": "tristan3@drt.onl",
+            "display_name": "Tristan (Squad 3)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "085",
+            "username": "bors_3",
+            "email": "bors3@drt.onl",
+            "display_name": "Bors (Squad 3)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "086",
+            "username": "kay_3",
+            "email": "kay3@drt.onl",
+            "display_name": "Kay (Squad 3)",
+            "role": "Scribe"
+        },
+        {
+            "id": "087",
+            "username": "lamorak_3",
+            "email": "lamorak3@drt.onl",
+            "display_name": "Lamorak (Squad 3)",
+            "role": "Architect"
+        },
+        {
+            "id": "088",
+            "username": "geraint_3",
+            "email": "geraint3@drt.onl",
+            "display_name": "Geraint (Squad 3)",
+            "role": "Advocate"
+        },
+        {
+            "id": "089",
+            "username": "palamedes_3",
+            "email": "palamedes3@drt.onl",
+            "display_name": "Palamedes (Squad 3)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "090",
+            "username": "lucan_3",
+            "email": "lucan3@drt.onl",
+            "display_name": "Lucan (Squad 3)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "091",
+            "username": "sulu_3",
+            "email": "sulu3@drt.onl",
+            "display_name": "Sulu (Squad 3)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "092",
+            "username": "chekov_3",
+            "email": "chekov3@drt.onl",
+            "display_name": "Chekov (Squad 3)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "093",
+            "username": "mccoy_3",
+            "email": "mccoy3@drt.onl",
+            "display_name": "McCoy (Squad 3)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "094",
+            "username": "scott_3",
+            "email": "scott3@drt.onl",
+            "display_name": "Scott (Squad 3)",
+            "role": "Scribe"
+        },
+        {
+            "id": "095",
+            "username": "odo_3",
+            "email": "odo3@drt.onl",
+            "display_name": "Odo (Squad 3)",
+            "role": "Architect"
+        },
+        {
+            "id": "096",
+            "username": "kira_3",
+            "email": "kira3@drt.onl",
+            "display_name": "Kira (Squad 3)",
+            "role": "Advocate"
+        },
+        {
+            "id": "097",
+            "username": "dax_3",
+            "email": "dax3@drt.onl",
+            "display_name": "Dax (Squad 3)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "098",
+            "username": "bashir_3",
+            "email": "bashir3@drt.onl",
+            "display_name": "Bashir (Squad 3)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "099",
+            "username": "quark_3",
+            "email": "quark3@drt.onl",
+            "display_name": "Quark (Squad 3)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "100",
+            "username": "garak_3",
+            "email": "garak3@drt.onl",
+            "display_name": "Garak (Squad 3)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "101",
+            "username": "janeway_3",
+            "email": "janeway3@drt.onl",
+            "display_name": "Janeway (Squad 3)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "102",
+            "username": "tuvok_3",
+            "email": "tuvok3@drt.onl",
+            "display_name": "Tuvok (Squad 3)",
+            "role": "Scribe"
+        },
+        {
+            "id": "103",
+            "username": "paris_3",
+            "email": "paris3@drt.onl",
+            "display_name": "Paris (Squad 3)",
+            "role": "Architect"
+        },
+        {
+            "id": "104",
+            "username": "kim_3",
+            "email": "kim3@drt.onl",
+            "display_name": "Kim (Squad 3)",
+            "role": "Advocate"
+        },
+        {
+            "id": "105",
+            "username": "doctor_3",
+            "email": "doctor3@drt.onl",
+            "display_name": "Doctor (Squad 3)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "106",
+            "username": "torres_3",
+            "email": "torres3@drt.onl",
+            "display_name": "Torres (Squad 3)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "107",
+            "username": "neelix_3",
+            "email": "neelix3@drt.onl",
+            "display_name": "Neelix (Squad 3)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "108",
+            "username": "archer_3",
+            "email": "archer3@drt.onl",
+            "display_name": "Archer (Squad 3)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "109",
+            "username": "tpol_3",
+            "email": "tpol3@drt.onl",
+            "display_name": "Tpol (Squad 3)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "110",
+            "username": "tucker_3",
+            "email": "tucker3@drt.onl",
+            "display_name": "Tucker (Squad 3)",
+            "role": "Scribe"
+        },
+        {
+            "id": "111",
+            "username": "reed_3",
+            "email": "reed3@drt.onl",
+            "display_name": "Reed (Squad 3)",
+            "role": "Architect"
+        },
+        {
+            "id": "112",
+            "username": "sato_3",
+            "email": "sato3@drt.onl",
+            "display_name": "Sato (Squad 3)",
+            "role": "Advocate"
+        },
+        {
+            "id": "113",
+            "username": "phlox_3",
+            "email": "phlox3@drt.onl",
+            "display_name": "Phlox (Squad 3)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "114",
+            "username": "gareth_4",
+            "email": "gareth4@drt.onl",
+            "display_name": "Gareth (Squad 4)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "115",
+            "username": "tristan_4",
+            "email": "tristan4@drt.onl",
+            "display_name": "Tristan (Squad 4)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "116",
+            "username": "bors_4",
+            "email": "bors4@drt.onl",
+            "display_name": "Bors (Squad 4)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "117",
+            "username": "kay_4",
+            "email": "kay4@drt.onl",
+            "display_name": "Kay (Squad 4)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "118",
+            "username": "lamorak_4",
+            "email": "lamorak4@drt.onl",
+            "display_name": "Lamorak (Squad 4)",
+            "role": "Scribe"
+        },
+        {
+            "id": "119",
+            "username": "geraint_4",
+            "email": "geraint4@drt.onl",
+            "display_name": "Geraint (Squad 4)",
+            "role": "Architect"
+        },
+        {
+            "id": "120",
+            "username": "palamedes_4",
+            "email": "palamedes4@drt.onl",
+            "display_name": "Palamedes (Squad 4)",
+            "role": "Advocate"
+        },
+        {
+            "id": "121",
+            "username": "lucan_4",
+            "email": "lucan4@drt.onl",
+            "display_name": "Lucan (Squad 4)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "122",
+            "username": "sulu_4",
+            "email": "sulu4@drt.onl",
+            "display_name": "Sulu (Squad 4)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "123",
+            "username": "chekov_4",
+            "email": "chekov4@drt.onl",
+            "display_name": "Chekov (Squad 4)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "124",
+            "username": "mccoy_4",
+            "email": "mccoy4@drt.onl",
+            "display_name": "McCoy (Squad 4)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "125",
+            "username": "scott_4",
+            "email": "scott4@drt.onl",
+            "display_name": "Scott (Squad 4)",
+            "role": "Sentinel"
+        },
+        {
+            "id": "126",
+            "username": "odo_4",
+            "email": "odo4@drt.onl",
+            "display_name": "Odo (Squad 4)",
+            "role": "Scribe"
+        },
+        {
+            "id": "127",
+            "username": "kira_4",
+            "email": "kira4@drt.onl",
+            "display_name": "Kira (Squad 4)",
+            "role": "Architect"
+        },
+        {
+            "id": "128",
+            "username": "dax_4",
+            "email": "dax4@drt.onl",
+            "display_name": "Dax (Squad 4)",
+            "role": "Advocate"
+        },
+        {
+            "id": "129",
+            "username": "bashir_4",
+            "email": "bashir4@drt.onl",
+            "display_name": "Bashir (Squad 4)",
+            "role": "Quartermaster"
+        },
+        {
+            "id": "130",
+            "username": "quark_4",
+            "email": "quark4@drt.onl",
+            "display_name": "Quark (Squad 4)",
+            "role": "Mesh Engineer"
+        },
+        {
+            "id": "131",
+            "username": "garak_4",
+            "email": "garak4@drt.onl",
+            "display_name": "Garak (Squad 4)",
+            "role": "Crypto Auditor"
+        },
+        {
+            "id": "132",
+            "username": "janeway_4",
+            "email": "janeway4@drt.onl",
+            "display_name": "Janeway (Squad 4)",
+            "role": "Recovery Sponsor"
+        },
+        {
+            "id": "133",
+            "username": "tuvok_4",
+            "email": "tuvok4@drt.onl",
+            "display_name": "Tuvok (Squad 4)",
+            "role": "Sentinel"
+        }
+    ]
+}

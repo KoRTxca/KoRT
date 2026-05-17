@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KoRT — Knights of the Round Table | The 4th Option for 911</title>
+<meta name="description" content="KoRT is building the 4th option for 911. No one gets left behind."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2308080f'/><text y='24' font-size='24' fill='%23c9a84c'>⚔</text></svg>"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#c9a84c;--gold-light:#e8d5a3;--gold-dark:#9a7a28;--gold-dim:rgba(201,168,76,0.12);--bg:#08080f;--bg2:#0a0a1a;--surface:#10102a;--border:rgba(201,168,76,0.2);--border-hi:rgba(201,168,76,0.6);--text:#e8e8e8;--muted:#9a9ab0;--green:#4ade80;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;--glow:0 0 30px rgba(201,168,76,0.25);--glow-sm:0 0 12px rgba(201,168,76,0.2)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Text',Georgia,serif;font-size:17px;line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(201,168,76,0.05) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(88,60,150,0.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 10% 15%,rgba(201,168,76,0.7) 0%,transparent 100%),radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 40% 8%,rgba(201,168,76,0.5) 0%,transparent 100%),radial-gradient(1px 1px at 55% 70%,rgba(255,255,255,0.25) 0%,transparent 100%),radial-gradient(1px 1px at 70% 25%,rgba(201,168,76,0.6) 0%,transparent 100%),radial-gradient(1px 1px at 80% 55%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 15% 80%,rgba(201,168,76,0.6) 0%,transparent 100%),radial-gradient(1px 1px at 35% 60%,rgba(255,255,255,0.2) 0%,transparent 100%),radial-gradient(1px 1px at 60% 90%,rgba(201,168,76,0.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 88% 75%,rgba(201,168,76,0.65) 0%,transparent 100%),radial-gradient(1px 1px at 5% 50%,rgba(201,168,76,0.3) 0%,transparent 100%),radial-gradient(1px 1px at 95% 40%,rgba(201,168,76,0.45) 0%,transparent 100%);pointer-events:none;z-index:0;animation:twinkle 7s ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.5}50%{opacity:1}100%{opacity:.65}}
+.announce-bar{position:fixed;top:0;left:0;right:0;z-index:1000;background:linear-gradient(90deg,var(--bg2),#0f0f28,var(--bg2));border-bottom:1px solid var(--border);padding:7px 0;overflow:hidden}
+.announce-inner{display:flex;gap:80px;white-space:nowrap;animation:marquee 28s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ann{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;flex-shrink:0}
+.ann-sep{color:var(--gold-dark);opacity:.5}
+nav{position:fixed;top:33px;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(8,8,15,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all .3s}
+.nav-logo{font-family:'Cinzel',serif;font-size:20px;font-weight:900;letter-spacing:4px;color:var(--gold);text-decoration:none;text-shadow:0 0 20px rgba(201,168,76,.4)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold-dark),var(--gold))!important;color:#08080f!important;padding:8px 18px!important;border-radius:3px;font-weight:700!important;box-shadow:var(--glow-sm)}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 32px 80px;z-index:1;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 25% 70%,rgba(88,60,180,.06) 0%,transparent 55%);z-index:-1}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.07);top:50%;left:50%;transform:translate(-50%,-50%);animation:rpulse 6s ease-in-out infinite;pointer-events:none}
+@keyframes rpulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.02)}}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s .2s forwards}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'⋯';margin:0 12px;opacity:.4}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(40px,8vw,86px);font-weight:900;line-height:1.05;margin-bottom:20px;opacity:0;animation:fup .8s .4s forwards}
+.ht-main{background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.ht-sub{color:var(--text);font-size:.52em;letter-spacing:6px;display:block;margin-top:8px;-webkit-text-fill-color:var(--text)}
+.hero-lead{font-size:20px;color:var(--muted);max-width:580px;margin:0 auto 40px;opacity:0;animation:fup .8s .6s forwards}
+.hero-lead strong{color:var(--text)}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:60px;opacity:0;animation:fup .8s .8s forwards}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:560px;width:100%;margin:0 auto;opacity:0;animation:fup .8s 1s forwards}
+.stat{background:rgba(201,168,76,.04);border:1px solid var(--border);padding:16px 8px;text-align:center}
+.stat-n{font-family:'Cinzel',serif;font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.stat-l{font-size:11px;color:var(--muted);letter-spacing:1px;display:block;margin-top:2px}
+@keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+.scroll-txt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold-dark);opacity:.6}
+.scroll-line{width:1px;height:32px;background:linear-gradient(180deg,var(--gold-dark),transparent)}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));color:#08080f;font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:2px;padding:14px 32px;border-radius:3px;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,.3);transition:all .25s;border:none;cursor:pointer;text-transform:uppercase}
+.btn-p:hover{box-shadow:0 6px 30px rgba(201,168,76,.5);transform:translateY(-2px)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold-light);font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:2px;padding:13px 32px;border-radius:3px;border:1px solid var(--border-hi);text-decoration:none;transition:all .25s;cursor:pointer;text-transform:uppercase}
+.btn-g:hover{background:var(--gold-dim);box-shadow:var(--glow-sm);transform:translateY(-2px)}
+.ornament{display:flex;align-items:center;justify-content:center;gap:16px;padding:24px 32px;position:relative;z-index:1}
+.orn-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.orn-sym{font-family:'Cinzel',serif;font-size:18px;color:var(--gold-dark);letter-spacing:8px;opacity:.6}
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 32px;position:relative;z-index:1}
+section{position:relative;z-index:1;padding:90px 32px;max-width:1200px;margin:0 auto}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);opacity:.5}
+h2.st{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,44px);font-weight:700;line-height:1.2;margin-bottom:18px;background:linear-gradient(135deg,var(--text) 0%,var(--gold-light) 60%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lead{font-size:18px;color:var(--muted);max-width:640px;line-height:1.75}
+.founder-band{background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,rgba(88,60,150,.04) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 32px;position:relative;z-index:1;overflow:hidden}
+.founder-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(201,168,76,.01) 0px,rgba(201,168,76,.01) 1px,transparent 1px,transparent 24px)}
+.fi{max-width:1100px;margin:0 auto;position:relative}
+.f-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:8px}
+.f-title{font-family:'Cinzel',serif;font-size:clamp(22px,3.5vw,38px);font-weight:700;text-align:center;margin-bottom:8px;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.f-sub{text-align:center;color:var(--muted);margin-bottom:36px;font-size:16px}
+.spot-dots{display:flex;justify-content:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.spot{width:12px;height:12px;border-radius:50%;border:1px solid var(--border-hi);background:var(--gold-dim);transition:all .2s}
+.spot.taken{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,.5)}
+.spot-lbl{text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:36px}
+.f-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.f-card{border:1px solid var(--border);border-radius:6px;padding:24px 18px;background:rgba(8,8,15,.75);text-align:center;transition:all .25s;backdrop-filter:blur(8px)}
+.f-card:hover{border-color:var(--border-hi);box-shadow:var(--glow);transform:translateY(-4px)}
+.f-card.hl{border-color:var(--gold);box-shadow:var(--glow-sm);background:rgba(201,168,76,.04)}
+.f-ico{font-size:28px;margin-bottom:10px;display:block}
+.f-cnt{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:5px}
+.f-name{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold-light);margin-bottom:4px;letter-spacing:1px}
+.f-price{font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.f-price.free{background:linear-gradient(135deg,#4ade80,#86efac);-webkit-background-clip:text;background-clip:text}
+.f-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:16px}
+.f-btn{display:block;width:100%;padding:10px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;border-radius:3px;text-align:center;text-decoration:none;transition:all .2s;cursor:pointer}
+.f-btn.gold{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--bg);border:none}
+.f-btn.gold:hover{box-shadow:var(--glow-sm)}
+.f-btn.ghost{background:transparent;color:var(--gold-light);border:1px solid var(--border-hi)}
+.f-btn.ghost:hover{background:var(--gold-dim)}
+.f-disc{text-align:center;font-size:13px;color:var(--muted);margin-top:20px;font-style:italic}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.pillar{border:1px solid var(--border);border-radius:8px;padding:26px 22px;background:rgba(10,10,26,.65);backdrop-filter:blur(6px);position:relative;overflow:hidden;transition:all .3s}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.pillar:hover{border-color:rgba(201,168,76,.4);box-shadow:0 8px 40px rgba(201,168,76,.08);transform:translateY(-4px)}
+.pillar:hover::before{opacity:1}
+.p-num{font-family:'Cinzel',serif;font-size:11px;color:var(--gold-dark);letter-spacing:3px;margin-bottom:10px}
+.p-ico{font-size:30px;margin-bottom:10px;display:block}
+.pillar h3{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--gold-light);margin-bottom:8px;letter-spacing:1px}
+.pillar p{font-size:14px;color:var(--muted);line-height:1.6}
+.p-status{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;padding:3px 8px;border-radius:2px;margin-top:12px}
+.ps-build{background:rgba(201,168,76,.1);color:var(--gold);border:1px solid var(--border)}
+.ps-soon{background:rgba(96,165,250,.1);color:var(--blue);border:1px solid rgba(96,165,250,.25)}
+.ps-dev{background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.25)}
+.origin-section{background:linear-gradient(180deg,rgba(10,10,26,.5) 0%,rgba(8,8,15,0) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+blockquote{border-left:3px solid var(--gold);padding:18px 26px;margin:26px 0;background:rgba(201,168,76,.03);border-radius:0 6px 6px 0;font-size:18px;font-style:italic;color:var(--text);line-height:1.75}
+.dedication{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.06);border:1px solid var(--border);border-radius:4px;padding:10px 18px;font-size:14px;color:var(--muted);margin-top:18px}
+.dedication strong{color:var(--gold-light)}
+table.ct{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+table.ct th{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;text-align:left;padding:12px 16px;border-bottom:2px solid var(--border-hi);background:rgba(201,168,76,.04)}
+table.ct td{padding:12px 16px;border-bottom:1px solid rgba(201,168,76,.07);color:var(--muted)}
+table.ct tr:hover td{background:rgba(201,168,76,.02)}
+table.ct td:first-child{color:var(--text);font-weight:600}
+.td-k{color:var(--gold)!important;font-weight:600!important}
+.legal-box{background:rgba(201,168,76,.04);border:1px solid var(--border);border-radius:6px;padding:18px 22px;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:14px}
+.li{display:flex;align-items:flex-start;gap:8px;color:var(--muted)}
+.li-icon{color:var(--gold);flex-shrink:0}
+.qs{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(201,168,76,.05);border:1px solid var(--border-hi);border-radius:8px;padding:18px 22px;margin-bottom:28px}
+.qs-lbl{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:700;white-space:nowrap}
+.qs-step{font-size:14px;font-weight:600;color:var(--text)}
+.qs-arr{color:var(--gold-dark);font-size:12px}
+.qs-res{margin-left:auto;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);border-radius:4px;padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);white-space:nowrap}
+table.et{width:100%;border-collapse:collapse;font-size:14px}
+table.et th{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;text-align:left;padding:10px 14px;border-bottom:1px solid var(--border-hi);background:rgba(201,168,76,.03)}
+table.et td{padding:11px 14px;border-bottom:1px solid rgba(201,168,76,.06);color:var(--muted);vertical-align:middle}
+table.et tr:hover td{background:rgba(201,168,76,.03)}
+table.et td:first-child{color:var(--text);font-weight:600;font-size:15px}
+.el{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;border:1px solid var(--border);border-radius:3px;padding:4px 10px;background:var(--gold-dim);transition:all .2s;white-space:nowrap}
+.el:hover{border-color:var(--border-hi);box-shadow:var(--glow-sm)}
+.eb{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 7px;border-radius:2px}
+.eb-qs{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid var(--border)}
+.eb-new{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+.eb-bon{background:rgba(167,139,250,.12);color:var(--purple);border:1px solid rgba(167,139,250,.25)}
+.ep{background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.2);border-radius:8px;padding:20px 24px;margin-top:22px}
+.ep-t{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--green);margin-bottom:10px;letter-spacing:2px}
+.ep-s{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.ep-step{color:var(--text);font-weight:600}
+.ep-arr{color:var(--green);opacity:.6}
+.ledger{background:rgba(8,8,15,.97);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:26px}
+.ledger-hd{background:rgba(201,168,76,.06);border-bottom:1px solid var(--border);padding:13px 20px;display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:ldot 2s infinite;flex-shrink:0}
+@keyframes ldot{0%,100%{opacity:1;box-shadow:0 0 6px rgba(74,222,128,.6)}50%{opacity:.5;box-shadow:0 0 2px rgba(74,222,128,.3)}}
+.ledger-row{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(201,168,76,.05);font-size:14px;gap:12px}
+.ledger-row:last-child{border-bottom:none}
+.l-desc{color:var(--text);flex:1}
+.l-cat{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);padding:2px 8px;border-radius:2px;background:rgba(255,255,255,.04);white-space:nowrap}
+.l-amt{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;min-width:75px;text-align:right;white-space:nowrap}
+.l-in{color:var(--green)}.l-out{color:var(--red)}
+.ledger-ft{padding:13px 20px;background:rgba(201,168,76,.03);border-top:1px solid var(--border);font-size:13px;color:var(--muted);text-align:center}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.tc{border:1px solid var(--border);border-radius:8px;padding:26px 18px;background:rgba(8,8,15,.82);backdrop-filter:blur(8px);position:relative;overflow:hidden;transition:all .3s;text-align:center}
+.tc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.tc:hover{border-color:rgba(201,168,76,.5);box-shadow:var(--glow);transform:translateY(-6px)}
+.tc:hover::after,.tc.ft::after{opacity:.7}
+.tc.ft{border-color:var(--gold);box-shadow:var(--glow-sm)}
+.t-ico{font-size:30px;display:block;margin-bottom:10px}
+.t-name{font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:3px;color:var(--gold-light);text-transform:uppercase;margin-bottom:6px}
+.t-price{font-family:'Cinzel',serif;font-size:34px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.t-period{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:14px}
+.t-tl{font-style:italic;font-size:14px;color:var(--muted);margin-bottom:16px;border-top:1px solid var(--border);padding-top:12px}
+.t-feats{list-style:none;margin-bottom:18px;text-align:left}
+.t-feats li{font-size:13px;color:var(--muted);padding:3px 0;display:flex;gap:7px;align-items:flex-start}
+.t-feats li::before{content:'⚔';color:var(--gold-dark);font-size:10px;flex-shrink:0;margin-top:4px}
+.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.inv-card{border:1px solid var(--border);border-radius:8px;padding:26px 22px;background:rgba(10,10,26,.7);transition:all .3s}
+.inv-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.inv-ico{font-size:26px;margin-bottom:12px;display:block}
+.inv-t{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--gold-light);margin-bottom:8px;letter-spacing:1px}
+.inv-d{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:48px 32px 32px;text-align:center;background:rgba(8,8,15,.98)}
+.f-logo{font-family:'Cinzel',serif;font-size:24px;font-weight:900;letter-spacing:6px;background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:8px}
+.f-tl{font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;color:var(--muted);margin-bottom:26px}
+.f-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.f-links a{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1px;color:var(--muted);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--gold)}
+.f-copy{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(154,154,176,.45);letter-spacing:.5px}
+@media(max-width:1000px){.tiers,.f-grid{grid-template-columns:1fr 1fr}.pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){nav{padding:12px 16px}.nav-links{display:none}section{padding:60px 16px}.hero{padding:100px 16px 60px}.tiers,.f-grid{grid-template-columns:1fr}.pillars,.inv-grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:repeat(2,1fr)}.hero-ring{display:none}.legal-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="announce-bar"><div class="announce-inner">
+<span class="ann">⚔ Building in public — kortx.ca</span><span class="ann-sep"> ✦ </span>
+<span class="ann">Founders Circle open — 25 spots only</span><span class="ann-sep"> ✦ </span>
+<span class="ann">No one gets left behind</span><span class="ann-sep"> ✦ </span>
+<span class="ann">The 4th Option for 911</span><span class="ann-sep"> ✦ </span>
+<span class="ann">Cowichan Valley → everywhere</span><span class="ann-sep"> ✦ </span>
+<span class="ann">⚔ Building in public — kortx.ca</span><span class="ann-sep"> ✦ </span>
+<span class="ann">Founders Circle open — 25 spots only</span><span class="ann-sep"> ✦ </span>
+<span class="ann">No one gets left behind</span><span class="ann-sep"> ✦ </span>
+<span class="ann">The 4th Option for 911</span><span class="ann-sep"> ✦ </span>
+<span class="ann">Cowichan Valley → everywhere</span><span class="ann-sep"> ✦ </span>
+</div></div>
+
+<nav>
+  <a class="nav-logo" href="#home">⚔ KoRT</a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#pillars">Build</a></li>
+    <li><a href="#earn">Earn Free</a></li>
+    <li><a href="#membership">Join</a></li>
+    <li><a href="#involved">Get Involved</a></li>
+    <li><a class="nav-cta" href="#founders">⚔ Founders Circle</a></li>
+  </ul>
+</nav>
+
+<div class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ring" style="width:700px;height:700px"></div>
+  <div class="hero-ring" style="width:920px;height:920px;border-color:rgba(201,168,76,.04);animation-delay:2s"></div>
+  <div class="hero-ring" style="width:1140px;height:1140px;border-color:rgba(201,168,76,.02);animation-delay:4s"></div>
+
+  <div class="hero-eyebrow">Launched March 12, 2026 — You Are Here at the Beginning</div>
+  <h1 class="hero-title">
+    <span class="ht-main">The 4th Option<br/>for 911</span>
+    <span class="ht-sub">Knights of the Round Table</span>
+  </h1>
+  <p class="hero-lead">When police make it worse. When ambulances don't fit.<br/><strong>KoRT shows up.</strong> Community crisis response — trained, trusted, funded by its own ecosystem.</p>
+  <div class="hero-ctas">
+    <a href="#founders" class="btn-p">⚔ Claim Founders Spot</a>
+    <a href="#mission" class="btn-g">Learn the Mission →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-n">20+</span><span class="stat-l">Years Building</span></div>
+    <div class="stat"><span class="stat-n">$0</span><span class="stat-l">Gov't Dependency</span></div>
+    <div class="stat"><span class="stat-n">Day 1</span><span class="stat-l">You're Here Now</span></div>
+    <div class="stat"><span class="stat-n">4th</span><span class="stat-l">Option for 911</span></div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-txt">Scroll</div><div class="scroll-line"></div></div>
+</div>
+
+<div class="ornament"><div class="orn-line"></div><div class="orn-sym">⚔ ◈ ⚔</div><div class="orn-line"></div></div>
+
+<div class="founder-band" id="founders">
+  <div class="fi">
+    <div class="f-lbl">⚡ Limited Time — Closes When Full</div>
+    <h2 class="f-title">Founders Circle</h2>
+    <p class="f-sub">25 early spots. Lifetime benefits. No second chance at these prices.</p>
+    <div class="spot-dots" id="spotDots"></div>
+    <div class="spot-lbl" id="spotLbl">Loading...</div>
+    <div class="f-grid">
+      <div class="f-card">
+        <span class="f-ico">🤝</span>
+        <div class="f-cnt">3 SPOTS</div>
+        <div class="f-name">Free Tester</div>
+        <div class="f-price free">Free</div>
+        <div class="f-desc">Early access. Help us test. Give honest feedback. You're in the room.</div>
+        <a href="mailto:chimney2curb@gmail.com?subject=Founders Circle - Free Spot" class="f-btn ghost">Claim Free Spot</a>
+      </div>
+      <div class="f-card hl">
+        <span class="f-ico">⚔</span>
+        <div class="f-cnt">7 SPOTS</div>
+        <div class="f-name">Founder Knight</div>
+        <div class="f-price">$75</div>
+        <div class="f-desc">Lifetime access + Think Tank + early app access + Founder badge.</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_xclick"/>
+          <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+          <input type="hidden" name="item_name" value="KoRT Founders Circle Knight ($75 CAD)"/>
+          <input type="hidden" name="amount" value="75.00"/>
+          <input type="hidden" name="currency_code" value="CAD"/>
+          <button type="submit" class="f-btn gold">⚔ Claim $75 Spot</button>
+        </form>
+      </div>
+      <div class="f-card hl">
+        <span class="f-ico">🏛</span>
+        <div class="f-cnt">10 SPOTS</div>
+        <div class="f-name">Round Table</div>
+        <div class="f-price">$150</div>
+        <div class="f-desc">Everything above + voting rights + co-founder recognition + equity path.</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_xclick"/>
+          <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+          <input type="hidden" name="item_name" value="KoRT Founders Circle Round Table ($150 CAD)"/>
+          <input type="hidden" name="amount" value="150.00"/>
+          <input type="hidden" name="currency_code" value="CAD"/>
+          <button type="submit" class="f-btn gold">🏛 Claim $150 Spot</button>
+        </form>
+      </div>
+      <div class="f-card">
+        <span class="f-ico">👑</span>
+        <div class="f-cnt">5 SPOTS</div>
+        <div class="f-name">Founding Partner</div>
+        <div class="f-price">$250</div>
+        <div class="f-desc">Max equity path. Direct line to Mike. Shape the future of KoRT.</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_xclick"/>
+          <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+          <input type="hidden" name="item_name" value="KoRT Founders Circle Partner ($250 CAD)"/>
+          <input type="hidden" name="amount" value="250.00"/>
+          <input type="hidden" name="currency_code" value="CAD"/>
+          <button type="submit" class="f-btn gold">👑 Claim $250 Spot</button>
+        </form>
+      </div>
+    </div>
+    <p class="f-disc">PayPal (CAD) or e-transfer: chimney2curb@gmail.com | 250-436-0631</p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<section id="mission">
+  <div class="eyebrow">What We Are</div>
+  <h2 class="st">One Ecosystem. Zero Dependencies.</h2>
+  <p class="lead">KoRT is the civilian crisis response infrastructure that should already exist — and an economic engine that makes it self-sustaining forever.</p>
+  <div class="pillars" id="pillars">
+    <div class="pillar"><div class="p-num">01</div><span class="p-ico">⚔️</span><h3>Crisis Response</h3><p>4th option for 911. Trained civilian responders for mental health, addiction, and social crises. CAHOOTS model — zero government strings.</p><span class="p-status ps-build">Pre-Launch — Building Now</span></div>
+    <div class="pillar"><div class="p-num">02</div><span class="p-ico">💰</span><h3>Digital Dollars</h3><p>Members earn real money through curated app stacks, affiliate programs, and our data mining app. Revenue shared with the community. Join broke. Leave earning.</p><span class="p-status ps-soon">Launching Soon</span></div>
+    <div class="pillar"><div class="p-num">03</div><span class="p-ico">🛡️</span><h3>Digital Detox</h3><p>Street-smart recovery. No clinical language. No shame. AI Sponsor 24/7. Harm reduction tools, real courses, a community that's been there.</p><span class="p-status ps-soon">Launching Soon</span></div>
+    <div class="pillar"><div class="p-num">04</div><span class="p-ico">⚖️</span><h3>Advocate</h3><p>AI-powered navigation of systems designed to confuse you. ICBC claims, PWD apps, housing disputes, legal letters. The system shouldn't require a lawyer.</p><span class="p-status ps-dev">In Development</span></div>
+    <div class="pillar"><div class="p-num">05</div><span class="p-ico">🏡</span><h3>Tiered Housing</h3><p>Emergency pads → transitional → permanent homes. Seacan clusters and Amish/tech hybrid construction. A roof is not a luxury.</p><span class="p-status ps-dev">Phase 2 Planning</span></div>
+    <div class="pillar"><div class="p-num">06</div><span class="p-ico">🌾</span><h3>Land & Production</h3><p>Self-sufficient community production — food, goods, training. Farm shares available. Dividends are food, not promises. Starting in the Cowichan Valley.</p><span class="p-status ps-dev">Fundraising Phase</span></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section class="origin-section">
+  <div class="eyebrow">The Origin</div>
+  <h2 class="st">20 Years of Doing This Without a Name.</h2>
+  <blockquote>"People in this community have been calling each other instead of 911 for decades. We remove the partner who won't leave. We sit with someone in crisis at 3am. We show up when the system doesn't. Now we're building the infrastructure to do this properly — licensed, insured, funded, permanent."</blockquote>
+  <p style="color:var(--muted);font-size:17px;max-width:700px;line-height:1.75;margin-bottom:14px">KoRT is built on lived experience. This isn't a startup idea — it's the formalization of something that already works. Based on the CAHOOTS model (Eugene, OR — 1989), but with one critical difference: KoRT depends on no government funding. Ever.</p>
+  <div class="dedication"><span>🕊</span><span>Dedicated to <strong>Aaron Van Nice</strong> and <strong>Kyle "Krymes" Dunn</strong> — who showed us what this looks like done with love.</span></div>
+  <div style="overflow-x:auto;margin-top:36px">
+    <table class="ct">
+      <thead><tr><th>Factor</th><th>CAHOOTS (1989)</th><th>KoRT (2026)</th></tr></thead>
+      <tbody>
+        <tr><td>Funding</td><td>Government / city</td><td class="td-k">Self-funded ecosystem</td></tr>
+        <tr><td>911 diversion</td><td>17–24% of calls</td><td class="td-k">Target: match or exceed</td></tr>
+        <tr><td>Police backup needed</td><td>&lt;1% of calls</td><td class="td-k">Target: match or exceed</td></tr>
+        <tr><td>Revenue sharing</td><td>None</td><td class="td-k">Yes — members earn</td></tr>
+        <tr><td>Housing component</td><td>None</td><td class="td-k">Full spectrum</td></tr>
+        <tr><td>Gov't dependency</td><td>High</td><td class="td-k">Zero</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legal-box">
+    <div class="li"><span class="li-icon">✓</span><span>Membership = community access + content</span></div>
+    <div class="li"><span class="li-icon">✓</span><span>Not a licensed service — not yet</span></div>
+    <div class="li"><span class="li-icon">✓</span><span>Services launch only when properly licensed</span></div>
+    <div class="li"><span class="li-icon">✓</span><span>Peer support is not professional counselling</span></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section id="earn">
+  <div class="eyebrow">No Money? No Problem.</div>
+  <h2 class="st">Earn Your Way In. Free Path to Membership.</h2>
+  <p class="lead">Every link below is a KoRT referral link. When you install and earn, KoRT earns too — funding everything else.</p>
+  <div class="qs" style="margin-top:28px">
+    <span class="qs-lbl">⚡ Quick Stack</span>
+    <span class="qs-step">🎮 BestPlay</span><span class="qs-arr">→</span>
+    <span class="qs-step">🎮 Mistplay</span><span class="qs-arr">→</span>
+    <span class="qs-step">💰 Swagbucks</span><span class="qs-arr">→</span>
+    <span class="qs-step">📊 Nielsen</span>
+    <span class="qs-res">$15–30 in 48 hrs → covers Esquire month</span>
+  </div>
+  <div style="overflow-x:auto">
+    <table class="et">
+      <thead><tr><th>#</th><th>App</th><th>What You Do</th><th>Earning</th><th>Platform</th><th>KoRT Link</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>🎮 BestPlay</td><td>Play games, earn coins, cash out</td><td>200k bonus coins <span class="eb eb-bon">BONUS</span></td><td>iOS/Android</td><td><a class="el" href="https://bestplay.onelink.me/IZ8a/6n85wno3" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>2</td><td>🎮 Mistplay</td><td>Play mobile games, earn points</td><td>$5–20/mo <span class="eb eb-qs">Quick Stack</span></td><td>Android</td><td><a class="el" href="https://mistplay.onelink.me/ZGRQ/2jh95s8y" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>3</td><td>💰 Swagbucks</td><td>Surveys, videos, search, shopping</td><td>$5–25/mo <span class="eb eb-qs">Quick Stack</span></td><td>iOS/Android/Web</td><td><a class="el" href="https://www.swagbucks.com/refer/kortx" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>4</td><td>🎮 CashKarma</td><td>Surveys, offers, gift card rewards</td><td>$5–15/mo <span class="eb eb-new">NEW</span></td><td>iOS/Android</td><td><a class="el" href="https://cashkar.ma/Q2wiZO3qN0b" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>5</td><td>💎 GemSloot</td><td>Earn gems, complete offers, redeem</td><td>Variable <span class="eb eb-new">NEW</span></td><td>Web</td><td><a class="el" href="https://gemsloot.com/?aff=kort" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>6</td><td>🎵 Tango</td><td>Live streaming — earn bonus coins</td><td>Bonus on join <span class="eb eb-bon">BONUS</span></td><td>iOS/Android</td><td><a class="el" href="https://tango.onelink.me/RCIH/igsme4lt" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>7</td><td>📊 Nielsen</td><td>Install and forget — passive earnings</td><td>$50/yr passive <span class="eb eb-qs">Quick Stack</span></td><td>iOS/Android/PC</td><td><a class="el" href="https://www.nielsen.com/panels/" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>8</td><td>🤖 InboxDollars</td><td>Read emails, surveys, videos</td><td>$10–30/mo</td><td>iOS/Android/Web</td><td><a class="el" href="https://www.inboxdollars.com/?r=kortx" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>9</td><td>🛒 Rakuten</td><td>Shop online, get cashback</td><td>$30 signup + cash</td><td>iOS/Android/Web</td><td><a class="el" href="https://www.rakuten.ca/refer/kortx" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>10</td><td>🌐 Honeygain</td><td>Share unused bandwidth</td><td>$2–10/mo passive</td><td>iOS/Android/PC</td><td><a class="el" href="https://r.honeygain.me/KORTX" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>11</td><td>🧠 Respondent.io</td><td>High-pay research studies</td><td>$50–200/study</td><td>Web</td><td><a class="el" href="https://app.respondent.io/signup/kortx" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>12</td><td>📝 Survey Junkie</td><td>Fast, consistent surveys</td><td>$5–20/mo</td><td>iOS/Android/Web</td><td><a class="el" href="https://www.surveyjunkie.com/kortx" target="_blank">Install via KoRT ↗</a></td></tr>
+        <tr><td>13</td><td>🔥 KoRT Data App</td><td>Opt-in background — revenue shared with ALL members</td><td>Coming Soon</td><td>iOS/Android</td><td><a class="el" href="#founders">Join Waitlist →</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ep">
+    <div class="ep-t">⚡ FREE PATH TO MEMBERSHIP</div>
+    <div class="ep-s">
+      <span class="ep-step">Install Quick Stack (5 min)</span><span class="ep-arr">→</span>
+      <span class="ep-step">Earn $15+ in 48hrs</span><span class="ep-arr">→</span>
+      <span class="ep-step">Covers first Esquire month</span><span class="ep-arr">→</span>
+      <span class="ep-step">You're in. $0 out of pocket.</span>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section>
+  <div class="eyebrow">Full Transparency</div>
+  <h2 class="st">Every Dollar. In Public.</h2>
+  <p class="lead">Esquire members and above get full access to transaction records, allocation decisions, and the reasoning behind every spend.</p>
+  <div class="ledger">
+    <div class="ledger-hd"><div class="live-dot"></div>KoRT Treasury Ledger — Live Feed (Esquire+)</div>
+    <div class="ledger-row"><div class="l-desc">Founding membership — Anonymous</div><div class="l-cat">Knight</div><div class="l-amt l-in">+$50</div></div>
+    <div class="ledger-row"><div class="l-desc">kortx.ca domain registration</div><div class="l-cat">Infrastructure</div><div class="l-amt l-out">-$11.98</div></div>
+    <div class="ledger-row"><div class="l-desc">Affiliate commission — Digital Dollars</div><div class="l-cat">Revenue</div><div class="l-amt l-in">+$22</div></div>
+    <div class="ledger-row"><div class="l-desc">AI subscriptions (Claude Pro)</div><div class="l-cat">Operations</div><div class="l-amt l-out">-$31</div></div>
+    <div class="ledger-row"><div class="l-desc">Founding membership — Esquire tier</div><div class="l-cat">Esquire</div><div class="l-amt l-in">+$15</div></div>
+    <div class="ledger-ft">Full ledger — bank records, allocations, reasoning — available to Esquire members and above.</div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section id="membership">
+  <div class="eyebrow">Choose Your Seat</div>
+  <h2 class="st">Membership Tiers</h2>
+  <p class="lead">Pre-launch community. You're funding the build, getting access now, locking in founding rates before official launch.</p>
+  <div class="tiers">
+    <div class="tc">
+      <span class="t-ico">📜</span><div class="t-name">Page</div>
+      <span class="t-price">$5</span><div class="t-period">/month</div>
+      <div class="t-tl">"I believe in this."</div>
+      <ul class="t-feats"><li>Monthly progress updates</li><li>Full business plan docs</li><li>Founding Supporters list</li><li>Discord Page role</li></ul>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
+        <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+        <input type="hidden" name="item_name" value="KoRT Page — $5/month CAD"/>
+        <input type="hidden" name="a3" value="5.00"/><input type="hidden" name="p3" value="1"/>
+        <input type="hidden" name="t3" value="M"/><input type="hidden" name="currency_code" value="CAD"/>
+        <input type="hidden" name="src" value="1"/>
+        <button type="submit" class="btn-g" style="width:100%;font-size:12px;padding:10px">Join as Page →</button>
+      </form>
+    </div>
+    <div class="tc ft">
+      <span class="t-ico">🛡️</span><div class="t-name">Esquire</div>
+      <span class="t-price">$15</span><div class="t-period">/month</div>
+      <div class="t-tl">"I want to be part of this."</div>
+      <ul class="t-feats"><li>Everything in Page</li><li>Discord community</li><li>Full transparency ledger</li><li>Microloan eligible (60 days)</li><li>Behind-the-scenes updates</li></ul>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
+        <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+        <input type="hidden" name="item_name" value="KoRT Esquire — $15/month CAD"/>
+        <input type="hidden" name="a3" value="15.00"/><input type="hidden" name="p3" value="1"/>
+        <input type="hidden" name="t3" value="M"/><input type="hidden" name="currency_code" value="CAD"/>
+        <input type="hidden" name="src" value="1"/>
+        <button type="submit" class="btn-p" style="width:100%">⚔ Join as Esquire</button>
+      </form>
+    </div>
+    <div class="tc">
+      <span class="t-ico">⚔️</span><div class="t-name">Knight</div>
+      <span class="t-price">$50</span><div class="t-period">/month</div>
+      <div class="t-tl">"I'm committed to this."</div>
+      <ul class="t-feats"><li>Everything in Esquire</li><li>Monthly strategy calls</li><li>Network directory listing</li><li>Microloan eligible (30 days)</li><li>Priority for roles/contracts</li></ul>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
+        <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+        <input type="hidden" name="item_name" value="KoRT Knight — $50/month CAD"/>
+        <input type="hidden" name="a3" value="50.00"/><input type="hidden" name="p3" value="1"/>
+        <input type="hidden" name="t3" value="M"/><input type="hidden" name="currency_code" value="CAD"/>
+        <input type="hidden" name="src" value="1"/>
+        <button type="submit" class="btn-g" style="width:100%;font-size:12px;padding:10px">Join as Knight →</button>
+      </form>
+    </div>
+    <div class="tc">
+      <span class="t-ico">👑</span><div class="t-name">Round Table</div>
+      <span class="t-price">$150</span><div class="t-period">/month+</div>
+      <div class="t-tl">"I want to help lead this."</div>
+      <ul class="t-feats"><li>Everything in Knight</li><li>Quarterly planning sessions</li><li>Voting rights on decisions</li><li>Equity/ownership potential</li><li>Co-founder recognition</li></ul>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick-subscriptions"/>
+        <input type="hidden" name="business" value="chimney2curb@gmail.com"/>
+        <input type="hidden" name="item_name" value="KoRT Round Table — $150/month CAD"/>
+        <input type="hidden" name="a3" value="150.00"/><input type="hidden" name="p3" value="1"/>
+        <input type="hidden" name="t3" value="M"/><input type="hidden" name="currency_code" value="CAD"/>
+        <input type="hidden" name="src" value="1"/>
+        <button type="submit" class="btn-g" style="width:100%;font-size:12px;padding:10px">Join Round Table →</button>
+      </form>
+    </div>
+  </div>
+  <div class="ep" style="margin-top:24px">
+    <div class="ep-t" style="color:var(--gold)">💳 ONE-TIME SUPPORT — ALSO ACCEPTED</div>
+    <div style="color:var(--muted);font-size:15px;margin-bottom:8px">$5 = coffee and gas &nbsp;|&nbsp; $25 = prescriptions &nbsp;|&nbsp; $100 = vehicle repairs &nbsp;|&nbsp; $500+ = direct project funding</div>
+    <div style="color:var(--muted);font-size:14px">E-transfer: <strong style="color:var(--gold-light)">chimney2curb@gmail.com</strong> &nbsp;|&nbsp; Call/text: <strong style="color:var(--gold-light)">250-436-0631</strong> &nbsp;|&nbsp; Gift cards, gas cards, services all accepted</div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<section id="involved">
+  <div class="eyebrow">Get Involved</div>
+  <h2 class="st">Four Ways In.</h2>
+  <p class="lead">Skills, time, money, or organization — there's a place for you at this table.</p>
+  <div class="inv-grid">
+    <div class="inv-card"><span class="inv-ico">🤝</span><div class="inv-t">Volunteer</div><p class="inv-d">Skills-based, no pay required — but membership considered. Crisis response training, admin, tech, outreach. If you have something to give, there's a place for it.</p><a href="mailto:chimney2curb@gmail.com?subject=Volunteer - KoRT" class="btn-g" style="font-size:12px;padding:10px 20px">Apply to Volunteer →</a></div>
+    <div class="inv-card"><span class="inv-ico">💼</span><div class="inv-t">Work With KoRT</div><p class="inv-d"><strong style="color:var(--gold-light)">This is a job.</strong> Part-time minimum, career path possible. Membership is a bonus — the pay is the point. Paid from Day 1, scales to full-time.</p><a href="mailto:chimney2curb@gmail.com?subject=Work With KoRT" class="btn-p" style="font-size:12px;padding:10px 20px">Apply for Paid Work ⚔</a></div>
+    <div class="inv-card"><span class="inv-ico">🏢</span><div class="inv-t">Sponsor KoRT</div><p class="inv-d">Organizations, businesses, individuals. Tiered benefits. Your logo on the site, recognition in the community, and the satisfaction of funding infrastructure that actually works.</p><a href="mailto:chimney2curb@gmail.com?subject=Sponsorship - KoRT" class="btn-g" style="font-size:12px;padding:10px 20px">Discuss Sponsorship →</a></div>
+    <div class="inv-card"><span class="inv-ico">🛡️</span><div class="inv-t">Organization Alliance</div><p class="inv-d">Bikers, societies, mutual aid groups, recovery orgs, legal aid. Discretion levels available. Internal-only option for sensitive partnerships. All alliances are equal at the table.</p><a href="mailto:chimney2curb@gmail.com?subject=Alliance - KoRT" class="btn-g" style="font-size:12px;padding:10px 20px">Discuss Alliance →</a></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<footer>
+  <span class="f-logo">⚔ KoRT</span>
+  <div class="f-tl">KNIGHTS OF THE ROUND TABLE — NO ONE GETS LEFT BEHIND</div>
+  <div class="f-links">
+    <a href="https://discord.gg/T6bfsceJ" target="_blank">Discord</a>
+    <a href="https://reddit.com/r/KoRT" target="_blank">Reddit</a>
+    <a href="mailto:chimney2curb@gmail.com">Email</a>
+    <a href="tel:2504360631">250-436-0631</a>
+    <a href="#mission">Mission</a>
+    <a href="#earn">Earn Free</a>
+    <a href="#founders">Founders Circle</a>
+  </div>
+  <div class="f-copy">© 2026 KoRT / Xception Contracting Ltd. — Cowichan Valley, BC &nbsp;|&nbsp; Pre-launch community membership. Not a licensed service provider. Peer support is not professional counselling.</div>
+</footer>
+
+<script>
+(function(){
+  var total=25,taken=3;
+  var d=document.getElementById('spotDots');
+  var l=document.getElementById('spotLbl');
+  if(!d)return;
+  for(var i=0;i<total;i++){var s=document.createElement('div');s.className='spot'+(i<taken?' taken':'');d.appendChild(s);}
+  l.textContent=(total-taken)+' of '+total+' spots remaining';
+})();
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('href').slice(1);
+    var el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+window.addEventListener('scroll',function(){
+  var nav=document.querySelector('nav');
+  if(window.scrollY>60){nav.style.background='rgba(8,8,15,.99)';nav.style.boxShadow='0 4px 20px rgba(0,0,0,.5)';}
+  else{nav.style.background='rgba(8,8,15,.93)';nav.style.boxShadow='none';}
+});
+</script>
+</body>
+</html>

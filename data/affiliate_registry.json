@@ -1,0 +1,22 @@
+{
+    "kslemk": {
+        "invite_code": "9390B488A0E9",
+        "referrer": null,
+        "recruits": [
+            "islemk"
+        ],
+        "round_table_count": 0,
+        "tier": "Page",
+        "total_earned_rtd": 0.0,
+        "platform_links": {}
+    },
+    "islemk": {
+        "invite_code": "87F5A686C5AE",
+        "referrer": "kslemk",
+        "recruits": [],
+        "round_table_count": 0,
+        "tier": "Page",
+        "total_earned_rtd": 0.0,
+        "platform_links": {}
+    }
+}

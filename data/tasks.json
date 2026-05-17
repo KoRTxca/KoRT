@@ -1,0 +1,92 @@
+[
+  {
+    "id": "T001",
+    "project": "KoRT_Claw",
+    "task": "Core Engine Stabilization",
+    "status": "Completed",
+    "assigned_to": "Sentinel",
+    "priority": "Critical",
+    "description": "Playwright automation engine built and tested."
+  },
+  {
+    "id": "T002",
+    "project": "Digital Advocate",
+    "task": "ICBC Case Study #1 - UNBLOCK",
+    "status": "In Progress",
+    "assigned_to": "Advocate",
+    "priority": "Critical",
+    "description": "Secure wet-ink signatures for ICBC Grand-Slam Package (DA57244-0). Map PWD automation flows in Scribe."
+  },
+  {
+    "id": "T003",
+    "project": "Digital Dollars",
+    "task": "Affiliate Earning Guide",
+    "status": "In Progress",
+    "assigned_to": "Scribe",
+    "priority": "High",
+    "description": "Automate affiliate code collection and populate guide."
+  },
+  {
+    "id": "T004",
+    "project": "Infrastructure",
+    "task": "Sovereign Migration (ClickUp Kill)",
+    "status": "Active",
+    "assigned_to": "Quartermaster",
+    "priority": "Critical",
+    "description": "Move all project management to local tasks.json."
+  },
+  {
+    "id": "T005",
+    "project": "Enterprise Ascension",
+    "task": "Phase 1: Data Siphon",
+    "status": "In Progress",
+    "assigned_to": "Sentinel",
+    "priority": "Critical",
+    "description": "Rescuing legacy assets from damaged hardware. Vacuuming the external drive into the Cloud Vault."
+  },
+  {
+    "id": "T006",
+    "project": "Enterprise Ascension",
+    "task": "Phase 2: Enterprise Ascension",
+    "status": "Planned",
+    "assigned_to": "Quartermaster",
+    "priority": "High",
+    "description": "Scaling from Pro to Enterprise tiers. Launching the 133-Agent Quorum."
+  },
+  {
+    "id": "T007",
+    "project": "Infrastructure",
+    "task": "Kingdom Portal DNS Stabilization",
+    "status": "In Progress",
+    "assigned_to": "Architect",
+    "priority": "Critical",
+    "description": "Point drt.social, bosspress.com, and games.kortx.ca to Xeon DS9 node. Final nameserver integration pending."
+  },
+  {
+    "id": "T008",
+    "project": "Infrastructure",
+    "task": "Weaponize Landing Page (V2 Funnel)",
+    "status": "In Progress",
+    "assigned_to": "Architect",
+    "priority": "Critical",
+    "description": "Inject Sovereign Identity Matrix (Character Creator) into KoRTx.ca index. Make it the only entry point for apps."
+  },
+  {
+    "id": "T009",
+    "project": "AI Mesh",
+    "task": "Generative Agentic Quorum Orchestration",
+    "status": "Active",
+    "assigned_to": "Merlin",
+    "priority": "High",
+    "description": "Deploy QuorumOrchestrator.py on VM 133. Facilitate agent debates and consensus ingest."
+  },
+  {
+    "id": "T010",
+    "project": "KoRT OS",
+    "task": "ISO Compilation",
+    "status": "Planned",
+    "assigned_to": "Forger",
+    "priority": "High",
+    "description": "Compile the first bootable KoRT OS ISO on the Xeon Forge using the build_kort_iso.sh protocol."
+  }
+]

@@ -1,0 +1,48 @@
+# KoRT Claw Consent & Governance Policy
+# Enforced on all autonomous operations.
+
+governance:
+  mode: "consent-gated"
+  require_explicit_consent: true
+  max_autonomous_actions: 3
+  audit_all_actions: true
+  log_path: "logs/claw_audit.log"
+
+consent_levels:
+  read:
+    description: "Read-only operations (safe)"
+    auto_approve: true
+  analyze:
+    description: "Analysis and reporting"
+    auto_approve: true
+  propose:
+    description: "Generate proposals/diffs"
+    auto_approve: true
+  execute:
+    description: "Execute changes on live systems"
+    auto_approve: false
+    require_knight_approval: true
+  deploy:
+    description: "Deploy to production infrastructure"
+    auto_approve: false
+    require_quorum: true
+    min_quorum: 2
+
+drt_laws:
+  completionist: "Every task runs to full completion or explicit abort"
+  door_three: "Always present an escape hatch / rollback option"
+  hive_mind_continuity: "All state persisted for AI handoff continuity"
+  member_first: "Knight safety and sovereignty above automation speed"
+  ecosystem_integration: "All actions respect the broader KoRT mesh"
+
+rate_limits:
+  max_requests_per_minute: 30
+  max_concurrent_workers: 4
+  cooldown_between_deploys_seconds: 120
+
+ai_integration:
+  merlin_proxy: "https://api.kortx.ca"
+  roundtable_enabled: true
+  voice_enabled: true
+  stt_model: "whisper-1"
+  tts_voice: "alloy"

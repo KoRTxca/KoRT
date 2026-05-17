@@ -1,0 +1,77 @@
+/* 🐉 KoRT Sovereign Webmail Theme Overrides */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap');
+
+body, .rl-app, .snappymail {
+    font-family: 'Outfit', sans-serif !important;
+    background: radial-gradient(circle at center, #0B0E14 0%, #05070A 100%) !important;
+    color: #E2E8F0 !important;
+}
+
+/* Glassmorphism Panels */
+.g-ui-menu, .navigation, .sidebar, .folders, .message-list, .message-viewer {
+    background: rgba(16, 22, 35, 0.7) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    margin: 4px !important;
+}
+
+/* Glowing Neon Accents */
+.btn-primary, .button.primary, .btn-success, .active, .selected {
+    background: linear-gradient(135deg, #00E5FF 0%, #8A2BE2 100%) !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.25) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+}
+
+.btn-primary:hover, .button.primary:hover {
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.45) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.3) !important;
+    border-radius: 4px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(138, 43, 226, 0.6) !important;
+}
+
+/* Custom Login Page Styling */
+.login-page, #rl-login-box {
+    background: radial-gradient(circle at center, #0F131D 0%, #05070A 100%) !important;
+    border: 1px solid rgba(0, 229, 255, 0.15) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 255, 0.05) !important;
+    border-radius: 20px !important;
+}
+
+/* Merlin Floating HUD Panels */
+#merlin-hud-panel {
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.merlin-glow-border {
+    position: relative;
+}
+.merlin-glow-border::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #00E5FF, #8A2BE2) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+}

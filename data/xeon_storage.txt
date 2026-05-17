@@ -1,0 +1,15 @@
+NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda                  8:0    0 930.5G  0 disk 
+├─sda1               8:1    0  1007K  0 part 
+├─sda2               8:2    0     1G  0 part 
+└─sda3               8:3    0 929.5G  0 part 
+  ├─pve-swap       252:0    0     8G  0 lvm  [SWAP]
+  ├─pve-root       252:1    0    96G  0 lvm  /
+  ├─pve-data_tmeta 252:2    0   8.1G  0 lvm  
+  │ └─pve-data     252:4    0 793.3G  0 lvm  
+  └─pve-data_tdata 252:3    0 793.3G  0 lvm  
+    └─pve-data     252:4    0 793.3G  0 lvm  
+sr0                 11:0    1  1024M  0 rom  
+Name             Type     Status     Total (KiB)      Used (KiB) Available (KiB)        %
+local             dir     active        98497780         7022520        86425712    7.13%
+local-lvm     lvmthin     active       831840256               0       831840256    0.00%

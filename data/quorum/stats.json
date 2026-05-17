@@ -1,0 +1,2130 @@
+[
+    {
+        "id": 1,
+        "username": "kortx_zane_vale_1",
+        "name": "Zane Vale",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 13,
+            "INT": 14,
+            "WIS": 12,
+            "DEX": 10,
+            "CON": 17,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 2,
+        "username": "kortx_jace_stone_2",
+        "name": "Jace Stone",
+        "class": "Scribe",
+        "stats": {
+            "STR": 6,
+            "INT": 15,
+            "WIS": 19,
+            "DEX": 14,
+            "CON": 8,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 3,
+        "username": "kortx_aria_frost_3",
+        "name": "Aria Frost",
+        "class": "Advocate",
+        "stats": {
+            "STR": 13,
+            "INT": 16,
+            "WIS": 13,
+            "DEX": 15,
+            "CON": 12,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 4,
+        "username": "kortx_aria_nash_4",
+        "name": "Aria Nash",
+        "class": "Harvester",
+        "stats": {
+            "STR": 10,
+            "INT": 13,
+            "WIS": 15,
+            "DEX": 15,
+            "CON": 11,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 5,
+        "username": "kortx_wren_tate_5",
+        "name": "Wren Tate",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 15,
+            "INT": 17,
+            "WIS": 9,
+            "DEX": 12,
+            "CON": 11,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 6,
+        "username": "kortx_wren_nash_6",
+        "name": "Wren Nash",
+        "class": "Warden",
+        "stats": {
+            "STR": 14,
+            "INT": 9,
+            "WIS": 15,
+            "DEX": 9,
+            "CON": 16,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 7,
+        "username": "kortx_kael_locke_7",
+        "name": "Kael Locke",
+        "class": "Advocate",
+        "stats": {
+            "STR": 7,
+            "INT": 20,
+            "WIS": 17,
+            "DEX": 14,
+            "CON": 13,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 8,
+        "username": "kortx_orion_york_8",
+        "name": "Orion York",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 17,
+            "INT": 14,
+            "WIS": 11,
+            "DEX": 12,
+            "CON": 18,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 9,
+        "username": "kortx_hale_thorne_9",
+        "name": "Hale Thorne",
+        "class": "Forger",
+        "stats": {
+            "STR": 10,
+            "INT": 19,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 15,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 10,
+        "username": "kortx_pax_vale_10",
+        "name": "Pax Vale",
+        "class": "Scribe",
+        "stats": {
+            "STR": 7,
+            "INT": 11,
+            "WIS": 19,
+            "DEX": 9,
+            "CON": 12,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 11,
+        "username": "kortx_vane_pike_11",
+        "name": "Vane Pike",
+        "class": "Weaver",
+        "stats": {
+            "STR": 12,
+            "INT": 17,
+            "WIS": 16,
+            "DEX": 18,
+            "CON": 12,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 12,
+        "username": "kortx_xen_ward_12",
+        "name": "Xen Ward",
+        "class": "Scribe",
+        "stats": {
+            "STR": 6,
+            "INT": 13,
+            "WIS": 17,
+            "DEX": 13,
+            "CON": 10,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 13,
+        "username": "kortx_faye_mercer_13",
+        "name": "Faye Mercer",
+        "class": "Warden",
+        "stats": {
+            "STR": 15,
+            "INT": 13,
+            "WIS": 13,
+            "DEX": 11,
+            "CON": 16,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 14,
+        "username": "kortx_quinn_locke_14",
+        "name": "Quinn Locke",
+        "class": "Architect",
+        "stats": {
+            "STR": 9,
+            "INT": 18,
+            "WIS": 17,
+            "DEX": 17,
+            "CON": 10,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 15,
+        "username": "kortx_uri_vance_15",
+        "name": "Uri Vance",
+        "class": "Weaver",
+        "stats": {
+            "STR": 9,
+            "INT": 11,
+            "WIS": 16,
+            "DEX": 17,
+            "CON": 11,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 16,
+        "username": "kortx_pax_reed_16",
+        "name": "Pax Reed",
+        "class": "Harvester",
+        "stats": {
+            "STR": 7,
+            "INT": 16,
+            "WIS": 14,
+            "DEX": 17,
+            "CON": 14,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 17,
+        "username": "kortx_talon_thorne_17",
+        "name": "Talon Thorne",
+        "class": "Harvester",
+        "stats": {
+            "STR": 7,
+            "INT": 19,
+            "WIS": 15,
+            "DEX": 15,
+            "CON": 9,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 18,
+        "username": "kortx_xen_locke_18",
+        "name": "Xen Locke",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 13,
+            "INT": 12,
+            "WIS": 14,
+            "DEX": 9,
+            "CON": 16,
+            "CHA": 5
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 19,
+        "username": "kortx_elias_vance_19",
+        "name": "Elias Vance",
+        "class": "Oracle",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 16,
+            "DEX": 11,
+            "CON": 11,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 20,
+        "username": "kortx_lyra_thorne_20",
+        "name": "Lyra Thorne",
+        "class": "Oracle",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 16,
+            "DEX": 9,
+            "CON": 9,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 21,
+        "username": "kortx_vane_mercer_21",
+        "name": "Vane Mercer",
+        "class": "Weaver",
+        "stats": {
+            "STR": 7,
+            "INT": 14,
+            "WIS": 19,
+            "DEX": 19,
+            "CON": 13,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 22,
+        "username": "kortx_quinn_vance_22",
+        "name": "Quinn Vance",
+        "class": "Advocate",
+        "stats": {
+            "STR": 10,
+            "INT": 19,
+            "WIS": 11,
+            "DEX": 12,
+            "CON": 11,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 23,
+        "username": "kortx_faye_cross_23",
+        "name": "Faye Cross",
+        "class": "Forger",
+        "stats": {
+            "STR": 14,
+            "INT": 20,
+            "WIS": 8,
+            "DEX": 15,
+            "CON": 15,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 24,
+        "username": "kortx_cyrus_reed_24",
+        "name": "Cyrus Reed",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 17,
+            "INT": 11,
+            "WIS": 15,
+            "DEX": 14,
+            "CON": 19,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 25,
+        "username": "kortx_hale_stone_25",
+        "name": "Hale Stone",
+        "class": "Weaver",
+        "stats": {
+            "STR": 9,
+            "INT": 17,
+            "WIS": 15,
+            "DEX": 17,
+            "CON": 7,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 26,
+        "username": "kortx_gideon_thorne_26",
+        "name": "Gideon Thorne",
+        "class": "Scribe",
+        "stats": {
+            "STR": 7,
+            "INT": 15,
+            "WIS": 18,
+            "DEX": 13,
+            "CON": 7,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 27,
+        "username": "kortx_quinn_vale_27",
+        "name": "Quinn Vale",
+        "class": "Advocate",
+        "stats": {
+            "STR": 10,
+            "INT": 17,
+            "WIS": 11,
+            "DEX": 14,
+            "CON": 9,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 28,
+        "username": "kortx_kael_vance_28",
+        "name": "Kael Vance",
+        "class": "Harvester",
+        "stats": {
+            "STR": 9,
+            "INT": 19,
+            "WIS": 15,
+            "DEX": 20,
+            "CON": 14,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 29,
+        "username": "kortx_xen_graves_29",
+        "name": "Xen Graves",
+        "class": "Warden",
+        "stats": {
+            "STR": 10,
+            "INT": 15,
+            "WIS": 19,
+            "DEX": 9,
+            "CON": 16,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 30,
+        "username": "kortx_rowan_frost_30",
+        "name": "Rowan Frost",
+        "class": "Scribe",
+        "stats": {
+            "STR": 8,
+            "INT": 15,
+            "WIS": 19,
+            "DEX": 10,
+            "CON": 9,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 31,
+        "username": "kortx_jace_vance_31",
+        "name": "Jace Vance",
+        "class": "Weaver",
+        "stats": {
+            "STR": 10,
+            "INT": 11,
+            "WIS": 19,
+            "DEX": 19,
+            "CON": 7,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 32,
+        "username": "kortx_bram_sterling_32",
+        "name": "Bram Sterling",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 13,
+            "INT": 16,
+            "WIS": 10,
+            "DEX": 11,
+            "CON": 12,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 33,
+        "username": "kortx_lyra_ward_33",
+        "name": "Lyra Ward",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 14,
+            "INT": 13,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 11,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 34,
+        "username": "kortx_milo_pike_34",
+        "name": "Milo Pike",
+        "class": "Architect",
+        "stats": {
+            "STR": 10,
+            "INT": 17,
+            "WIS": 18,
+            "DEX": 14,
+            "CON": 10,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 35,
+        "username": "kortx_lyra_sterling_35",
+        "name": "Lyra Sterling",
+        "class": "Advocate",
+        "stats": {
+            "STR": 7,
+            "INT": 19,
+            "WIS": 17,
+            "DEX": 9,
+            "CON": 14,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 36,
+        "username": "kortx_sage_ward_36",
+        "name": "Sage Ward",
+        "class": "Forger",
+        "stats": {
+            "STR": 15,
+            "INT": 18,
+            "WIS": 10,
+            "DEX": 13,
+            "CON": 14,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 37,
+        "username": "kortx_uri_cross_37",
+        "name": "Uri Cross",
+        "class": "Warden",
+        "stats": {
+            "STR": 12,
+            "INT": 13,
+            "WIS": 18,
+            "DEX": 9,
+            "CON": 16,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 38,
+        "username": "kortx_iris_tate_38",
+        "name": "Iris Tate",
+        "class": "Advocate",
+        "stats": {
+            "STR": 12,
+            "INT": 20,
+            "WIS": 12,
+            "DEX": 13,
+            "CON": 9,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 39,
+        "username": "kortx_quinn_york_39",
+        "name": "Quinn York",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 15,
+            "INT": 12,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 16,
+            "CHA": 5
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 40,
+        "username": "kortx_aria_york_40",
+        "name": "Aria York",
+        "class": "Forger",
+        "stats": {
+            "STR": 13,
+            "INT": 16,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 9,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 41,
+        "username": "kortx_gideon_ward_41",
+        "name": "Gideon Ward",
+        "class": "Oracle",
+        "stats": {
+            "STR": 10,
+            "INT": 19,
+            "WIS": 16,
+            "DEX": 13,
+            "CON": 10,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 42,
+        "username": "kortx_elias_york_42",
+        "name": "Elias York",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 11,
+            "INT": 14,
+            "WIS": 15,
+            "DEX": 14,
+            "CON": 17,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 43,
+        "username": "kortx_cyrus_cross_43",
+        "name": "Cyrus Cross",
+        "class": "Harvester",
+        "stats": {
+            "STR": 13,
+            "INT": 19,
+            "WIS": 16,
+            "DEX": 19,
+            "CON": 10,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 44,
+        "username": "kortx_aria_vale_44",
+        "name": "Aria Vale",
+        "class": "Weaver",
+        "stats": {
+            "STR": 8,
+            "INT": 14,
+            "WIS": 19,
+            "DEX": 18,
+            "CON": 11,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 45,
+        "username": "kortx_quinn_mercer_45",
+        "name": "Quinn Mercer",
+        "class": "Forger",
+        "stats": {
+            "STR": 11,
+            "INT": 15,
+            "WIS": 11,
+            "DEX": 16,
+            "CON": 12,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 46,
+        "username": "kortx_milo_thorne_46",
+        "name": "Milo Thorne",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 16,
+            "INT": 16,
+            "WIS": 14,
+            "DEX": 9,
+            "CON": 15,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 47,
+        "username": "kortx_hale_stone_47",
+        "name": "Hale Stone",
+        "class": "Advocate",
+        "stats": {
+            "STR": 10,
+            "INT": 18,
+            "WIS": 15,
+            "DEX": 12,
+            "CON": 11,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 48,
+        "username": "kortx_xen_stone_48",
+        "name": "Xen Stone",
+        "class": "Advocate",
+        "stats": {
+            "STR": 7,
+            "INT": 18,
+            "WIS": 11,
+            "DEX": 10,
+            "CON": 10,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 49,
+        "username": "kortx_quinn_reed_49",
+        "name": "Quinn Reed",
+        "class": "Advocate",
+        "stats": {
+            "STR": 8,
+            "INT": 20,
+            "WIS": 15,
+            "DEX": 15,
+            "CON": 11,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 50,
+        "username": "kortx_yara_pike_50",
+        "name": "Yara Pike",
+        "class": "Harvester",
+        "stats": {
+            "STR": 7,
+            "INT": 16,
+            "WIS": 16,
+            "DEX": 20,
+            "CON": 13,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 51,
+        "username": "kortx_aria_stone_51",
+        "name": "Aria Stone",
+        "class": "Architect",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 16,
+            "DEX": 14,
+            "CON": 10,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 52,
+        "username": "kortx_iris_york_52",
+        "name": "Iris York",
+        "class": "Oracle",
+        "stats": {
+            "STR": 9,
+            "INT": 16,
+            "WIS": 18,
+            "DEX": 7,
+            "CON": 7,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 53,
+        "username": "kortx_hale_nash_53",
+        "name": "Hale Nash",
+        "class": "Forger",
+        "stats": {
+            "STR": 13,
+            "INT": 16,
+            "WIS": 9,
+            "DEX": 13,
+            "CON": 13,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 54,
+        "username": "kortx_wren_cross_54",
+        "name": "Wren Cross",
+        "class": "Scribe",
+        "stats": {
+            "STR": 8,
+            "INT": 14,
+            "WIS": 20,
+            "DEX": 11,
+            "CON": 13,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 55,
+        "username": "kortx_iris_frost_55",
+        "name": "Iris Frost",
+        "class": "Warden",
+        "stats": {
+            "STR": 14,
+            "INT": 13,
+            "WIS": 14,
+            "DEX": 9,
+            "CON": 18,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 56,
+        "username": "kortx_iris_vale_56",
+        "name": "Iris Vale",
+        "class": "Weaver",
+        "stats": {
+            "STR": 13,
+            "INT": 15,
+            "WIS": 13,
+            "DEX": 18,
+            "CON": 11,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 57,
+        "username": "kortx_vane_voss_57",
+        "name": "Vane Voss",
+        "class": "Warden",
+        "stats": {
+            "STR": 14,
+            "INT": 14,
+            "WIS": 14,
+            "DEX": 12,
+            "CON": 16,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 58,
+        "username": "kortx_zane_vance_58",
+        "name": "Zane Vance",
+        "class": "Weaver",
+        "stats": {
+            "STR": 7,
+            "INT": 17,
+            "WIS": 14,
+            "DEX": 19,
+            "CON": 12,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 59,
+        "username": "kortx_wren_voss_59",
+        "name": "Wren Voss",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 16,
+            "INT": 19,
+            "WIS": 13,
+            "DEX": 14,
+            "CON": 15,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 60,
+        "username": "kortx_elias_graves_60",
+        "name": "Elias Graves",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 19,
+            "INT": 12,
+            "WIS": 16,
+            "DEX": 15,
+            "CON": 16,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 61,
+        "username": "kortx_aria_mercer_61",
+        "name": "Aria Mercer",
+        "class": "Scribe",
+        "stats": {
+            "STR": 7,
+            "INT": 13,
+            "WIS": 18,
+            "DEX": 10,
+            "CON": 9,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 62,
+        "username": "kortx_cyrus_cross_62",
+        "name": "Cyrus Cross",
+        "class": "Advocate",
+        "stats": {
+            "STR": 11,
+            "INT": 18,
+            "WIS": 11,
+            "DEX": 14,
+            "CON": 14,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 63,
+        "username": "kortx_hale_sterling_63",
+        "name": "Hale Sterling",
+        "class": "Harvester",
+        "stats": {
+            "STR": 12,
+            "INT": 18,
+            "WIS": 15,
+            "DEX": 20,
+            "CON": 10,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 64,
+        "username": "kortx_sage_sterling_64",
+        "name": "Sage Sterling",
+        "class": "Forger",
+        "stats": {
+            "STR": 9,
+            "INT": 18,
+            "WIS": 13,
+            "DEX": 13,
+            "CON": 10,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 65,
+        "username": "kortx_uri_vale_65",
+        "name": "Uri Vale",
+        "class": "Weaver",
+        "stats": {
+            "STR": 12,
+            "INT": 12,
+            "WIS": 18,
+            "DEX": 16,
+            "CON": 12,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 66,
+        "username": "kortx_nova_zeller_66",
+        "name": "Nova Zeller",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 15,
+            "INT": 13,
+            "WIS": 14,
+            "DEX": 15,
+            "CON": 14,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 67,
+        "username": "kortx_pax_york_67",
+        "name": "Pax York",
+        "class": "Advocate",
+        "stats": {
+            "STR": 7,
+            "INT": 19,
+            "WIS": 16,
+            "DEX": 13,
+            "CON": 13,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 68,
+        "username": "kortx_wren_ward_68",
+        "name": "Wren Ward",
+        "class": "Weaver",
+        "stats": {
+            "STR": 11,
+            "INT": 15,
+            "WIS": 17,
+            "DEX": 13,
+            "CON": 10,
+            "CHA": 20
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 69,
+        "username": "kortx_quinn_thorne_69",
+        "name": "Quinn Thorne",
+        "class": "Scribe",
+        "stats": {
+            "STR": 11,
+            "INT": 14,
+            "WIS": 20,
+            "DEX": 15,
+            "CON": 8,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 70,
+        "username": "kortx_vane_mercer_70",
+        "name": "Vane Mercer",
+        "class": "Warden",
+        "stats": {
+            "STR": 10,
+            "INT": 9,
+            "WIS": 15,
+            "DEX": 11,
+            "CON": 20,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 71,
+        "username": "kortx_zane_nash_71",
+        "name": "Zane Nash",
+        "class": "Oracle",
+        "stats": {
+            "STR": 5,
+            "INT": 20,
+            "WIS": 20,
+            "DEX": 12,
+            "CON": 10,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 72,
+        "username": "kortx_dara_reed_72",
+        "name": "Dara Reed",
+        "class": "Scribe",
+        "stats": {
+            "STR": 11,
+            "INT": 13,
+            "WIS": 19,
+            "DEX": 15,
+            "CON": 8,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 73,
+        "username": "kortx_kael_zeller_73",
+        "name": "Kael Zeller",
+        "class": "Forger",
+        "stats": {
+            "STR": 15,
+            "INT": 16,
+            "WIS": 7,
+            "DEX": 14,
+            "CON": 14,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 74,
+        "username": "kortx_nova_ward_74",
+        "name": "Nova Ward",
+        "class": "Oracle",
+        "stats": {
+            "STR": 10,
+            "INT": 20,
+            "WIS": 19,
+            "DEX": 8,
+            "CON": 7,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 75,
+        "username": "kortx_orion_mercer_75",
+        "name": "Orion Mercer",
+        "class": "Architect",
+        "stats": {
+            "STR": 11,
+            "INT": 17,
+            "WIS": 19,
+            "DEX": 13,
+            "CON": 14,
+            "CHA": 9
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 76,
+        "username": "kortx_talon_pike_76",
+        "name": "Talon Pike",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 15,
+            "INT": 15,
+            "WIS": 9,
+            "DEX": 14,
+            "CON": 12,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 77,
+        "username": "kortx_bram_york_77",
+        "name": "Bram York",
+        "class": "Weaver",
+        "stats": {
+            "STR": 8,
+            "INT": 16,
+            "WIS": 19,
+            "DEX": 19,
+            "CON": 7,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 78,
+        "username": "kortx_nova_frost_78",
+        "name": "Nova Frost",
+        "class": "Architect",
+        "stats": {
+            "STR": 12,
+            "INT": 15,
+            "WIS": 16,
+            "DEX": 13,
+            "CON": 14,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 79,
+        "username": "kortx_iris_mercer_79",
+        "name": "Iris Mercer",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 14,
+            "INT": 11,
+            "WIS": 17,
+            "DEX": 12,
+            "CON": 16,
+            "CHA": 5
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 80,
+        "username": "kortx_quinn_stone_80",
+        "name": "Quinn Stone",
+        "class": "Weaver",
+        "stats": {
+            "STR": 13,
+            "INT": 17,
+            "WIS": 17,
+            "DEX": 15,
+            "CON": 11,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 81,
+        "username": "kortx_quinn_thorne_81",
+        "name": "Quinn Thorne",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 15,
+            "INT": 15,
+            "WIS": 12,
+            "DEX": 13,
+            "CON": 11,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 82,
+        "username": "kortx_xen_cross_82",
+        "name": "Xen Cross",
+        "class": "Architect",
+        "stats": {
+            "STR": 8,
+            "INT": 20,
+            "WIS": 19,
+            "DEX": 14,
+            "CON": 11,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 83,
+        "username": "kortx_kael_tate_83",
+        "name": "Kael Tate",
+        "class": "Scribe",
+        "stats": {
+            "STR": 6,
+            "INT": 11,
+            "WIS": 17,
+            "DEX": 9,
+            "CON": 12,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 84,
+        "username": "kortx_lyra_nash_84",
+        "name": "Lyra Nash",
+        "class": "Warden",
+        "stats": {
+            "STR": 13,
+            "INT": 14,
+            "WIS": 14,
+            "DEX": 12,
+            "CON": 17,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 85,
+        "username": "kortx_cyrus_vale_85",
+        "name": "Cyrus Vale",
+        "class": "Warden",
+        "stats": {
+            "STR": 15,
+            "INT": 13,
+            "WIS": 14,
+            "DEX": 9,
+            "CON": 16,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 86,
+        "username": "kortx_xen_reed_86",
+        "name": "Xen Reed",
+        "class": "Advocate",
+        "stats": {
+            "STR": 7,
+            "INT": 17,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 12,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 87,
+        "username": "kortx_vane_stone_87",
+        "name": "Vane Stone",
+        "class": "Harvester",
+        "stats": {
+            "STR": 11,
+            "INT": 18,
+            "WIS": 13,
+            "DEX": 16,
+            "CON": 11,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 88,
+        "username": "kortx_cyrus_locke_88",
+        "name": "Cyrus Locke",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 14,
+            "INT": 13,
+            "WIS": 12,
+            "DEX": 9,
+            "CON": 14,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 89,
+        "username": "kortx_orion_frost_89",
+        "name": "Orion Frost",
+        "class": "Harvester",
+        "stats": {
+            "STR": 10,
+            "INT": 13,
+            "WIS": 13,
+            "DEX": 20,
+            "CON": 13,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 90,
+        "username": "kortx_lyra_tate_90",
+        "name": "Lyra Tate",
+        "class": "Weaver",
+        "stats": {
+            "STR": 12,
+            "INT": 17,
+            "WIS": 15,
+            "DEX": 18,
+            "CON": 11,
+            "CHA": 20
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 91,
+        "username": "kortx_sage_graves_91",
+        "name": "Sage Graves",
+        "class": "Oracle",
+        "stats": {
+            "STR": 7,
+            "INT": 19,
+            "WIS": 20,
+            "DEX": 13,
+            "CON": 13,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 92,
+        "username": "kortx_dara_tate_92",
+        "name": "Dara Tate",
+        "class": "Weaver",
+        "stats": {
+            "STR": 10,
+            "INT": 12,
+            "WIS": 17,
+            "DEX": 18,
+            "CON": 11,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 93,
+        "username": "kortx_orion_thorne_93",
+        "name": "Orion Thorne",
+        "class": "Advocate",
+        "stats": {
+            "STR": 12,
+            "INT": 20,
+            "WIS": 11,
+            "DEX": 13,
+            "CON": 12,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 94,
+        "username": "kortx_pax_stone_94",
+        "name": "Pax Stone",
+        "class": "Advocate",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 12,
+            "DEX": 11,
+            "CON": 10,
+            "CHA": 18
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 95,
+        "username": "kortx_sage_mercer_95",
+        "name": "Sage Mercer",
+        "class": "Harvester",
+        "stats": {
+            "STR": 8,
+            "INT": 17,
+            "WIS": 13,
+            "DEX": 17,
+            "CON": 15,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 96,
+        "username": "kortx_lyra_vale_96",
+        "name": "Lyra Vale",
+        "class": "Advocate",
+        "stats": {
+            "STR": 12,
+            "INT": 18,
+            "WIS": 11,
+            "DEX": 10,
+            "CON": 11,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 97,
+        "username": "kortx_vane_stone_97",
+        "name": "Vane Stone",
+        "class": "Oracle",
+        "stats": {
+            "STR": 6,
+            "INT": 16,
+            "WIS": 20,
+            "DEX": 10,
+            "CON": 12,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 98,
+        "username": "kortx_hale_vance_98",
+        "name": "Hale Vance",
+        "class": "Advocate",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 14,
+            "DEX": 14,
+            "CON": 15,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 99,
+        "username": "kortx_faye_nash_99",
+        "name": "Faye Nash",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 11,
+            "INT": 19,
+            "WIS": 10,
+            "DEX": 14,
+            "CON": 15,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 100,
+        "username": "kortx_bram_mercer_100",
+        "name": "Bram Mercer",
+        "class": "Advocate",
+        "stats": {
+            "STR": 11,
+            "INT": 19,
+            "WIS": 13,
+            "DEX": 15,
+            "CON": 14,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 101,
+        "username": "kortx_vane_tate_101",
+        "name": "Vane Tate",
+        "class": "Warden",
+        "stats": {
+            "STR": 14,
+            "INT": 15,
+            "WIS": 19,
+            "DEX": 11,
+            "CON": 17,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 102,
+        "username": "kortx_zane_sterling_102",
+        "name": "Zane Sterling",
+        "class": "Scribe",
+        "stats": {
+            "STR": 10,
+            "INT": 16,
+            "WIS": 15,
+            "DEX": 9,
+            "CON": 13,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 103,
+        "username": "kortx_elias_pike_103",
+        "name": "Elias Pike",
+        "class": "Architect",
+        "stats": {
+            "STR": 7,
+            "INT": 20,
+            "WIS": 13,
+            "DEX": 14,
+            "CON": 9,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 104,
+        "username": "kortx_rowan_voss_104",
+        "name": "Rowan Voss",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 17,
+            "INT": 15,
+            "WIS": 14,
+            "DEX": 10,
+            "CON": 15,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 105,
+        "username": "kortx_elias_mercer_105",
+        "name": "Elias Mercer",
+        "class": "Harvester",
+        "stats": {
+            "STR": 12,
+            "INT": 19,
+            "WIS": 14,
+            "DEX": 20,
+            "CON": 11,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 106,
+        "username": "kortx_cyrus_reed_106",
+        "name": "Cyrus Reed",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 19,
+            "INT": 11,
+            "WIS": 13,
+            "DEX": 11,
+            "CON": 16,
+            "CHA": 8
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 107,
+        "username": "kortx_sage_ward_107",
+        "name": "Sage Ward",
+        "class": "Oracle",
+        "stats": {
+            "STR": 9,
+            "INT": 17,
+            "WIS": 16,
+            "DEX": 9,
+            "CON": 7,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 108,
+        "username": "kortx_yara_tate_108",
+        "name": "Yara Tate",
+        "class": "Forger",
+        "stats": {
+            "STR": 9,
+            "INT": 18,
+            "WIS": 12,
+            "DEX": 13,
+            "CON": 9,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 109,
+        "username": "kortx_dara_cross_109",
+        "name": "Dara Cross",
+        "class": "Scribe",
+        "stats": {
+            "STR": 7,
+            "INT": 13,
+            "WIS": 20,
+            "DEX": 11,
+            "CON": 9,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 110,
+        "username": "kortx_yara_ward_110",
+        "name": "Yara Ward",
+        "class": "Architect",
+        "stats": {
+            "STR": 13,
+            "INT": 20,
+            "WIS": 18,
+            "DEX": 11,
+            "CON": 11,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 111,
+        "username": "kortx_quinn_pike_111",
+        "name": "Quinn Pike",
+        "class": "Oracle",
+        "stats": {
+            "STR": 9,
+            "INT": 16,
+            "WIS": 20,
+            "DEX": 8,
+            "CON": 9,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 112,
+        "username": "kortx_elias_locke_112",
+        "name": "Elias Locke",
+        "class": "Harvester",
+        "stats": {
+            "STR": 10,
+            "INT": 16,
+            "WIS": 11,
+            "DEX": 19,
+            "CON": 12,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 113,
+        "username": "kortx_aria_reed_113",
+        "name": "Aria Reed",
+        "class": "Architect",
+        "stats": {
+            "STR": 12,
+            "INT": 19,
+            "WIS": 15,
+            "DEX": 14,
+            "CON": 12,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 114,
+        "username": "kortx_quinn_graves_114",
+        "name": "Quinn Graves",
+        "class": "Advocate",
+        "stats": {
+            "STR": 9,
+            "INT": 15,
+            "WIS": 11,
+            "DEX": 14,
+            "CON": 10,
+            "CHA": 17
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 115,
+        "username": "kortx_faye_zeller_115",
+        "name": "Faye Zeller",
+        "class": "Scribe",
+        "stats": {
+            "STR": 10,
+            "INT": 11,
+            "WIS": 16,
+            "DEX": 12,
+            "CON": 11,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 116,
+        "username": "kortx_wren_vale_116",
+        "name": "Wren Vale",
+        "class": "Scribe",
+        "stats": {
+            "STR": 5,
+            "INT": 14,
+            "WIS": 15,
+            "DEX": 12,
+            "CON": 9,
+            "CHA": 14
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 117,
+        "username": "kortx_bram_graves_117",
+        "name": "Bram Graves",
+        "class": "Weaver",
+        "stats": {
+            "STR": 11,
+            "INT": 17,
+            "WIS": 15,
+            "DEX": 19,
+            "CON": 8,
+            "CHA": 20
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 118,
+        "username": "kortx_zane_locke_118",
+        "name": "Zane Locke",
+        "class": "Weaver",
+        "stats": {
+            "STR": 9,
+            "INT": 12,
+            "WIS": 15,
+            "DEX": 15,
+            "CON": 8,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 119,
+        "username": "kortx_jace_york_119",
+        "name": "Jace York",
+        "class": "Harvester",
+        "stats": {
+            "STR": 8,
+            "INT": 17,
+            "WIS": 17,
+            "DEX": 18,
+            "CON": 15,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 120,
+        "username": "kortx_dara_cross_120",
+        "name": "Dara Cross",
+        "class": "Advocate",
+        "stats": {
+            "STR": 13,
+            "INT": 17,
+            "WIS": 14,
+            "DEX": 12,
+            "CON": 14,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 121,
+        "username": "kortx_aria_zeller_121",
+        "name": "Aria Zeller",
+        "class": "Forger",
+        "stats": {
+            "STR": 11,
+            "INT": 20,
+            "WIS": 12,
+            "DEX": 14,
+            "CON": 9,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 122,
+        "username": "kortx_aria_ward_122",
+        "name": "Aria Ward",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 18,
+            "INT": 17,
+            "WIS": 17,
+            "DEX": 10,
+            "CON": 14,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 123,
+        "username": "kortx_yara_reed_123",
+        "name": "Yara Reed",
+        "class": "Harvester",
+        "stats": {
+            "STR": 13,
+            "INT": 16,
+            "WIS": 15,
+            "DEX": 16,
+            "CON": 14,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 124,
+        "username": "kortx_hale_vance_124",
+        "name": "Hale Vance",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 16,
+            "INT": 15,
+            "WIS": 15,
+            "DEX": 13,
+            "CON": 17,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 125,
+        "username": "kortx_rowan_vale_125",
+        "name": "Rowan Vale",
+        "class": "Vanguard",
+        "stats": {
+            "STR": 15,
+            "INT": 19,
+            "WIS": 10,
+            "DEX": 15,
+            "CON": 15,
+            "CHA": 10
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 126,
+        "username": "kortx_orion_locke_126",
+        "name": "Orion Locke",
+        "class": "Scribe",
+        "stats": {
+            "STR": 6,
+            "INT": 15,
+            "WIS": 17,
+            "DEX": 13,
+            "CON": 8,
+            "CHA": 19
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 127,
+        "username": "kortx_kael_vale_127",
+        "name": "Kael Vale",
+        "class": "Oracle",
+        "stats": {
+            "STR": 8,
+            "INT": 20,
+            "WIS": 17,
+            "DEX": 12,
+            "CON": 10,
+            "CHA": 16
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 128,
+        "username": "kortx_talon_frost_128",
+        "name": "Talon Frost",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 19,
+            "INT": 12,
+            "WIS": 14,
+            "DEX": 12,
+            "CON": 16,
+            "CHA": 7
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 129,
+        "username": "kortx_lyra_tate_129",
+        "name": "Lyra Tate",
+        "class": "Architect",
+        "stats": {
+            "STR": 7,
+            "INT": 18,
+            "WIS": 19,
+            "DEX": 14,
+            "CON": 15,
+            "CHA": 11
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 130,
+        "username": "kortx_uri_reed_130",
+        "name": "Uri Reed",
+        "class": "Warden",
+        "stats": {
+            "STR": 11,
+            "INT": 15,
+            "WIS": 15,
+            "DEX": 11,
+            "CON": 18,
+            "CHA": 13
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 131,
+        "username": "kortx_vane_sterling_131",
+        "name": "Vane Sterling",
+        "class": "Oracle",
+        "stats": {
+            "STR": 7,
+            "INT": 18,
+            "WIS": 15,
+            "DEX": 13,
+            "CON": 11,
+            "CHA": 12
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 132,
+        "username": "kortx_jace_graves_132",
+        "name": "Jace Graves",
+        "class": "Sentinel",
+        "stats": {
+            "STR": 19,
+            "INT": 12,
+            "WIS": 11,
+            "DEX": 9,
+            "CON": 14,
+            "CHA": 6
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    },
+    {
+        "id": 133,
+        "username": "kortx_dara_vale_133",
+        "name": "Dara Vale",
+        "class": "Weaver",
+        "stats": {
+            "STR": 7,
+            "INT": 16,
+            "WIS": 19,
+            "DEX": 13,
+            "CON": 10,
+            "CHA": 15
+        },
+        "level": 133,
+        "alignment": "Sovereign Neutral"
+    }
+]

@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  quantum-optimizer:
+    build: ./apps/quantum-optimizer
+    # depends_on: [voice-engine]  # Uncomment when voice-engine is defined
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    restart: always
+
+  master-wiki:
+    build: ./apps/master-wiki
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/master-wiki/docs:/app/docs
+    restart: always
+
+  advocate:
+    build: ./apps/advocate
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_SUPABASE_URL=${SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${SUPABASE_SERVICE_KEY}
+    restart: always
+
+  health:
+    build: ./apps/health
+    ports:
+      - "5174:5173"
+    environment:
+      - VITE_SUPABASE_URL=${SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${SUPABASE_SERVICE_KEY}
+    restart: always
+
+  # drt-social (drt.social) runs UNA CMS externally.
+  # Bridge module: apps/bridges/una-kort-bridge/BxKoRTBridgeModule.php
+  # Deploy by copying to UNA's modules directory on the server.
+
+  # drt-onl (drt.onl) runs WordPress Multisite externally.
+  # Bridge plugin: apps/bridges/wp-kort-bridge/kort-drt-bridge.php
+  # Deploy by copying to wp-content/plugins/ on the server.
+
+
+
+
+  # Placeholder for voice-engine if it's part of the stack
+  # voice-engine:
+  #   build: ./apps/voice-engine
+  #   ...

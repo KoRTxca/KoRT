@@ -1,0 +1,11 @@
+﻿{
+    "settings":  {
+                     "workbench.colorTheme":  "Dragon Shield",
+                     "window.title":  "KoRT IDE - ${activeEditorShort}${separator}${rootName}"
+                 },
+    "folders":  [
+                    {
+                        "path":  "D:\\KoRT_Command_Center\\Mission_Control"
+                    }
+                ]
+}

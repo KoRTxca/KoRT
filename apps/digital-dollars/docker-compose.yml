@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dollars-ledger:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kort-dollars-ledger
+    ports:
+      - "8099:8099"
+    environment:
+      - DD_DB_PATH=/data/digital_dollars.db
+      - PORT=8099
+    volumes:
+      - ./data:/data
+    restart: always
+
+  db-backup-cron:
+    image: postgres:15-alpine
+    container_name: kort-dollars-backup
+    volumes:
+      - ./data:/data
+      - ./backups:/backups
+    entrypoint: |
+      sh -c '
+      while true; do
+        echo "Starting sovereign backup sequence..."
+        cp /data/digital_dollars.db /backups/backup_$$(date +%Y%m%d_%H%M%S).db
+        echo "Sovereign backup complete. Sleeping 24h..."
+        sleep 86400
+      done
+      '
+    restart: always

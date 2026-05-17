@@ -1,0 +1,34 @@
+{
+  "subject": "Sir Kevin Slemko (MSLEMKO)",
+  "status": "In-Progress Mapping",
+  "primary_emails": [
+    "kort-kslemk@gmail.com",
+    "chimney2curb@gmail.com",
+    "vicparent@gmail.com"
+  ],
+  "social_nodes": {
+    "facebook": "Pending Deep-Link",
+    "drt.social": "Internal Registry Node"
+  },
+  "domain_registrars_to_revive": [
+    "Namespro",
+    "Namesilo",
+    "Porkbun"
+  ],
+  "forums_to_audit": [
+    "Warriorforum",
+    "Webhostingtalk",
+    "Sitepoint"
+  ],
+  "legacy_business_entities": [
+    "Chimney2Curb"
+  ],
+  "family_reputation_nodes": {
+    "son": "Pending Identification",
+    "family_network": "KoRT Sovereign Private Network"
+  },
+  "future_provisioning": {
+    "protocol": "All new accounts MUST use @drt.onl or @kortx.ca aliasing for centralized reputation management.",
+    "active_tracking": "KoRT_Claw surveillance of future registrations."
+  }
+}

@@ -1,0 +1,80 @@
+++ sed --version
+++ sed -i -E 's|!!TUNNEL_APP_NAME!!|codium-tunnel|g' ../patches/linux/44-arch-add-loong64.patch
+++ git apply --ignore-whitespace ../patches/linux/44-arch-add-loong64.patch
+++ mv -f ../patches/linux/44-arch-add-loong64.patch.bak ../patches/linux/44-arch-add-loong64.patch
+++ for file in "../patches/${OS_NAME}/"*.patch
+++ [[ -f ../patches/linux/45-arch-add-s390x.patch ]]
+++ apply_patch ../patches/linux/45-arch-add-s390x.patch
+++ [[ -z '' ]]
+++ echo applying patch: ../patches/linux/45-arch-add-s390x.patch
+applying patch: ../patches/linux/45-arch-add-s390x.patch
+++ cp ../patches/linux/45-arch-add-s390x.patch ../patches/linux/45-arch-add-s390x.patch.bak
+++ replace 's|!!APP_NAME!!|VSCodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!APP_NAME!!|VSCodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!APP_NAME_LC!!|vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!APP_NAME_LC!!|vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!ASSETS_REPOSITORY!!|VSCodium/vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!ASSETS_REPOSITORY!!|VSCodium/vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!BINARY_NAME!!|codium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!BINARY_NAME!!|codium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!GH_REPO_PATH!!|VSCodium/vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!GH_REPO_PATH!!|VSCodium/vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!GLOBAL_DIRNAME!!|vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!GLOBAL_DIRNAME!!|vscodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!ORG_NAME!!|VSCodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!ORG_NAME!!|VSCodium|g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!RELEASE_VERSION!!||g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!RELEASE_VERSION!!||g' ../patches/linux/45-arch-add-s390x.patch
+++ replace 's|!!TUNNEL_APP_NAME!!|codium-tunnel|g' ../patches/linux/45-arch-add-s390x.patch
+++ is_gnu_sed
+++ sed --version
+++ sed -i -E 's|!!TUNNEL_APP_NAME!!|codium-tunnel|g' ../patches/linux/45-arch-add-s390x.patch
+++ git apply --ignore-whitespace ../patches/linux/45-arch-add-s390x.patch
+++ mv -f ../patches/linux/45-arch-add-s390x.patch.bak ../patches/linux/45-arch-add-s390x.patch
+++ for file in ../patches/user/*.patch
+++ [[ -f ../patches/user/*.patch ]]
+++ set -x
+++ export ELECTRON_SKIP_BINARY_DOWNLOAD=1
+++ ELECTRON_SKIP_BINARY_DOWNLOAD=1
+++ export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+++ PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+++ [[ linux == \l\i\n\u\x ]]
+++ export VSCODE_SKIP_NODE_VERSION_CHECK=1
+++ VSCODE_SKIP_NODE_VERSION_CHECK=1
+++ [[ '' == \a\r\m ]]
+++ node build/npm/preinstall.ts
+node:internal/errors:496
+    ErrorCaptureStackTrace(err);
+    ^
+
+TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /opt/vs_kort_code_build/vscodium/vscode/build/npm/preinstall.ts
+    at new NodeError (node:internal/errors:405:5)
+    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:136:11)
+    at defaultGetFormat (node:internal/modules/esm/get_format:182:36)
+    at defaultLoad (node:internal/modules/esm/load:101:20)
+    at ModuleLoader.load (node:internal/modules/esm/loader:417:13)
+    at ModuleLoader.moduleProvider (node:internal/modules/esm/loader:288:22)
+    at new ModuleJob (node:internal/modules/esm/module_job:63:26)
+    at #createModuleJob (node:internal/modules/esm/loader:312:17)
+    at ModuleLoader.getJobFromResolveResult (node:internal/modules/esm/loader:265:34)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:251:17) {
+  code: 'ERR_UNKNOWN_FILE_EXTENSION'
+}
+
+Node.js v18.20.8

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>KoRT Master Todo — Open in its own tab</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#08080f;color:#e8e8e8;font-family:'Segoe UI',system-ui,sans-serif;font-size:14px}
+header{background:#0a0a1a;border-bottom:1px solid rgba(201,168,76,.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:16px;font-weight:700;letter-spacing:3px;color:#c9a84c}
+.prog-wrap{display:flex;align-items:center;gap:10px}
+.prog-bar{width:160px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:#c9a84c;transition:width .3s}
+.prog-txt{font-size:12px;color:#9a9ab0;white-space:nowrap}
+.tabs{display:flex;gap:4px;padding:12px 16px;background:#0a0a1a;border-bottom:1px solid rgba(201,168,76,.15);flex-wrap:wrap}
+.tab{font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid rgba(201,168,76,.2);background:transparent;color:#9a9ab0;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tab.on{background:rgba(201,168,76,.15);color:#c9a84c;border-color:rgba(201,168,76,.5)}
+.search-bar{padding:10px 16px;background:#08080f;border-bottom:1px solid rgba(201,168,76,.1)}
+.search-bar input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:7px 12px;color:#e8e8e8;font-size:13px;outline:none}
+.search-bar input:focus{border-color:rgba(201,168,76,.5)}
+.list{padding:12px 16px;max-width:900px}
+.section-lbl{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(201,168,76,.6);margin:16px 0 8px;padding-left:4px}
+.item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:5px;border:1px solid rgba(201,168,76,.1);background:rgba(10,10,26,.6);margin-bottom:5px;cursor:pointer;transition:all .15s}
+.item:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.04)}
+.item.done{opacity:.35}
+.item.done .ititle{text-decoration:line-through}
+.cb{width:16px;height:16px;border-radius:3px;border:1.5px solid rgba(201,168,76,.4);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#4ade80;transition:all .15s}
+.cb.chk{background:rgba(74,222,128,.2);border-color:#4ade80}
+.itext{flex:1;min-width:0}
+.ititle{font-size:13px;font-weight:500;color:#e8e8e8;line-height:1.4}
+.idesc{font-size:12px;color:#9a9ab0;margin-top:3px;line-height:1.45}
+.imeta{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;border:1px solid}
+.t-now{background:rgba(248,113,113,.1);color:#f87171;border-color:rgba(248,113,113,.3)}
+.t-free{background:rgba(74,222,128,.1);color:#4ade80;border-color:rgba(74,222,128,.3)}
+.t-paid{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.3)}
+.t-done{background:rgba(154,154,176,.08);color:#9a9ab0;border-color:rgba(154,154,176,.2)}
+.lnk{font-size:11px;color:#60a5fa;text-decoration:none;padding:2px 7px;border-radius:10px;border:1px solid rgba(96,165,250,.25);white-space:nowrap}
+.lnk:hover{background:rgba(96,165,250,.1)}
+.ref-section{padding:12px 16px;max-width:900px}
+.ref-card{background:rgba(10,10,26,.7);border:1px solid rgba(201,168,76,.15);border-radius:6px;padding:12px 14px;margin-bottom:6px}
+.ref-name{font-weight:700;color:#e8d5a3;margin-bottom:3px}
+.ref-desc{font-size:12px;color:#9a9ab0;margin-bottom:7px}
+.ref-code{font-family:'Courier New',monospace;font-size:11px;background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.15);border-radius:3px;padding:5px 9px;word-break:break-all;color:#c9a84c;margin-bottom:7px}
+.ref-stat{display:flex;align-items:center;gap:6px;font-size:11px;color:#9a9ab0}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot.live{background:#4ade80}.dot.miss{background:#f87171}.dot.part{background:#fbbf24}
+.copy-btn{font-size:11px;padding:3px 9px;border-radius:3px;border:1px solid rgba(201,168,76,.25);background:transparent;color:#c9a84c;cursor:pointer;font-family:inherit}
+.copy-btn:hover{background:rgba(201,168,76,.1)}
+.notice{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:6px;padding:12px 16px;margin:16px;font-size:13px;color:#9a9ab0;line-height:1.6}
+.notice strong{color:#c9a84c}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⚔ KoRT MASTER TODO</div>
+  <div class="prog-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="pfill" style="width:0%"></div></div>
+    <div class="prog-txt" id="ptxt">0 / 0</div>
+  </div>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab on" onclick="sw(this,'all')">All</button>
+  <button class="tab" onclick="sw(this,'now')">🔴 Immediate</button>
+  <button class="tab" onclick="sw(this,'accounts')">Accounts</button>
+  <button class="tab" onclick="sw(this,'refs')">Referral Codes</button>
+  <button class="tab" onclick="sw(this,'earn')">Affiliates</button>
+  <button class="tab" onclick="sw(this,'branding')">Branding</button>
+  <button class="tab" onclick="sw(this,'tech')">Tech</button>
+  <button class="tab" onclick="sw(this,'outreach')">Outreach</button>
+  <button class="tab" onclick="sw(this,'need')">Credentials Needed</button>
+</div>
+
+<div class="search-bar"><input id="search" placeholder="Search tasks..." oninput="render()"/></div>
+
+<div id="main"></div>
+
+<script>
+const DATA = {
+  items: [
+    // IMMEDIATE
+    {id:'n1',cat:'now',title:'Deploy new kortx.html to Netlify',desc:'Download kortx.html → rename to index.html → put in a folder → drag folder to Netlify drop zone on Deploys page',tags:['now'],links:[{u:'https://app.netlify.com/projects/fabulous-kitsune-9b76e1/deploys',t:'Netlify Deploys ↗'}]},
+    {id:'n2',cat:'now',title:'Generate Pendragon crest — use prompt file',desc:'Open KORT_crest_prompts.txt → paste Prompt 1 into Midjourney or DALL-E 3 → download result → import to Canva',tags:['now'],links:[{u:'https://www.midjourney.com',t:'Midjourney ↗'},{u:'https://chat.openai.com',t:'DALL-E 3 ↗'}]},
+    {id:'n3',cat:'now',title:'Set up email: ImprovMX → Netlify DNS',desc:'1) improvmx.com → Add domain kortx.ca → copy 2 MX records. 2) app.netlify.com → DNS → kortx.ca → add both MX records. hello/support/admin@kortx.ca all forward to chimney2curb@gmail.com',tags:['now','free'],links:[{u:'https://improvmx.com',t:'Step 1: ImprovMX ↗'},{u:'https://app.netlify.com/projects/fabulous-kitsune-9b76e1/domain-management',t:'Step 2: Netlify DNS ↗'}]},
+    {id:'n4',cat:'now',title:'Set up Crisp live chat + email inbox',desc:'crisp.chat → sign up free → create workspace → get website ID → add 1 script tag to kortx.ca head',tags:['now','free'],links:[{u:'https://crisp.chat',t:'crisp.chat ↗'}]},
+    {id:'n5',cat:'now',title:'Get Canva Pro ($17/mo)',desc:'Full brand kit, all asset templates, social media sizes, pitch deck. First task: upload KoRT gold #c9a84c + dark bg, Cinzel font, crest art once generated.',tags:['now','paid'],links:[{u:'https://www.canva.com/en_ca/pro/',t:'Canva Pro ↗'}]},
+    {id:'n6',cat:'now',title:'Confirm Facebook page URL',desc:'Listed as TBD everywhere in all docs. Get the URL and drop it here so site links can be updated.',tags:['now'],links:[{u:'https://facebook.com/pages/create',t:'Create/confirm FB page ↗'}]},
+    {id:'n7',cat:'now',title:'Privacy Policy + Terms of Service pages',desc:'Required by PIPEDA + PayPal before money flows. Use Termly free → 10 min → paste output into kortx.ca as /privacy and /terms pages',tags:['now','free'],links:[{u:'https://termly.io/products/privacy-policy-generator/',t:'Termly (free) ↗'}]},
+    {id:'n8',cat:'now',title:'Post Founder Circle offer (25 spots)',desc:'3 free / 7@$75 / 10@$150 / 5@$250. kortx.ca/join only — no personal email or phone in posts. Use DM scripts from kit.',tags:['now'],links:[{u:'https://reddit.com/r/KoRT/submit',t:'r/KoRT ↗'},{u:'https://discord.gg/T6bfsceJ',t:'Discord ↗'}]},
+    // ACCOUNTS
+    {id:'a1',cat:'accounts',title:'GitHub account',desc:'Required for Lovable + v0.dev login.',tags:['free'],links:[{u:'https://github.com/signup',t:'Sign up ↗'}]},
+    {id:'a2',cat:'accounts',title:'Supabase project "kortx"',desc:'Free tier. Region: Canada (ca-central-1). Save URL + anon key — everything needs these.',tags:['free'],links:[{u:'https://supabase.com/dashboard/sign-up',t:'supabase.com ↗'}]},
+    {id:'a3',cat:'accounts',title:'Lovable account',desc:'Sign in via GitHub. 5 free credits/day. Primary builder for member portal.',tags:['free'],links:[{u:'https://lovable.dev',t:'lovable.dev ↗'}]},
+    {id:'a4',cat:'accounts',title:'Bolt.new account',desc:'Advocate app + Crisis Response builder.',tags:['free'],links:[{u:'https://bolt.new',t:'bolt.new ↗'}]},
+    {id:'a5',cat:'accounts',title:'Replit account',desc:'Hosts PayPal IPN webhook + affiliate tracking API.',tags:['free'],links:[{u:'https://replit.com/signup',t:'replit.com ↗'}]},
+    {id:'a6',cat:'accounts',title:'KOHO — copy your referral link',desc:'You have KOHO already. Log in → Refer friends → copy personal referral link.',tags:['free'],links:[{u:'https://www.koho.ca',t:'koho.ca ↗'}]},
+    {id:'a7',cat:'accounts',title:'EQ Bank account',desc:'High-interest, no fees, strong referral bonus.',tags:['free'],links:[{u:'https://www.eqbank.ca',t:'eqbank.ca ↗'}]},
+    {id:'a8',cat:'accounts',title:'Tangerine Bank account',desc:'$50+ referral bonus both ways.',tags:['free'],links:[{u:'https://www.tangerine.ca',t:'tangerine.ca ↗'}]},
+    {id:'a9',cat:'accounts',title:'Neo Financial account',desc:'Canadian fintech. Referral bonuses + cashback card.',tags:['free'],links:[{u:'https://www.neofinancial.com',t:'neofinancial.com ↗'}]},
+    {id:'a10',cat:'accounts',title:'Simplii Financial (CIBC)',desc:'$50+ welcome bonus + referral.',tags:['free'],links:[{u:'https://www.simplii.com',t:'simplii.com ↗'}]},
+    {id:'a11',cat:'accounts',title:'Stripe (after biz bank account)',desc:'On hold until BC Registry name change + business bank set up.',tags:[],links:[{u:'https://stripe.com/ca',t:'stripe.com/ca ↗'}]},
+    {id:'a12',cat:'accounts',title:'AWS Activate — $300 free credits',desc:'Apply as bootstrapped startup.',tags:['free'],links:[{u:'https://aws.amazon.com/activate',t:'aws.amazon.com/activate ↗'}]},
+    // REFERRALS
+    {id:'r1',cat:'refs',title:'BestPlay referral link',desc:'200,000 bonus coins. LIVE.',tags:['free'],links:[{u:'https://bestplay.onelink.me/IZ8a/6n85wno3',t:'Open link ↗'}],code:'https://bestplay.onelink.me/IZ8a/6n85wno3',status:'live'},
+    {id:'r2',cat:'refs',title:'CashKarma referral link',desc:'Bonus on signup. LIVE.',tags:['free'],links:[{u:'https://cashkar.ma/Q2wiZO3qN0b',t:'Open link ↗'}],code:'https://cashkar.ma/Q2wiZO3qN0b',status:'live'},
+    {id:'r3',cat:'refs',title:'GemSloot affiliate code',desc:'Affiliate code: kort. LIVE.',tags:['free'],links:[{u:'https://gemsloot.com/?aff=kort',t:'Open link ↗'}],code:'https://gemsloot.com/?aff=kort',status:'live'},
+    {id:'r4',cat:'refs',title:'Tango referral link',desc:'Bonus coins on signup. LIVE.',tags:['free'],links:[{u:'https://tango.onelink.me/RCIH/igsme4lt',t:'Open link ↗'}],code:'https://tango.onelink.me/RCIH/igsme4lt',status:'live'},
+    {id:'r5',cat:'refs',title:'Mistplay referral link',desc:'Gaming rewards. LIVE.',tags:['free'],links:[{u:'https://mistplay.onelink.me/ZGRQ/2jh95s8y',t:'Open link ↗'}],code:'https://mistplay.onelink.me/ZGRQ/2jh95s8y',status:'live'},
+    {id:'r6',cat:'refs',title:'KOHO referral code',desc:'Get from KOHO app after logging in.',tags:[],code:'[NEEDED — get from KOHO app]',status:'missing'},
+    {id:'r7',cat:'refs',title:'Swagbucks referral link',desc:'Apply at swagbucks.com/partner',tags:[],code:'[NEEDED — apply at swagbucks.com/partner]',status:'missing'},
+    {id:'r8',cat:'refs',title:'Rakuten CA referral link',desc:'From rakuten.ca dashboard after signup.',tags:[],code:'[NEEDED — get from Rakuten dashboard]',status:'missing'},
+    {id:'r9',cat:'refs',title:'Nielsen referral link',desc:'Apply at nielsen.com/panels',tags:[],code:'[NEEDED — apply at nielsen.com/panels]',status:'missing'},
+    {id:'r10',cat:'refs',title:'EQ Bank referral link',desc:'Get from EQ Bank dashboard after signup.',tags:[],code:'[NEEDED — get from EQ Bank after signup]',status:'missing'},
+    {id:'r11',cat:'refs',title:'Tangerine referral code',desc:'From Tangerine dashboard after signup.',tags:[],code:'[NEEDED — get from Tangerine after signup]',status:'missing'},
+    {id:'r12',cat:'refs',title:'Drop App referral link',desc:'Get from earnwithdrop.com after signup.',tags:[],code:'[NEEDED — get from Drop after signup]',status:'missing'},
+    // AFFILIATES
+    {id:'e1',cat:'earn',title:'Swagbucks — apply for affiliate account',desc:'Partners earn % of referred users earnings long-term.',tags:['free'],links:[{u:'https://www.swagbucks.com',t:'swagbucks.com ↗'}]},
+    {id:'e2',cat:'earn',title:'Rakuten Canada — get referral link',desc:'Best cashback network in Canada. 3-tier commissions possible.',tags:['free'],links:[{u:'https://www.rakuten.ca',t:'rakuten.ca ↗'}]},
+    {id:'e3',cat:'earn',title:'Nielsen — apply as affiliate partner',desc:'Passive income. Installs quietly, earns per device.',tags:['free'],links:[{u:'https://www.nielsen.com/panels/',t:'nielsen.com ↗'}]},
+    {id:'e4',cat:'earn',title:'Drop cashback — get referral link',desc:'Canadian cashback. Tier-2 commissions available.',tags:['free'],links:[{u:'https://www.earnwithdrop.com',t:'earnwithdrop.com ↗'}]},
+    {id:'e5',cat:'earn',title:'Research 3-tier affiliate networks',desc:'Target programs where KoRT earns on members AND their referrals. Check Impact.com and ShareASale.',tags:[],links:[{u:'https://impact.com',t:'impact.com ↗'},{u:'https://www.shareasale.com',t:'shareasale.com ↗'}]},
+    {id:'e6',cat:'earn',title:'Build master affiliate tracking spreadsheet',desc:'Every program, referral link, commission %, payout threshold, tier-2 rate. Required before member onboarding.',tags:['now']},
+    // BRANDING
+    {id:'b1',cat:'branding',title:'Generate Pendragon crest (Midjourney)',desc:'Use KORT_crest_prompts.txt — Prompt 1 for full crest. This unblocks badge, shield, uniform patch, and full site header.',tags:['now'],links:[{u:'https://www.midjourney.com',t:'Midjourney ↗'},{u:'https://chat.openai.com',t:'DALL-E 3 ↗'}]},
+    {id:'b2',cat:'branding',title:'Canva Pro — build brand kit',desc:'Upload: KoRT gold #c9a84c, bg #08080f, Cinzel font, crest PNG. Then every asset is templated.',tags:['paid'],links:[{u:'https://www.canva.com/en_ca/pro/',t:'Canva Pro ↗'}]},
+    {id:'b3',cat:'branding',title:'Upload avatar + banner to Discord',desc:'Export from Canva as PNG. Discord Server Settings → upload.',tags:['free'],links:[{u:'https://discord.gg/T6bfsceJ',t:'Your Discord ↗'}]},
+    {id:'b4',cat:'branding',title:'Add og:image to kortx.ca head tag',desc:'Export kort_social_og as PNG from Canva. Add <meta property="og:image"> tag. Controls Facebook/Twitter preview.',tags:[]},
+    // TECH
+    {id:'t1',cat:'tech',title:'BC Registry sole prop name change',desc:'~$40 CAD. Xception Contracting → new name. Required before business bank.',tags:['paid'],links:[{u:'https://www.bcregistryservices.gov.bc.ca',t:'bcregistryservices.gov.bc.ca ↗'}]},
+    {id:'t2',cat:'tech',title:'Renew grace-period domains',desc:'xfund.ca, xify.ca, xmeet.ca — 30-day grace. Renew when funded (~$48 CAD total).',tags:['paid'],links:[{u:'https://www.namecheap.com',t:'namecheap.com ↗'}]},
+    {id:'t3',cat:'tech',title:'Discord full channel structure setup',desc:'START HERE / NEED MONEY / DIGITAL DETOX / ROUND TABLE / KNIGHT OPS. Carl-bot for reaction roles.',tags:['free'],links:[{u:'https://carl.gg',t:'carl.gg ↗'},{u:'https://discord.gg/T6bfsceJ',t:'Your server ↗'}]},
+    {id:'t4',cat:'tech',title:'Pin origin story post in r/KoRT',desc:'Raw honest post: 20 years, Aaron + Kyle, finally launching. Pin as Announcement.',tags:['now'],links:[{u:'https://reddit.com/r/KoRT/submit',t:'r/KoRT ↗'}]},
+    {id:'t5',cat:'tech',title:'Reprogramme SignalWire IVR',desc:'Menu: 1=membership, 2=crisis, 3=Detox, 4=XC Ltd. Voicemail → Crisp ticket. Need William credentials.',tags:[]},
+    {id:'t6',cat:'tech',title:'Add Plausible analytics to kortx.ca',desc:'Free for 1 site. Privacy-friendly. 1 script tag.',tags:['free'],links:[{u:'https://plausible.io',t:'plausible.io ↗'}]},
+    // OUTREACH
+    {id:'o1',cat:'outreach',title:'Post on r/Entrepreneur',desc:'Founder circle angle. Link to kortx.ca/join only.',tags:['now'],links:[{u:'https://reddit.com/r/Entrepreneur',t:'r/Entrepreneur ↗'}]},
+    {id:'o2',cat:'outreach',title:'Post on r/SideHustle',desc:'Digital Dollars angle: make $15 in 48 hours.',tags:['now'],links:[{u:'https://reddit.com/r/SideHustle',t:'r/SideHustle ↗'}]},
+    {id:'o3',cat:'outreach',title:'Post on r/povertyfinancecanada',desc:'Mutual aid + Digital Dollars. Perfect audience.',tags:['now'],links:[{u:'https://reddit.com/r/povertyfinancecanada',t:'r/povertyfinancecanada ↗'}]},
+    {id:'o4',cat:'outreach',title:'Post on r/CowichanValley + r/britishcolumbia',desc:'Local. Home turf. Crisis response angle.',tags:['now'],links:[{u:'https://reddit.com/r/CowichanValley',t:'r/CowichanValley ↗'}]},
+    {id:'o5',cat:'outreach',title:'Post on r/startups + IndieHackers',desc:'Build-in-public. Founder circle. Ecosystem model.',tags:[],links:[{u:'https://reddit.com/r/startups',t:'r/startups ↗'},{u:'https://indiehackers.com',t:'IndieHackers ↗'}]},
+    {id:'o6',cat:'outreach',title:'Post on r/HarmReduction + r/MentalHealthSupport',desc:'Crisis response angle. Empathetic, no promises of current services.',tags:[],links:[{u:'https://reddit.com/r/HarmReduction',t:'r/HarmReduction ↗'}]},
+  ],
+  // CREDENTIALS needed
+  creds: [
+    {lbl:'Supabase',t:'Project URL + anon key',d:'After creating project at supabase.com',s:'missing'},
+    {lbl:'Crisp',t:'Website ID',d:'Generated after signing up at crisp.chat',s:'missing'},
+    {lbl:'Facebook',t:'KoRT Facebook page URL',d:'Listed as TBD everywhere',s:'missing'},
+    {lbl:'SignalWire',t:'Login / credentials',d:"William's account — needed for IVR reprogramming",s:'missing'},
+    {lbl:'GitHub',t:'Username',d:'For Lovable + v0.dev login',s:'missing'},
+    {lbl:'Netlify',t:'Team login or deploy hook',d:'For CLI deploys instead of manual drag',s:'partial'},
+    {lbl:'KOHO',t:'Your referral code',d:'Log into KOHO app → Refer friends',s:'missing'},
+    {lbl:'PayPal',t:'Confirm subscription button URLs live',d:'All 8 tier PayPal buttons — confirm active subscription IDs',s:'missing'},
+    {lbl:'Affiliate links',t:'All referral links in one place',d:'BestPlay✓ CashKarma✓ GemSloot✓ Tango✓ Mistplay✓ — still need KOHO, Swagbucks, Rakuten, Nielsen, EQ, Tangerine, Neo, Simplii, Drop',s:'partial'},
+  ]
+};
+
+let cur='all', checked={};
+const LS_KEY = 'kort_todo_v1';
+function save(){localStorage.setItem(LS_KEY,JSON.stringify(checked));}
+function load(){try{checked=JSON.parse(localStorage.getItem(LS_KEY)||'{}');}catch(e){checked={};}}
+load();
+
+function sw(el,cat){
+  cur=cat;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  render();
+}
+function toggle(id){checked[id]=!checked[id];save();render();}
+function copy(txt,btn){navigator.clipboard.writeText(txt).catch(()=>{});btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200);}
+
+function render(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const el=document.getElementById('main');
+  let html='';
+
+  if(cur==='refs'){
+    const live=DATA.items.filter(i=>i.cat==='refs'&&i.status==='live');
+    const miss=DATA.items.filter(i=>i.cat==='refs'&&i.status==='missing');
+    html+='<div class="ref-section">';
+    html+='<div class="section-lbl">✅ Live referral codes ('+live.length+' confirmed)</div>';
+    live.forEach(r=>{
+      html+=`<div class="ref-card">
+        <div class="ref-name">${r.title.replace(' referral link','').replace(' referral code','').replace(' affiliate code','')}</div>
+        <div class="ref-desc">${r.desc}</div>
+        <div class="ref-code">${r.code}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <a class="lnk" href="${r.code}" target="_blank">Open ↗</a>
+          <button class="copy-btn" onclick="copy('${r.code}',this)">Copy</button>
+          <span class="ref-stat"><span class="dot live"></span>Live</span>
+        </div>
+      </div>`;
+    });
+    html+='<div class="section-lbl" style="margin-top:20px">⏳ Still needed ('+miss.length+' missing)</div>';
+    miss.forEach(r=>{
+      html+=`<div class="ref-card" style="opacity:.55">
+        <div class="ref-name">${r.title.replace(' referral link','').replace(' referral code','').replace(' affiliate code','')}</div>
+        <div class="ref-desc">${r.desc}</div>
+        <div class="ref-code" style="color:#9a9ab0">${r.code}</div>
+        <span class="ref-stat"><span class="dot miss"></span>Not yet collected</span>
+      </div>`;
+    });
+    html+='</div>';
+    updateProg(live.length, DATA.items.filter(i=>i.cat==='refs').length);
+    el.innerHTML=html;return;
+  }
+
+  if(cur==='need'){
+    html+='<div class="list"><div class="section-lbl">Credentials Claude needs from you</div>';
+    DATA.creds.forEach(c=>{
+      const dot=c.s==='missing'?'miss':c.s==='partial'?'part':'live';
+      const lbl=c.s==='missing'?'Not provided':c.s==='partial'?'Partial':'Ready';
+      html+=`<div class="item" style="cursor:default">
+        <span class="ref-stat"><span class="dot ${dot}"></span></span>
+        <div class="itext">
+          <div class="ititle">${c.lbl}: ${c.t}</div>
+          <div class="idesc">${c.d}</div>
+          <div class="imeta"><span class="tag t-done">${lbl}</span></div>
+        </div>
+      </div>`;
+    });
+    html+='</div>';
+    updateProg(DATA.creds.filter(c=>c.s==='ready').length, DATA.creds.length);
+    el.innerHTML=html;return;
+  }
+
+  const cats = cur==='all'
+    ? ['now','accounts','earn','branding','tech','outreach']
+    : [cur==='refs'?null:cur].filter(Boolean);
+
+  const labels={now:'🔴 Immediate — this week',accounts:'Accounts to open',earn:'Affiliates + earning stack',branding:'Branding',tech:'Tech + legal + infrastructure',outreach:'Outreach + launch posts'};
+
+  let total=0,done=0;
+  cats.forEach(cat=>{
+    const filtered=DATA.items.filter(i=>i.cat===cat&&(!q||(i.title+i.desc).toLowerCase().includes(q)));
+    if(!filtered.length)return;
+    html+=`<div class="list"><div class="section-lbl">${labels[cat]}</div>`;
+    filtered.forEach(item=>{
+      const isDone=!!checked[item.id];
+      total++;if(isDone)done++;
+      html+=`<div class="item${isDone?' done':''}" onclick="toggle('${item.id}')">
+        <div class="cb${isDone?' chk':''}">${isDone?'✓':''}</div>
+        <div class="itext">
+          <div class="ititle">${item.title}</div>
+          <div class="idesc">${item.desc}</div>
+          <div class="imeta">
+            ${item.tags.map(t=>`<span class="tag t-${t}">${t}</span>`).join('')}
+            ${(item.links||[]).map(l=>`<a class="lnk" href="${l.u}" target="_blank" onclick="event.stopPropagation()">${l.t}</a>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    });
+    html+='</div>';
+  });
+  updateProg(done,total);
+  el.innerHTML=html;
+}
+
+function updateProg(done,total){
+  document.getElementById('pfill').style.width=total?Math.round(done/total*100)+'%':'0%';
+  document.getElementById('ptxt').textContent=done+' / '+total;
+}
+render();
+</script>
+</body>
+</html>

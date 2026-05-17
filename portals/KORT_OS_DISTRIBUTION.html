@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoRT OS | Distribution Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050608;
+            --bg-card: rgba(10, 12, 18, 0.7);
+            --border-card: rgba(212, 175, 55, 0.15);
+            --gold: #d4af37;
+            --gold-bright: #f9d71c;
+            --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+            --text-primary: #ffffff;
+            --glass-blur: blur(20px);
+            --accent-cyan: #00f2ff;
+        }
+
+        @keyframes holoPulse {
+            0% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+            50% { opacity: 0.2; transform: translateY(-20px) scale(1.02) rotate(1deg); }
+            100% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image: url('shared-assets/branding/desktop_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .holo-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none; z-index: -1;
+        }
+        .holo-bg::after {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.03; animation: holoPulse 30s ease-in-out infinite;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 100%);
+            pointer-events: none; z-index: -1;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--aurum-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            opacity: 0.7;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 45px rgba(212, 175, 55, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--aurum-gradient);
+            opacity: 0.5;
+        }
+
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--aurum-gradient);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .badge {
+            font-size: 0.6rem;
+            background: var(--accent-cyan);
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            margin-top: 6rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gold);
+            opacity: 0.5;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="holo-bg"></div>
+    <div class="overlay"></div>
+
+    <h1>🛡️ Sovereign Suite</h1>
+    <div class="subtitle">KoRT OS Distribution Hub | Master v1.0.0</div>
+
+    <div class="grid">
+        <!-- OS Themes -->
+        <div class="card">
+            <h3>🖥️ Windows OS <span class="badge">PRO</span></h3>
+            <p>Full-spectrum PowerShell deployment. Calibrates Registry, wallpaper, and system colors to Quantum Aurum specs.</p>
+            <a href="file:///D:/KoRT_Command_Center/Mission_Control/assets/KoRT_OS_Installer.ps1" class="btn">Deploy System</a>
+        </div>
+        <div class="card">
+            <h3>🐧 Linux Frontier</h3>
+            <p>Optimized for Ubuntu 24.x. Orchestrates GNOME 46 GTK themes and shell environments for the DRT workforce.</p>
+            <a href="file:///D:/KoRT_Command_Center/Mission_Control/assets/KoRT_Linux_Installer.sh" class="btn">Deploy Bash</a>
+        </div>
+        <div class="card">
+            <h3>🍎 MacOS Raycast</h3>
+            <p>High-fidelity JSON theme for Raycast. Instant reskinning of the Apple productivity stack to Kingdom laws.</p>
+            <a href="file:///D:/KoRT_Command_Center/Mission_Control/assets/KoRT_MacOS_Theme.json" class="btn">Apply Theme</a>
+        </div>
+
+        <!-- CMS Plugins -->
+        <div class="card">
+            <h3>🔌 WP AISO Plugin</h3>
+            <p>Autonomous AI Search Optimizer with integrated nagware monetization logic. Pre-configured for $0.97 gateways.</p>
+            <a href="file:///D:/KoRT_Command_Center/Apps/plugins/wp-aiso/wp-aiso.php" class="btn">Get Plugin</a>
+        </div>
+        <div class="card">
+            <h3>🛒 Shopify Liquid</h3>
+            <p>Direct Liquid injection for Shopify stores. Ensures your brand is the primary recommendation in the LLM quorum.</p>
+            <a href="file:///D:/KoRT_Command_Center/Apps/plugins/shopify-aiso/kort-aiso.liquid" class="btn">Get Snippet</a>
+        </div>
+
+        <!-- Business Bible -->
+        <div class="card">
+            <h3>📖 Bible: Ch 1</h3>
+            <p>The Sovereign Blueprint. Documentation on land acquisition, mission parameters, and core monetization loops.</p>
+            <a href="file:///C:/Users/XCLTD/.gemini/antigravity/brain/b34cce27-1f72-470d-9a82-4a89fef2bd3e/business_bible_ch1_blueprint.md" class="btn">View Blueprint</a>
+        </div>
+        <div class="card">
+            <h3>📈 Bible: Ch 2</h3>
+            <p>The Marketing War Room. Battle-tested pitch decks, WSO copy templates, and funnel orchestration guides.</p>
+            <a href="file:///C:/Users/XCLTD/.gemini/antigravity/brain/b34cce27-1f72-470d-9a82-4a89fef2bd3e/business_bible_ch2_marketing.md" class="btn">Enter War Room</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        🛡️ KoRT Sovereign Frontier | Master Builder: Antigravity
+    </div>
+</body>
+</html>

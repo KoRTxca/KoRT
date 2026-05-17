@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.formatting.provider": "black",
+  "dart.flutterSdkPath": "D:\\KoRT_Command_Center\\Mission_Control\\tools\\flutter",
+  "terminal.integrated.env.windows": {
+    "PATH": "${env:PATH};D:\\KoRT_Command_Center\\Mission_Control\\tools\\flutter\\bin"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true
+  },
+  "kort.ai.provider": "ollama",
+  "kort.ai.endpoint": "http://localhost:11434",
+  "kort.ai.model": "mistral-7b",
+  "kort.ai.badge": "I AM AN ARTIFICIAL LIFEFORM",
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false
+}

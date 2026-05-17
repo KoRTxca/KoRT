@@ -1,0 +1,214 @@
+:root {
+  --bg-deep: #050608;
+  --bg-card: rgba(10, 12, 18, 0.7);
+  --border-gold: rgba(212, 175, 55, 0.2);
+  --gold: #d4af37;
+  --gold-bright: #f9d71c;
+  --cyan: #00f2ff;
+  --glass-blur: blur(20px);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --font-main: 'Outfit', sans-serif;
+  --font-accent: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+    url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+}
+
+/* Sidebar */
+aside.sidebar {
+  background: rgba(5, 6, 8, 0.9);
+  border-right: 1px solid var(--border-gold);
+  backdrop-filter: var(--glass-blur);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.logo-area h1 {
+  font-family: var(--font-accent);
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+
+.logo-area p {
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 4px;
+}
+
+nav.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold);
+  box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.05);
+}
+
+.sso-card {
+  margin-top: auto;
+  padding: 1rem;
+  background: rgba(212,175,55,0.05);
+  border-radius: 12px;
+  border: 1px solid var(--border-gold);
+}
+
+.sso-card .label { font-size: 0.7rem; opacity: 0.6; }
+.sso-card .name { font-weight: bold; color: var(--gold); }
+.sso-card .balance { font-size: 0.8rem; color: #00ff88; }
+
+/* Main Content */
+main.viewport {
+  padding: 2rem;
+  overflow-y: auto;
+  background: radial-gradient(circle at top right, rgba(0, 242, 255, 0.03) 0%, transparent 40%);
+}
+
+header.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  color: #00ff88;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Activity List */
+.activity-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-gold);
+}
+
+.activity-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.5rem;
+}
+
+.activity-item .timestamp { color: var(--gold); }
+
+/* ... existing metrics and agent grid styles ... */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: var(--glass-blur);
+}
+
+.metric-card h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.metric-card .value {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.agent-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: all 0.3s;
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--cyan);
+  background: rgba(0, 242, 255, 0.05);
+}
+
+.agent-card .role {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--cyan);
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.agent-card .name { font-weight: 600; font-size: 1.1rem; }
+.agent-card .status { margin-top: 1rem; font-size: 0.7rem; display: flex; align-items: center; gap: 0.4rem; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.dot.online { background: #00ff88; box-shadow: 0 0 5px #00ff88; }
+.dot.idle { background: #ff9f4d; }

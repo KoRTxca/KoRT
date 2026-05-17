@@ -1,0 +1,36 @@
+[Theme]
+DisplayName=KoRT Sovereign Frontier
+SetDesktopBackground=1
+
+[Control Panel\Desktop]
+Wallpaper=D:\KoRT_Command_Center\Mission_Control\shared-assets\media\kort_logo_transparent.png
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[VisualStyles]
+Path=%SystemRoot%\resources\themes\Aero\Aero.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+HighContrast=0
+
+[MasterThemeSelector]
+MTSM=DABEB0EE
+
+[Control Panel\Colors]
+ActiveTitle=0 0 0
+Background=5 6 8
+Hilight=212 175 55
+HilightText=0 0 0
+TitleText=212 175 55
+Window=10 15 25
+WindowText=255 255 255
+
+[Metrics]
+IconSize=32
+
+[AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Current]
+DefaultValue=%SystemRoot%\media\Windows Background.wav
+
+[AppEvents\Schemes\Apps\.Default\SystemExclamation\.Current]
+DefaultValue=%SystemRoot%\media\Windows Exclamation.wav

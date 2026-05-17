@@ -1,0 +1,66 @@
+/* 
+  KoRT Quantum Aurum v2.0 - Sovereign Design Language
+  Author: Antigravity AI
+  License: MIT / Free for Sovereign Individuals
+*/
+
+:root {
+  --gold: #d4af37;
+  --gold-glow: rgba(212, 175, 55, 0.5);
+  --bg-deep: #050505;
+  --bg-card: rgba(20, 20, 20, 0.8);
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f7e08b 50%, #d4af37 100%);
+  --glass-border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Outfit', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.quantum-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quantum-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: var(--gold);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+}
+
+.aurum-text {
+  background: var(--aurum-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-aurum {
+  background: var(--aurum-gradient);
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--gold-glow);
+  transition: all 0.3s;
+}
+
+.btn-aurum:hover {
+  box-shadow: 0 6px 25px var(--gold);
+  transform: scale(1.05);
+}

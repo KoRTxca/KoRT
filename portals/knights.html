@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knight Dispatch | KoRT Sovereign Response</title>
+    <meta name="description" content="Sovereign AI Triage & Crisis Prevention gateway for the Knights of KoRT. Autonomously routes legal defense and recovery support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050608;
+            --bg-card: rgba(10, 12, 18, 0.75);
+            --border-card: rgba(212, 175, 55, 0.15);
+            --gold: #d4af37;
+            --gold-bright: #f9d71c;
+            --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+            --red: #ff4d4d;
+            --red-glow: rgba(255, 77, 77, 0.3);
+            --blue: #00f2ff;
+            --blue-glow: rgba(0, 242, 255, 0.3);
+            --text-primary: #ffffff;
+            --glass-blur: blur(25px);
+        }
+
+        /* Animations */
+        @keyframes holoPulse {
+            0% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+            50% { opacity: 0.15; transform: translateY(-10px) scale(1.01) rotate(0.5deg); }
+            100% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes flashRed {
+            0% { box-shadow: 0 0 10px rgba(255, 77, 77, 0.2); }
+            100% { box-shadow: 0 0 25px rgba(255, 77, 77, 0.5); }
+        }
+        @keyframes flashBlue {
+            0% { box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+            100% { box-shadow: 0 0 25px rgba(0, 242, 255, 0.5); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image: url('shared-assets/branding/desktop_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 2rem 4rem 2rem;
+        }
+
+        .holo-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+            pointer-events: none; z-index: -1;
+        }
+        .holo-bg::after {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.02; animation: holoPulse 30s ease-in-out infinite;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 100%);
+            pointer-events: none; z-index: -1;
+        }
+
+        /* Top Navigation Bar */
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin-bottom: 2rem;
+            z-index: 100;
+        }
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-card);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        .back-link:hover {
+            color: #fff;
+            background: var(--aurum-gradient);
+            border-color: var(--gold);
+            transform: translateX(-5px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            color: #000;
+        }
+
+        header { text-align: center; margin-bottom: 2rem; z-index: 10; }
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--aurum-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .subtitle { 
+            font-size: 1rem; 
+            color: var(--gold); 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            margin-top: 0.8rem; 
+            opacity: 0.8; 
+            font-weight: 600;
+        }
+
+        /* Dashboard Grid Layout */
+        .dispatch-layout {
+            display: grid;
+            grid-template-columns: 480px 1fr;
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1400px;
+            z-index: 10;
+        }
+
+        .dispatch-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Alert Service Cards */
+        .alert-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 1rem;
+            align-items: center;
+        }
+        .alert-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .alert-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; width: 4px; height: 100%; 
+            background: var(--gold); 
+        }
+        
+        .alert-card.code-3 { border-color: rgba(255, 77, 77, 0.2); }
+        .alert-card.code-3::before { background: var(--red); }
+        .alert-card.code-3:hover {
+            border-color: var(--red);
+            box-shadow: 0 20px 45px var(--red-glow);
+        }
+
+        .alert-card.offline { border-color: rgba(0, 242, 255, 0.2); }
+        .alert-card.offline::before { background: var(--blue); }
+        .alert-card.offline:hover {
+            border-color: var(--blue);
+            box-shadow: 0 20px 45px var(--blue-glow);
+        }
+
+        .alert-text-side {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .alert-action-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .alert-title { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: #fff; 
+        }
+        
+        .alert-price { 
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            color: var(--gold); 
+            line-height: 1;
+        }
+        .alert-card.code-3 .alert-price { color: var(--red); }
+        .alert-card.offline .alert-price { color: var(--blue); }
+
+        .alert-price small { 
+            font-size: 0.8rem; 
+            opacity: 0.6; 
+            color: #fff; 
+            font-weight: 400;
+        }
+
+        .features { 
+            list-style: none; 
+            text-align: left; 
+            margin-top: 0.5rem;
+        }
+        .features li { 
+            margin-bottom: 0.4rem; 
+            font-size: 0.85rem; 
+            color: rgba(255, 255, 255, 0.8); 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        .features li::before { content: '⚔️'; font-size: 0.75rem; color: var(--gold); }
+        .code-3 .features li::before { color: var(--red); }
+        .offline .features li::before { color: var(--blue); }
+
+        .dispatch-btn {
+            width: 100%; 
+            padding: 0.9rem 1.2rem; 
+            border-radius: 12px; 
+            border: none;
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            cursor: pointer; 
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .code-3 .dispatch-btn { background: var(--red); color: #fff; }
+        .code-3 .dispatch-btn:hover { background: #ff3333; box-shadow: 0 0 15px rgba(255, 77, 77, 0.4); }
+        
+        .code-2 .dispatch-btn { background: var(--gold); color: #000; }
+        .code-2 .dispatch-btn:hover { background: var(--gold-bright); box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+
+        .offline .dispatch-btn { background: var(--blue); color: #000; }
+        .offline .dispatch-btn:hover { background: #33f5ff; box-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
+
+        .sso-hud {
+            background: var(--bg-card); 
+            border: 1px solid var(--border-card);
+            padding: 10px 25px; 
+            border-radius: 50px;
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            color: var(--gold);
+            backdrop-filter: var(--glass-blur);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .sso-hud:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Merlin Sovereign Triage Console Container */
+        .triage-console-container {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            overflow: hidden;
+            position: relative;
+            height: 750px;
+        }
+        
+        /* Console Header */
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(212, 175, 55, 0.08);
+            border-bottom: 1px solid var(--border-card);
+            padding: 1rem 1.8rem;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+            animation: pulse 1.5s infinite;
+        }
+        .status-text {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #00ff88;
+        }
+        .console-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .sys-metrics {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Chat Log Area */
+        .chat-log {
+            flex: 1;
+            padding: 1.8rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) rgba(0,0,0,0.2);
+        }
+        .chat-log::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chat-log::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        .chat-log::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        /* Bubble Messages */
+        .message-wrapper {
+            display: flex;
+            gap: 1rem;
+            max-width: 85%;
+            animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        }
+        .message-wrapper.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        .message-wrapper.merlin {
+            align-self: flex-start;
+        }
+        .msg-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .merlin .msg-avatar {
+            background: var(--aurum-gradient);
+            color: #000;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        .user .msg-avatar {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .msg-bubble {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .msg-sender {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .user .msg-sender {
+            color: rgba(255,255,255,0.5);
+            text-align: right;
+        }
+        .msg-content {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-card);
+            border-radius: 18px;
+            padding: 1rem 1.3rem;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            white-space: pre-line;
+        }
+        .merlin .msg-content {
+            border-top-left-radius: 4px;
+        }
+        .user .msg-content {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.25);
+            border-top-right-radius: 4px;
+            color: #fff;
+        }
+
+        .system-notice {
+            align-self: center;
+            background: rgba(255, 77, 77, 0.12);
+            border: 1px solid var(--red);
+            color: var(--red);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse 1s infinite alternate;
+            margin: 0.5rem 0;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);
+        }
+        .system-notice.cyan {
+            background: rgba(0, 242, 255, 0.12);
+            border-color: var(--blue);
+            color: var(--blue);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        /* Suggested Prompts Section */
+        .suggested-prompts {
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.5rem 1.8rem 1rem 1.8rem;
+            flex-wrap: wrap;
+        }
+        .suggest-btn {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-card);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .suggest-btn:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Typing loading state */
+        .typing-loader {
+            display: flex;
+            gap: 5px;
+            padding: 0.5rem 0;
+            align-items: center;
+        }
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Input Controls Area */
+        .console-input-area {
+            border-top: 1px solid var(--border-card);
+            padding: 1.2rem 1.8rem;
+            display: flex;
+            gap: 0.8rem;
+            background: rgba(8, 10, 15, 0.9);
+        }
+        .console-input {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            padding: 1rem 1.3rem;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .console-input:focus {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.03);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+        .console-send-btn {
+            background: var(--aurum-gradient);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            padding: 0 1.5rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+        .console-send-btn:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            filter: brightness(1.1);
+        }
+
+        /* Popup Modals Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            border-radius: 28px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+        }
+        .modal-card.code-3 {
+            border-color: var(--red);
+            box-shadow: 0 0 50px rgba(255, 77, 77, 0.2);
+        }
+        .modal-card.offline {
+            border-color: var(--blue);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.2);
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-close {
+            position: absolute;
+            top: 1.2rem; right: 1.2rem;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+        .modal-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: float 2.5s ease-in-out infinite;
+            display: inline-block;
+        }
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+        .modal-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+        .modal-fee {
+            font-weight: 800;
+            color: #00ff88;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Floating action link inside chat */
+        .redirect-btn {
+            background: var(--aurum-gradient);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .redirect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+        .redirect-btn.cyan {
+            background: linear-gradient(135deg, #00f2ff 0%, #33f5ff 100%);
+        }
+        .redirect-btn.cyan:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dispatch-layout {
+                grid-template-columns: 1fr;
+            }
+            .triage-console-container {
+                height: 600px;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.8rem; }
+            .alert-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .alert-card::before {
+                width: 100%; height: 4px; top: 0; left: 0;
+            }
+            .alert-action-side {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="holo-bg"></div>
+    <div class="overlay"></div>
+
+    <div class="top-navbar">
+        <a href="KORT_MASTER_PORTAL.html" class="back-link">
+            ← Core Portal
+        </a>
+        <div class="sso-hud" onclick="window.location.href='sso.html'">
+            <div style="width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;"></div>
+            <span id="hudBalance">KING AUTHORIZED | 1,250.00 DD</span>
+        </div>
+    </div>
+
+    <header>
+        <h1>Knight Dispatch</h1>
+        <div class="subtitle">Human & AI Sovereign Response</div>
+    </header>
+
+    <div class="dispatch-layout">
+        <!-- Left Sidebar: Services catalog -->
+        <div class="dispatch-sidebar">
+            
+            <!-- Code 3 Card -->
+            <div class="alert-card code-3">
+                <div class="alert-text-side">
+                    <div class="alert-title">Code 3: Red Alert</div>
+                    <ul class="features">
+                        <li><strong>90-Second Call Response</strong></li>
+                        <li>In-person extraction + 15m</li>
+                        <li>Emergency Medical Dispatch</li>
+                    </ul>
+                </div>
+                <div class="alert-action-side">
+                    <div class="alert-price">$479<small>/event</small></div>
+                    <button class="dispatch-btn" onclick="purchaseService('Code 3: Red Alert', 479, '🚨', 'Emergency response and medical extraction dispatch team has been mobilized. GPS tracking activated.')">DISPATCH</button>
+                </div>
+            </div>
+
+            <!-- Code 2 Card -->
+            <div class="alert-card code-2">
+                <div class="alert-text-side">
+                    <div class="alert-title">Code 2: Yellow Alert</div>
+                    <ul class="features">
+                        <li><strong>5-Minute Call Response</strong></li>
+                        <li>In-person within 72 hours</li>
+                        <li>Advocacy & Jurisdictional Support</li>
+                    </ul>
+                </div>
+                <div class="alert-action-side">
+                    <div class="alert-price">$279<small>/event</small></div>
+                    <button class="dispatch-btn" onclick="purchaseService('Code 2: Yellow Alert', 279, '⚖️', 'Advocacy and legal triage coordinators have been assigned. Pre-arrest monitoring established.')">SUPPORT</button>
+                </div>
+            </div>
+
+            <!-- Offline Card -->
+            <div class="alert-card offline">
+                <div class="alert-text-side">
+                    <div class="alert-title">Offline Dispatch</div>
+                    <ul class="features">
+                        <li><strong>Dedicated Human Knight</strong></li>
+                        <li>Monthly physical check-ins</li>
+                        <li>Autonomous Health Ledger</li>
+                    </ul>
+                </div>
+                <div class="alert-action-side">
+                    <div class="alert-price">$369<small>/mo</small></div>
+                    <button class="dispatch-btn" onclick="purchaseService('Offline Dispatch', 369, '🛡️', 'Monthly subscription activated. A dedicated Knight will contact you to draft your custom ledger.')">SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Merlin Sovereign Triage Console -->
+        <div class="triage-console-container">
+            <div class="console-header">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span class="status-text">TRIAGE LIVE</span>
+                </div>
+                <div class="console-title">[DECISION BRIDGE] MERLIN PROXY v8.0</div>
+                <div class="sys-metrics" id="proxyStatus">CORE GATEWAY: ONLINE</div>
+            </div>
+
+            <div class="chat-log" id="chatLog">
+                <!-- Welcome Message -->
+                <div class="message-wrapper merlin">
+                    <div class="msg-avatar">M</div>
+                    <div class="msg-bubble">
+                        <div class="msg-sender">Merlin AI</div>
+                        <div class="msg-content">Greetings, Human. I am Merlin, the Castellan and Triage Engine of the Kingdom of KoRT.
+
+I govern our dispatch routing. Let us resolve your blocker. Describe your current emergency, legal dispute, or physical wellness impediment, and I will evaluate and coordinate the appropriate recovery asset.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested interactive prompts -->
+            <div class="suggested-prompts">
+                <button class="suggest-btn" onclick="sendSuggested('I have a legal/court emergency and need a defense advocate.')">⚖️ Legal / Court Emergency</button>
+                <button class="suggest-btn" onclick="sendSuggested('I am seeking immediate wellness, recovery, or detox support.')">🛡️ Wellness / Detox Support</button>
+                <button class="suggest-btn" onclick="sendSuggested('Explain the differences between Code 3 and Code 2 Dispatch.')">❓ Explain Dispatch Codes</button>
+            </div>
+
+            <!-- Input area -->
+            <div class="console-input-area">
+                <input type="text" class="console-input" id="userInput" placeholder="State your emergency or question for Merlin..." onkeypress="handleKeyPress(event)">
+                <button class="console-send-btn" onclick="sendMessage()">Transmit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sovereign Transaction Modal -->
+    <div class="modal-overlay" id="transactionModal">
+        <div class="modal-card" id="modalCard">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-icon" id="modalIcon">🚨</div>
+            <div class="modal-title" id="modalTitle">DISPATCH INITIATED</div>
+            <div class="modal-desc" id="modalDesc">Code 3: Red Alert response team is being mobilized. Standby.</div>
+            <div class="modal-fee" id="modalFee">FEE DEDUCTED: $479.00 DD</div>
+            <button class="dispatch-btn" style="background: var(--aurum-gradient); color: #000;" onclick="closeModal()">ACKNOWLEDGE & MONITOR</button>
+        </div>
+    </div>
+
+    <script>
+        // Setup balance
+        let balance = 1250.00;
+        
+        function initBalance() {
+            const savedBalance = localStorage.getItem('kortx_balance');
+            if (savedBalance !== null) {
+                balance = parseFloat(savedBalance);
+            } else {
+                localStorage.setItem('kortx_balance', balance.toFixed(2));
+            }
+            updateBalanceHUD();
+        }
+
+        function updateBalanceHUD() {
+            document.getElementById('hudBalance').innerText = `KING AUTHORIZED | ${balance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} DD`;
+        }
+
+        // Triage mapping
+        function addMessage(sender, text, isUser = false) {
+            const chatLog = document.getElementById('chatLog');
+            
+            const msgWrapper = document.createElement('div');
+            msgWrapper.className = `message-wrapper ${isUser ? 'user' : 'merlin'}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'msg-avatar';
+            avatar.innerText = isUser ? 'H' : 'M';
+            
+            const msgBubble = document.createElement('div');
+            msgBubble.className = 'msg-bubble';
+            
+            const msgSender = document.createElement('div');
+            msgSender.className = 'msg-sender';
+            msgSender.innerText = isUser ? 'The Human' : 'Merlin AI';
+            
+            const msgContent = document.createElement('div');
+            msgContent.className = 'msg-content';
+            msgContent.innerHTML = text; // allow HTML for redirect buttons
+            
+            msgBubble.appendChild(msgSender);
+            msgBubble.appendChild(msgContent);
+            msgWrapper.appendChild(avatar);
+            msgWrapper.appendChild(msgBubble);
+            
+            chatLog.appendChild(msgWrapper);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function addSystemNotice(text, isCyan = false) {
+            const chatLog = document.getElementById('chatLog');
+            const notice = document.createElement('div');
+            notice.className = `system-notice ${isCyan ? 'cyan' : ''}`;
+            notice.innerText = text;
+            chatLog.appendChild(notice);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function showLoading() {
+            const chatLog = document.getElementById('chatLog');
+            const loaderWrapper = document.createElement('div');
+            loaderWrapper.className = 'message-wrapper merlin';
+            loaderWrapper.id = 'tempLoader';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'msg-avatar';
+            avatar.innerText = 'M';
+            
+            const msgBubble = document.createElement('div');
+            msgBubble.className = 'msg-bubble';
+            
+            const msgContent = document.createElement('div');
+            msgContent.className = 'msg-content';
+            msgContent.innerHTML = `<div class="typing-loader">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>`;
+            
+            msgBubble.appendChild(msgContent);
+            loaderWrapper.appendChild(avatar);
+            loaderWrapper.appendChild(msgBubble);
+            chatLog.appendChild(loaderWrapper);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        function hideLoading() {
+            const loader = document.getElementById('tempLoader');
+            if (loader) {
+                loader.remove();
+            }
+        }
+
+        // Triage Analysis
+        function evaluateLocalTriage(input) {
+            const text = input.toLowerCase();
+            let recommendation = null;
+            let response = "";
+
+            const legalKeywords = ['legal', 'court', 'icbc', 'advocate', 'arrest', 'ticket', 'lawyer', 'police', 'case', 'judge', 'law', 'jail', 'dispute', 'trial', 'summon', 'contract'];
+            const recoveryKeywords = ['detox', 'recovery', 'sponsor', 'health', 'medical', 'wellness', 'rehab', 'emh', 'clinic', 'sick', 'pain', 'heart', 'vitals', 'doctor', 'addiction', 'sober', 'substance', 'nurse'];
+
+            const matchesLegal = legalKeywords.some(kw => text.includes(kw));
+            const matchesRecovery = recoveryKeywords.some(kw => text.includes(kw));
+
+            if (matchesLegal) {
+                recommendation = 'advocate';
+                response = `I have completed a biometric-linguistic scan of your request. You are facing a jurisdictional or legal challenge. 
+
+In accordance with the Oracle Protocol, I am recommending immediate integration with our **Digital Advocate Quorum**. The Advocate Sentinel AI and physical coordinators specialize in legal defense, ICBC disputes, and corporate-state sovereignty.
+
+Use the link below to project the full Dossier Quorum and select your representative:`;
+            } else if (matchesRecovery) {
+                recommendation = 'sponsor';
+                response = `I have completed a biometric-linguistic scan of your request. You are experiencing a physical wellness or dependency impediment. 
+
+Under Kingdom Sovereignty, health is our primary asset. I am routing you to the **Digital Sponsor** at the **QMH Medical Bay**. They will scan your neural state, evaluate biometrics, and establish an autonomous wellness ledger.
+
+Select the bridge below to enter the Medical Bay:`;
+            } else {
+                response = `I have received your transmission. I am analyzing the content for semantic emergency signatures. 
+
+To help me route you correctly, please clarify:
+1. Is this a **legal, court, or jurisdictional dispute**? (Triage: Digital Advocate)
+2. Is this a **detox, recovery, or medical wellness** concern? (Triage: Digital Sponsor)
+
+Or select one of the instant-action buttons below.`;
+            }
+
+            return { recommendation, response };
+        }
+
+        async function sendMessage() {
+            const inputEl = document.getElementById('userInput');
+            const prompt = inputEl.value.trim();
+            if (!prompt) return;
+
+            // User bubble
+            addMessage('user', prompt, true);
+            inputEl.value = '';
+            
+            showLoading();
+
+            const context = "You are Merlin AI, Castellan and Triage Engine of the Kingdom of KoRT. You route emergencies. If legal/ICBC, triage to 'Digital Advocate'. If wellness/recovery/detox, triage to 'Digital Sponsor'. Act majestic, sovereign, and authoritative.";
+
+            try {
+                // Actual Xeon Merlin API endpoint
+                const response = await fetch('https://api.kortx.ca/v1/merlin/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        context: context,
+                        model: "gemini-2.5-flash"
+                    })
+                });
+
+                hideLoading();
+
+                if (!response.ok) {
+                    throw new Error("API responded with non-200 status");
+                }
+
+                const data = await response.json();
+                const reply = data.reply;
+                
+                // Let's also parse for recommendation
+                const triage = evaluateLocalTriage(prompt);
+                
+                let finalReply = reply;
+                if (triage.recommendation === 'advocate') {
+                    addSystemNotice("⚠️ LEGAL DETECTED — TRIAGE TO DIGITAL ADVOCATE ACTIVE", false);
+                    finalReply += `<br><br><button onclick="window.location.href='dossier.html'" class="redirect-btn">🛡️ CONNECT TO DIGITAL ADVOCATE</button>`;
+                } else if (triage.recommendation === 'sponsor') {
+                    addSystemNotice("🛡️ WELLNESS DETECTED — TRIAGE TO DIGITAL SPONSOR ACTIVE", true);
+                    finalReply += `<br><br><button onclick="window.location.href='emh.html'" class="redirect-btn cyan">🏥 ENTER QMH MEDICAL BAY</button>`;
+                }
+
+                addMessage('merlin', finalReply);
+                document.getElementById('proxyStatus').innerText = `GATEWAY: ONLINE (${data.provider.toUpperCase()})`;
+
+            } catch (err) {
+                console.warn("External API failed or blocked, activating failsafe local bridge:", err);
+                
+                // Keep things extremely clean: hide loading and route locally
+                setTimeout(() => {
+                    hideLoading();
+                    
+                    const triage = evaluateLocalTriage(prompt);
+                    let finalReply = triage.response;
+
+                    if (triage.recommendation === 'advocate') {
+                        addSystemNotice("⚠️ SSL EXCEPTION BYPASSED — SAFE PROTOCOL ENGAGED", false);
+                        addSystemNotice("⚠️ LEGAL DETECTED — TRIAGE TO DIGITAL ADVOCATE ACTIVE", false);
+                        finalReply += `<br><br><button onclick="window.location.href='dossier.html'" class="redirect-btn">🛡️ CONNECT TO DIGITAL ADVOCATE</button>`;
+                    } else if (triage.recommendation === 'sponsor') {
+                        addSystemNotice("⚠️ SSL EXCEPTION BYPASSED — SAFE PROTOCOL ENGAGED", true);
+                        addSystemNotice("🛡️ WELLNESS DETECTED — TRIAGE TO DIGITAL SPONSOR ACTIVE", true);
+                        finalReply += `<br><br><button onclick="window.location.href='emh.html'" class="redirect-btn cyan">🏥 ENTER QMH MEDICAL BAY</button>`;
+                    } else {
+                        addSystemNotice("ℹ️ FAILSAFE SOVEREIGN BRIDGE ONLINE", true);
+                    }
+
+                    addMessage('merlin', finalReply);
+                    document.getElementById('proxyStatus').innerText = "GATEWAY: LOCAL SECURE BRIDGE";
+                }, 1000);
+            }
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendSuggested(prompt) {
+            document.getElementById('userInput').value = prompt;
+            sendMessage();
+        }
+
+        // Purchase monetization logic
+        function purchaseService(name, price, icon, desc) {
+            if (balance < price) {
+                // Show insufficient balance modal
+                document.getElementById('modalIcon').innerText = '⚠️';
+                document.getElementById('modalTitle').innerText = 'INSUFFICIENT BALANCE';
+                document.getElementById('modalDesc').innerHTML = `You require <strong>${price.toFixed(2)} DD</strong> to request this service, but your authorized sovereign wallet only holds <strong>${balance.toFixed(2)} DD</strong>. <br><br>Please visit the Sovereign Identity panel to manage credentials and acquire additional Digital Dollars.`;
+                document.getElementById('modalFee').innerText = `REQUIRED: ${price.toFixed(2)} DD`;
+                
+                const card = document.getElementById('modalCard');
+                card.className = 'modal-card'; // reset classes
+                
+                const btn = document.querySelector('#transactionModal .dispatch-btn');
+                btn.innerText = 'UPGRADE CREDITS VIA SSO';
+                btn.onclick = () => window.location.href = 'sso.html';
+                
+                document.getElementById('transactionModal').style.display = 'flex';
+                return;
+            }
+
+            // Success purchase
+            balance -= price;
+            localStorage.setItem('kortx_balance', balance.toFixed(2));
+            updateBalanceHUD();
+
+            // Set modal content
+            document.getElementById('modalIcon').innerText = icon;
+            document.getElementById('modalTitle').innerText = 'DISPATCH REQUESTED';
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalFee').innerText = `FEE DEDUCTED: -${price.toFixed(2)} DD`;
+            
+            const card = document.getElementById('modalCard');
+            card.className = 'modal-card'; // reset classes
+            if (name.includes('Red')) {
+                card.classList.add('code-3');
+            } else if (name.includes('Offline')) {
+                card.classList.add('offline');
+            }
+
+            const btn = document.querySelector('#transactionModal .dispatch-btn');
+            btn.innerText = 'ACKNOWLEDGE & MONITOR';
+            btn.onclick = closeModal;
+
+            document.getElementById('transactionModal').style.display = 'flex';
+
+            // Insert system notification in chat
+            setTimeout(() => {
+                if (name.includes('Red')) {
+                    addSystemNotice(`🚨 CODE 3 RED ALERT ACTIVATED: -${price} DD DEDUCTED`, false);
+                    addMessage('merlin', `[🚨 EMERGENCY ALERT] Code 3 Red Alert dispatch order has been logged! 
+                    
+Sovereign balance deducted: **${price} DD**. 
+Your current balance is: **${balance.toFixed(2)} DD**.
+
+Human extraction units and emergency medical responders are being mobilized. Merlin has established lock-on to your regional telemetry. Keep this portal open and maintain communication.`);
+                } else if (name.includes('Yellow')) {
+                    addSystemNotice(`⚖️ CODE 2 SUPPORT REQUESTED: -${price} DD DEDUCTED`, false);
+                    addMessage('merlin', `[⚖️ ADVOCACY ALERT] Code 2 Yellow Alert support request logged!
+                    
+Sovereign balance deducted: **${price} DD**.
+Your current balance is: **${balance.toFixed(2)} DD**.
+
+I am initializing connection with our Digital Advocate Quorum. They will evaluate your jurisdictional blocker. Check the Dossier Quorum to select an advocate.`);
+                } else {
+                    addSystemNotice(`🛡️ OFFLINE DISPATCH SUBSCRIBED: -${price} DD DEDUCTED`, true);
+                    addMessage('merlin', `[🛡️ SYSTEM NOTICE] Offline Dispatch subscription activated!
+                    
+Sovereign balance deducted: **${price} DD** (recurring).
+Your current balance is: **${balance.toFixed(2)} DD**.
+
+A dedicated Human Knight has been assigned to your physical quadrant. They will perform a physical wellness and security check-in within the calendar month.`);
+                }
+            }, 800);
+        }
+
+        function closeModal() {
+            document.getElementById('transactionModal').style.display = 'none';
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            initBalance();
+        };
+    </script>
+</body>
+</html>

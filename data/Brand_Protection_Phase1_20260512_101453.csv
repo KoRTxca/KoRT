@@ -1,0 +1,7 @@
+Platform,URL,Status,Email_Used,Username_Attempted,Timestamp
+WarriorForum,https://www.warriorforum.com/register.php,SUCCESS - Requested Username: KORT,sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:15:24
+Reddit,https://www.reddit.com/register/,"ERROR - Locator.fill: Error: Input of type ""checkbox"" cann",sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:15:31
+Pinterest,https://www.pinterest.com/business/create/,SUCCESS - Requested Username: KORT,sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:15:53
+Medium,https://medium.com/m/signin,FAILED - Standard Form Fields Not Detected.,sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:16:01
+TikTok,https://www.tiktok.com/signup,FAILED - Standard Form Fields Not Detected.,sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:16:11
+Instagram,https://www.instagram.com/accounts/emailsignup/,FAILED - Standard Form Fields Not Detected.,sys-7k2p9x4m+Core@drt.onl,KORT,2026-05-12 10:16:22

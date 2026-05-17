@@ -1,0 +1,5 @@
+package ca.kortx.kortx_digital_dollars
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()

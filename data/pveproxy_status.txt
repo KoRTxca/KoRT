@@ -1,0 +1,24 @@
+● pveproxy.service - PVE API Proxy Server
+     Loaded: loaded (/usr/lib/systemd/system/pveproxy.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-05-12 19:55:06 UTC; 1 day 9h ago
+ Invocation: eb678b811d314e45b83c2e6440605ccc
+   Main PID: 1119 (pveproxy)
+      Tasks: 4 (limit: 16742)
+     Memory: 198.4M (peak: 367.7M)
+        CPU: 11.390s
+     CGroup: /system.slice/pveproxy.service
+             ├─  1119 pveproxy
+             ├─299750 "pveproxy worker"
+             ├─299751 "pveproxy worker"
+             └─299752 "pveproxy worker"
+
+May 14 02:03:52 nc-ph-1701-44 pveproxy[1119]: starting 3 worker(s)
+May 14 02:03:52 nc-ph-1701-44 pveproxy[1119]: worker 299750 started
+May 14 02:03:52 nc-ph-1701-44 pveproxy[1119]: worker 299751 started
+May 14 02:03:52 nc-ph-1701-44 pveproxy[1119]: worker 299752 started
+May 14 02:03:57 nc-ph-1701-44 pveproxy[284068]: worker exit
+May 14 02:03:57 nc-ph-1701-44 pveproxy[284066]: worker exit
+May 14 02:03:57 nc-ph-1701-44 pveproxy[284067]: worker exit
+May 14 02:03:57 nc-ph-1701-44 pveproxy[1119]: worker 284067 finished
+May 14 02:03:57 nc-ph-1701-44 pveproxy[1119]: worker 284066 finished
+May 14 02:03:57 nc-ph-1701-44 pveproxy[1119]: worker 284068 finished

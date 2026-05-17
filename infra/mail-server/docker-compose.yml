@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: mail-gateway
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/letsencrypt
+      - ./webmail-data:/var/www/html
+    depends_on:
+      - stalwart
+      - webmail
+
+  stalwart:
+    image: stalwartlabs/stalwart:latest
+    container_name: stalwart-mail
+    restart: always
+    ports:
+      - "25:25"
+      - "465:465"
+      - "587:587"
+      - "143:143"
+      - "993:993"
+      - "4190:4190" # ManageSieve
+    volumes:
+      - ./stalwart-data:/opt/stalwart-mail
+    environment:
+      - TZ=UTC
+
+  webmail:
+    image: djmaze/snappymail:latest
+    container_name: snappymail-webmail
+    restart: always
+    volumes:
+      - ./webmail-data:/snappymail/data
+    environment:
+      - TZ=UTC

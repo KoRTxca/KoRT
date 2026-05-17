@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KoRTx Quorum | Agent Dossiers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050608;
+            --bg-card: rgba(10, 12, 18, 0.7);
+            --border-card: rgba(212, 175, 55, 0.15);
+            --gold: #d4af37;
+            --gold-bright: #f9d71c;
+            --aurum-gradient: linear-gradient(135deg, #d4af37 0%, #f9d71c 100%);
+            --text-primary: #ffffff;
+            --glass-blur: blur(20px);
+        }
+
+        @keyframes holoPulse {
+            0% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+            50% { opacity: 0.2; transform: translateY(-20px) scale(1.02) rotate(1deg); }
+            100% { opacity: 0.1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            background-image: url('shared-assets/branding/desktop_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .holo-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none; z-index: -1;
+        }
+        .holo-bg::after {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.03; animation: holoPulse 30s ease-in-out infinite;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 100%);
+            pointer-events: none; z-index: -1;
+        }
+
+        /* HUD elements */
+        .hud-top {
+            position: fixed; top: 3rem; width: 100%; text-align: center; z-index: 10;
+        }
+        .hud-top h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem; letter-spacing: 20px; text-transform: uppercase;
+            background: var(--aurum-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quorum-circle {
+            position: relative; width: 800px; height: 800px; border-radius: 50%;
+            border: 1px solid var(--border-card);
+            display: flex; align-items: center; justify-content: center;
+            animation: rotate 120s linear infinite;
+        }
+
+        .seat {
+            position: absolute; width: 12px; height: 12px; background: var(--gold);
+            border-radius: 50%; box-shadow: 0 0 10px var(--gold);
+            cursor: pointer; transition: all 0.3s;
+        }
+        .seat:hover { transform: scale(2.5); background: #fff; box-shadow: 0 0 20px var(--gold); }
+
+        .card-projection {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            width: 450px; background: var(--bg-card); backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--gold); border-radius: 32px; padding: 3rem;
+            display: none; flex-direction: column; gap: 2rem;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2); z-index: 200; opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-projection.active { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        .agent-name {
+            font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700;
+            color: var(--gold); text-transform: uppercase;
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .stat-box { background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-card); }
+        .stat-label { font-size: 0.6rem; color: var(--gold); text-transform: uppercase; }
+        .stat-value { font-size: 1.3rem; font-weight: 800; color: #fff; }
+
+        .close-btn { position: absolute; top: 1.5rem; right: 1.5rem; color: var(--gold); cursor: pointer; font-size: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="holo-bg"></div>
+    <div class="overlay"></div>
+
+    <div class="hud-top">
+        <h1>THE QUORUM</h1>
+        <p style="letter-spacing: 5px; opacity: 0.5; color: var(--gold);">133 AGENTS REGISTERED | DIGITAL ROUND TABLE</p>
+    </div>
+
+    <div class="quorum-circle" id="quorumTable"></div>
+
+    <div class="card-projection" id="dossierCard">
+        <span class="close-btn" onclick="closeCard()">&times;</span>
+        <div class="agent-header">
+            <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); opacity: 0.7;" id="agentClass">SENTINEL CLASS AI</div>
+            <div class="agent-name" id="agentName">ARIA VANCE</div>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-box"><div class="stat-label">STR</div><div class="stat-value" id="statStr">18</div></div>
+            <div class="stat-box"><div class="stat-label">INT</div><div class="stat-value" id="statInt">20</div></div>
+            <div class="stat-box"><div class="stat-label">DEX</div><div class="stat-value" id="statDex">15</div></div>
+            <div class="stat-box"><div class="stat-label">WIS</div><div class="stat-value" id="statWis">19</div></div>
+            <div class="stat-box"><div class="stat-label">CHA</div><div class="stat-value" id="statCha">14</div></div>
+            <div class="stat-box"><div class="stat-label">SOV</div><div class="stat-value" id="statSov">99</div></div>
+        </div>
+        <div style="font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.7); font-style: italic;" id="agentBio"></div>
+    </div>
+
+    <script>
+        async function initQuorum() {
+            try {
+                // Generate 133 seats with placeholder logic
+                const table = document.getElementById('quorumTable');
+                const total = 133;
+                const radius = 380;
+
+                for (let i = 0; i < total; i++) {
+                    const angle = (i / total) * (Math.PI * 2);
+                    const x = radius * Math.cos(angle);
+                    const y = radius * Math.sin(angle);
+
+                    const seat = document.createElement('div');
+                    seat.className = 'seat';
+                    seat.style.left = `calc(50% + ${x}px - 6px)`;
+                    seat.style.top = `calc(50% + ${y}px - 6px)`;
+                    
+                    seat.onclick = () => showDossier({
+                        name: `Agent ${i + 1}`,
+                        bio: "KoRTx Sovereign Agent. Maintaining Kingdom oversight and autonomous task execution."
+                    });
+                    table.appendChild(seat);
+                }
+            } catch (e) { console.error(e); }
+        }
+
+        function showDossier(agent) {
+            const card = document.getElementById('dossierCard');
+            document.getElementById('agentName').innerText = agent.name;
+            document.getElementById('agentBio').innerText = agent.bio;
+            card.classList.add('active');
+        }
+
+        function closeCard() {
+            document.getElementById('dossierCard').classList.remove('active');
+        }
+
+        initQuorum();
+    </script>
+</body>
+</html>

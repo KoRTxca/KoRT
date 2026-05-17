@@ -1,0 +1,57 @@
+{
+  "last_updated": "2026-05-11T16:30:00Z",
+  "database_type": "Vultr Central DB & Firebase (Google Subscription)",
+  "infrastructure_rules": "Strict adherence to sovereign_directives.md",
+  "apps": {
+    "kort_digital_dollars": {
+      "platform": "Primio.dev",
+      "framework": "Flutter",
+      "status": "Awaiting final integration update",
+      "pending_action": "Burn remaining credits to implement API calls connecting Flutter frontend to live Vultr API (https://api.kortx.ca) and Firebase for user profiles and ledger syncing.",
+      "credits_status": "Remaining"
+    },
+    "knights_dispatch": {
+      "platform": "Emergent",
+      "framework": "React/Node",
+      "status": "In Development (Cloud VSCode)",
+      "pending_action": "Integrate Twilio APIs for dispatch notifications and Gemini API for triage routing. Prepare for local ingestion via KoRT_Claw.",
+      "credits_status": "Remaining"
+    },
+    "digital_advocate": {
+      "platform": "Base44",
+      "framework": "React",
+      "status": "Preview Mode",
+      "pending_action": "Disconnect from Base44 cloud DB. Re-route data storage to local sovereign database. Update UI to Quantum Aurum design.",
+      "credits_status": "Unknown"
+    },
+    "claude_export_hub": {
+      "platform": "Emergent",
+      "framework": "Unknown",
+      "status": "Awaiting Ingestion",
+      "pending_action": "Export codebase to local storage. Update styling to Quantum Aurum."
+    }
+  },
+  "external_intelligence_nodes": {
+    "workshop_ai": {
+      "purpose": "Source of free Gemini API credits",
+      "status": "Active",
+      "integration_point": "API keys injected into local .env for triage_engine.py and Knights Dispatch"
+    },
+    "google_ai_studio": {
+      "purpose": "Model tuning and API management",
+      "status": "Active"
+    },
+    "grok": {
+      "purpose": "Adversarial Analysis / Unfiltered Data",
+      "status": "Active"
+    },
+    "perplexity": {
+      "purpose": "Deep Research / Real-time search",
+      "status": "Active"
+    },
+    "use_ai": {
+      "purpose": "UX/UI generation",
+      "status": "Active"
+    }
+  }
+}

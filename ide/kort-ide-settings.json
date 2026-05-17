@@ -1,0 +1,85 @@
+{
+    "$schema": "vscode://schemas/settings",
+    "_comment": "KoRT Sovereign IDE - Merlin KoRT OS Edition",
+    "_version": "1.0.0",
+
+    "window.title": "KoRT IDE - ${activeEditorShort}${separator}${rootName}",
+    "window.titleSeparator": " | ",
+
+    "workbench.colorTheme": "Dragon Shield",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#0a0e1a",
+        "titleBar.activeForeground": "#c9a84c",
+        "titleBar.inactiveBackground": "#0a0e1a",
+        "titleBar.inactiveForeground": "#6b7280",
+        "statusBar.background": "#0033a0",
+        "statusBar.foreground": "#c9a84c",
+        "statusBar.debuggingBackground": "#7c3aed",
+        "statusBar.noFolderBackground": "#1a1a2e",
+        "sideBar.background": "#0a0e1a",
+        "sideBar.foreground": "#e0e0e0",
+        "sideBarTitle.foreground": "#c9a84c",
+        "activityBar.background": "#050810",
+        "activityBar.foreground": "#c9a84c",
+        "activityBar.activeBorder": "#c9a84c",
+        "editor.background": "#0d1117",
+        "editor.foreground": "#e0e0e0",
+        "editorCursor.foreground": "#c9a84c",
+        "terminal.background": "#0a0e1a",
+        "terminal.foreground": "#e0e0e0",
+        "panel.background": "#0a0e1a",
+        "panel.border": "#1e3a5f",
+        "tab.activeBackground": "#0d1117",
+        "tab.activeForeground": "#c9a84c",
+        "tab.inactiveBackground": "#0a0e1a",
+        "tab.inactiveForeground": "#6b7280",
+        "tab.activeBorderTop": "#c9a84c"
+    },
+
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.6,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'Cascadia Code', monospace",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.exclude": {
+        "**/.git": false,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "tools/flutter": true
+    },
+
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+
+    "python.defaultInterpreterPath": "python",
+    "python.analysis.typeCheckingMode": "basic",
+
+    "dart.flutterSdkPath": "D:\\KoRT_Command_Center\\Mission_Control\\tools\\flutter",
+
+    "extensions.autoUpdate": true,
+
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "tools/flutter": true
+    }
+}

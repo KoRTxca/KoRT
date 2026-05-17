@@ -1,0 +1,58 @@
+# Secrets
+.env
+.env.local
+.env.production
+
+# Browser profile junk (AG mess)
+temp_profile/
+
+# Nested git data
+.git_backup/
+
+# Build output / compiled
+dist/
+build/
+out/
+*.compiled.*
+
+# IDE/tool internals
+node_modules/
+.venv/
+__pycache__/
+.dart_tool/
+*.log
+
+# Binaries and models
+*.exe
+*.dll
+*.bin
+*.gguf
+*.safetensors
+*.onnx
+*.pt
+*.pth
+
+# Archives and large media
+*.mp4
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Old Vercel data
+.vercel/
+
+# Flutter SDK
+tools/flutter/
+
+# Vercel
+.vercel/
+
+# KoRT Secret Folder
+scripts/secrets/
+

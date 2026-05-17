@@ -1,0 +1,12 @@
+{
+  "Title": "KoRT Mission Control",
+  "Desc": "Sovereign Command Bridge with Holographic Pulse Animation",
+  "Author": "Knight Mike",
+  "Contact": "https://kortx.ca",
+  "Type": 3,
+  "FileName": "KORT_MASTER_PORTAL.html",
+  "Arguments": "#index",
+  "IsComplex": true,
+  "Thumbnail": "shared-assets/media/kort_logo_transparent.png",
+  "Preview": "shared-assets/media/kort_logo_transparent.png"
+}
